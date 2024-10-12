@@ -1,0 +1,82 @@
+@keyframes main1 {
+    0%{
+        background-position: 0% 50%;
+    } 
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }  
+}
+*{
+    padding: 0;
+    margin: 0;
+    color:white;
+}
+body{
+    height: 100vh;
+    width: 100vw;
+}
+main{
+    overflow-y:auto;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:3em;
+    background: radial-gradient( circle farthest-corner at 83.7% 4.3%,  rgb(88, 4, 87) 0%, rgba(15,51,92,1)90%);
+    background-size: 250%;
+    animation-timing-function: ease;
+    animation-name: main1;
+    animation-duration: 9s;
+    animation-iteration-count:infinite;
+}
+h2{
+    color:black;
+    
+}
+h1,h2{
+    font-family: 'Poppins', sans-serif;
+}
+a{
+    color:aliceblue;
+    text-decoration: dashed;
+}
+
+section{
+    background:rgba(255,255,255,.6);
+
+    
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+.partAboutme{
+    height:22em;
+}
+.partAboutme img{
+    border: 5px dashed white;
+    border-radius:50%;
+    height:16em;
+    width:16em;
+}
+.partSkills, .partContact{
+    background:rgb(147 147 147 / 60%);
+}
+.partSkills div{
+    display: flex;
+    justify-content:space-around;
+    width:100%;
+}
+.partProyects{
+    flex-direction:row;
+    gap:1em;
+    justify-content:space-around;
+}
+.Proyect{
+    color:wheat;
+}
