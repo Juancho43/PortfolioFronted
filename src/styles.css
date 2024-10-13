@@ -26,6 +26,7 @@ main{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
     gap:3em;
     background: radial-gradient( circle farthest-corner at 83.7% 4.3%,  rgb(88, 4, 87) 0%, rgba(15,51,92,1)90%);
     background-size: 250%;
