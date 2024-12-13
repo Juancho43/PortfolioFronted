@@ -1,0 +1,13 @@
+.tag{
+  padding: .2em;
+  background-color: rgba(200,200,200,0.5);
+  border: 1px solid rgba(200,200,200,0.9);
+  margin:10px;
+  border-radius: 10px;
+  height: 25px;
+  min-width: 60px;
+  max-width: 90px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}

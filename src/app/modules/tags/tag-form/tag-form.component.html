@@ -1,0 +1,7 @@
+<form [formGroup]="TagForm" (ngSubmit)="onSubmit()" >
+  <fieldset>
+    <legend>Nueva tag</legend>
+    <input type="text" name="nombre" id="nombre" formControlName="name">
+    <button type="submit" (click)="prueba()">Crear</button>
+  </fieldset>
+</form>
