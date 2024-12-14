@@ -1,1 +1,9 @@
-<p>proyect-form works!</p>
+<form [formGroup]="ProyectForm" (ngSubmit)="onSubmit()" class="glass">
+  <fieldset>
+    <legend>Nuevo proyecto</legend>
+    <input type="text" name="nombre" id="nombre" formControlName="nombre">
+    <textarea name="descripcion" id="descripcion" cols="30" rows="10" formControlName="descripcion"></textarea>
+    <input type="date" name="fechaCreacion" id="fechaCreacion" formControlName="fechaCreacion">
+  </fieldset>
+    <button type="submit">Crear</button>
+</form>

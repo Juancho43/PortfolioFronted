@@ -1,0 +1,17 @@
+form, fieldset {
+  display: flex;
+  flex-direction: column;
+  padding: 6px;
+}
+input,textarea {
+  color:black;
+}
+legend{
+  font-family: 'Roboto', sans-serif;
+}
+button[type="submit"]{
+  color: black;
+  font-family: 'Poppins', sans-serif;
+}
+
+

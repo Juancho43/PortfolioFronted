@@ -8,7 +8,7 @@ import {Tag} from "../../../core/interfaces/Tag";
   standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './tag-form.component.html',
-  styleUrl: './tag-form.component.css'
+  styleUrls: ['./tag-form.component.css','../../../core/styles/forms.css']
 })
 export class TagFormComponent implements OnInit{
   private tagService = inject(TagsService);
@@ -22,9 +22,7 @@ export class TagFormComponent implements OnInit{
   ngOnInit () {
 
   }
-prueba(){
-  this.tagService.postTag({id:0,nombre:"HOLaa"});
-}
+
 
   onSubmit(){
     this.mapperTag();

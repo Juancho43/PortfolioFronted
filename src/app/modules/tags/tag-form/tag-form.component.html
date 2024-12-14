@@ -1,7 +1,7 @@
-<form [formGroup]="TagForm" (ngSubmit)="onSubmit()" >
+<form [formGroup]="TagForm" (ngSubmit)="onSubmit()" class="glass">
   <fieldset>
     <legend>Nueva tag</legend>
     <input type="text" name="nombre" id="nombre" formControlName="name">
-    <button type="submit" (click)="prueba()">Crear</button>
+    <button type="submit">Crear</button>
   </fieldset>
 </form>
