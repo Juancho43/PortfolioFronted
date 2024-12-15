@@ -18,7 +18,6 @@
 body{
     height: 100vh;
     width: 100vw;
-
 }
 main{
     overflow-y:auto;
