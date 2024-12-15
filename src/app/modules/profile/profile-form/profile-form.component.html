@@ -1,0 +1,9 @@
+<form [formGroup]="ProfileForm" (ngSubmit)="onSubmit()" class="glass">
+  <fieldset>
+    <legend>Perfil:</legend>
+    <input type="text" name="nombre" id="nombre" formControlName="nombre">
+    <textarea name="presentacion" id="presentacion" cols="30" rows="10" formControlName="presentacion"></textarea>
+    <input type="text" name="rol" id="rol" formControlName="rol">
+  </fieldset>
+  <button type="submit">Crear</button>
+</form>

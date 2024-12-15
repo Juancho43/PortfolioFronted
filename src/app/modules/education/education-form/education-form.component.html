@@ -1,1 +1,11 @@
-<p>education-form works!</p>
+<form [formGroup]="EducationForm" (ngSubmit)="onSubmit()" class="glass">
+  <fieldset>
+    <legend>Nueva formación:</legend>
+    <input type="text" name="nombre" id="nombre" formControlName="nombre">
+    <textarea name="resumen" id="resumen" cols="30" rows="10" formControlName="resumen"></textarea>
+    <input type="date" name="fechaInicio" id="fechaInicio" formControlName="fechaInicio">
+    <input type="date" name="fechaFinalizacion" id="fechaFinalizacion" formControlName="fechaFinalizacion">
+    <input type="text" name="tipo" id="tipo" formControlName="tipo">
+  </fieldset>
+  <button type="submit">Crear</button>
+</form>

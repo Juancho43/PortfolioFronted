@@ -1,5 +1,5 @@
 export interface Education {
-  id: string;
+  id: number;
   nombre : string;
   resumen : string;
   fechaInicio : Date;

@@ -32,7 +32,6 @@ export class ProyectFormComponent {
   onSubmit(){
     this.mapperProyecto();
     if(!this.edit){
-      console.log(this.currentProyect);
       this.proyectsService.postProyecto(this.currentProyect).subscribe();
     }
   }
