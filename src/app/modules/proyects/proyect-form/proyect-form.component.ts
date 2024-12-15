@@ -3,7 +3,7 @@ import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/
 import {TagsService} from "../../../core/services/tags.service";
 import {Tag} from "../../../core/interfaces/Tag";
 import {ProyectsService} from "../../../core/services/proyects.service";
-import {Proyecto} from "../../../core/interfaces/Proyecto";
+import {Education} from "../../../core/interfaces/Proyecto";
 
 @Component({
   selector: 'app-proyect-form',
@@ -17,7 +17,7 @@ import {Proyecto} from "../../../core/interfaces/Proyecto";
 export class ProyectFormComponent {
   private proyectsService = inject(ProyectsService);
   edit : boolean = false;
-  currentProyect : Proyecto = {id:0, nombre:"", descripcion: "",  fechaCreacion: new Date(), tags: []};
+  currentProyect : Education = {id:0, nombre:"", descripcion: "",  fechaCreacion: new Date(), tags: []};
   ProyectForm : FormGroup = new FormGroup({
     id : new FormControl(0),
     nombre : new FormControl('', [Validators.required]),

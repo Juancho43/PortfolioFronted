@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {Proyecto} from "../../../core/interfaces/Proyecto";
+import {Education} from "../../../core/interfaces/Proyecto";
 import {CommonModule} from "@angular/common";
 
 @Component({
@@ -10,5 +10,5 @@ import {CommonModule} from "@angular/common";
   styleUrl: './proyect.component.css'
 })
 export class ProyectComponent {
-  @Input() Proyect! : Proyecto;
+  @Input() Proyect! : Education;
 }

@@ -30,12 +30,12 @@ main{
 
 
     gap:3em;
-    //background: radial-gradient( circle farthest-corner at 83.7% 4.3%, rgb(88, 4, 87) 0%, rgb(168, 136, 181), rgba(255, 210, 160,0.9));
-  background: linear-gradient(rgb(88, 4, 87) 0%, rgb(168, 136, 181), rgba(255, 210, 160,0.9));
-    background-size: 400%;
+    background: radial-gradient( circle farthest-corner at 83.7% 4.3%, rgb(88, 4, 87) 0%, rgb(168, 136, 181), rgba(255, 210, 160,0.9));
+
+    background-size: 190%;
     animation-timing-function: ease;
     animation-name: main1;
-    animation-duration: 9s;
+    animation-duration: 20s;
     animation-iteration-count:infinite;
 }
 h2{
