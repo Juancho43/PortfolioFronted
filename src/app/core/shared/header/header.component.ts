@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
+import {ProfileService} from "../../services/profile.service";
+import {Profile} from "../../interfaces/Profile";
 
 @Component({
   selector: 'app-header',
@@ -8,5 +10,14 @@ import { Component } from '@angular/core';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+private profileService = inject(ProfileService);
+profile! : Profile;
 
+  ngOnInit(){
+    this.getData();
+  }
+
+  getData(){
+    this.profileService.getProfile(1).subscribe(profile => this.profile = profile);
+  }
 }

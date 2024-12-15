@@ -2,7 +2,7 @@ import {Component, inject, OnInit} from '@angular/core';
 import {ProyectsService} from "../../../core/services/proyects.service";
 import {CommonModule} from "@angular/common";
 import {ProyectComponent} from "../proyect/proyect.component";
-import {Education} from "../../../core/interfaces/Proyecto";
+import {Proyecto} from "../../../core/interfaces/Proyecto";
 
 @Component({
   selector: 'app-proyect-list',
@@ -13,7 +13,7 @@ import {Education} from "../../../core/interfaces/Proyecto";
 })
 export class ProyectListComponent implements OnInit {
   private proyectsService = inject(ProyectsService);
-  proyects : Education[] = [];
+  proyects : Proyecto[] = [];
 
   ngOnInit() {
     this.getData();
