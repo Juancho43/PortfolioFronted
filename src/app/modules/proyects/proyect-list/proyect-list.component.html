@@ -1,10 +1,7 @@
 <section>
-
-
   @for (item of proyects; track item.nombre) {
     <app-proyect [Proyect]="item" />
   } @empty {
     <li>There are no items.</li>
   }
-
 </section>

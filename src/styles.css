@@ -92,4 +92,9 @@ article{
   background-color: rgba(129, 116, 160,0.8);
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.125);
+  animation-duration: 1s;
+}
+
+.glass:hover{
+  box-shadow: 0 10px 10px rgb(129, 116, 160);
 }

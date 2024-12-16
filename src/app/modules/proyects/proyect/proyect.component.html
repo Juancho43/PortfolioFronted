@@ -1,5 +1,10 @@
 <article class="glass Proyect">
   <h3>{{Proyect.nombre}}</h3>
   <p>{{Proyect.descripcion}}</p>
+  <div class="Tags">
+    @for (item of Proyect.tags; track item.id){
+      <app-tag [tag]="item"/>
+    }
+  </div>
 
 </article>

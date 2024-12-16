@@ -4,6 +4,19 @@
     <input type="text" name="nombre" id="nombre" formControlName="nombre">
     <textarea name="descripcion" id="descripcion" cols="30" rows="10" formControlName="descripcion"></textarea>
     <input type="date" name="fechaCreacion" id="fechaCreacion" formControlName="fechaCreacion">
+    <select multiple formControlName="tags" >
+      @for (item of tags; track item.nombre) {
+        <option (click)="addTag(item)">{{item.nombre}}</option>
+      }
+    </select>
+  </fieldset>
+  <fieldset>
+    <label>Etiquetas:</label>
+    @for(item of currentProyect.tags; track item.id){
+      <app-tag [tag]="item" (dblclick)="removeTag(item)"/>
+    } @empty {
+      Seleccione alguna etiqueta.
+    }
   </fieldset>
     <button type="submit">Crear</button>
 </form>

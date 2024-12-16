@@ -3,7 +3,7 @@ form, fieldset {
   flex-direction: column;
   padding: 6px;
 }
-input,textarea {
+input,textarea,select,option {
   color:black;
 }
 legend{

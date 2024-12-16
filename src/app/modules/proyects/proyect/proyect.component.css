@@ -1,9 +1,18 @@
 .Proyect{
   display: flex;
   flex-direction: column;
-  width: 5em;
-  height: 5em;
+
+  height: 400px;
+  width: 30%;
   padding: 1rem;
   margin: 1em;
+  transition-duration: 2s;
+}
+.Proyect p{
+  line-height: 1.5em;
+}
+.Proyect .Tags{
+  display: flex;
+  flex-flow: row wrap;
 }
 
