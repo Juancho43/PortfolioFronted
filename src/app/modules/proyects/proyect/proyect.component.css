@@ -1,7 +1,6 @@
 .Proyect{
   display: flex;
   flex-direction: column;
-
   height: 400px;
   width: 30%;
   padding: 1rem;

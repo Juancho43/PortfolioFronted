@@ -1,7 +1,9 @@
-import {Component, Input} from '@angular/core';
+import {Component, inject, Input} from '@angular/core';
 import {Proyecto} from "../../../core/interfaces/Proyecto";
 import {CommonModule} from "@angular/common";
 import {TagComponent} from "../../tags/tag/tag.component";
+import {ProyectDaoService} from "../../../core/DAO/proyect-dao.service";
+import {DialogService} from "../../../core/utils/dialog.service";
 
 @Component({
   selector: 'app-proyect',
@@ -11,5 +13,16 @@ import {TagComponent} from "../../tags/tag/tag.component";
   styleUrl: './proyect.component.css'
 })
 export class ProyectComponent {
-  @Input() Proyect! : Proyecto;
+  private proyectoDao = inject(ProyectDaoService);
+  private dialog = inject(DialogService);
+  @Input() Proyect : Proyecto = this.proyectoDao.getEmptyProyecto();
+  constructor() {
+    this.proyectoDao.getProyecto().subscribe(data=>
+      this.Proyect = data
+    )
+  }
+
+  close(){
+    this.dialog.getModal().closeAll()
+  }
 }

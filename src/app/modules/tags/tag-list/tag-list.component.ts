@@ -1,4 +1,4 @@
-import {Component, inject} from '@angular/core';
+import {Component, inject, Input} from '@angular/core';
 import {Tag} from "../../../core/interfaces/Tag";
 import {ProyectsService} from "../../../core/services/proyects.service";
 import {TagsService} from "../../../core/services/tags.service";
@@ -19,9 +19,12 @@ import {TagComponent} from "../tag/tag.component";
 })
 export class TagListComponent {
   private tagsService = inject(TagsService);
-  tags : Tag[] = [];
+  @Input() tags : Tag[] = [];
+  @Input() load : boolean = true;
   ngOnInit() {
-    this.getData();
+    if (this.load){
+      this.getData();
+    }
   }
 
   getData(){
