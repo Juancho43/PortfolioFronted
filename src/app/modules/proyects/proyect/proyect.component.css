@@ -1,13 +1,16 @@
 .Proyect{
   display: flex;
   flex-direction: column;
-  height: 400px;
-  width: 30%;
+  gap:1em;
   padding: 1rem;
-  margin: 1em;
+  width: 30vw;
   transition-duration: 2s;
+
 }
 .Proyect p{
+  align-self: center;
+  word-spacing: 4px;
+  width: 20vw;
   line-height: 1.5em;
 }
 .Proyect .Tags{
