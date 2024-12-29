@@ -17,7 +17,7 @@ import {Profile} from "../../../core/interfaces/Profile";
 export class ProfileFormComponent {
   private service = inject(ProfileService);
   edit : boolean = true;
-  currentProfile : Profile = {id:0, nombre:"", presentacion: "",  rol: ""};
+  currentProfile : Profile = {id:0, nombre:"", presentacion: "",  rol: "", email:"", password: ""};
   ProfileForm : FormGroup = new FormGroup({
     id : new FormControl(0),
     nombre : new FormControl('', [Validators.required]),

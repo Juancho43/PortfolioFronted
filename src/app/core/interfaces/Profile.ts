@@ -3,4 +3,6 @@ export interface Profile {
   nombre: string;
   presentacion: string;
   rol: string;
+  email: string;
+  password: string;
 }

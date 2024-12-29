@@ -11,7 +11,14 @@ import {Profile} from "../../interfaces/Profile";
 })
 export class HeaderComponent {
 private profileService = inject(ProfileService);
-profile! : Profile;
+profile : Profile = {
+  nombre:'',
+  id: 0,
+  presentacion: '',
+  rol: '',
+  email: '',
+  password: ''
+};
 
   ngOnInit(){
     this.getData();

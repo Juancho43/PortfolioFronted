@@ -38,12 +38,6 @@ export class ProyectListComponent implements OnInit {
   }
 
   open(item : Proyecto){
-    // const dialogConfig = new MatDialogConfig();
-    // dialogConfig.width = '250px';
-    // dialogConfig.height = '400px';
-    // dialogConfig.position = { top: '25%', left: '25%' }; // Ajusta las posiciones según sea necesario
-    // dialogConfig.panelClass = 'custom-dialog-container'; // Opcional: para aplicar estilos personalizados
-
     this.proyectsDAO.setProyecto(item);
 
     this.dialog.openModal<ProyectComponent,Proyecto>(

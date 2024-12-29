@@ -51,35 +51,14 @@ a{
 }
 
 section{
-    /*background:rgba(255,255,255,.6);*/
+
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
   width: 100vw;
 }
-.partAboutme{
-    height:22em;
-}
-.partAboutme img{
-    border: 5px dashed white;
-    border-radius:50%;
-    height:16em;
-    width:16em;
-}
-.partSkills, .partContact{
-    background:rgb(147 147 147 / 60%);
-}
-.partSkills div{
-    display: flex;
-    justify-content:space-around;
-    width:100%;
-}
-.partProyects{
-    flex-direction:row;
-    gap:1em;
-    justify-content:space-around;
-}
+
 article{
   width: 100%;
   display: flex;
@@ -91,7 +70,8 @@ article{
   background-color: rgba(129, 116, 160,0.8);
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.125);
-  animation-duration: 1s;
+
+  transition: 1s;
 }
 
 .glass:hover{

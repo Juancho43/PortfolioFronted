@@ -3,4 +3,7 @@ section{
   flex-flow: row wrap;
   justify-content: space-around;
   overflow-x: hidden;
+
+  gap:1em;
+  padding-bottom: 1em;
 }

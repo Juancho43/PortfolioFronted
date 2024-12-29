@@ -9,9 +9,16 @@ input,textarea,select,option {
 legend{
   font-family: 'Roboto', sans-serif;
 }
-button[type="submit"]{
+button{
   color: black;
   font-family: 'Poppins', sans-serif;
+  width: max-content;
+  flex-grow: 1;
 }
 
+.Buttons{
+  display: flex;
+  flex-direction: row;
+  justify-items: stretch;
+}
 

@@ -6,6 +6,7 @@ import {TagComponent} from "../../tags/tag/tag.component";
 import {TagsService} from "../../../core/services/tags.service";
 import {Tag} from "../../../core/interfaces/Tag";
 import {JsonPipe} from "@angular/common";
+import {ProyectDaoService} from '../../../core/DAO/proyect-dao.service';
 
 @Component({
   selector: 'app-proyect-form',
@@ -20,6 +21,7 @@ import {JsonPipe} from "@angular/common";
 })
 export class ProyectFormComponent {
   private proyectsService = inject(ProyectsService);
+  private proyectsDAO = inject(ProyectDaoService);
   private tagsService = inject(TagsService);
   tags : Tag[] = [];
   edit : boolean = false;
@@ -32,20 +34,38 @@ export class ProyectFormComponent {
   })
 
   ngOnInit () {
-  this.getData();
+    this.getTagData();
+    this.getCurrentProyect();
+    this.clean();
   }
 
-  getData(){
+  getTagData(){
     this.tagsService.getTags().subscribe({
       next : (x) => {
         this.tags = x.tagDTOList;
       }
     })
   }
+
+ getCurrentProyect(){
+    this.proyectsDAO.getProyecto().subscribe(res=>{
+      this.currentProyect = res;
+      this.update();
+
+      }
+    )
+ }
+update(){
+  this.mapProyecto();
+  this.edit = true;
+}
   onSubmit(){
     this.mapperProyecto();
+    console.log("xxxx")
     if(!this.edit){
       this.proyectsService.postProyecto(this.currentProyect).subscribe();
+    }else{
+      this.proyectsService.putProyecto(this.currentProyect).subscribe();
     }
   }
   mapperProyecto(){
@@ -54,6 +74,15 @@ export class ProyectFormComponent {
     this.currentProyect.descripcion = this.ProyectForm.get("descripcion")?.value;
     this.currentProyect.fechaCreacion = this.ProyectForm.get("fechaCreacion")?.value;
   }
+  mapProyecto(){
+    this.ProyectForm.patchValue({
+      id:this.currentProyect.id,
+      nombre : this.currentProyect.nombre,
+      descripcion : this.currentProyect.descripcion,
+      fechaCreacion : this.currentProyect.fechaCreacion
+    })
+  }
+
   addTag(tag : Tag){
     if(!this.currentProyect.tags.find(p => p == tag)){
       this.currentProyect.tags.push(tag);
@@ -63,4 +92,10 @@ export class ProyectFormComponent {
     this.currentProyect.tags = this.currentProyect.tags.filter(p => p != tag);
   }
 
+  clean(){
+    this.ProyectForm.reset();
+    console.log("clena")
+    this.proyectsDAO.setProyecto(this.proyectsDAO.getEmptyProyecto());
+    this.edit=false;
+  }
 }

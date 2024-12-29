@@ -14,15 +14,13 @@ import {DialogService} from "../../../core/utils/dialog.service";
 })
 export class ProyectComponent {
   private proyectoDao = inject(ProyectDaoService);
-  private dialog = inject(DialogService);
   @Input() Proyect : Proyecto = this.proyectoDao.getEmptyProyecto();
   constructor() {
     this.proyectoDao.getProyecto().subscribe(data=>
       this.Proyect = data
     )
+
+
   }
 
-  close(){
-    this.dialog.getModal().closeAll()
-  }
 }

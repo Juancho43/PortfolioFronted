@@ -4,8 +4,7 @@
   gap:1em;
   padding: 1rem;
   width: 30vw;
-  transition-duration: 2s;
-
+  border-radius: 0px;
 }
 .Proyect p{
   align-self: center;

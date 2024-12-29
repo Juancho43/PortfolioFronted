@@ -2,3 +2,9 @@
 <section class="cardList">
   <app-proyect-list/>
 </section>
+  @if(auth.token){
+  <section>
+      <app-proyect-form/>
+  </section>
+  }
+
