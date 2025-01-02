@@ -15,12 +15,12 @@ import {DialogService} from "../../../core/utils/dialog.service";
 export class ProyectComponent {
   private proyectoDao = inject(ProyectDaoService);
   @Input() Proyect : Proyecto = this.proyectoDao.getEmptyProyecto();
-  constructor() {
+
+    ngOnInit(){
+
     this.proyectoDao.getProyecto().subscribe(data=>
       this.Proyect = data
     )
-
-
-  }
+    }
 
 }

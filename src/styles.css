@@ -1,12 +1,17 @@
 @keyframes main1 {
     0%{
         background-position: 0% 50%;
+        background-size: 100vw;
     }
+
     50%{
-        background-position: 100% 50%;
+        background-position: 100% 20%;
+      background-size: 300vw;
     }
+
     100%{
         background-position: 0% 50%;
+        background-size: 100vw;
     }
 }
 *{
@@ -35,7 +40,7 @@ main{
     background-size: 190%;
     animation-timing-function: ease;
     animation-name: main1;
-    animation-duration: 20s;
+    animation-duration: 10s;
     animation-iteration-count:infinite;
 }
 h2{
@@ -67,7 +72,7 @@ article{
 .glass{
     backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
-  background-color: rgba(129, 116, 160,0.8);
+  background-color: rgba(129, 116, 160,0.2);
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.125);
 
