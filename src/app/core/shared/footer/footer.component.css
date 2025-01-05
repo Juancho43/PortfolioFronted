@@ -1,10 +1,17 @@
 footer{
     position: fixed;
     bottom: 0;
-        display: flex;    
+        display: flex;
         align-items: center;
         width: 100vw;
         justify-content: center;
-        
-    
+
+
+}
+
+@media (max-width: 767px) {
+  /* Estilos para pantallas de hasta 767px de ancho */
+  footer{
+    position: relative;
+  }
 }

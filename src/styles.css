@@ -33,25 +33,25 @@ body{
 main{
   height: 100vh;
   width: 100vw;
-    overflow: hidden;
-    overflow-y:auto;
+  overflow: hidden;
+  overflow-y:auto;
   display: flex;
-    flex-direction: column;
-    gap:3em;
+  flex-direction: column;
+  gap:3em;
 
 }
 
 
 h1,h2{
-    font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 h2{
-    color:black;
+  color:black;
   align-self: flex-start;
 }
 a{
-    color:aliceblue;
-    text-decoration: dashed;
+  color:aliceblue;
+  text-decoration: dashed;
 }
 
 section{
@@ -80,4 +80,8 @@ article{
 
 .glass:hover{
   box-shadow: 0 10px 10px rgb(129, 116, 160);
+}
+@media (max-width: 767px) {
+  /* Estilos para pantallas de hasta 767px de ancho */
+
 }

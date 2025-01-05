@@ -25,3 +25,19 @@ header p{
   line-height: 2em;
   font-family: 'Poppins', sans-serif;
 }
+
+@media (max-width: 767px) {
+  /* Estilos para pantallas de hasta 767px de ancho */
+  header{
+    flex-direction: column;
+  }
+  header img{
+    margin: auto;
+  }
+  header h1{
+    text-align: center;
+  }
+  header p{
+    max-width: none;
+  }
+}

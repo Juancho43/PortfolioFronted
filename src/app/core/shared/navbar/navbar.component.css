@@ -1,13 +1,13 @@
-
-nav{    
+nav{
     width: 100vw;
+
 }
 ul{
     list-style: none;
     display: flex;
     flex-direction: row;
     width: 100vw;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 li{
     cursor: pointer;
@@ -16,43 +16,38 @@ li{
     border-radius: 5px;
     width: 15%;
     text-align: center;
-    text-align: center;
     color: black;
     text-decoration: none;
-    
     font-size:large ;
+    background-color: rgba(129, 116, 160,0.2);
 }
-
 
 .active{
     font-weight: bold;
-
-
+  background-color: rgba(129, 116, 160,0.8);
 }
- 
+
 .oculto{
     display: none;
 }
-@media only screen and (max-width: 600px) {
-    nav ul{
-        flex-direction: column;
-        align-items: center;
-        justify-content: stretch;
-    }
-    nav ul li{
-        width: 80%;
-    }
-    .oculto{
-        display: block;
-    }
-}
 
 
-@media only screen and (max-width: 400px) {
 
-  nav ul li{
-    margin: 10px;
+
+@media (max-width: 767px) {
+  /* Estilos para pantallas de hasta 767px de ancho */
+  nav ul{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
-    
-
+  nav ul li{
+    width: 90%;
+    height: 1.2em;
+    margin: 0.2em;
+    font-size: 1.3em;
+  }
+  .oculto{
+    display: block;
+  }
 }
