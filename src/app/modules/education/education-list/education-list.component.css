@@ -1,0 +1,7 @@
+div:nth-child(even){
+  flex-direction: row-reverse;
+}
+
+div{
+  display: flex;
+}

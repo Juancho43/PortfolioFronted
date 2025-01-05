@@ -3,10 +3,26 @@ article{
   width: 80vw;
   height: 10vh;
   justify-content: space-between;
+  margin: 10px;
+  padding: 10px;
 }
 
 article div{
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: self-start;
+  width: 100%;
 }
 
+article div:first-child{
+  width: 30vw;
+}
+
+.reverse{
+  flex-direction: row-reverse;
+}
+.reverse div:first-child{
+
+  align-items: end;
+}
