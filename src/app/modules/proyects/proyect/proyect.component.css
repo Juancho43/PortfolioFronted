@@ -5,12 +5,15 @@
   padding: 1rem;
   width: 30vw;
   border-radius: 0px;
+  transition: 0s;
+  background-color: rgb(168, 136, 181);
 }
 .Proyect p{
   align-self: center;
   word-spacing: 4px;
   width: 20vw;
   line-height: 1.5em;
+  color:black;
 }
 .Proyect .Tags{
   display: flex;

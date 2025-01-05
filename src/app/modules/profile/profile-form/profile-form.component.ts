@@ -17,7 +17,14 @@ import {Profile} from "../../../core/interfaces/Profile";
 export class ProfileFormComponent {
   private service = inject(ProfileService);
   edit : boolean = true;
-  currentProfile : Profile = {id:0, nombre:"", presentacion: "",  rol: "", email:"", password: ""};
+  currentProfile : Profile = {
+    id: 0,
+    description: '',
+    rol: '',
+    publicMail: '',
+    linkedin: '',
+    github: ''
+  };
   ProfileForm : FormGroup = new FormGroup({
     id : new FormControl(0),
     nombre : new FormControl('', [Validators.required]),
@@ -38,8 +45,8 @@ export class ProfileFormComponent {
   }
   mapperProyecto(){
     this.currentProfile.id = this.ProfileForm.get("id")?.value;
-    this.currentProfile.nombre = this.ProfileForm.get("nombre")?.value;
-    this.currentProfile.presentacion = this.ProfileForm.get("presentacion")?.value;
+    // this.currentProfile. = this.ProfileForm.get("nombre")?.value;
+    this.currentProfile.description = this.ProfileForm.get("presentacion")?.value;
     this.currentProfile.rol = this.ProfileForm.get("rol")?.value;
   }
 }

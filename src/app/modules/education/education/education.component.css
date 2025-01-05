@@ -1,0 +1,12 @@
+article{
+  display: flex;
+  width: 80vw;
+  height: 10vh;
+  justify-content: space-between;
+}
+
+article div{
+  display: flex;
+  flex-direction: column;
+}
+

@@ -1,8 +1,8 @@
 export interface Profile {
   id: number;
-  nombre: string;
-  presentacion: string;
+  description: string;
   rol: string;
-  email: string;
-  password: string;
+  publicMail: string;
+  linkedin: string;
+  github: string;
 }

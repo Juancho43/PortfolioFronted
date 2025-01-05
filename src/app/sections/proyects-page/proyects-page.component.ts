@@ -20,12 +20,6 @@ import {ProyectFormComponent} from '../../modules/proyects/proyect-form/proyect-
 export class ProyectsPageComponent {
   protected auth =  inject(AuthService);
   ngOnInit() {
-    this.auth.login({
-      email: "bravojuan@gmail.com", password: "pepe",
-      id: 0,
-      nombre: '',
-      presentacion: '',
-      rol: ''
-    })
+
   }
 }

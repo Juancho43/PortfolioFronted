@@ -12,19 +12,19 @@ export class ProfileService {
   private http = inject(HttpClient);
 
   getProfile(id:number){
-    return this.http.get<Profile>(`http://localhost:8000/v1/perfil/${id}`);
+    return this.http.get(`http://localhost:8000/api/profile/${id}`);
   }
 
   postProfile(profile : Profile) : Observable<any>{
-    return this.http.post("http://localhost:8000/v1/perfil/", profile);
+    return this.http.post("http://localhost:8000/api/profile/", profile);
   }
 
   putProfile(profile : Profile) : Observable<any>{
-    return this.http.put<Profile>(`http://localhost:8000/v1/perfil/${profile.id}`, profile);
+    return this.http.put<Profile>(`http://localhost:8000/api/profile/${profile.id}`, profile);
   }
 
   deleteProfile(proyecto : Profile) : Observable<any>{
-    return this.http.delete(`http://localhost:8000/v1/perfil/${proyecto.id}`);
+    return this.http.delete(`http://localhost:8000/api/profile/${proyecto.id}`);
   }
 
 }

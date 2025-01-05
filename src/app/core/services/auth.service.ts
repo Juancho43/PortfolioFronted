@@ -14,12 +14,12 @@ export class AuthService {
     return this._token;
   }
 
-  login(profile : Profile){
-    if("bravojuan@gmail.com" == profile.email && "pepe" == profile.password){
-      this._token = true;
-      console.log("tol")
-    }
-  }
+  // login(profile : Profile){
+  //   if("bravojuan@gmail.com" == profile.email && "pepe" == profile.password){
+  //     this._token = true;
+  //     console.log("tol")
+  //   }
+  // }
 
   logout(){
     this._token = false;

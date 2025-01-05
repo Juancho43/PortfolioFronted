@@ -12,5 +12,10 @@ import {Tag} from "../../../core/interfaces/Tag";
   styleUrl: './tag.component.css'
 })
 export class TagComponent {
-@Input() tag : Tag = {id:0,nombre:""};
+@Input() tag : Tag = {
+  id: 0,
+  name: '',
+  created_at: new Date(),
+  updated_at: new Date()
+};
 }

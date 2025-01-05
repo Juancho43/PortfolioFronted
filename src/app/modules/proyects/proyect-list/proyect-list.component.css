@@ -1,9 +1,25 @@
-section{
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+div{
+  width: 92vw;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
-  overflow-x: hidden;
+  gap: 1rem;
 
-  gap:1em;
-  padding-bottom: 1em;
+  opacity: 0;
+
+  animation-name: slideInUp;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
 }
+

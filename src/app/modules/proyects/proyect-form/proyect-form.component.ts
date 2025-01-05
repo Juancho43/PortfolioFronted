@@ -25,7 +25,7 @@ export class ProyectFormComponent {
   private tagsService = inject(TagsService);
   tags : Tag[] = [];
   edit : boolean = false;
-  currentProyect : Proyecto = {id:0, nombre:"", descripcion: "",  fechaCreacion: new Date(), tags: []};
+  currentProyect : Proyecto = this.proyectsDAO.getEmptyProyecto();
   ProyectForm : FormGroup = new FormGroup({
     id : new FormControl(0),
     nombre : new FormControl('', [Validators.required]),
@@ -70,16 +70,16 @@ update(){
   }
   mapperProyecto(){
     this.currentProyect.id = this.ProyectForm.get("id")?.value;
-    this.currentProyect.nombre = this.ProyectForm.get("nombre")?.value;
-    this.currentProyect.descripcion = this.ProyectForm.get("descripcion")?.value;
-    this.currentProyect.fechaCreacion = this.ProyectForm.get("fechaCreacion")?.value;
+    this.currentProyect.name = this.ProyectForm.get("nombre")?.value;
+    this.currentProyect.description = this.ProyectForm.get("descripcion")?.value;
+    this.currentProyect.created_at = this.ProyectForm.get("fechaCreacion")?.value;
   }
   mapProyecto(){
     this.ProyectForm.patchValue({
       id:this.currentProyect.id,
-      nombre : this.currentProyect.nombre,
-      descripcion : this.currentProyect.descripcion,
-      fechaCreacion : this.currentProyect.fechaCreacion
+      nombre : this.currentProyect.name,
+      descripcion : this.currentProyect.description,
+      fechaCreacion : this.currentProyect.created_at
     })
   }
 

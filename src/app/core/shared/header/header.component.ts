@@ -11,13 +11,13 @@ import {Profile} from "../../interfaces/Profile";
 })
 export class HeaderComponent {
 private profileService = inject(ProfileService);
-profile : Profile = {
-  nombre:'',
+profile : any = {
   id: 0,
-  presentacion: '',
+  description: '',
   rol: '',
-  email: '',
-  password: ''
+  publicMail: '',
+  linkedin: '',
+  github: ''
 };
 
   ngOnInit(){

@@ -10,22 +10,22 @@ export class ProyectsService {
   private http = inject(HttpClient);
 
   getProyects() : Observable<any>{
-      return this.http.get<any>("http://localhost:8000/v1/proyecto/");
+      return this.http.get<any>("http://localhost:8000/api/proyect/");
   }
   getProyectById(id:number){
-    return this.http.get<Proyecto>(`http://localhost:8000/v1/proyecto/${id}`);
+    return this.http.get<Proyecto>(`http://localhost:8000/api/proyect/${id}`);
   }
 
   postProyecto(proyecto : Proyecto) : Observable<any>{
-    return this.http.post("http://localhost:8000/v1/proyecto/", proyecto);
+    return this.http.post("http://localhost:8000/api/proyect/", proyecto);
   }
 
   putProyecto(proyecto : Proyecto) : Observable<any>{
-    return this.http.put<Proyecto>(`http://localhost:8000/v1/proyecto/${proyecto.id}`, proyecto);
+    return this.http.put<Proyecto>(`http://localhost:8000/api/proyect/${proyecto.id}`, proyecto);
   }
 
   deleteProyecto(proyecto : Proyecto) : Observable<any>{
-    return this.http.delete(`http://localhost:8000/v1/proyecto/${proyecto.id}`);
+    return this.http.delete(`http://localhost:8000/api/proyect/${proyecto.id}`);
   }
 
 }

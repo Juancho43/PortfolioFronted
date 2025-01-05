@@ -16,12 +16,9 @@ import {Tag} from '../../../core/interfaces/Tag';
 })
 export class ProyectCardComponent {
   @Input() Proyect : Proyecto = {
-    id: 0,
-    nombre: '',
-    descripcion: '',
-    fechaCreacion: new Date(),
-    tags: []
-  };
+    created_at: new Date(), description: '', id: 0, name: '', tags: [], updated_at: new Date()
+
+  }
   tags: Tag[] = [];
 
   ngOnInit(){

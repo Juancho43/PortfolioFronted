@@ -30,7 +30,7 @@ export class ProyectListComponent implements OnInit {
     this.proyectsService.getProyects().subscribe({
 
       next : (x) => {
-        this.proyects = x.proyectoDTOList;
+        this.proyects = x.Proyect;
         console.log(this.proyects)
 
       }

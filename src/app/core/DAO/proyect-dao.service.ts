@@ -19,12 +19,10 @@ export class ProyectDaoService {
   }
 
 
-  getEmptyProyecto(){
+  getEmptyProyecto() : Proyecto{
     return{
-      id:0,
-      nombre: "",
-      descripcion: "",
-      fechaCreacion: new Date(),
+      created_at: new Date(), description: '', id: 0, name: '', updated_at: new Date(),
+
       tags: []
     }
   }

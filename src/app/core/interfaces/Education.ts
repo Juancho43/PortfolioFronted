@@ -1,8 +1,12 @@
 export interface Education {
   id: number;
-  nombre : string;
-  resumen : string;
-  fechaInicio : Date;
-  fechaFinalizacion: Date;
-  tipo : string
+  name : string;
+  description : string;
+  startDate : Date;
+  endDate: Date;
+  type : string;
+  created_at : Date;
+  updated_at : Date;
+  deleted_at : Date | null;
+
 }

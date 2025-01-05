@@ -2,8 +2,9 @@ import {Tag} from "./Tag";
 
 export interface Proyecto {
   id: number;
-  nombre: string;
-  descripcion: string;
-  fechaCreacion: Date;
+  name: string;
+  description: string;
+  created_at: Date;
+  updated_at: Date;
   tags: Tag[];
 }

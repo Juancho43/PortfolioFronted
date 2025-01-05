@@ -23,9 +23,7 @@
     font-family: 'Montserrat', sans-serif;
 }
 body{
-    height: 100vh;
-    width: 100vw;
-    background: radial-gradient( circle farthest-corner at 83.7% 4.3%, rgb(88, 4, 87) 0%, rgb(168, 136, 181), rgba(255, 210, 160,0.9));
+    background: linear-gradient(60deg,rgba(88, 4, 87,0.8), rgb(168, 136, 181), rgba(255, 210, 160,0.9) );
     background-size: 190%;
     animation-timing-function: ease;
     animation-name: main1;
@@ -33,9 +31,11 @@ body{
     animation-iteration-count:infinite;
 }
 main{
+  height: 100vh;
+  width: 100vw;
+    overflow: hidden;
     overflow-y:auto;
   display: flex;
-    overflow: hidden;
     flex-direction: column;
     gap:3em;
 

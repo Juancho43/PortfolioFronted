@@ -1,5 +1,5 @@
 <section class="tagList">
-  @for (item of tags; track item.nombre) {
+  @for (item of tags; track item.name) {
     <app-tag [tag]="item"/>
   } @empty {
     <li>There are no items.</li>

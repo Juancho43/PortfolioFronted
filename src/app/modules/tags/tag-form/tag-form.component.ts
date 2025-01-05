@@ -13,7 +13,11 @@ import {Tag} from "../../../core/interfaces/Tag";
 export class TagFormComponent implements OnInit{
   private tagService = inject(TagsService);
   edit : boolean = false;
-  currentTag : Tag = {id:0,nombre:""};
+  currentTag : Tag = {
+    id: 0, name: "",
+    created_at: new Date(),
+    updated_at: new Date()
+  };
   TagForm : FormGroup = new FormGroup({
     id : new FormControl(0),
     name : new FormControl('', [Validators.required]),
@@ -33,7 +37,7 @@ export class TagFormComponent implements OnInit{
   }
   mapperTag(){
     this.currentTag.id = this.TagForm.get("id")?.value;
-    this.currentTag.nombre = this.TagForm.get("name")?.value;
+    this.currentTag.name = this.TagForm.get("name")?.value;
   }
 
 }

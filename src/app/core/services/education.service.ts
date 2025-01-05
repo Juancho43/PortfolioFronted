@@ -11,22 +11,22 @@ export class EducationService {
   private http = inject(HttpClient);
 
   getAll() : Observable<any>{
-    return this.http.get<any>("http://localhost:8000/v1/formacion/");
+    return this.http.get<any>("http://localhost:8000/api/education/");
   }
   getById(id:number){
-    return this.http.get<Education>(`http://localhost:8000/v1/formacion/${id}`);
+    return this.http.get<Education>(`http://localhost:8000/api/education/${id}`);
   }
 
   post(education : Education) : Observable<any>{
-    return this.http.post("http://localhost:8000/v1/formacion/", education);
+    return this.http.post("http://localhost:8000/api/education/", education);
   }
 
   put(education : Education) : Observable<any>{
-    return this.http.put<Education>(`http://localhost:8000/v1/formacion/${education.id}`, education);
+    return this.http.put<Education>(`http://localhost:8000/api/education/${education.id}`, education);
   }
 
   delete(education : Education) : Observable<any>{
-    return this.http.delete(`http://localhost:8000/v1/formacion/${education.id}`);
+    return this.http.delete(`http://localhost:8000/api/education/${education.id}`);
   }
 
 }
