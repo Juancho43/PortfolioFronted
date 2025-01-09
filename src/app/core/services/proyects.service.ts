@@ -2,6 +2,8 @@ import {inject, Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import { Proyecto} from "../interfaces/Proyecto";
+import {API_URL, ENDPOINTS} from './endpoints';
+import {Education} from '../interfaces/Education';
 
 @Injectable({
   providedIn: 'root'
@@ -10,10 +12,11 @@ export class ProyectsService {
   private http = inject(HttpClient);
 
   getProyects() : Observable<any>{
-      return this.http.get<any>("http://localhost:8000/api/proyect/");
+    return this.http.get<any>(API_URL+ENDPOINTS.project.getAll);
   }
   getProyectById(id:number){
-    return this.http.get<Proyecto>(`http://localhost:8000/api/proyect/${id}`);
+    const url = API_URL+ENDPOINTS.project.getById.replace(':id', id.toString());
+    return this.http.get(url);
   }
 
   postProyecto(proyecto : Proyecto) : Observable<any>{
