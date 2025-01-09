@@ -6,9 +6,9 @@ import {AdminPageComponent} from "./sections/admin-page/admin-page.component";
 import {ContactPageComponent} from "./sections/contact-page/contact-page.component";
 
 export const routes: Routes = [
-    { path: '', component: HomePageComponent },
+    { path: '', component: ContactPageComponent },
     { path: 'education', component: EducationPageComponent },
     { path: 'proyects', component: ProyectsPageComponent },
-    { path: 'contact', component: ContactPageComponent },
+    { path: 'about', component: HomePageComponent },
     { path: 'admin', component: AdminPageComponent },
 ];

@@ -1,13 +1,13 @@
-nav{
-    width: 100vw;
-
+.active{
+    color:white;
+    background-color:  rgba(168, 136, 181,0.7);
 }
 ul{
     list-style: none;
     display: flex;
     flex-direction: row;
-    width: 100vw;
-    justify-content: space-around;
+    width: 100dvw;
+    justify-content: space-evenly;
 }
 li{
     cursor: pointer;
@@ -20,16 +20,19 @@ li{
     text-decoration: none;
     font-size:large ;
     background-color: rgba(129, 116, 160,0.2);
+    &:hover{
+      background-color:  rgba(168, 136, 181,0.7);
+    }
+  &:active{
+    color:white;
+    background-color:  rgba(168, 136, 181,0.7);
+  }
+  &:visited{
+    color:white;
+  }
 }
 
-.active{
-    font-weight: bold;
-  background-color: rgba(129, 116, 160,0.8);
-}
 
-.oculto{
-    display: none;
-}
 
 
 
@@ -47,7 +50,5 @@ li{
     margin: 0.2em;
     font-size: 1.3em;
   }
-  .oculto{
-    display: block;
-  }
+
 }

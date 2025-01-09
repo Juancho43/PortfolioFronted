@@ -12,7 +12,7 @@ export class ProfileService {
   private http = inject(HttpClient);
 
   getProfile(id:number){
-    return this.http.get(`http://localhost:8000/api/profile/${id}`);
+    return this.http.get(`https://bravojuan.site/public/api/profile/${id}`);
   }
 
   postProfile(profile : Profile) : Observable<any>{
