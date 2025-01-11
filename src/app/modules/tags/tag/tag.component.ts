@@ -1,12 +1,13 @@
 import {Component, Input} from '@angular/core';
-import {MatChipsModule} from "@angular/material/chips";
+
 import {Tag} from "../../../core/interfaces/Tag";
+import {CommonModule} from '@angular/common';
 
 @Component({
   selector: 'app-tag',
   standalone: true,
   imports: [
-    MatChipsModule
+    CommonModule
   ],
   templateUrl: './tag.component.html',
   styleUrl: './tag.component.css'
@@ -18,4 +19,11 @@ export class TagComponent {
   created_at: new Date(),
   updated_at: new Date()
 };
+
+  isClicked = false;
+
+  toggleClass() {
+    this.isClicked = !this.isClicked;
+  }
+
 }

@@ -2,6 +2,7 @@ import {inject, Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Profile} from "../interfaces/Profile";
+import {API_URL, ENDPOINTS} from './endpoints';
 
 
 @Injectable({
@@ -12,7 +13,8 @@ export class ProfileService {
   private http = inject(HttpClient);
 
   getProfile(id:number){
-    return this.http.get(`https://bravojuan.site/public/api/profile/${id}`);
+    return this.http.get<any>(API_URL+ENDPOINTS.profile.get.replace(':id', id.toString()));
+
   }
 
   postProfile(profile : Profile) : Observable<any>{

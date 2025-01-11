@@ -1,7 +1,9 @@
 export const API_URL = 'http://localhost:8000/api/v1';
 
 export const ENDPOINTS = {
-  // Clients
+  profile:{
+    get:'/profile/:id'
+  },
   education: {
     getAll: '/education',
     getById: '/education/:id',
@@ -13,5 +15,9 @@ export const ENDPOINTS = {
     getAll: '/project',
     getById: '/project/:id',
     post: '/project',
+    getByTag: '/project/tag/:id'
+  },
+  tag:{
+    getAll: '/tag',
   }
 }

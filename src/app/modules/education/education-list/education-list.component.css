@@ -1,7 +1,21 @@
-div:nth-child(even){
-  flex-direction: row-reverse;
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
+
+
 div{
-  display: flex;
+
+  opacity: 0;
+
+  animation-name: slideInUp;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
 }

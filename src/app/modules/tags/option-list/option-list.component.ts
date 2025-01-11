@@ -1,24 +1,19 @@
 import {Component, inject, Input} from '@angular/core';
-import {Tag} from "../../../core/interfaces/Tag";
-import {ProyectsService} from "../../../core/services/proyects.service";
-import {TagsService} from "../../../core/services/tags.service";
-import {ProyectComponent} from "../../proyects/proyect/proyect.component";
-import {JsonPipe} from "@angular/common";
-import {TagComponent} from "../tag/tag.component";
+import {TagsService} from '../../../core/services/tags.service';
 import {ProyectDaoService} from '../../../core/DAO/proyect-dao.service';
+import {Tag} from '../../../core/interfaces/Tag';
+import {TagComponent} from '../tag/tag.component';
 
 @Component({
-  selector: 'app-tag-list',
-  standalone: true,
+  selector: 'app-option-list',
   imports: [
-    ProyectComponent,
-    JsonPipe,
     TagComponent
   ],
-  templateUrl: './tag-list.component.html',
-  styleUrl: './tag-list.component.css'
+  standalone: true,
+  templateUrl: './option-list.component.html',
+  styleUrl: './option-list.component.css'
 })
-export class TagListComponent {
+export class OptionListComponent {
   private tagsService = inject(TagsService);
   private projectDAO = inject(ProyectDaoService);
   @Input() tags : Tag[] = [];

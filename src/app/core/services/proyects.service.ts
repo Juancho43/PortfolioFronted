@@ -19,6 +19,8 @@ export class ProyectsService {
     return this.http.get(url);
   }
 
+
+
   postProyecto(proyecto : Proyecto) : Observable<any>{
     return this.http.post("http://localhost:8000/api/proyect/", proyecto);
   }

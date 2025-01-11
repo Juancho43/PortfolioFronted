@@ -22,6 +22,19 @@
     color:white;
     font-family: 'Montserrat', sans-serif;
 }
+
+::-webkit-scrollbar{
+  width: 10px;
+}
+
+::-webkit-scrollbar-track{
+  background: rgba(255, 210, 160,0.9);
+}
+::-webkit-scrollbar-thumb{
+  background: rgb(168, 136, 181);
+  border-radius: 1px;
+}
+
 body{
     background: linear-gradient(60deg,rgba(88, 4, 87,0.8), rgb(168, 136, 181), rgba(255, 210, 160,0.9) );
     background-size: 190%;

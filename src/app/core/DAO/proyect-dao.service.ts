@@ -7,7 +7,7 @@ import {Tag} from "../interfaces/Tag";
   providedIn: 'root'
 })
 export class ProyectDaoService {
-
+  private _projects: BehaviorSubject<Proyecto[]> = new BehaviorSubject<Proyecto[]>([]);
   private _proyect : BehaviorSubject<Proyecto> = new BehaviorSubject<Proyecto>(this.getEmptyProyecto());
 
   getProyecto(){
@@ -18,6 +18,14 @@ export class ProyectDaoService {
     this._proyect.next(item);
   }
 
+
+  getProyectos(){
+    return this._projects.asObservable();
+  }
+
+  setProyectos(items : Proyecto[]){
+    this._projects.next(items);
+  }
 
   getEmptyProyecto() : Proyecto{
     return{

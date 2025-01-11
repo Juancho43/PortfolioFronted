@@ -23,10 +23,24 @@ export class ProyectListComponent implements OnInit {
   proyects : Proyecto[] = [];
 
   ngOnInit() {
+    this.getDataDao();
     this.getData();
   }
 
+  ngOnDestroy() {
+    this.proyectsDAO.setProyectos([]);
+  }
+
+  getDataDao(){
+    this.proyectsDAO.getProyectos().subscribe(res=>{
+      this.proyects = res;
+      console.log(this.proyects)
+    })
+  }
+
   getData(){
+
+
     this.proyectsService.getProyects().subscribe({
 
       next : (x) => {
@@ -35,7 +49,9 @@ export class ProyectListComponent implements OnInit {
 
       }
     })
+
   }
+
 
   open(item : Proyecto){
     this.proyectsDAO.setProyecto(item);

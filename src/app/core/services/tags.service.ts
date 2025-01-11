@@ -2,6 +2,7 @@ import {inject, Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Tag} from "../interfaces/Tag";
+import {API_URL, ENDPOINTS} from './endpoints';
 
 @Injectable({
   providedIn: 'root'
@@ -10,12 +11,15 @@ export class TagsService {
   private http = inject(HttpClient);
 
   getTags() : Observable<any>{
-    return this.http.get<any>("http://localhost:8000/api/tag/");
+    return this.http.get<any>(API_URL+ENDPOINTS.tag.getAll);
   }
   getTagById(id:number){
     return this.http.get<Tag>(`http://localhost:8000/api/tag/${id}`);
   }
-
+  getProjectsByTag(id:number){
+    const url = API_URL+ENDPOINTS.project.getByTag.replace(':id', id.toString());
+    return this.http.get(url);
+  }
   postTag(tag : Tag) : Observable<any>{
     return this.http.post("http://localhost:8000/api/tag/", tag);
   }

@@ -1,4 +1,4 @@
-import {Component, inject, Input} from '@angular/core';
+import {Component, inject, Input, OnInit} from '@angular/core';
 import {Proyecto} from "../../../core/interfaces/Proyecto";
 import {CommonModule} from "@angular/common";
 import {TagComponent} from "../../tags/tag/tag.component";
@@ -16,11 +16,15 @@ export class ProyectComponent {
   private proyectoDao = inject(ProyectDaoService);
   @Input() Proyect : Proyecto = this.proyectoDao.getEmptyProyecto();
 
-    ngOnInit(){
+
+
+  ngOnInit() {
 
     this.proyectoDao.getProyecto().subscribe(data=>
       this.Proyect = data
     )
-    }
+    console.log(this.Proyect)
+  }
+
 
 }
