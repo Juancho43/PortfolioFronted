@@ -31,8 +31,23 @@ article div:first-child{
 
 @media (max-width: 767px) {
   /* Estilos para pantallas de hasta 767px de ancho */
- article{
-   min-width: 90vw;
-   height: auto;
- }
+    article{
+      min-width: 90vw;
+      height: auto;
+      align-items: center;
+    }
+  .reverse, article{
+      flex-direction: column;
+
+  }
+article div{
+  align-items: center;
+  text-align: center;
+}
+    h3, h4{
+      font-size: 20px;
+    }
+    p{
+      font-size: 18px;
+    }
 }

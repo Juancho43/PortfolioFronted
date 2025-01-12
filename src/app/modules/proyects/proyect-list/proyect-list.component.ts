@@ -7,12 +7,11 @@ import {Proyecto} from "../../../core/interfaces/Proyecto";
 import {ProyectCardComponent} from "../proyect-card/proyect-card.component";
 import {DialogService} from "../../../core/utils/dialog.service";
 import {ProyectDaoService} from "../../../core/DAO/proyect-dao.service";
-import {MatDialogConfig} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-proyect-list',
   standalone: true,
-  imports: [CommonModule, ProyectComponent, ProyectCardComponent],
+  imports: [CommonModule, ProyectCardComponent],
   templateUrl: './proyect-list.component.html',
   styleUrl: './proyect-list.component.css'
 })

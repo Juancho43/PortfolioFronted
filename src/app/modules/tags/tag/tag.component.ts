@@ -20,10 +20,6 @@ export class TagComponent {
   updated_at: new Date()
 };
 
-  isClicked = false;
 
-  toggleClass() {
-    this.isClicked = !this.isClicked;
-  }
 
 }

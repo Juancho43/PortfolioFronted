@@ -2,12 +2,12 @@ import {Component, inject, Input} from '@angular/core';
 import {TagsService} from '../../../core/services/tags.service';
 import {ProyectDaoService} from '../../../core/DAO/proyect-dao.service';
 import {Tag} from '../../../core/interfaces/Tag';
-import {TagComponent} from '../tag/tag.component';
+import {TagOptionComponent} from '../tag-option/tag-option.component';
 
 @Component({
   selector: 'app-option-list',
   imports: [
-    TagComponent
+    TagOptionComponent
   ],
   standalone: true,
   templateUrl: './option-list.component.html',

@@ -1,18 +1,13 @@
 import {Component, inject, Input} from '@angular/core';
 import {Tag} from "../../../core/interfaces/Tag";
-import {ProyectsService} from "../../../core/services/proyects.service";
 import {TagsService} from "../../../core/services/tags.service";
-import {ProyectComponent} from "../../proyects/proyect/proyect.component";
-import {JsonPipe} from "@angular/common";
 import {TagComponent} from "../tag/tag.component";
-import {ProyectDaoService} from '../../../core/DAO/proyect-dao.service';
+
 
 @Component({
   selector: 'app-tag-list',
   standalone: true,
   imports: [
-    ProyectComponent,
-    JsonPipe,
     TagComponent
   ],
   templateUrl: './tag-list.component.html',
@@ -20,7 +15,6 @@ import {ProyectDaoService} from '../../../core/DAO/proyect-dao.service';
 })
 export class TagListComponent {
   private tagsService = inject(TagsService);
-  private projectDAO = inject(ProyectDaoService);
   @Input() tags : Tag[] = [];
   @Input() load : boolean = true;
   ngOnInit() {
@@ -36,11 +30,5 @@ export class TagListComponent {
       }
     })
   }
-  getProjects(id : number){
-    this.tagsService.getProjectsByTag(id).subscribe({
-      next : (x:any ) =>{
-        this.projectDAO.setProyectos(x.Proyect);
-      }
-    })
-  }
+
 }

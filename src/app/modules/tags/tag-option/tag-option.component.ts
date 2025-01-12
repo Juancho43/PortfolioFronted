@@ -1,9 +1,10 @@
 import {Component, Input} from '@angular/core';
 import {Tag} from '../../../core/interfaces/Tag';
+import {CommonModule} from '@angular/common';
 
 @Component({
   selector: 'app-tag-option',
-  imports: [],
+  imports: [CommonModule],
   standalone: true,
   templateUrl: './tag-option.component.html',
   styleUrl: './tag-option.component.css'

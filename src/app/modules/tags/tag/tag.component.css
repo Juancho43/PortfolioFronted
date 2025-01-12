@@ -1,7 +1,9 @@
 .tag{
   padding: .2em;
-  background-color: rgba(200,200,200,0.5);
-  border: 1px solid rgba(200,200,200,0.9);
+  background-color: var(--color-alter-white);
+  border: 1px solid var(--color-gray);
+  color: var(--color-alter-black);
+  font-family: var(--mat-form-field-container-height);
   margin:10px;
   border-radius: 10px;
   height: 25px;
@@ -11,12 +13,6 @@
   justify-content: center;
   align-content: center;
   transition: 2s box-shadow;
-
-}
-
-.tag:hover, .active{
-
-    box-shadow:2px  2px  10px rgb(200,200,200) ;
 
 }
 

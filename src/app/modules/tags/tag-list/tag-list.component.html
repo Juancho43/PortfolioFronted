@@ -1,8 +1,7 @@
 <section class="tagList">
   @for (item of tags; track item.name) {
-    <app-tag [tag]="item" (click)="getProjects(item.id)"/>
+    <app-tag [tag]="item" />
   } @empty {
-    <li>There are no items.</li>
+    <li>Sin etiquetas.</li>
   }
-
 </section>

@@ -1,7 +1,8 @@
 .active{
     color:white;
-    background-color:  rgba(168, 136, 181,0.7);
+    background-color:  var(--color-alter-black);
 }
+
 ul{
     list-style: none;
     display: flex;
@@ -16,20 +17,18 @@ li{
     border-radius: 5px;
     width: 15%;
     text-align: center;
-    color: black;
+    color: var(--color-black);
+    background-color: var(--color-white);
     text-decoration: none;
     font-size:large ;
-    background-color: rgba(129, 116, 160,0.2);
+  transition: background-color 2s;
     &:hover{
-      background-color:  rgba(168, 136, 181,0.7);
+      background-color: var(--color-two);
+      color: var(--color-white);
+
     }
-  &:active{
-    color:white;
-    background-color:  rgba(168, 136, 181,0.7);
-  }
-  &:visited{
-    color:white;
-  }
+
+
 }
 
 

@@ -5,7 +5,6 @@ import {Proyecto} from "../../../core/interfaces/Proyecto";
 import {TagComponent} from "../../tags/tag/tag.component";
 import {TagsService} from "../../../core/services/tags.service";
 import {Tag} from "../../../core/interfaces/Tag";
-import {JsonPipe} from "@angular/common";
 import {ProyectDaoService} from '../../../core/DAO/proyect-dao.service';
 
 @Component({
@@ -14,7 +13,6 @@ import {ProyectDaoService} from '../../../core/DAO/proyect-dao.service';
   imports: [
     ReactiveFormsModule,
     TagComponent,
-    JsonPipe
   ],
   templateUrl: './proyect-form.component.html',
   styleUrls: ['./proyect-form.component.css','../../../core/styles/forms.css']
