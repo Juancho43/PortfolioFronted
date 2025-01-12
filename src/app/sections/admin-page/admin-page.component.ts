@@ -7,17 +7,13 @@ import { ProfilePanelComponent } from '../../modules/profile/profile-panel/profi
 import { EducationPanelComponent } from '../../modules/education/education-panel/education-panel.component';
 import { ProjectPanelComponent } from '../../modules/proyects/project-panel/project-panel.component';
 import { TagsPanelComponent } from '../../modules/tags/tags-panel/tags-panel.component';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-admin-page',
   standalone: true,
-  imports: [
-    ProfilePanelComponent,
-    EducationPanelComponent,
-    ProjectPanelComponent,
-    TagsPanelComponent,
-  ],
+  imports: [RouterOutlet, RouterLink],
   templateUrl: './admin-page.component.html',
-  styleUrl: './admin-page.component.css',
+  styleUrls: ['./admin-page.component.css', '../../core/styles/navbar.css'],
 })
 export class AdminPageComponent {}

@@ -1,0 +1,53 @@
+.active{
+  color:white;
+  background-color:  var(--color-alter-black);
+}
+
+ul{
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  width: 100dvw;
+  justify-content: space-evenly;
+}
+li{
+  cursor: pointer;
+  margin: 1em;
+  padding: .3em;
+  border-radius: 5px;
+  width: 15%;
+  text-align: center;
+  color: var(--color-black);
+  background-color: var(--color-white);
+  text-decoration: none;
+  font-size:large ;
+  transition: background-color 2s;
+  &:hover{
+    background-color: var(--color-two);
+    color: var(--color-white);
+
+  }
+
+
+}
+
+
+
+
+
+
+@media (max-width: 767px) {
+  /* Estilos para pantallas de hasta 767px de ancho */
+  nav ul{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  nav ul li{
+    width: 90%;
+    height: 1.2em;
+    margin: 0.2em;
+    font-size: 1.3em;
+  }
+
+}

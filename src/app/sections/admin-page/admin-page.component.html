@@ -1,11 +1,14 @@
 <section>
   <h2>Admin section</h2>
-  <div>
-    <app-profile-panel/>
-    <app-education-panel/>
-    <app-project-panel/>
-    <app-tags-panel/>
-  </div>
+  <nav>
+    <ul>
+      <li routerLink="/admin/profile">Perfil</li>
+      <li routerLink="/admin/education">Formación</li>
+      <li routerLink="/admin/project">Proyectos</li>
+      <li routerLink="/admin/tag">Etiquetas</li>
+    </ul>
+  </nav>
+<router-outlet/>
 </section>
 
 

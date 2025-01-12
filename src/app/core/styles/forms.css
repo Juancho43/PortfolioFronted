@@ -2,7 +2,7 @@ form, fieldset {
   display: flex;
   flex-direction: column;
   padding: 6px;
-  width: 5em;
+
 
 }
 input,textarea,select,option {
