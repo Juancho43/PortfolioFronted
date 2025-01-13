@@ -1,13 +1,40 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ProyectFormComponent } from '../proyect-form/proyect-form.component';
 import { ProyectListComponent } from '../proyect-list/proyect-list.component';
 import { ProyectComponent } from '../proyect/proyect.component';
+import { DataTableComponent } from '../../../core/shared/data-table/data-table.component';
+import { EducationService } from '../../../core/services/education.service';
+import {
+  convertToTableData,
+  TableData,
+} from '../../../core/interfaces/TableData';
+import { ProyectsService } from '../../../core/services/proyects.service';
 
 @Component({
   selector: 'app-project-panel',
-  imports: [ProyectFormComponent, ProyectListComponent, ProyectComponent],
+  imports: [
+    ProyectFormComponent,
+    ProyectListComponent,
+    ProyectComponent,
+    DataTableComponent,
+  ],
   standalone: true,
   templateUrl: './project-panel.component.html',
   styleUrl: './project-panel.component.css',
 })
-export class ProjectPanelComponent {}
+export class ProjectPanelComponent {
+  private service = inject(ProyectsService);
+  tilte: string = 'Proyectos';
+  projectColumns: string[] = [];
+  projectData: TableData[] = [];
+
+  ngOnInit() {
+    this.service.getProyects().subscribe((res) => {
+      Object.keys(res.Projects[0]).forEach((key) => {
+        this.projectColumns.push(key);
+      });
+
+      this.projectData = convertToTableData(res.Projects);
+    });
+  }
+}

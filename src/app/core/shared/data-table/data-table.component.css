@@ -1,0 +1,13 @@
+table{
+  overflow-x: scroll;
+  width: 65dvw;
+  padding: 5px;
+  justify-self:center;
+
+}
+td{
+  border:1px solid var(--color-white);
+}
+tr:hover{
+  background-color: var(--color-alter-black);
+}
