@@ -10,9 +10,10 @@ header{
 header img{
     border: 1px solid white;
     filter: drop-shadow(5px 5px 5px rgba(255, 251, 251, 0.5));
-    border-radius: 50%;
+    border-radius: 10px 0 0 10px;
+  object-fit: contain;
     height: 16em;
-    width: 16em;
+    width: auto;
     margin-right: 3em;
 }
 header div{
