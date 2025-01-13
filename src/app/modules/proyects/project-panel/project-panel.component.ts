@@ -1,9 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { ProyectFormComponent } from '../proyect-form/proyect-form.component';
-import { ProyectListComponent } from '../proyect-list/proyect-list.component';
-import { ProyectComponent } from '../proyect/proyect.component';
 import { DataTableComponent } from '../../../core/shared/data-table/data-table.component';
-import { EducationService } from '../../../core/services/education.service';
 import {
   convertToTableData,
   TableData,
@@ -12,12 +9,7 @@ import { ProyectsService } from '../../../core/services/proyects.service';
 
 @Component({
   selector: 'app-project-panel',
-  imports: [
-    ProyectFormComponent,
-    ProyectListComponent,
-    ProyectComponent,
-    DataTableComponent,
-  ],
+  imports: [ProyectFormComponent, DataTableComponent],
   standalone: true,
   templateUrl: './project-panel.component.html',
   styleUrl: './project-panel.component.css',

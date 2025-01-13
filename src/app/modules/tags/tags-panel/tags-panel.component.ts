@@ -1,7 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { TagFormComponent } from '../tag-form/tag-form.component';
-import { TagListComponent } from '../tag-list/tag-list.component';
-import { EducationService } from '../../../core/services/education.service';
+
 import {
   convertToTableData,
   TableData,
@@ -11,7 +10,7 @@ import { DataTableComponent } from '../../../core/shared/data-table/data-table.c
 
 @Component({
   selector: 'app-tags-panel',
-  imports: [TagFormComponent, TagListComponent, DataTableComponent],
+  imports: [TagFormComponent, DataTableComponent],
   standalone: true,
   templateUrl: './tags-panel.component.html',
   styleUrl: './tags-panel.component.css',
