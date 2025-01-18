@@ -1,8 +1,9 @@
-export const API_URL = 'http://localhost:8000/api/v1';
+// export const API_URL = 'http://localhost:8000/api/v1';
+export const API_URL = 'https://bravojuan.site/back/public/api/v1';
 
 export const ENDPOINTS = {
-  profile:{
-    get:'/profile/:id'
+  profile: {
+    get: '/profile/:id',
   },
   education: {
     getAll: '/education',
@@ -11,13 +12,13 @@ export const ENDPOINTS = {
     update: '/education/:id',
     delete: '/education/:id',
   },
-  project:{
+  project: {
     getAll: '/project',
     getById: '/project/:id',
     post: '/project',
-    getByTag: '/project/tag/:id'
+    getByTag: '/project/tag/:id',
   },
-  tag:{
+  tag: {
     getAll: '/tag',
-  }
-}
+  },
+};
