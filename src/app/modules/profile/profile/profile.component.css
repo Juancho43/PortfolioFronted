@@ -1,0 +1,47 @@
+article{
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  padding-top: 3em;
+}
+
+article img{
+  border: 1px solid white;
+  filter: drop-shadow(5px 5px 5px rgba(255, 251, 251, 0.5));
+  border-radius: 10px 0 0 10px;
+  object-fit: contain;
+  height: 16em;
+  width: auto;
+  margin-right: 3em;
+}
+article div{
+  width: 70vw;
+}
+article h1{
+  font-size: 3em;
+}
+article h2{
+  font-size: 2.5em;
+}
+article p{
+  max-width: 50vw;
+  line-height: 2em;
+  font-family: 'Poppins', sans-serif;
+}
+
+@media (max-width: 767px) {
+  /* Estilos para pantallas de hasta 767px de ancho */
+  article{
+    flex-direction: column;
+  }
+  article img{
+    margin: auto;
+  }
+  article h1{
+    text-align: center;
+  }
+  article p{
+    max-width: none;
+  }
+}

@@ -1,16 +1,14 @@
 footer{
-
-
-
-
   display: flex;
   flex-direction: column;
   background-color: var(--color-black);
   color: var(--color-white);
   justify-content: center;
   align-items: flex-start;
-  /*width: 100dvh;*/
   min-height: 70px;
+}
+a,p{
+  margin: 5px;
 }
 
 @media (max-width: 767px) {

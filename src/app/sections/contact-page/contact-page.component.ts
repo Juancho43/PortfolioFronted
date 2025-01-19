@@ -1,15 +1,25 @@
-import { Component } from '@angular/core';
-import {ContactComponent} from '../../modules/contact/contact.component';
+import { Component, inject } from '@angular/core';
+import { ContactComponent } from '../../modules/contact/contact.component';
+import { ProfileDaoService } from '../../core/DAO/profile-dao.service';
 
 @Component({
   selector: 'app-contact-page',
   standalone: true,
-  imports: [
-    ContactComponent
-  ],
+  imports: [ContactComponent],
   templateUrl: './contact-page.component.html',
-  styleUrl: './contact-page.component.css'
+  styleUrl: './contact-page.component.css',
 })
 export class ContactPageComponent {
+  private dao = inject(ProfileDaoService);
+  profile: any;
 
+  ngOnInit() {
+    this.getData();
+  }
+
+  getData() {
+    this.dao.getProfile().subscribe((res) => {
+      this.profile = res;
+    });
+  }
 }
