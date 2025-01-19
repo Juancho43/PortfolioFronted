@@ -27,19 +27,4 @@ export class AppComponent {
   title = 'portfolio';
   private loadingService = inject(LoadingService);
   isLoading$ = this.loadingService.loading$;
-
-  private profileService = inject(ProfileService);
-  private profileDao = inject(ProfileDaoService);
-
-  ngOnInit() {
-    this.getData();
-  }
-
-  getData() {
-    this.profileService
-      .getProfile(1)
-      .subscribe((profile) =>
-        this.profileDao.setProfile(profile.Profile.profile),
-      );
-  }
 }

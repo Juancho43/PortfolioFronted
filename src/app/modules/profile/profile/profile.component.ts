@@ -10,16 +10,17 @@ import { ProfileDaoService } from '../../../core/DAO/profile-dao.service';
   styleUrl: './profile.component.css',
 })
 export class ProfileComponent {
-  private dao = inject(ProfileDaoService);
+  private profileService = inject(ProfileService);
+  private profileDao = inject(ProfileDaoService);
   profile: any;
-
   ngOnInit() {
     this.getData();
   }
 
   getData() {
-    this.dao.getProfile().subscribe((res) => {
-      this.profile = res;
+    this.profileService.getProfile(1).subscribe((profile) => {
+      this.profileDao.setProfile(profile.Profile.profile);
+      this.profile = profile.Profile.profile;
     });
   }
 }
