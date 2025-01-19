@@ -1,33 +1,25 @@
-import {Component, inject} from '@angular/core';
-import {EducationService} from '../../../core/services/education.service';
-import {Education} from '../../../core/interfaces/Education';
-import {EducationComponent} from '../education/education.component';
+import { Component, inject } from '@angular/core';
+import { EducationService } from '../../../core/services/education.service';
+import { Education } from '../../../core/interfaces/Education';
+import { EducationComponent } from '../education/education.component';
 
 @Component({
   selector: 'app-education-list',
   standalone: true,
-  imports: [
-    EducationComponent,
-  ],
+  imports: [EducationComponent],
   templateUrl: './education-list.component.html',
-  styleUrl: './education-list.component.css'
+  styleUrl: './education-list.component.css',
 })
-export class EducationListComponent{
+export class EducationListComponent {
   private educationService = inject(EducationService);
-  data : Education[] = [];
+  data: Education[] = [];
 
-
-  constructor(){
-    this.getEducationData()
-
+  constructor() {
+    this.getEducationData();
   }
-
-
-  getEducationData(){
-    this.educationService.getAll().subscribe(res=>{
+  getEducationData() {
+    this.educationService.getAll().subscribe((res) => {
       this.data = res.education;
-      console.log(res.education);
-
-    })
+    });
   }
 }

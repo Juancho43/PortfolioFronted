@@ -11,7 +11,6 @@ export function loadingIntercept(
 
   return next(req).pipe(
     finalize(() => {
-      console.log('hola');
       loadingService.hide();
     }),
   );
