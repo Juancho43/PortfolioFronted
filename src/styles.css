@@ -59,7 +59,7 @@
 }
 
 body{
-  cursor: url("cursor.cur")0 0 ,crosshair !important;
+
   background: linear-gradient(60deg,var(--color-one), var(--color-two));
   background-size: 190%;
   animation-timing-function: ease;

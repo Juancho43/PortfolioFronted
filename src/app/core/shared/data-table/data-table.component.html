@@ -16,8 +16,8 @@
         <td>{{ row[column] }}</td>
 
     }
-    <td>Editar</td>
-    <td>Borrar</td>
+    <td (click)="handleEdit(row)">Editar</td>
+    <td (click)="handleDelete(row)">Borrar</td>
   </tr>
 
 

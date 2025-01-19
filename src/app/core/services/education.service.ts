@@ -22,7 +22,10 @@ export class EducationService {
   }
 
   post(education: Education): Observable<any> {
-    return this.http.post('http://localhost:8000/api/v1/education/', education);
+    return this.http.post(
+      environment.api_url + ENDPOINTS.education.post,
+      education,
+    );
   }
 
   put(education: Education): Observable<any> {

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TableData } from '../../interfaces/TableData';
 
 @Component({
@@ -12,4 +12,12 @@ export class DataTableComponent {
   @Input() columns: string[] = [];
   @Input() data: TableData[] = [];
   @Input() tilte: string = '';
+  @Output() onEdit = new EventEmitter<any>();
+  @Output() onDelete = new EventEmitter<any>();
+  handleEdit(data: any) {
+    this.onEdit.emit(data);
+  }
+  handleDelete(data: any) {
+    this.onDelete.emit(data);
+  }
 }
