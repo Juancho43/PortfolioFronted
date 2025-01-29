@@ -1,4 +1,6 @@
 <article>
   <app-education-form/>
-  <app-data-table [data]="educationData" [columns]="educationColumns" [tilte]="tilte"/>
+  <app-data-table [data]="educationData" [columns]="educationColumns" [tilte]="tilte"
+                  (onEdit)="handleEdit($event)"
+  />
 </article>

@@ -1,5 +1,5 @@
 table{
-  overflow-x: scroll;
+
   width: 65dvw;
   padding: 5px;
   justify-self:center;
@@ -10,4 +10,11 @@ td{
 }
 tr:hover{
   background-color: var(--color-alter-black);
+}
+@media (max-width: 767px) {
+
+  table{
+    justify-self:flex-start;
+  }
+
 }

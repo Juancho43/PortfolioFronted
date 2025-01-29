@@ -6,6 +6,7 @@ import {
   TableData,
 } from '../../../core/interfaces/TableData';
 import { EducationService } from '../../../core/services/education.service';
+import { EducationDaoService } from '../../../core/DAO/education-dao.service';
 
 @Component({
   selector: 'app-education-panel',
@@ -19,6 +20,7 @@ import { EducationService } from '../../../core/services/education.service';
 })
 export class EducationPanelComponent {
   private service = inject(EducationService);
+  private dao = inject(EducationDaoService);
   tilte: string = 'Formación';
   educationColumns: string[] = [];
   educationData: TableData[] = [];
@@ -31,5 +33,9 @@ export class EducationPanelComponent {
 
       this.educationData = convertToTableData(res.education);
     });
+  }
+
+  handleEdit(datos: any) {
+    this.dao.setEducation(datos);
   }
 }

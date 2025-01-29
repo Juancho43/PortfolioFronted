@@ -14,7 +14,7 @@ export class ProfileComponent {
   private profileService = inject(ProfileService);
   private profileDao = inject(ProfileDaoService);
   profile: any;
-  photo = environment.public_url;
+  photo: string = '';
   ngOnInit() {
     this.getData();
   }
@@ -23,7 +23,7 @@ export class ProfileComponent {
     this.profileService.getProfile(1).subscribe((profile) => {
       this.profileDao.setProfile(profile.Profile.profile);
       this.profile = profile.Profile.profile;
-      this.photo += profile.Profile.profile.photo_url;
+      this.photo = environment.public_url + profile.Profile.profile.photo_url;
     });
   }
 }

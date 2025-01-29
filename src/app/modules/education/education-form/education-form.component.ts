@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { EducationService } from '../../../core/services/education.service';
 import { Education } from '../../../core/interfaces/Education';
+import { EducationDaoService } from '../../../core/DAO/education-dao.service';
 
 @Component({
   selector: 'app-education-form',
@@ -20,19 +21,11 @@ import { Education } from '../../../core/interfaces/Education';
 })
 export class EducationFormComponent {
   private service = inject(EducationService);
+  private dao = inject(EducationDaoService);
   edit: boolean = false;
-  currentEducation: Education = {
-    id: 0,
-    name: '',
-    description: '',
-    startDate: new Date(),
-    endDate: new Date(),
-    profile_id: 0,
-    type: '',
-    created_at: new Date(),
-    updated_at: new Date(),
-    deleted_at: null,
-  };
+
+  currentEducation: Education = this.dao.getEmptyEducation();
+
   EducationForm: FormGroup = new FormGroup({
     id: new FormControl(0),
     nombre: new FormControl('', [Validators.required]),
@@ -42,7 +35,12 @@ export class EducationFormComponent {
     fechaFinalizacion: new FormControl(new Date(), [Validators.required]),
   });
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.dao.getEducation().subscribe((res) => {
+      this.currentEducation = res;
+      this.setForm();
+    });
+  }
 
   onSubmit() {
     this.mapperProyecto();
@@ -50,6 +48,18 @@ export class EducationFormComponent {
       this.service.post(this.currentEducation).subscribe();
     }
   }
+
+  setForm() {
+    this.EducationForm.patchValue({
+      id: this.currentEducation.id,
+      nombre: this.currentEducation.name,
+      resumen: this.currentEducation.description,
+      fechaInicio: this.currentEducation.startDate,
+      fechaFinalizacion: this.currentEducation.endDate,
+      tipo: this.currentEducation.type,
+    });
+  }
+
   mapperProyecto() {
     this.currentEducation.id = this.EducationForm.get('id')?.value;
     this.currentEducation.name = this.EducationForm.get('nombre')?.value;
