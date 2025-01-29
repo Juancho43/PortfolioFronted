@@ -20,6 +20,13 @@ export class ProfileService {
   postProfile(profile: Profile): Observable<any> {
     return this.http.post('http://localhost:8000/api/profile/', profile);
   }
+  postImg(img: FormData, id: number) {
+    return this.http.post(
+      environment.api_url +
+        ENDPOINTS.profile.postImg.replace(':id', id.toString()),
+      img,
+    );
+  }
 
   putProfile(profile: Profile): Observable<any> {
     return this.http.put<Profile>(

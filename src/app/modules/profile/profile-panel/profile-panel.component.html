@@ -1,5 +1,8 @@
 <article>
-  <app-profile-form [currentProfile]="profile"/>
+  <div>
+    <app-profile-form [currentProfile]="profile"/>
+    <app-img-profile-form/>
+  </div>
   <div>
     <app-data-table [data]="data" [columns]="colums" [tilte]="tilte" (onEdit)="handleEdit()"/>
     <app-data-table [data]="profileData" [columns]="profileColumns" [tilte]="profileTilte"/>

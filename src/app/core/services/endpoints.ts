@@ -4,6 +4,7 @@ export const API_URL = 'https://bravojuan.site/back/public/api/v1';
 export const ENDPOINTS = {
   profile: {
     get: '/profile/:id',
+    postImg: '/profile/img/:id',
   },
   education: {
     getAll: '/education',

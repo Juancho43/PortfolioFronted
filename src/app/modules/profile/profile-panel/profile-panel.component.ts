@@ -4,10 +4,11 @@ import { DataTableComponent } from '../../../core/shared/data-table/data-table.c
 import { ProfileService } from '../../../core/services/profile.service';
 import { TableData } from '../../../core/interfaces/TableData';
 import { ProfileDaoService } from '../../../core/DAO/profile-dao.service';
+import { ImgProfileFormComponent } from '../img-profile-form/img-profile-form.component';
 
 @Component({
   selector: 'app-profile-panel',
-  imports: [ProfileFormComponent, DataTableComponent],
+  imports: [ProfileFormComponent, DataTableComponent, ImgProfileFormComponent],
   standalone: true,
   templateUrl: './profile-panel.component.html',
   styleUrls: [
