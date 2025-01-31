@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { EducationService } from '../../../core/services/education.service';
 import { Education } from '../../../core/interfaces/Education';
 import { EducationComponent } from '../education/education.component';
@@ -12,7 +12,8 @@ import { EducationComponent } from '../education/education.component';
 })
 export class EducationListComponent {
   private educationService = inject(EducationService);
-  data: Education[] = [];
+
+  @Input() data: Education[] = [];
 
   constructor() {
     this.getEducationData();

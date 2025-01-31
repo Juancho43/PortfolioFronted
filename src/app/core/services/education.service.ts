@@ -21,6 +21,13 @@ export class EducationService {
     return this.http.get<Education>(url);
   }
 
+  getByType(type: string) {
+    return this.http.get<any>(
+      environment.api_url +
+        ENDPOINTS.education.getByType.replace(':type', type),
+    );
+  }
+
   post(education: Education): Observable<any> {
     return this.http.post(
       environment.api_url + ENDPOINTS.education.post,

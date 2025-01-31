@@ -10,6 +10,7 @@ export const ENDPOINTS = {
   education: {
     getAll: '/education',
     getById: '/education/:id',
+    getByType: '/education/type/:type',
     post: '/education',
     update: '/education/:id',
     delete: '/education/:id',
