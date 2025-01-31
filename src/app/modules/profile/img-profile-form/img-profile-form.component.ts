@@ -24,6 +24,9 @@ export class ImgProfileFormComponent {
     if (this.selectedFile) {
       let formData = new FormData();
       formData.append('photo_url', this.selectedFile, this.selectedFile.name);
+      for (let [key, value] of formData.entries()) {
+        console.log(key, value);
+      }
       this.service.postImg(formData, 1).subscribe();
     }
   }

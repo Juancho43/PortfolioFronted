@@ -1,0 +1,7 @@
+<form   (ngSubmit)="onSubmit()" class="glass">
+  <div>
+    <label for="cv">CV:</label>
+    <input id="cv" type="file" (change)="onFileSelected($event)">
+  </div>
+  <button type="submit">Subir CV</button>
+</form>

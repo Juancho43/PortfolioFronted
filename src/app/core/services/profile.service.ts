@@ -17,9 +17,6 @@ export class ProfileService {
     );
   }
 
-  postProfile(profile: Profile): Observable<any> {
-    return this.http.post('http://localhost:8000/api/profile/', profile);
-  }
   postImg(img: FormData, id: number) {
     return this.http.post(
       environment.api_url +
@@ -35,7 +32,11 @@ export class ProfileService {
     );
   }
 
-  deleteProfile(proyecto: Profile): Observable<any> {
-    return this.http.delete(`http://localhost:8000/api/profile/${proyecto.id}`);
+  postCv(cv: FormData, id: number) {
+    return this.http.post(
+      environment.api_url +
+        ENDPOINTS.profile.postCV.replace(':id', id.toString()),
+      cv,
+    );
   }
 }

@@ -5,10 +5,16 @@ import { ProfileService } from '../../../core/services/profile.service';
 import { TableData } from '../../../core/interfaces/TableData';
 import { ProfileDaoService } from '../../../core/DAO/profile-dao.service';
 import { ImgProfileFormComponent } from '../img-profile-form/img-profile-form.component';
+import { CvProfileFormComponent } from '../cv-profile-form/cv-profile-form.component';
 
 @Component({
   selector: 'app-profile-panel',
-  imports: [ProfileFormComponent, DataTableComponent, ImgProfileFormComponent],
+  imports: [
+    ProfileFormComponent,
+    DataTableComponent,
+    ImgProfileFormComponent,
+    CvProfileFormComponent,
+  ],
   standalone: true,
   templateUrl: './profile-panel.component.html',
   styleUrls: [

@@ -1,0 +1,8 @@
+@media (max-width: 767px) {
+
+  article{
+    flex-direction: column;
+    gap:10px;
+  }
+
+}

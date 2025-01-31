@@ -21,13 +21,17 @@ export class ProfileFormComponent {
   private service = inject(ProfileService);
 
   edit: boolean = true;
-  @Input() currentProfile: any = {
+  @Input() currentProfile: Profile = {
     id: 0,
     description: '',
     rol: '',
     publicMail: '',
     linkedin: '',
     github: '',
+    user_id: 0,
+    name: '',
+    photo_url: '',
+    cv: '',
   };
   ProfileForm: FormGroup = new FormGroup({
     id: new FormControl(0),
@@ -36,13 +40,17 @@ export class ProfileFormComponent {
     rol: new FormControl('', [Validators.required]),
   });
 
-  ngOnInit() {
-    this.ProfileForm.patchValue({
-      id: this.currentProfile.id,
-      nombre: this.currentProfile.name,
-      rol: this.currentProfile.rol,
-      presentacion: this.currentProfile.presentacion,
-    });
+  ngOnInit() {}
+
+  setForm() {
+    if (this.currentProfile.id != 0) {
+      this.ProfileForm.patchValue({
+        id: this.currentProfile?.id,
+        nombre: this.currentProfile.name,
+        rol: this.currentProfile.rol,
+        presentacion: this.currentProfile.description,
+      });
+    }
   }
 
   onSubmit() {

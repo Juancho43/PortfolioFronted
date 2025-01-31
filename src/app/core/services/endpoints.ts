@@ -5,6 +5,7 @@ export const ENDPOINTS = {
   profile: {
     get: '/profile/:id',
     postImg: '/profile/img/:id',
+    postCV: '/profile/cv/:id',
   },
   education: {
     getAll: '/education',
