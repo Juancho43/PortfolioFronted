@@ -12,7 +12,10 @@ import { ProyectsService } from '../../../core/services/proyects.service';
   imports: [ProyectFormComponent, DataTableComponent],
   standalone: true,
   templateUrl: './project-panel.component.html',
-  styleUrl: './project-panel.component.css',
+  styleUrls: [
+    './project-panel.component.css',
+    '../../../core/styles/panel.css',
+  ],
 })
 export class ProjectPanelComponent {
   private service = inject(ProyectsService);

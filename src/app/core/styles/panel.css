@@ -1,7 +1,9 @@
 article{
-
+  overflow-x: auto;
   width: 90vw;
-  justify-content: space-between;
+  justify-content: center;
+  flex-direction: column;
+  gap:30px;
 }
 
 article div{
@@ -18,11 +20,3 @@ form{
 
 
 
-@media (max-width: 767px) {
-  /* Estilos para pantallas de hasta 767px de ancho */
-  article{
-    flex-direction: column;
-  }
-
-
-}

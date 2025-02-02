@@ -13,7 +13,7 @@ import { DataTableComponent } from '../../../core/shared/data-table/data-table.c
   imports: [TagFormComponent, DataTableComponent],
   standalone: true,
   templateUrl: './tags-panel.component.html',
-  styleUrl: './tags-panel.component.css',
+  styleUrls: ['./tags-panel.component.css', '../../../core/styles/panel.css'],
 })
 export class TagsPanelComponent {
   private service = inject(TagsService);

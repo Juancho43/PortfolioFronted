@@ -1,7 +1,8 @@
 <form   (ngSubmit)="onSubmit()" class="glass">
-  <div>
-    <label for="image">Foto de perfil:</label>
-    <input type="file" id="image" name="image" (change)="onFileSelected($event)" accept="image/*" required>
-  </div>
+  <fieldset>
+      <legend>Subir foto</legend>
+      <label for="image">Foto de perfil:</label>
+      <input type="file" id="image" name="image" (change)="onFileSelected($event)" accept="image/*" required>
+    </fieldset>
   <button type="submit">Subir Imagen</button>
 </form>
