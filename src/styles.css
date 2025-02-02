@@ -74,6 +74,7 @@ main{
   overflow-y:auto;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   gap:3em;
 
 }
@@ -90,7 +91,7 @@ h2{
 section{
   display:flex;
   flex-direction:column;
-  justify-content:center;
+  justify-content:flex-start;
   align-items:center;
   flex-grow: 1;
   width: 90vw;
