@@ -1,6 +1,11 @@
 <form [formGroup]="EducationForm" (ngSubmit)="onSubmit()" class="glass">
   <fieldset>
-    <legend>Nueva formación:</legend>
+    @if(edit){
+      <legend>Nueva formación:</legend>
+    }@else{
+      <legend>Modificar formación:</legend>
+    }
+
     <label for="nombre">Nombre:</label>
     <input type="text" name="nombre" id="nombre" formControlName="nombre">
     <label for="resumen">Resumen:</label>
@@ -11,10 +16,22 @@
     <input type="date" name="fechaFinalizacion" id="fechaFinalizacion" formControlName="fechaFinalizacion">
     <label for="tipo">Tipo:</label>
     <select id="tipo" formControlName="tipo">
+      <option value="Academico">Academico</option>
       <option value="Curso">Curso</option>
-      <option value="Educacion Formal">Formal</option>
     </select>
 
   </fieldset>
-  <button type="submit">Crear</button>
+  <div class="Buttons">
+    <button type="submit">
+    @if(edit){
+      Crear.
+    }@else{
+      Modificar.
+    }
+    </button>
+    <button type="reset">
+      Limpiar.
+    </button>
+  </div>
+
 </form>

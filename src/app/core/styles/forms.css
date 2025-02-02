@@ -3,8 +3,18 @@ form, fieldset {
   flex-direction: column;
   padding: 10px;
   gap:10px;
+  font-family: var(--font-one);
 }
-input,textarea,select,option {
+fieldset{
+  border: none;
+}
+legend{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+input,textarea,select,option, button {
+  font-family: var(--font-two);
   color:black;
   background-color: rgba(255, 255, 255, 0.5);
   padding: 10px;
@@ -17,19 +27,25 @@ input:focus, textarea:focus, select:focus{
   box-shadow: 3px 3px 10px inset var(--color-alter-white);
   outline: none;
 }
+textarea{
+  resize: none;
+}
 
 label{
-  color:var(--color-black);
+  color:var(--color-alter-black);
 }
-legend{
-  font-family: 'Roboto', sans-serif;
-}
+
 button{
-  color: black;
-  font-family: 'Poppins', sans-serif;
+  margin: 0 10px;
+  color:var(--color-alter-black);
   width: max-content;
   flex-grow: 1;
+  transition: 2s background-color;
+  &:hover{
+    background-color: rgba(255, 255, 255, 0.9);
+  }
 }
+
 
 .Buttons{
   display: flex;
