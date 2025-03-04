@@ -27,11 +27,11 @@ export class EducationPanelComponent {
 
   ngOnInit() {
     this.service.getAll().subscribe((res) => {
-      Object.keys(res.education[0]).forEach((key) => {
+      Object.keys(res.data![0]).forEach((key) => {
         this.educationColumns.push(key);
       });
 
-      this.educationData = convertToTableData(res.education);
+      this.educationData = convertToTableData(res.data!);
     });
   }
 

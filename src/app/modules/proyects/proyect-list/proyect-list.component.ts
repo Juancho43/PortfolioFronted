@@ -39,7 +39,7 @@ export class ProyectListComponent implements OnInit {
   getData() {
     this.proyectsService.getProyects().subscribe({
       next: (x) => {
-        this.proyects = x.Projects;
+        this.proyects = x.data!;
       },
     });
   }

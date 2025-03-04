@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { Tag } from '../interfaces/Tag';
 import { API_URL, ENDPOINTS } from './endpoints';
 import { environment } from '../../../environments/environment';
+import { ApiResponseCollection } from '../interfaces/ApiResponseCollection';
+import { ApiResponse } from '../interfaces/ApiResponse';
 
 @Injectable({
   providedIn: 'root',
@@ -11,11 +13,11 @@ import { environment } from '../../../environments/environment';
 export class TagsService {
   private http = inject(HttpClient);
 
-  getTags(): Observable<any> {
-    return this.http.get<any>(environment.api_url + ENDPOINTS.tag.getAll);
+  getTags(): Observable<ApiResponseCollection<Tag>> {
+    return this.http.get<ApiResponseCollection<Tag>>(environment.api_url + ENDPOINTS.tag.getAll);
   }
   getTagById(id: number) {
-    return this.http.get<Tag>(`http://localhost:8000/api/tag/${id}`);
+    return this.http.get<ApiResponse<Tag>>(`http://localhost:8000/api/tag/${id}`);
   }
   getProjectsByTag(id: number) {
     const url =

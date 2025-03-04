@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { Education } from '../interfaces/Education';
 import { API_URL, ENDPOINTS } from './endpoints';
 import { environment } from '../../../environments/environment';
+import { ApiResponseCollection } from '../interfaces/ApiResponseCollection';
+import { ApiResponse } from '../interfaces/ApiResponse';
 
 @Injectable({
   providedIn: 'root',
@@ -11,14 +13,14 @@ import { environment } from '../../../environments/environment';
 export class EducationService {
   private http = inject(HttpClient);
 
-  getAll(): Observable<any> {
-    return this.http.get<any>(environment.api_url + ENDPOINTS.education.getAll);
+  getAll(): Observable<ApiResponseCollection<Education>>{
+    return this.http.get<ApiResponseCollection<Education>>(environment.api_url + ENDPOINTS.education.getAll);
   }
   getById(id: number) {
     const url =
       environment.api_url +
       ENDPOINTS.education.getById.replace(':id', id.toString());
-    return this.http.get<Education>(url);
+    return this.http.get<ApiResponse<Education>>(url);
   }
 
   getByType(type: string) {

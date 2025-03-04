@@ -1,4 +1,4 @@
-export interface ApiResponseArray<T>{
+export interface ApiResponseCollection<T>{
     success: boolean;
     message?: string;
     data?: T[]; 

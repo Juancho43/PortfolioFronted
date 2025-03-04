@@ -40,7 +40,7 @@ export class ProyectFormComponent {
   getTagData(){
     this.tagsService.getTags().subscribe({
       next : (x) => {
-        this.tags = x.tagDTOList;
+        this.tags = x.data!;
       }
     })
   }
