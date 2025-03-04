@@ -36,18 +36,18 @@ export class ProfilePanelComponent {
 
   ngOnInit() {
     this.service.getProfile(1).subscribe((res) => {
-      Object.keys(res.Profile).forEach((key) => {
-        this.colums.push(key);
-      });
+      // Object.keys(res.data).forEach((key) => {
+      //   this.colums.push(key);
+      // });
 
-      Object.keys(res.Profile.profile).forEach((value) => {
-        this.profileColumns.push(value);
-      });
+      // Object.keys(res.Profile.profile).forEach((value) => {
+      //   this.profileColumns.push(value);
+      // });
 
-      this.data.push(res.Profile);
-      this.profileData.push(res.Profile.profile);
+      // this.data.push(res.Profile);
+      // this.profileData.push(res.Profile.profile);
 
-      this.dao.setProfile(res.Profile);
+      // this.dao.setProfile(res.Profile);
     });
   }
 

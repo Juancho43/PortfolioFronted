@@ -25,13 +25,9 @@ export class ProfileFormComponent {
     id: 0,
     description: '',
     rol: '',
-    publicMail: '',
-    linkedin: '',
-    github: '',
-    user_id: 0,
+    links:[],
     name: '',
-    photo_url: '',
-    cv: '',
+  
   };
   ProfileForm: FormGroup = new FormGroup({
     id: new FormControl(0),
