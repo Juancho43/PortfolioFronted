@@ -12,10 +12,10 @@ import { LoginFormComponent } from './modules/auth/login-form/login-form.compone
 import { authGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
-  { path: 'home', component: ContactPageComponent },
+  { path: 'home', component: HomePageComponent },
   { path: 'education', component: EducationPageComponent },
   { path: 'projects', component: ProyectsPageComponent },
-  { path: 'about', component: HomePageComponent },
+  { path: 'about', component: ContactPageComponent },
   { path: 'login', component: LoginFormComponent },
   {
     path: 'admin',

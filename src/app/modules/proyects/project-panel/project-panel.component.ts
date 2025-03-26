@@ -25,11 +25,11 @@ export class ProjectPanelComponent {
 
   ngOnInit() {
     this.service.getProyects().subscribe((res) => {
-      Object.keys(res.Projects[0]).forEach((key) => {
+      Object.keys(res.data![0]).forEach((key) => {
         this.projectColumns.push(key);
       });
 
-      this.projectData = convertToTableData(res.Projects);
+      this.projectData = convertToTableData(res.data!);
     });
   }
 }

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Profile } from '../interfaces/Profile';
 import { ENDPOINTS } from './endpoints';
 import { environment } from '../../../environments/environment';
+import { ApiResponse } from '../interfaces/ApiResponse';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +13,7 @@ export class ProfileService {
   private http = inject(HttpClient);
 
   getProfile(id: number) {
-    return this.http.get<any>(
+    return this.http.get<ApiResponse<Profile>>(
       environment.api_url + ENDPOINTS.profile.get.replace(':id', id.toString()),
     );
   }

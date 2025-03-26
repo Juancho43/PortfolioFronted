@@ -23,11 +23,11 @@ export class TagsPanelComponent {
 
   ngOnInit() {
     this.service.getTags().subscribe((res) => {
-      Object.keys(res.Tags[0]).forEach((key) => {
+      Object.keys(res.data![0]).forEach((key) => {
         this.tagsColumns.push(key);
       });
 
-      this.tagsData = convertToTableData(res.Tags);
+      this.tagsData = convertToTableData(res.data!);
     });
   }
 }

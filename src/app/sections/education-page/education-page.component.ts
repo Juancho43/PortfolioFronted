@@ -42,11 +42,11 @@ export class EducationPageComponent {
   getEducation(type: string) {
     if (type == '') {
       this.service.getAll().subscribe((res) => {
-        this.EducationList = res.education;
+        this.EducationList = res.data!;
       });
     } else {
       this.service.getByType(type).subscribe((res) => {
-        this.EducationList = res.education;
+        this.EducationList = res.data!;
       });
     }
   }

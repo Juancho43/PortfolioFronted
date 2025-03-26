@@ -20,7 +20,7 @@ export class EducationListComponent {
   }
   getEducationData() {
     this.educationService.getAll().subscribe((res) => {
-      this.data = res.education;
+      this.data = res.data!;
     });
   }
 }

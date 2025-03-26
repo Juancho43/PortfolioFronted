@@ -26,7 +26,7 @@ export class TagListComponent {
   getData(){
     this.tagsService.getTags().subscribe({
       next : (x) => {
-        this.tags = x.Tags;
+        this.tags = x.data!;
       }
     })
   }
