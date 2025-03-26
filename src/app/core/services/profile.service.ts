@@ -2,9 +2,9 @@ import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Profile } from '../interfaces/Profile';
-import { ENDPOINTS } from './endpoints';
 import { environment } from '../../../environments/environment';
 import { ApiResponse } from '../interfaces/ApiResponse';
+import { profileEndpoint } from './endpoints/profile.endpoint';
 
 @Injectable({
   providedIn: 'root',
@@ -12,32 +12,33 @@ import { ApiResponse } from '../interfaces/ApiResponse';
 export class ProfileService {
   private http = inject(HttpClient);
 
-  getProfile(id: number) {
+  getProfile(id: number): Observable<ApiResponse<Profile>> {
     return this.http.get<ApiResponse<Profile>>(
-      environment.api_url + ENDPOINTS.profile.get.replace(':id', id.toString()),
+      environment.api_url + profileEndpoint.get.replace(':id', id.toString()),
     );
   }
 
-  postImg(img: FormData, id: number) {
+  postImg(img: FormData, id: number): Observable<any> {
     return this.http.post(
       environment.api_url +
-        ENDPOINTS.profile.postImg.replace(':id', id.toString()),
+        profileEndpoint.postImg.replace(':id', id.toString()),
       img,
     );
   }
 
-  putProfile(profile: Profile): Observable<any> {
-    return this.http.put<Profile>(
-      `http://localhost:8000/api/profile/${profile.id}`,
-      profile,
+  postCv(cv: FormData, id: number): Observable<any> {
+    return this.http.post(
+      environment.api_url +
+        profileEndpoint.postCV.replace(':id', id.toString()),
+      cv,
     );
   }
 
-  postCv(cv: FormData, id: number) {
-    return this.http.post(
-      environment.api_url +
-        ENDPOINTS.profile.postCV.replace(':id', id.toString()),
-      cv,
+  putProfile(profile: Profile): Observable<ApiResponse<Profile>> {
+    return this.http.put<ApiResponse<Profile>>(
+      profileEndpoint.update.replace(':id', profile.id!.toString()) +
+        environment.api_url,
+      profile,
     );
   }
 }

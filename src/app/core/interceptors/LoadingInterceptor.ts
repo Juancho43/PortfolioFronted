@@ -1,6 +1,6 @@
 import { HttpEvent, HttpHandlerFn, HttpRequest } from '@angular/common/http';
 import { Observable, finalize } from 'rxjs';
-import { LoadingService } from '../services/loading.service';
+import { LoadingService } from '../services/utils/loading.service';
 
 const loadingService: LoadingService = new LoadingService();
 export function loadingIntercept(

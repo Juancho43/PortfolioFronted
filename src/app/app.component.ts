@@ -4,7 +4,7 @@ import { HeaderComponent } from './core/shared/header/header.component';
 import { NavbarComponent } from './core/shared/navbar/navbar.component';
 import { FooterComponent } from './core/shared/footer/footer.component';
 import { CommonModule } from '@angular/common';
-import { LoadingService } from './core/services/loading.service';
+import { LoadingService } from './core/services/utils/loading.service';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { ProfileService } from './core/services/profile.service';
 import { ProfileDaoService } from './core/DAO/profile-dao.service';

@@ -5,7 +5,7 @@ import {
   convertToTableData,
   TableData,
 } from '../../../core/interfaces/TableData';
-import { TagsService } from '../../../core/services/tags.service';
+import { TagService } from '../../../core/services/tag.service';
 import { DataTableComponent } from '../../../core/shared/data-table/data-table.component';
 
 @Component({
@@ -16,7 +16,7 @@ import { DataTableComponent } from '../../../core/shared/data-table/data-table.c
   styleUrls: ['./tags-panel.component.css', '../../../core/styles/panel.css'],
 })
 export class TagsPanelComponent {
-  private service = inject(TagsService);
+  private service = inject(TagService);
   tilte: string = 'Etiquetas';
   tagsColumns: string[] = [];
   tagsData: TableData[] = [];

@@ -9,7 +9,7 @@ import {
 import { ProyectsService } from '../../../core/services/proyects.service';
 import { Project } from '../../../core/interfaces/Project';
 import { TagComponent } from '../../tags/tag/tag.component';
-import { TagsService } from '../../../core/services/tags.service';
+import { TagService } from '../../../core/services/tag.service';
 import { Tag } from '../../../core/interfaces/Tag';
 import { ProyectDaoService } from '../../../core/DAO/proyect-dao.service';
 
@@ -23,7 +23,7 @@ import { ProyectDaoService } from '../../../core/DAO/proyect-dao.service';
 export class ProyectFormComponent {
   private proyectsService = inject(ProyectsService);
   private proyectsDAO = inject(ProyectDaoService);
-  private tagsService = inject(TagsService);
+  private tagsService = inject(TagService);
   tags: Tag[] = [];
   edit: boolean = false;
   currentProyect: Project = this.proyectsDAO.getEmptyProyecto();
