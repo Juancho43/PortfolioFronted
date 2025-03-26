@@ -1,15 +1,16 @@
 import { Component, inject } from '@angular/core';
-import { ProyectFormComponent } from '../proyect-form/proyect-form.component';
+import { ProjectFormComponent } from '../project-form/project-form.component';
 import { DataTableComponent } from '../../../core/shared/data-table/data-table.component';
 import {
   convertToTableData,
   TableData,
 } from '../../../core/interfaces/TableData';
-import { ProyectsService } from '../../../core/services/proyects.service';
+
+import { ProjectService } from '../../../core/services/project.service';
 
 @Component({
   selector: 'app-project-panel',
-  imports: [ProyectFormComponent, DataTableComponent],
+  imports: [ProjectFormComponent, DataTableComponent],
   standalone: true,
   templateUrl: './project-panel.component.html',
   styleUrls: [
@@ -18,13 +19,13 @@ import { ProyectsService } from '../../../core/services/proyects.service';
   ],
 })
 export class ProjectPanelComponent {
-  private service = inject(ProyectsService);
+  private service = inject(ProjectService);
   tilte: string = 'Proyectos';
   projectColumns: string[] = [];
   projectData: TableData[] = [];
 
   ngOnInit() {
-    this.service.getProyects().subscribe((res) => {
+    this.service.getAll().subscribe((res) => {
       Object.keys(res.data![0]).forEach((key) => {
         this.projectColumns.push(key);
       });

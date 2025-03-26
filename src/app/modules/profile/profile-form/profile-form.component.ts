@@ -5,7 +5,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { ProyectsService } from '../../../core/services/proyects.service';
+
 import { Project } from '../../../core/interfaces/Project';
 import { ProfileService } from '../../../core/services/profile.service';
 import { Profile } from '../../../core/interfaces/Profile';
@@ -25,9 +25,8 @@ export class ProfileFormComponent {
     id: 0,
     description: '',
     rol: '',
-    links:[],
+    links: [],
     name: '',
-  
   };
   ProfileForm: FormGroup = new FormGroup({
     id: new FormControl(0),

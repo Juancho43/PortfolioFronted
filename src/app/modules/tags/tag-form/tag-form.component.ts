@@ -35,7 +35,7 @@ export class TagFormComponent implements OnInit {
     this.mapperTag();
     if (!this.edit) {
       console.log(this.currentTag);
-      this.tagService.postTag(this.currentTag).subscribe();
+      // this.tagService.postTag(this.currentTag).subscribe();
     }
   }
   mapperTag() {

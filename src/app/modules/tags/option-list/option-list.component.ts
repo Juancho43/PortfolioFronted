@@ -4,6 +4,7 @@ import { ProyectDaoService } from '../../../core/DAO/proyect-dao.service';
 import { Tag } from '../../../core/interfaces/Tag';
 import { TagOptionComponent } from '../tag-option/tag-option.component';
 import { Router } from '@angular/router';
+import { ProjectService } from '../../../core/services/project.service';
 
 @Component({
   selector: 'app-option-list',
@@ -14,6 +15,7 @@ import { Router } from '@angular/router';
 })
 export class OptionListComponent {
   private tagsService = inject(TagService);
+  private projectService = inject(ProjectService);
   private projectDAO = inject(ProyectDaoService);
   @Input() tags: Tag[] = [];
   @Input() load: boolean = true;
@@ -24,16 +26,16 @@ export class OptionListComponent {
   }
 
   getData() {
-    this.tagsService.getTags().subscribe({
-      next: (x) => {
-        this.tags = x.data!;
+    this.tagsService.getAll().subscribe({
+      next: (res) => {
+        this.tags = res.data!;
       },
     });
   }
   getProjects(id: number) {
-    this.tagsService.getProjectsByTag(id).subscribe({
-      next: (x: any) => {
-        this.projectDAO.setProyectos(x.project);
+    this.projectService.getByTag(id).subscribe({
+      next: (res) => {
+        this.projectDAO.setProyectos(res.data!);
       },
     });
   }

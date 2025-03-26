@@ -1,4 +1,4 @@
-.Proyect{
+.Project{
   display: flex;
   flex-direction: column;
   gap:1em;
@@ -8,26 +8,26 @@
   transition: 0s;
   background-color: var( --color-three);
 }
-.Proyect p{
+.Project p{
   align-self: center;
   word-spacing: 4px;
   width: 20vw;
   line-height: 1.5em;
   color:var(--color-black)
 }
-.Proyect .Tags{
+.Project .Tags{
   display: flex;
   flex-flow: row wrap;
 }
 
 @media (max-width: 767px) {
   /* Estilos para pantallas de hasta 767px de ancho */
-  .Proyect{
+  .Project{
     min-width: 80vw;
     height: auto;
 
   }
-  .Proyect p{
+  .Project p{
 
     width: auto;
 

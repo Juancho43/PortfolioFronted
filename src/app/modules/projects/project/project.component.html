@@ -1,0 +1,10 @@
+<article class="Project">
+  <h3>{{project.name}}</h3>
+  <p>{{project.description}}</p>
+  <div class="Tags">
+    @for (item of project.tags; track item.id){
+      <app-tag [tag]="item"/>
+    }
+  </div>
+
+</article>

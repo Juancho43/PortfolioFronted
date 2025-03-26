@@ -6,18 +6,18 @@ import { ProyectDaoService } from '../../../core/DAO/proyect-dao.service';
 import { DialogService } from '../../../core/utils/dialog.service';
 
 @Component({
-  selector: 'app-proyect',
+  selector: 'app-project',
   standalone: true,
   imports: [CommonModule, TagComponent],
-  templateUrl: './proyect.component.html',
-  styleUrl: './proyect.component.css',
+  templateUrl: './project.component.html',
+  styleUrl: './project.component.css',
 })
-export class ProyectComponent {
+export class ProjectComponent {
   private proyectoDao = inject(ProyectDaoService);
-  @Input() Proyect: Project = this.proyectoDao.getEmptyProyecto();
+  @Input() project: Project = this.proyectoDao.getEmptyProyecto();
 
   ngOnInit() {
-    this.proyectoDao.getProyecto().subscribe((data) => (this.Proyect = data));
-    console.log(this.Proyect);
+    this.proyectoDao.getProyecto().subscribe((data) => (this.project = data));
+    console.log(this.project);
   }
 }

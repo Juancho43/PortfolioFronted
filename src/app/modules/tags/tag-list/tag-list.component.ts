@@ -21,10 +21,10 @@ export class TagListComponent {
   }
 
   getData() {
-    this.tagsService.getTags().subscribe({
-      next: (x) => {
-        this.tags = x.data!;
-      },
-    });
+    // this.tagsService.getTags().subscribe({
+    //   next: (x) => {
+    //     this.tags = x.data!;
+    //   },
+    // });
   }
 }

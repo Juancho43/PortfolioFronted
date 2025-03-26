@@ -4,13 +4,13 @@ import { TagListComponent } from '../../tags/tag-list/tag-list.component';
 import { Tag } from '../../../core/interfaces/Tag';
 
 @Component({
-  selector: 'app-proyect-card',
+  selector: 'app-project-card',
   standalone: true,
   imports: [TagListComponent],
-  templateUrl: './proyect-card.component.html',
-  styleUrl: './proyect-card.component.css',
+  templateUrl: './project-card.component.html',
+  styleUrl: './project-card.component.css',
 })
-export class ProyectCardComponent {
+export class ProjectCardComponent {
   @Input() Proyect: Project = {
     created_at: new Date(),
     description: '',

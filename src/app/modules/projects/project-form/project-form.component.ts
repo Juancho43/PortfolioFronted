@@ -6,22 +6,23 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { ProyectsService } from '../../../core/services/proyects.service';
+
 import { Project } from '../../../core/interfaces/Project';
 import { TagComponent } from '../../tags/tag/tag.component';
 import { TagService } from '../../../core/services/tag.service';
 import { Tag } from '../../../core/interfaces/Tag';
 import { ProyectDaoService } from '../../../core/DAO/proyect-dao.service';
+import { ProjectService } from '../../../core/services/project.service';
 
 @Component({
-  selector: 'app-proyect-form',
+  selector: 'app-project-form',
   standalone: true,
   imports: [ReactiveFormsModule, TagComponent],
-  templateUrl: './proyect-form.component.html',
-  styleUrls: ['./proyect-form.component.css', '../../../core/styles/forms.css'],
+  templateUrl: './project-form.component.html',
+  styleUrls: ['./project-form.component.css', '../../../core/styles/forms.css'],
 })
-export class ProyectFormComponent {
-  private proyectsService = inject(ProyectsService);
+export class ProjectFormComponent {
+  private service = inject(ProjectService);
   private proyectsDAO = inject(ProyectDaoService);
   private tagsService = inject(TagService);
   tags: Tag[] = [];
@@ -41,11 +42,11 @@ export class ProyectFormComponent {
   }
 
   getTagData() {
-    this.tagsService.getTags().subscribe({
-      next: (x) => {
-        // this.tags = x.tagDTOList
-      },
-    });
+    // this.tagsService.getTags().subscribe({
+    //   next: (x) => {
+    //     // this.tags = x.tagDTOList
+    //   },
+    // });
   }
 
   getCurrentProyect() {
@@ -62,9 +63,9 @@ export class ProyectFormComponent {
     this.mapperProyecto();
     console.log('xxxx');
     if (!this.edit) {
-      this.proyectsService.postProyecto(this.currentProyect).subscribe();
+      // this.proyectsService.postProyecto(this.currentProyect).subscribe();
     } else {
-      this.proyectsService.putProyecto(this.currentProyect).subscribe();
+      // this.proyectsService.putProyecto(this.currentProyect).subscribe();
     }
   }
   mapperProyecto() {
