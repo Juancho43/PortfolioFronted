@@ -45,9 +45,9 @@ export class EducationPageComponent {
         this.EducationList = res.data!;
       });
     } else {
-      this.service.getByType(type).subscribe((res) => {
-        this.EducationList = res.data!;
-      });
+      // this.service.getByType(type).subscribe((res) => {
+      //   this.EducationList = res.data!;
+      // });
     }
   }
 }

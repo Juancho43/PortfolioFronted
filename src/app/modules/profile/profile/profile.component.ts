@@ -14,7 +14,7 @@ import { Profile } from '../../../core/interfaces/Profile';
 export class ProfileComponent {
   private profileService = inject(ProfileService);
   private profileDao = inject(ProfileDaoService);
-  profile?: Profile ;
+  profile?: Profile;
   photo: string = '';
   ngOnInit() {
     this.getData();
@@ -24,7 +24,7 @@ export class ProfileComponent {
     this.profileService.getProfile(1).subscribe((profile) => {
       this.profileDao.setProfile(profile.data);
       this.profile = profile.data;
-      this.photo = environment.public_url + profile.data?.links.find(link => link.name == 'photo_url')?.link;
+      // this.photo = environment.public_url + profile.data?.links.find(link => link.name == 'photo_url')?.link;
     });
   }
 }

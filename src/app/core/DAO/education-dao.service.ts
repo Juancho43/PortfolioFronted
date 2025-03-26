@@ -25,10 +25,10 @@ export class EducationDaoService {
       description: '',
       endDate: new Date(),
       id: 0,
-      profile_id: 0,
+      // profile_id: 0,
       name: '',
       startDate: new Date(),
-      type: '',
+      // type: '',
       updated_at: new Date(),
     };
   }

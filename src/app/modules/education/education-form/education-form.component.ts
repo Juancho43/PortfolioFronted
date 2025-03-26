@@ -48,7 +48,7 @@ export class EducationFormComponent {
     if (!this.edit) {
       this.service.post(this.currentEducation).subscribe();
     } else {
-      this.service.put(this.currentEducation).subscribe();
+      this.service.update(this.currentEducation).subscribe();
     }
     this.clean();
   }
@@ -65,7 +65,6 @@ export class EducationFormComponent {
       resumen: this.currentEducation.description,
       fechaInicio: this.currentEducation.startDate,
       fechaFinalizacion: this.currentEducation.endDate,
-      tipo: this.currentEducation.type,
     });
   }
 
@@ -78,6 +77,5 @@ export class EducationFormComponent {
       this.EducationForm.get('fechaInicio')?.value;
     this.currentEducation.endDate =
       this.EducationForm.get('fechaFinalizacion')?.value;
-    this.currentEducation.type = this.EducationForm.get('tipo')?.value;
   }
 }

@@ -43,7 +43,7 @@ export class ProyectFormComponent {
   getTagData() {
     this.tagsService.getTags().subscribe({
       next: (x) => {
-        this.tags = x.tagDTOList;
+        // this.tags = x.tagDTOList
       },
     });
   }
@@ -85,12 +85,12 @@ export class ProyectFormComponent {
   }
 
   addTag(tag: Tag) {
-    if (!this.currentProyect.tags.find((p) => p == tag)) {
-      this.currentProyect.tags.push(tag);
-    }
+    // if (!this.currentProyect.tags.find((p) => p == tag)) {
+    //   this.currentProyect.tags.push(tag);
+    // }
   }
   removeTag(tag: Tag) {
-    this.currentProyect.tags = this.currentProyect.tags.filter((p) => p != tag);
+    // this.currentProyect.tags = this.currentProyect.tags.filter((p) => p != tag);
   }
 
   clean() {

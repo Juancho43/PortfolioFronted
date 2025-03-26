@@ -22,6 +22,6 @@ export class ProyectCardComponent {
   tags: Tag[] = [];
 
   ngOnInit() {
-    this.tags = this.Proyect.tags.slice(0, 3);
+    // this.tags = this.Proyect.tags.slice(0, 3);
   }
 }

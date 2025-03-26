@@ -16,27 +16,20 @@ export class ContactPageComponent {
   protected readonly environment = environment;
   private dao = inject(ProfileDaoService);
   private service = inject(ProfileService);
-  linkedin : string = '';
-  mail : string = '';
-  github : string = '';
-  cv : string = '';
-  ngOnInit(){
+  linkedin: string = '';
+  mail: string = '';
+  github: string = '';
+  cv: string = '';
+  ngOnInit() {
     this.getData();
   }
 
-  getData(){
-    this.service.getProfile(1).subscribe(res=>{
-      this.linkedin = res.data!.links.find(link => link.name === 'linkedin')?.link!;
-      this.mail = res.data!.links.find(link => link.name === 'mail')?.link!
-      this.github = res.data!.links.find(link => link.name === 'github')?.link!
-      this.cv = res.data!.links.find(link => link.name === 'cv')?.link!
-    })
+  getData() {
+    this.service.getProfile(1).subscribe((res) => {
+      // this.linkedin = res.data!.links.find(link => link.name === 'linkedin')?.link!;
+      // this.mail = res.data!.links.find(link => link.name === 'mail')?.link!
+      // this.github = res.data!.links.find(link => link.name === 'github')?.link!
+      // this.cv = res.data!.links.find(link => link.name === 'cv')?.link!
+    });
   }
-
-  
 }
-
- 
-
-
-
