@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { ProyectsService } from '../../../core/services/proyects.service';
 import { CommonModule } from '@angular/common';
 import { ProyectComponent } from '../proyect/proyect.component';
-import { Proyecto } from '../../../core/interfaces/Proyecto';
+import { Project } from '../../../core/interfaces/Project';
 
 import { ProyectCardComponent } from '../proyect-card/proyect-card.component';
 import { DialogService } from '../../../core/utils/dialog.service';
@@ -19,7 +19,7 @@ export class ProyectListComponent implements OnInit {
   private proyectsService = inject(ProyectsService);
   private proyectsDAO = inject(ProyectDaoService);
   private dialog = inject(DialogService);
-  proyects: Proyecto[] = [];
+  proyects: Project[] = [];
 
   ngOnInit() {
     this.getDataDao();
@@ -39,14 +39,14 @@ export class ProyectListComponent implements OnInit {
   getData() {
     this.proyectsService.getProyects().subscribe({
       next: (x) => {
-        this.proyects = x.Projects;
+        this.proyects = x.project;
       },
     });
   }
 
-  open(item: Proyecto) {
+  open(item: Project) {
     this.proyectsDAO.setProyecto(item);
 
-    this.dialog.openModal<ProyectComponent, Proyecto>(ProyectComponent);
+    this.dialog.openModal<ProyectComponent, Project>(ProyectComponent);
   }
 }

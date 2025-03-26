@@ -40,16 +40,25 @@ export class EducationFormComponent {
       this.currentEducation = res;
       this.setForm();
     });
+    this.clean();
   }
 
   onSubmit() {
-    this.mapperProyecto();
+    this.mapperEducation();
     if (!this.edit) {
       this.service.post(this.currentEducation).subscribe();
+    } else {
+      this.service.put(this.currentEducation).subscribe();
     }
+    this.clean();
+  }
+
+  clean() {
+    this.edit = false;
   }
 
   setForm() {
+    this.edit = true;
     this.EducationForm.patchValue({
       id: this.currentEducation.id,
       nombre: this.currentEducation.name,
@@ -60,7 +69,7 @@ export class EducationFormComponent {
     });
   }
 
-  mapperProyecto() {
+  mapperEducation() {
     this.currentEducation.id = this.EducationForm.get('id')?.value;
     this.currentEducation.name = this.EducationForm.get('nombre')?.value;
     this.currentEducation.description =

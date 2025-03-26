@@ -6,7 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { ProyectsService } from '../../../core/services/proyects.service';
-import { Proyecto } from '../../../core/interfaces/Proyecto';
+import { Project } from '../../../core/interfaces/Project';
 import { ProfileService } from '../../../core/services/profile.service';
 import { Profile } from '../../../core/interfaces/Profile';
 

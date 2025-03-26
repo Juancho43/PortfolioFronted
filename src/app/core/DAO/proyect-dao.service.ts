@@ -1,37 +1,44 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject} from "rxjs";
-import {Proyecto} from "../interfaces/Proyecto";
-import {Tag} from "../interfaces/Tag";
+import { BehaviorSubject } from 'rxjs';
+import { Project } from '../interfaces/Project';
+import { Tag } from '../interfaces/Tag';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProyectDaoService {
-  private _projects: BehaviorSubject<Proyecto[]> = new BehaviorSubject<Proyecto[]>([]);
-  private _proyect : BehaviorSubject<Proyecto> = new BehaviorSubject<Proyecto>(this.getEmptyProyecto());
+  private _projects: BehaviorSubject<Project[]> = new BehaviorSubject<
+    Project[]
+  >([]);
+  private _proyect: BehaviorSubject<Project> = new BehaviorSubject<Project>(
+    this.getEmptyProyecto(),
+  );
 
-  getProyecto(){
+  getProyecto() {
     return this._proyect.asObservable();
   }
 
-  setProyecto(item : Proyecto){
+  setProyecto(item: Project) {
     this._proyect.next(item);
   }
 
-
-  getProyectos(){
+  getProyectos() {
     return this._projects.asObservable();
   }
 
-  setProyectos(items : Proyecto[]){
+  setProyectos(items: Project[]) {
     this._projects.next(items);
   }
 
-  getEmptyProyecto() : Proyecto{
-    return{
-      created_at: new Date(), description: '', id: 0, name: '', updated_at: new Date(),
+  getEmptyProyecto(): Project {
+    return {
+      created_at: new Date(),
+      description: '',
+      id: 0,
+      name: '',
+      updated_at: new Date(),
 
-      tags: []
-    }
+      tags: [],
+    };
   }
 }

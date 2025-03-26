@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Proyecto } from '../interfaces/Proyecto';
+import { Project } from '../interfaces/Project';
 import { API_URL, ENDPOINTS } from './endpoints';
 import { Education } from '../interfaces/Education';
 import { environment } from '../../../environments/environment';
@@ -22,18 +22,18 @@ export class ProyectsService {
     return this.http.get(url);
   }
 
-  postProyecto(proyecto: Proyecto): Observable<any> {
+  postProyecto(proyecto: Project): Observable<any> {
     return this.http.post('http://localhost:8000/api/proyect/', proyecto);
   }
 
-  putProyecto(proyecto: Proyecto): Observable<any> {
-    return this.http.put<Proyecto>(
+  putProyecto(proyecto: Project): Observable<any> {
+    return this.http.put<Project>(
       `http://localhost:8000/api/proyect/${proyecto.id}`,
       proyecto,
     );
   }
 
-  deleteProyecto(proyecto: Proyecto): Observable<any> {
+  deleteProyecto(proyecto: Project): Observable<any> {
     return this.http.delete(`http://localhost:8000/api/proyect/${proyecto.id}`);
   }
 }

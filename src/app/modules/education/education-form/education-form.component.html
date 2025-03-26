@@ -1,9 +1,9 @@
 <form [formGroup]="EducationForm" (ngSubmit)="onSubmit()" class="glass">
   <fieldset>
     @if(edit){
-      <legend>Nueva formación:</legend>
-    }@else{
       <legend>Modificar formación:</legend>
+    }@else{
+      <legend>Nueva formación:</legend>
     }
 
     <label for="nombre">Nombre:</label>
@@ -24,12 +24,12 @@
   <div class="Buttons">
     <button type="submit">
     @if(edit){
-      Crear.
-    }@else{
       Modificar.
+    }@else{
+      Crear.
     }
     </button>
-    <button type="reset">
+    <button type="reset" (click)="clean()">
       Limpiar.
     </button>
   </div>

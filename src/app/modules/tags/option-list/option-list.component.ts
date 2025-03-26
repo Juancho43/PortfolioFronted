@@ -33,7 +33,7 @@ export class OptionListComponent {
   getProjects(id: number) {
     this.tagsService.getProjectsByTag(id).subscribe({
       next: (x: any) => {
-        this.projectDAO.setProyectos(x.Proyect);
+        this.projectDAO.setProyectos(x.project);
       },
     });
   }

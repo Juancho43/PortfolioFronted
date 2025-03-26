@@ -1,12 +1,17 @@
+import { Project } from './Project';
+import { Tag } from './Tag';
+import { Link } from './Link';
+
 export interface Education {
-  id: number;
+  id?: number;
   name: string;
   description: string;
   startDate: Date;
-  endDate: Date;
-  type: string;
-  profile_id: number;
-  created_at: Date;
-  updated_at: Date;
-  deleted_at: Date | null;
+  endDate?: Date;
+  projects?: Project[];
+  tags?: Tag[];
+  links?: Link[];
+  created_at?: Date | null;
+  updated_at?: Date | null;
+  deleted_at?: Date | null;
 }
