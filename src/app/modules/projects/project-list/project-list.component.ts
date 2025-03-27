@@ -15,39 +15,14 @@ import { ProjectDaoService } from '../../../core/DAO/project-dao.service';
   templateUrl: './project-list.component.html',
   styleUrl: './project-list.component.css',
 })
-export class ProjectListComponent implements OnInit {
-  private service = inject(ProjectService);
+export class ProjectListComponent {
   private projectsDAO = inject(ProjectDaoService);
   private dialog = inject(DialogService);
 
-  @Input() projects = signal<Project[]>([]);
-
-  ngOnInit() {
-    this.getDataDao();
-    this.getData();
-  }
-
-  ngOnDestroy() {
-    this.projectsDAO.setProyectos([]);
-  }
-
-  getDataDao() {
-    this.projectsDAO.getProyectos().subscribe((res) => {
-      this.projects.set(res);
-    });
-  }
-
-  getData() {
-    this.service.getAll().subscribe({
-      next: (res) => {
-        this.projects.set(res.data!);
-      },
-    });
-  }
+  @Input() projects: Project[] = [];
 
   open(item: Project) {
     this.projectsDAO.setProyecto(item);
-
     this.dialog.openModal<ProjectComponent, Project>(ProjectComponent);
   }
 }

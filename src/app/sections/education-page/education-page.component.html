@@ -1,9 +1,8 @@
 <section>
   <h2>Formación</h2>
-  <div>
-    <app-tag [tag]="filtros[0]" (click)="getEducation(filtros[0].name)"/>
-    <app-tag [tag]="filtros[1]" (click)="getEducation(filtros[1].name)"/>
-    <app-tag [tag]="filtros[2]" (click)="getEducation('')"/>
-  </div>
-  <app-education-list [data]="EducationList"/>
+  <app-tag-list[tags]="tagsList()"
+  (tagSelected)="handleTagSelected($event)"
+
+  />
+  <app-education-list [education]="EducationList"/>
 </section>

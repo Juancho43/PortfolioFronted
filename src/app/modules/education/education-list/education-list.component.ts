@@ -11,16 +11,5 @@ import { EducationComponent } from '../education/education.component';
   styleUrl: './education-list.component.css',
 })
 export class EducationListComponent {
-  private educationService = inject(EducationService);
-
-  @Input() data: Education[] = [];
-
-  constructor() {
-    this.getEducationData();
-  }
-  getEducationData() {
-    this.educationService.getAll().subscribe((res) => {
-      this.data = res.data!;
-    });
-  }
+  @Input() educations: Education[] = [];
 }
