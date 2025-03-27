@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { Tag } from '../../../core/interfaces/Tag';
 import { TagService } from '../../../core/services/tag.service';
 import { TagComponent } from '../tag/tag.component';
@@ -11,20 +11,11 @@ import { TagComponent } from '../tag/tag.component';
   styleUrl: './tag-list.component.css',
 })
 export class TagListComponent {
-  private tagsService = inject(TagService);
   @Input() tags: Tag[] = [];
-  @Input() load: boolean = true;
-  ngOnInit() {
-    if (this.load) {
-      this.getData();
-    }
-  }
 
-  getData() {
-    // this.tagsService.getTags().subscribe({
-    //   next: (x) => {
-    //     this.tags = x.data!;
-    //   },
-    // });
+  @Output() tagSelected = new EventEmitter<number>();
+
+  onTagClick(tagId: number): void {
+    this.tagSelected.emit(tagId);
   }
 }

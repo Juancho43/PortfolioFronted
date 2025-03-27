@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit, signal } from '@angular/core';
 import { ProjectService } from '../../../core/services/project.service';
 import { CommonModule } from '@angular/common';
 import { ProjectComponent } from '../project/project.component';
@@ -6,7 +6,7 @@ import { Project } from '../../../core/interfaces/Project';
 
 import { ProjectCardComponent } from '../project-card/project-card.component';
 import { DialogService } from '../../../core/utils/dialog.service';
-import { ProyectDaoService } from '../../../core/DAO/proyect-dao.service';
+import { ProjectDaoService } from '../../../core/DAO/project-dao.service';
 
 @Component({
   selector: 'app-project-list',
@@ -17,9 +17,10 @@ import { ProyectDaoService } from '../../../core/DAO/proyect-dao.service';
 })
 export class ProjectListComponent implements OnInit {
   private service = inject(ProjectService);
-  private projectsDAO = inject(ProyectDaoService);
+  private projectsDAO = inject(ProjectDaoService);
   private dialog = inject(DialogService);
-  projects: Project[] = [];
+
+  @Input() projects = signal<Project[]>([]);
 
   ngOnInit() {
     this.getDataDao();
@@ -32,14 +33,14 @@ export class ProjectListComponent implements OnInit {
 
   getDataDao() {
     this.projectsDAO.getProyectos().subscribe((res) => {
-      this.projects = res;
+      this.projects.set(res);
     });
   }
 
   getData() {
     this.service.getAll().subscribe({
       next: (res) => {
-        this.projects = res.data!;
+        this.projects.set(res.data!);
       },
     });
   }

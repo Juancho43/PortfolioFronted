@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ProyectDaoService } from './proyect-dao.service';
+import { ProjectDaoService } from './project-dao.service';
 
 describe('ProyectDaoService', () => {
-  let service: ProyectDaoService;
+  let service: ProjectDaoService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(ProyectDaoService);
+    service = TestBed.inject(ProjectDaoService);
   });
 
   it('should be created', () => {

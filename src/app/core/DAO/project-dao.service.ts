@@ -6,7 +6,7 @@ import { Tag } from '../interfaces/Tag';
 @Injectable({
   providedIn: 'root',
 })
-export class ProyectDaoService {
+export class ProjectDaoService {
   private _projects: BehaviorSubject<Project[]> = new BehaviorSubject<
     Project[]
   >([]);

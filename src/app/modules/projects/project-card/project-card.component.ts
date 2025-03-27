@@ -1,7 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input, signal } from '@angular/core';
 import { Project } from '../../../core/interfaces/Project';
 import { TagListComponent } from '../../tags/tag-list/tag-list.component';
 import { Tag } from '../../../core/interfaces/Tag';
+import { ProjectDaoService } from '../../../core/DAO/project-dao.service';
 
 @Component({
   selector: 'app-project-card',
@@ -11,17 +12,12 @@ import { Tag } from '../../../core/interfaces/Tag';
   styleUrl: './project-card.component.css',
 })
 export class ProjectCardComponent {
-  @Input() Proyect: Project = {
-    created_at: new Date(),
-    description: '',
-    id: 0,
-    name: '',
-    tags: [],
-    updated_at: new Date(),
-  };
-  tags: Tag[] = [];
+  private dao = inject(ProjectDaoService);
+
+  @Input() project: Project = this.dao.getEmptyProyecto();
+  tags = signal<Tag[]>([]);
 
   ngOnInit() {
-    // this.tags = this.Proyect.tags.slice(0, 3);
+    this.tags.set(this.project.tags!.slice(0, 3));
   }
 }

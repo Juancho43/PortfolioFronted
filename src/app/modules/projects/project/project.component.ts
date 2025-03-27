@@ -2,7 +2,7 @@ import { Component, inject, Input, OnInit } from '@angular/core';
 import { Project } from '../../../core/interfaces/Project';
 import { CommonModule } from '@angular/common';
 import { TagComponent } from '../../tags/tag/tag.component';
-import { ProyectDaoService } from '../../../core/DAO/proyect-dao.service';
+import { ProjectDaoService } from '../../../core/DAO/project-dao.service';
 import { DialogService } from '../../../core/utils/dialog.service';
 
 @Component({
@@ -13,7 +13,7 @@ import { DialogService } from '../../../core/utils/dialog.service';
   styleUrl: './project.component.css',
 })
 export class ProjectComponent {
-  private proyectoDao = inject(ProyectDaoService);
+  private proyectoDao = inject(ProjectDaoService);
   @Input() project: Project = this.proyectoDao.getEmptyProyecto();
 
   ngOnInit() {

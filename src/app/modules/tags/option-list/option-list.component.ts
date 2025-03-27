@@ -1,6 +1,6 @@
 import { Component, inject, Input } from '@angular/core';
 import { TagService } from '../../../core/services/tag.service';
-import { ProyectDaoService } from '../../../core/DAO/proyect-dao.service';
+import { ProjectDaoService } from '../../../core/DAO/project-dao.service';
 import { Tag } from '../../../core/interfaces/Tag';
 import { TagOptionComponent } from '../tag-option/tag-option.component';
 import { Router } from '@angular/router';
@@ -16,7 +16,7 @@ import { ProjectService } from '../../../core/services/project.service';
 export class OptionListComponent {
   private tagsService = inject(TagService);
   private projectService = inject(ProjectService);
-  private projectDAO = inject(ProyectDaoService);
+  private projectDAO = inject(ProjectDaoService);
   @Input() tags: Tag[] = [];
   @Input() load: boolean = true;
   ngOnInit() {

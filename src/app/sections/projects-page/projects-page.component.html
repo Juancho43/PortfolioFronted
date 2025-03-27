@@ -1,6 +1,9 @@
 <section>
   <h2>Proyectos</h2>
-  <app-option-list/>
-  <app-project-list/>
+  <app-tag-list
+    [tags]="tagsList()"
+    (tagSelected)="handleTagSelected($event)"
+  />
+  <app-project-list />
 </section>
 

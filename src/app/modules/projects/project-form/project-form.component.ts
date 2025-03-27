@@ -11,7 +11,7 @@ import { Project } from '../../../core/interfaces/Project';
 import { TagComponent } from '../../tags/tag/tag.component';
 import { TagService } from '../../../core/services/tag.service';
 import { Tag } from '../../../core/interfaces/Tag';
-import { ProyectDaoService } from '../../../core/DAO/proyect-dao.service';
+import { ProjectDaoService } from '../../../core/DAO/project-dao.service';
 import { ProjectService } from '../../../core/services/project.service';
 
 @Component({
@@ -23,7 +23,7 @@ import { ProjectService } from '../../../core/services/project.service';
 })
 export class ProjectFormComponent {
   private service = inject(ProjectService);
-  private proyectsDAO = inject(ProyectDaoService);
+  private proyectsDAO = inject(ProjectDaoService);
   private tagsService = inject(TagService);
   tags: Tag[] = [];
   edit: boolean = false;
