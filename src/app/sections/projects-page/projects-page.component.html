@@ -1,5 +1,6 @@
 <section>
   <h2>Proyectos</h2>
+  <button (click)="getProjects()">Todos</button>
   <app-tag-list
     [tags]="tagsList()"
     (tagSelected)="handleTagSelected($event)"

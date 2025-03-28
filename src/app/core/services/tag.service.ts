@@ -19,6 +19,22 @@ export class TagService {
     );
   }
 
+  getAllEducationTags(): Observable<ApiResponseCollection<Tag>> {
+    return this.http.get<ApiResponseCollection<Tag>>(
+      environment.api_url + tagEndpoints.getEducation,
+    )
+  }
+
+  getAllWorkTags(): Observable<ApiResponseCollection<Tag>> {
+    return this.http.get<ApiResponseCollection<Tag>>(
+      environment.api_url + tagEndpoints.getWork,
+    )
+  }
+  getAllProjectTags(): Observable<ApiResponseCollection<Tag>> {
+    return this.http.get<ApiResponseCollection<Tag>>(
+      environment.api_url + tagEndpoints.getProject,
+    )
+  }
   getById(id: number): Observable<ApiResponse<Tag>> {
     return this.http.get<ApiResponse<Tag>>(
       environment.api_url + tagEndpoints.getById.replace(':id', id.toString()),

@@ -1,10 +1,9 @@
 .Project{
   display: flex;
   flex-direction: column;
-  gap:1em;
+
   padding: 1rem;
   width: 30vw;
-  border-radius: 10px;
   transition: 0s;
   background-color: var( --color-three);
 }
@@ -21,15 +20,12 @@
 }
 
 @media (max-width: 767px) {
-  /* Estilos para pantallas de hasta 767px de ancho */
   .Project{
     min-width: 80vw;
     height: auto;
 
   }
   .Project p{
-
     width: auto;
-
   }
 }

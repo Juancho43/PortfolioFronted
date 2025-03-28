@@ -27,7 +27,6 @@ export class ProjectsPageComponent {
     const selectedTagObservable = toObservable(this.selectedTagId);
     selectedTagObservable.subscribe((tagId) => {
       if (tagId !== null) {
-        console.log('Tag selected via Observable:', tagId);
         this.getProjectsByTagId(tagId);
       }
     });
@@ -36,6 +35,7 @@ export class ProjectsPageComponent {
   ngOnInit(): void {
     this.getTags();
     this.getProjects();
+
   }
 
   getProjects(): void {
@@ -51,7 +51,7 @@ export class ProjectsPageComponent {
   }
 
   getTags(): void {
-    this.tagService.getAll().subscribe((res) => {
+    this.tagService.getAllProjectTags().subscribe((res) => {
       this.tagsList.set(res.data!);
     });
   }

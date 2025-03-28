@@ -13,11 +13,10 @@ import { DialogService } from '../../../core/utils/dialog.service';
   styleUrl: './project.component.css',
 })
 export class ProjectComponent {
-  private proyectoDao = inject(ProjectDaoService);
-  @Input() project: Project = this.proyectoDao.getEmptyProyecto();
+  private dao = inject(ProjectDaoService);
+  @Input() project: Project = this.dao.getEmptyProyecto();
 
   ngOnInit() {
-    this.proyectoDao.getProyecto().subscribe((data) => (this.project = data));
-    console.log(this.project);
+    this.dao.getProyecto().subscribe((data) => (this.project = data));
   }
 }

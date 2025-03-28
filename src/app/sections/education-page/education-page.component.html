@@ -1,8 +1,8 @@
 <section>
   <h2>Formación</h2>
-  <app-tag-list[tags]="tagsList()"
+  <app-tag-list [tags]="tagsList()"
   (tagSelected)="handleTagSelected($event)"
 
   />
-  <app-education-list [education]="EducationList"/>
+  <app-education-list [educations]="educationsList()"/>
 </section>

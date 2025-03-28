@@ -1,11 +1,10 @@
 
 <div>
-  @for (item of data; track item.name; let i = $index) {
+  @for (item of educations; track item.name; let i = $index) {
     @if(i % 2 !== 0 ){
       <app-education [education]="item" [reverse]="true"/>
     } @else {
       <app-education [education]="item" [reverse]="false"/>
-
     }
   }
 </div>
