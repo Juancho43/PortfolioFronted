@@ -1,10 +1,7 @@
 export interface Tag{
-  id: number;
+  id?: number;
   name: string;
-  created_at: Date;
-  updated_at: Date;
-  pivot?: {
-    proyect_id: number,
-    tags_id: number,
-  }
+  created_at?: Date | null;
+  updated_at?: Date | null;
+  deleted_at?: Date | null;
 }

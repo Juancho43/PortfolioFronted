@@ -21,12 +21,12 @@
     "paths": {
       "@app/*": ["src/app/*"],
       "@environments/*": ["src/environments/*"],
+      "@model/*": ["src/app/core/interfaces/*"],
       "@core/*": ["src/app/core/*"],
       "@services/*": ["src/app/core/services/*"],
       "@dao/*": ["src/app/core/services/DAO/*"],
       "@endpoints/*": ["src/app/core/services/endpoints/*"],
       "@modules/*": ["src/app/modules/*"],
-
     }
   },
   "angularCompilerOptions": {
