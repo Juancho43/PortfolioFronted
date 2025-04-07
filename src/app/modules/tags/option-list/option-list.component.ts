@@ -1,6 +1,6 @@
 import { Component, inject, Input } from '@angular/core';
 import { TagService } from '../../../core/services/tag.service';
-import { ProjectDaoService } from '../../../core/DAO/project-dao.service';
+import { ProjectDaoService } from '../../../core/services/DAO/project-dao.service';
 import { Tag } from '../../../core/interfaces/Tag';
 import { TagOptionComponent } from '../tag-option/tag-option.component';
 import { Router } from '@angular/router';
@@ -35,7 +35,7 @@ export class OptionListComponent {
   getProjects(id: number) {
     this.projectService.getByTag(id).subscribe({
       next: (res) => {
-        this.projectDAO.setProyectos(res.data!);
+        this.projectDAO.setProjects(res.data!);
       },
     });
   }

@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { ProfileService } from '../../../core/services/profile.service';
-import { ProfileDaoService } from '../../../core/DAO/profile-dao.service';
+import { ProfileDaoService } from '../../../core/services/DAO/profile-dao.service';
 import { environment } from '../../../../environments/environment';
 import { Profile } from '../../../core/interfaces/Profile';
 

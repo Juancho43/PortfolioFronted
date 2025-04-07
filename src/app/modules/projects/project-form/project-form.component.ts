@@ -11,7 +11,7 @@ import { Project } from '../../../core/interfaces/Project';
 import { TagComponent } from '../../tags/tag/tag.component';
 import { TagService } from '../../../core/services/tag.service';
 import { Tag } from '../../../core/interfaces/Tag';
-import { ProjectDaoService } from '../../../core/DAO/project-dao.service';
+import { ProjectDaoService } from '../../../core/services/DAO/project-dao.service';
 import { ProjectService } from '../../../core/services/project.service';
 
 @Component({
@@ -27,7 +27,7 @@ export class ProjectFormComponent {
   private tagsService = inject(TagService);
   tags: Tag[] = [];
   edit: boolean = false;
-  currentProyect: Project = this.proyectsDAO.getEmptyProyecto();
+  currentProyect: Project = this.proyectsDAO.getEmptyProject();
   ProyectForm: FormGroup = new FormGroup({
     id: new FormControl(0),
     nombre: new FormControl('', [Validators.required]),
@@ -50,7 +50,7 @@ export class ProjectFormComponent {
   }
 
   getCurrentProyect() {
-    this.proyectsDAO.getProyecto().subscribe((res) => {
+    this.proyectsDAO.getProject().subscribe((res) => {
       this.currentProyect = res;
       this.update();
     });
@@ -97,7 +97,7 @@ export class ProjectFormComponent {
   clean() {
     this.ProyectForm.reset();
     console.log('clena');
-    this.proyectsDAO.setProyecto(this.proyectsDAO.getEmptyProyecto());
+    this.proyectsDAO.setProject(this.proyectsDAO.getEmptyProject());
     this.edit = false;
   }
 }

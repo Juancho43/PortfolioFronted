@@ -2,7 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Education } from '../interfaces/Education';
-import { environment } from '../../../environments/environment';
+import { environment } from '@environments/environment';
 import { ApiResponseCollection } from '../interfaces/ApiResponseCollection';
 import { ApiResponse } from '../interfaces/ApiResponse';
 import { educationEndpoint } from './endpoints/education.endpoint';

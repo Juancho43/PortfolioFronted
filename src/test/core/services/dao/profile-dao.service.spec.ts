@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ProfileDaoService } from './profile-dao.service';
+import { ProfileDaoService } from '../../../../app/core/services/DAO/profile-dao.service';
 
 describe('ProfileDaoService', () => {
   let service: ProfileDaoService;

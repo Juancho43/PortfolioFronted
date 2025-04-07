@@ -6,7 +6,7 @@ import { Project } from '../../../core/interfaces/Project';
 
 import { ProjectCardComponent } from '../project-card/project-card.component';
 import { DialogService } from '../../../core/utils/dialog.service';
-import { ProjectDaoService } from '../../../core/DAO/project-dao.service';
+import { ProjectDaoService } from '../../../core/services/DAO/project-dao.service';
 
 @Component({
   selector: 'app-project-list',
@@ -22,7 +22,7 @@ export class ProjectListComponent {
   @Input() projects: Project[] = [];
 
   open(item: Project) {
-    this.projectsDAO.setProyecto(item);
+    this.projectsDAO.setProject(item);
     this.dialog.openModal<ProjectComponent, Project>(ProjectComponent);
   }
 }

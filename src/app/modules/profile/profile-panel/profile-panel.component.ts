@@ -3,7 +3,7 @@ import { ProfileFormComponent } from '../profile-form/profile-form.component';
 import { DataTableComponent } from '../../../core/shared/data-table/data-table.component';
 import { ProfileService } from '../../../core/services/profile.service';
 import { TableData } from '../../../core/interfaces/TableData';
-import { ProfileDaoService } from '../../../core/DAO/profile-dao.service';
+import { ProfileDaoService } from '../../../core/services/DAO/profile-dao.service';
 import { ImgProfileFormComponent } from '../img-profile-form/img-profile-form.component';
 import { CvProfileFormComponent } from '../cv-profile-form/cv-profile-form.component';
 

@@ -1,6 +1,6 @@
 import {Component, inject, Input} from '@angular/core';
 import {Education} from '../../../core/interfaces/Education';
-import {EducationDaoService} from '../../../core/DAO/education-dao.service';
+import {EducationDaoService} from '../../../core/services/DAO/education-dao.service';
 import {CommonModule} from '@angular/common';
 
 @Component({

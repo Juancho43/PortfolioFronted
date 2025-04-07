@@ -1,0 +1,34 @@
+import {createServiceFactory, SpectatorService} from '@ngneat/spectator/jest';
+import { ProjectDaoService } from '../../../../app/core/services/DAO/project-dao.service';
+
+describe('ProjectDaoService', () => {
+  let spectator: SpectatorService<ProjectDaoService>;
+  const createService = createServiceFactory(ProjectDaoService);
+
+  beforeEach (() => {
+    spectator = createService();
+  });
+
+  it('should be created', () => {
+    expect(spectator.service).toBeDefined();
+  });
+
+  it('should have a method that returns an empty object', () => {
+    const emptyProject = spectator.service.getEmptyProject();
+    expect(emptyProject).toEqual({
+      description: '',
+      name: '',
+    });
+  });
+
+  it('should have a behavior subject that returns a project', () => {
+    const project = {
+      description: 'Test Project',
+      name: 'Test Project',
+    };
+    spectator.service.setProject(project);
+    spectator.service.getProject().subscribe((data) => {
+      expect(data).toEqual(project);
+    });
+  })
+})

@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { EducationService } from '../../../core/services/education.service';
 import { Education } from '../../../core/interfaces/Education';
-import { EducationDaoService } from '../../../core/DAO/education-dao.service';
+import { EducationDaoService } from '../../../core/services/DAO/education-dao.service';
 
 @Component({
   selector: 'app-education-form',

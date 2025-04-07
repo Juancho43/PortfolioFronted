@@ -6,7 +6,7 @@ import {
   TableData,
 } from '../../../core/interfaces/TableData';
 import { EducationService } from '../../../core/services/education.service';
-import { EducationDaoService } from '../../../core/DAO/education-dao.service';
+import { EducationDaoService } from '../../../core/services/DAO/education-dao.service';
 
 @Component({
   selector: 'app-education-panel',

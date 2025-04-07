@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
 import { LoadingService } from './core/services/utils/loading.service';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { ProfileService } from './core/services/profile.service';
-import { ProfileDaoService } from './core/DAO/profile-dao.service';
+import { ProfileDaoService } from './core/services/DAO/profile-dao.service';
 
 @Component({
   selector: 'app-root',

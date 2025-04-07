@@ -1,6 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { ContactComponent } from '../../modules/contact/contact.component';
-import { ProfileDaoService } from '../../core/DAO/profile-dao.service';
+import { ProfileDaoService } from '../../core/services/DAO/profile-dao.service';
 import { environment } from '../../../environments/environment';
 import { Profile } from '../../core/interfaces/Profile';
 import { ProfileService } from '../../core/services/profile.service';

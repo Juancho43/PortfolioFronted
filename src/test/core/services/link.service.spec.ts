@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { EducationDaoService } from './education-dao.service';
+import { LinkService } from '../../../app/core/services/link.service';
 
-describe('EducationDaoService', () => {
-  let service: EducationDaoService;
+describe('LinkService', () => {
+  let service: LinkService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(EducationDaoService);
+    service = TestBed.inject(LinkService);
   });
 
   it('should be created', () => {
