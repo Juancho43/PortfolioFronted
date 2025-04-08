@@ -1,6 +1,5 @@
-import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
-import { Tag } from '../../../core/interfaces/Tag';
-import { TagService } from '../../../core/services/tag.service';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Tag } from '@model/Tag';
 import { TagComponent } from '../tag/tag.component';
 
 @Component({
@@ -12,7 +11,6 @@ import { TagComponent } from '../tag/tag.component';
 })
 export class TagListComponent {
   @Input() tags: Tag[] = [];
-
   @Output() tagSelected = new EventEmitter<number>();
 
   onTagClick(tagId: number): void {

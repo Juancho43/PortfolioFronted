@@ -1,18 +1,16 @@
-import { Component, inject, Inject, signal } from '@angular/core';
-import { EducationListComponent } from '../../modules/education/education-list/education-list.component';
-
-import { Tag } from '../../core/interfaces/Tag';
-import { Education } from '../../core/interfaces/Education';
-import { TagComponent } from '../../modules/tags/tag/tag.component';
-import { EducationService } from '../../core/services/education.service';
-import { TagListComponent } from '../../modules/tags/tag-list/tag-list.component';
-import {TagService} from '../../core/services/tag.service';
+import { Component, inject, signal } from '@angular/core';
+import { EducationListComponent } from '@modules/education/education-list/education-list.component';
+import { Tag } from '@model/Tag';
+import { Education } from '@model/Education';
+import { EducationService } from '@services/education.service';
+import { TagListComponent } from '@modules/tags/tag-list/tag-list.component';
+import {TagService} from '@services/tag.service';
 import {toObservable} from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-education-page',
   standalone: true,
-  imports: [EducationListComponent, TagComponent, TagListComponent],
+  imports: [EducationListComponent, TagListComponent],
   templateUrl: './education-page.component.html',
   styleUrl: './education-page.component.css',
 })

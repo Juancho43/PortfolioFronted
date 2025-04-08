@@ -1,11 +1,10 @@
-import { Component, effect, inject, signal } from '@angular/core';
-import { ProjectListComponent } from '../../modules/projects/project-list/project-list.component';
-import { OptionListComponent } from '../../modules/tags/option-list/option-list.component';
-import { TagListComponent } from '../../modules/tags/tag-list/tag-list.component';
-import { ProjectService } from '../../core/services/project.service';
-import { TagService } from '../../core/services/tag.service';
-import { Tag } from '../../core/interfaces/Tag';
-import { Project } from '../../core/interfaces/Project';
+import { Component, inject, signal } from '@angular/core';
+import { ProjectListComponent } from '@modules/projects/project-list/project-list.component';
+import { TagListComponent } from '@modules/tags/tag-list/tag-list.component';
+import { ProjectService } from '@services/project.service';
+import { TagService } from '@services/tag.service';
+import { Tag } from '@model/Tag';
+import { Project } from '@model/Project';
 import { toObservable } from '@angular/core/rxjs-interop';
 
 @Component({
