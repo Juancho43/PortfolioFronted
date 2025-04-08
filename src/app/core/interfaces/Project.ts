@@ -9,5 +9,5 @@ export interface Project {
   links?: Link[];
   created_at?: Date | null;
   updated_at?: Date | null;
-  delete_at?: Date | null;
+  deleted_at?: Date | null;
 }

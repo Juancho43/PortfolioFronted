@@ -21,6 +21,7 @@
     "paths": {
       "@app/*": ["src/app/*"],
       "@environments/*": ["src/environments/*"],
+      "@test/*": ["src/test/*"],
       "@model/*": ["src/app/core/interfaces/*"],
       "@core/*": ["src/app/core/*"],
       "@services/*": ["src/app/core/services/*"],

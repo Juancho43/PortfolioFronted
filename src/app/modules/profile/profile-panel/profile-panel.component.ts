@@ -47,7 +47,7 @@ export class ProfilePanelComponent {
       // this.data.push(res.Profile);
       // this.profileData.push(res.Profile.profile);
 
-      // this.dao.setProfile(res.Profile);
+      // this.DAO.setProfile(res.Profile);
     });
   }
 

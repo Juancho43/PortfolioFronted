@@ -30,6 +30,11 @@ export class ProjectDaoService {
     this._projects.next(items);
   }
 
+  addNewProject(item: Project) {
+    const currentProjects = this._projects.getValue();
+    this._projects.next([...currentProjects, item]);
+  }
+
   getEmptyProject(): Project {
     return {
       description: '',

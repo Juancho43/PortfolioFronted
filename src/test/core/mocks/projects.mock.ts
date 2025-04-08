@@ -26,6 +26,6 @@ import { Project } from '@model/Project';
    * @param {Partial<Project>} data - Partial data to override the default mock values for each project.
    * @returns {Project[]} - An array of mock Project objects.
    */
-  export const generateProjectMocks = (n: number, data: Partial<Project>): Project[] => {
-    return Array.from({ length: n }, () => projectMock({ data }));
+  export const generateProjectMocks = (n: number, data: Partial<Project> ): Project[] => {
+    return Array.from({ length: n }, () => projectMock( data));
   };
