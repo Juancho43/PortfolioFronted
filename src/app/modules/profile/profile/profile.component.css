@@ -36,7 +36,7 @@ article h2{
 article p{
   max-width: 50vw;
   line-height: 2em;
-  font-family: var(--font-two,'sans-serif');
+  font-family: var(--font-two),'sans-serif';
 }
 
 @media (max-width: 767px) {
