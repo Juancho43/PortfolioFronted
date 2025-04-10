@@ -19,8 +19,9 @@
 
 
 .dark-theme{
+  transition: 1s background;
   --color-one: #292929;
-  --color-two: #094467;
+  --color-two: #480967;
   --color-three: #3e3232;
 
 

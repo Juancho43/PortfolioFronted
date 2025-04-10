@@ -7,11 +7,12 @@ import { Tag } from '@model/Tag';
 import { Project } from '@model/Project';
 import { toObservable } from '@angular/core/rxjs-interop';
 import { MetaTagsService } from '@services/utils/meta-tags.service';
+import {RouterOutlet} from '@angular/router';
 
 @Component({
   selector: 'app-projects-page',
   standalone: true,
-  imports: [ProjectListComponent, TagListComponent],
+  imports: [ProjectListComponent, TagListComponent, RouterOutlet],
   templateUrl: './projects-page.component.html',
   styleUrl: './projects-page.component.css',
 })

@@ -11,10 +11,16 @@ import { TagsPanelComponent } from '@modules/tags/tags-panel/tags-panel.componen
 import { LoginFormComponent } from '@modules/auth/login-form/login-form.component';
 import { authGuard } from '@core/guards/auth.guard';
 
+import { ProjectComponent } from '@modules/projects/project/project.component';
+import { EducationComponent } from '@modules/education/education/education.component';
+
 export const routes: Routes = [
   { path: 'home', component: HomePageComponent },
   { path: 'education', component: EducationPageComponent },
+  { path: 'education/name', component: EducationComponent },
   { path: 'projects', component: ProjectsPageComponent },
+  { path: 'projects', component: ProjectsPageComponent },
+  { path: 'project/:name', component: ProjectComponent },
   { path: 'contact', component: ContactPageComponent },
   { path: 'login', component: LoginFormComponent },
   {
