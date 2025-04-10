@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ProfileComponent } from '@modules/profile/profile/profile.component';
+import { ThemeService } from '@services/utils/theme.service';
 
 @Component({
   selector: 'app-header',
@@ -8,4 +9,10 @@ import { ProfileComponent } from '@modules/profile/profile/profile.component';
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
-export class HeaderComponent {}
+export class HeaderComponent {
+  private themeService = inject(ThemeService);
+
+  toggleTheme(): void {
+    this.themeService.toggleTheme();
+  }
+}

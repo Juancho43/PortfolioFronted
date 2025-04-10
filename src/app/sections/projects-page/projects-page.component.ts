@@ -48,10 +48,10 @@ export class ProjectsPageComponent {
   }
 
   setMetaTags() {
-    this.metaTagService.updateTitle('Proyectos de Juan Alé');
+    this.metaTagService.updateTitle('Proyectos');
     this.metaTagService.addMetaTags([
-      { name: 'description', content: 'Proyectos realizados por Juan Alé' },
-      { name: 'og:description', content: 'Proyectos realizados por Juan Alé' },
+      { name: 'description', content: 'Proyectos realizados.' },
+      { name: 'og:description', content: 'Proyectos realizados.' },
     ]);
   }
 

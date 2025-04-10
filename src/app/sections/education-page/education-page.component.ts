@@ -6,6 +6,7 @@ import { EducationService } from '@services/http/education.service';
 import { TagListComponent } from '@modules/tags/tag-list/tag-list.component';
 import { TagService } from '@services/http/tag.service';
 import { toObservable } from '@angular/core/rxjs-interop';
+import {MetaTagsService} from '@services/utils/meta-tags.service';
 
 @Component({
   selector: 'app-education-page',
@@ -17,7 +18,7 @@ import { toObservable } from '@angular/core/rxjs-interop';
 export class EducationPageComponent {
   private service = inject(EducationService);
   private tagService = inject(TagService);
-
+  private metaTagService = inject(MetaTagsService);
   educationsList = signal<Education[]>([]);
   tagsList = signal<Tag[]>([]);
   selectedTagId = signal<number | null>(null);
@@ -26,7 +27,6 @@ export class EducationPageComponent {
     const selectedTagObservable = toObservable(this.selectedTagId);
     selectedTagObservable.subscribe((tagId) => {
       if (tagId !== null) {
-        console.log('Tag selected via Observable:', tagId);
         this.getEducationsByTagId(tagId);
       }
     });
@@ -35,8 +35,21 @@ export class EducationPageComponent {
   ngOnInit(): void {
     this.getEducations();
     this.getTags();
+    this.setMetaTags();
   }
 
+  ngOnDestroy(): void {
+    this.metaTagService.removeAllMetaTags();
+    this.metaTagService.updateTitle('Bravo, Juan Alé');
+  }
+
+  setMetaTags() {
+    this.metaTagService.updateTitle('Formación');
+    this.metaTagService.addMetaTags([
+      { name: 'description', content: 'Formación realizada.' },
+      { name: 'og:description', content: 'Formación realizada.' },
+    ]);
+  }
   getEducations() {
     this.service.getAll().subscribe((res) => {
       this.educationsList.set(res.data!);

@@ -9,13 +9,20 @@
   --color-gray: rgba(200,200,200,0.5);
   --glass-color:rgba(129, 116, 160,0.2) ;
   --glass-border-color: rgba(255, 255, 255, 0.125);
-
+  --background: linear-gradient(60deg,var(--color-one), var(--color-two));
   --font-one: 'Montserrat', sans-serif;
   --font-two: 'Poppins', sans-serif;
 }
 
 
-
+.dark-theme{
+  --color-one: #292929;
+  --color-two: #094467;
+  --color-three: #292929;
+  --glass-color:rgba(129, 116, 160,0.2) ;
+  --glass-border-color: rgba(255, 255, 255, 0.125);
+  --color-black: #fff;
+}
 
 
 @keyframes main1 {
@@ -60,10 +67,10 @@
 
 body{
 
-  background: linear-gradient(60deg,var(--color-one), var(--color-two));
+  background: var(--background);
   background-size: 190%;
   animation-timing-function: ease;
-  /* animation-name: main1; */
+   animation-name: main1;
   animation-duration: 10s;
   animation-iteration-count:infinite;
 }

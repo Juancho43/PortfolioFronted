@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from '@core/shared/header/header.component';
 import { NavbarComponent } from '@core/shared/navbar/navbar.component';
 import { FooterComponent } from '@core/shared/footer/footer.component';
 import { CommonModule } from '@angular/common';
+import {ThemeService} from '@services/utils/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -18,4 +19,11 @@ import { CommonModule } from '@angular/common';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent {}
+export class AppComponent {
+
+  private themeService = inject(ThemeService);
+
+  ngOnInit(): void {
+    this.themeService.loadTheme();
+  }
+}
