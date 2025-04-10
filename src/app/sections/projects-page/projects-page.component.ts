@@ -6,6 +6,7 @@ import { TagService } from '@services/tag.service';
 import { Tag } from '@model/Tag';
 import { Project } from '@model/Project';
 import { toObservable } from '@angular/core/rxjs-interop';
+import { MetaTagsService } from '@services/utils/meta-tags.service';
 
 @Component({
   selector: 'app-projects-page',
@@ -17,7 +18,7 @@ import { toObservable } from '@angular/core/rxjs-interop';
 export class ProjectsPageComponent {
   private projectService = inject(ProjectService);
   private tagService = inject(TagService);
-
+  private metaTagService = inject(MetaTagsService);
   projectsList = signal<Project[]>([]);
   tagsList = signal<Tag[]>([]);
   selectedTagId = signal<number | null>(null);
@@ -26,7 +27,11 @@ export class ProjectsPageComponent {
     const selectedTagObservable = toObservable(this.selectedTagId);
     selectedTagObservable.subscribe((tagId) => {
       if (tagId !== null) {
-        this.getProjectsByTagId(tagId);
+        if (tagId === 0) {
+          this.getProjects();
+        } else {
+          this.getProjectsByTagId(tagId);
+        }
       }
     });
   }
@@ -34,7 +39,20 @@ export class ProjectsPageComponent {
   ngOnInit(): void {
     this.getTags();
     this.getProjects();
+    this.setMetaTags();
+  }
 
+  ngOnDestroy(): void {
+    this.metaTagService.removeAllMetaTags();
+    this.metaTagService.updateTitle('Bravo, Juan Alé');
+  }
+
+  setMetaTags() {
+    this.metaTagService.updateTitle('Proyectos de Juan Alé');
+    this.metaTagService.addMetaTags([
+      { name: 'description', content: 'Proyectos realizados por Juan Alé' },
+      { name: 'og:description', content: 'Proyectos realizados por Juan Alé' },
+    ]);
   }
 
   getProjects(): void {

@@ -5,6 +5,12 @@
       (click)="onTagClick(item.id!)"
     />
   } @empty {
-    <li>Sin etiquetas.</li>
+    <li>Sin etiquetas disponibles.</li>
+  }
+  @if (optionList){
+    <app-tag
+    [tag]="allTag"
+    (click)="onAllTagClick()"
+    />
   }
 </section>

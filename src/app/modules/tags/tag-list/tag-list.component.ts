@@ -11,9 +11,16 @@ import { TagComponent } from '../tag/tag.component';
 })
 export class TagListComponent {
   @Input() tags: Tag[] = [];
+  @Input() optionList: boolean = false;
   @Output() tagSelected = new EventEmitter<number>();
-
+  allTag: Tag = {
+    id: 0,
+    name: 'Todo',
+  };
   onTagClick(tagId: number): void {
     this.tagSelected.emit(tagId);
+  }
+  onAllTagClick() {
+    this.tagSelected.emit(this.allTag.id);
   }
 }

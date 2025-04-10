@@ -5,7 +5,6 @@ import { NavbarComponent } from '@core/shared/navbar/navbar.component';
 import { FooterComponent } from '@core/shared/footer/footer.component';
 import { CommonModule } from '@angular/common';
 
-
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -19,7 +18,4 @@ import { CommonModule } from '@angular/common';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent {
-
-
-}
+export class AppComponent {}

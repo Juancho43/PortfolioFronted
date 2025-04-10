@@ -5,7 +5,7 @@ import { ProjectComponent } from '../project/project.component';
 import { Project } from '../../../core/interfaces/Project';
 
 import { ProjectCardComponent } from '../project-card/project-card.component';
-import { DialogService } from '../../../core/utils/dialog.service';
+import { DialogService } from '@services/utils/dialog.service';
 import { ProjectDaoService } from '../../../core/services/DAO/project-dao.service';
 
 @Component({

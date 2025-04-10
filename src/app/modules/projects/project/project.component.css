@@ -1,16 +1,16 @@
 .Project{
   display: flex;
   flex-direction: column;
-
   padding: 1rem;
-  width: 30vw;
+  width: 30dvw;
   transition: 0s;
   background-color: var( --color-three);
+
 }
 .Project p{
   align-self: center;
   word-spacing: 4px;
-  width: 20vw;
+
   line-height: 1.5em;
   color:var(--color-black)
 }
@@ -19,7 +19,7 @@
   flex-flow: row wrap;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 800px) {
   .Project{
     min-width: 80vw;
     height: auto;

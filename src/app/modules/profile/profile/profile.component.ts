@@ -1,8 +1,7 @@
 import { Component, inject } from '@angular/core';
-import { ProfileService } from '../../../core/services/profile.service';
-import { ProfileDaoService } from '../../../core/services/DAO/profile-dao.service';
-import { environment } from '../../../../environments/environment';
-import { Profile } from '../../../core/interfaces/Profile';
+import { ProfileService } from '@services/profile.service';
+import { ProfileDaoService } from '@dao/profile-dao.service';
+import { Profile } from '@model/Profile';
 
 @Component({
   selector: 'app-profile',
@@ -14,11 +13,14 @@ import { Profile } from '../../../core/interfaces/Profile';
 export class ProfileComponent {
   private profileService = inject(ProfileService);
   private profileDao = inject(ProfileDaoService);
+
   profile?: Profile;
   photo: string = '';
   ngOnInit() {
     this.getData();
   }
+
+  ngOnDestroy() {}
 
   getData() {
     this.profileService.getProfile(1).subscribe((profile) => {

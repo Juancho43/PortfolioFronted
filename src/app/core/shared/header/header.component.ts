@@ -1,7 +1,5 @@
-import { Component, inject } from '@angular/core';
-import { ProfileService } from '../../services/profile.service';
-import { Profile } from '../../interfaces/Profile';
-import { ProfileComponent } from '../../../modules/profile/profile/profile.component';
+import { Component } from '@angular/core';
+import { ProfileComponent } from '@modules/profile/profile/profile.component';
 
 @Component({
   selector: 'app-header',
