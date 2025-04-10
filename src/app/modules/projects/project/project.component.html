@@ -1,9 +1,16 @@
 <article class="Project">
   <h3>{{project.name}}</h3>
   <p>{{project.description}}</p>
+
+  <div class="Links">
+    @for (item of project.links; track item.id){
+      <app-link [link]="item"/>
+    }
+  </div>
   <div class="Tags">
     @for (item of project.tags; track item.id){
       <app-tag [tag]="item"/>
     }
   </div>
 </article>
+

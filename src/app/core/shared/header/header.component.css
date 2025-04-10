@@ -4,17 +4,16 @@ header{
     justify-content: center;
     align-items: center;
     padding-top: 3em;
-
 }
 
 header img{
-    border: 1px solid white;
-    filter: drop-shadow(5px 5px 5px rgba(255, 251, 251, 0.5));
-    border-radius: 10px 0 0 10px;
+  border: 1px solid var(--color-primary-alter);
+  filter: drop-shadow(5px 5px 5px rgba(255, 251, 251, 0.5));
+  border-radius: 10px 0 0 10px;
   object-fit: contain;
-    height: 16em;
-    width: auto;
-    margin-right: 3em;
+  height: 16em;
+  width: auto;
+  margin-right: 3em;
 }
 header div{
   width: 70vw;
@@ -26,9 +25,10 @@ header h2{
   font-size: 2.5em;
 }
 header p{
+  color : var(--color-primary);
   max-width: 50vw;
   line-height: 2em;
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-two), serif;
 }
 
 @media (max-width: 767px) {

@@ -13,6 +13,7 @@ import {CommonModule} from '@angular/common';
   styleUrl: './tag.component.css'
 })
 export class TagComponent {
+
 @Input() tag : Tag = {
   id: 0,
   name: '',

@@ -5,6 +5,15 @@ article{
   align-items: center;
   padding-top: 3em;
 }
+header h2{
+  color:var(--color-primary-alter);
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-decoration-color: var(--color-one);
+  align-self: flex-start;
+}
+
+
 
 article img{
   border: 1px solid white;
@@ -27,7 +36,7 @@ article h2{
 article p{
   max-width: 50vw;
   line-height: 2em;
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-two,'sans-serif');
 }
 
 @media (max-width: 767px) {

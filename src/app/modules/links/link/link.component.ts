@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {Link} from '@model/Link';
 
 @Component({
   selector: 'app-link',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
   templateUrl: './link.component.html',
   styleUrl: './link.component.css',
 })
-export class LinkComponent {}
+export class LinkComponent {
+  @Input() link : Link = {
+    id: 0,
+    name: '',
+    link: '',
+  };
+}

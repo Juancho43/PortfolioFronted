@@ -20,11 +20,11 @@ input,textarea,select,option, button {
   padding: 10px;
 
   border-radius: 3px;
-  border: 2px var(--color-alter-white) solid;
+  border: 2px var(--color-primary-alter) solid;
 
 }
 input:focus, textarea:focus, select:focus{
-  box-shadow: 3px 3px 10px inset var(--color-alter-white);
+  box-shadow: 3px 3px 10px inset var(--color-primary-alter);
   outline: none;
 }
 textarea{
@@ -32,12 +32,12 @@ textarea{
 }
 
 label{
-  color:var(--color-alter-black);
+  color:var(--color-secondary-alter);
 }
 
 button{
   margin: 0 10px;
-  color:var(--color-alter-black);
+  color:var(--color-secondary-alter);
   width: max-content;
   flex-grow: 1;
   transition: 2s background-color;

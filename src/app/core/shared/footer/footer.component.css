@@ -1,8 +1,8 @@
 footer{
   display: flex;
   flex-direction: column;
-  background-color: var(--color-black);
-  color: var(--color-white);
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
   justify-content: center;
   align-items: flex-start;
   min-height: 70px;

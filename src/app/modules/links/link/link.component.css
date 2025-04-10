@@ -1,0 +1,9 @@
+a{
+  color: var(--color-primary-alter);
+
+}
+a:before{
+  content: '&';
+  color: var(--color-one);
+
+}

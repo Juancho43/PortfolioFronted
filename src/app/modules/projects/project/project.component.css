@@ -5,14 +5,13 @@
   width: 30dvw;
   transition: 0s;
   background-color: var( --color-three);
-
 }
+
 .Project p{
   align-self: center;
   word-spacing: 4px;
-
   line-height: 1.5em;
-  color:var(--color-black)
+  color:var(--color-primary-alter);
 }
 .Project .Tags{
   display: flex;

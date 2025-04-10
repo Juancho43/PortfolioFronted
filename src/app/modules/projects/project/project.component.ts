@@ -4,19 +4,20 @@ import { CommonModule } from '@angular/common';
 import { TagComponent } from '../../tags/tag/tag.component';
 import { ProjectDaoService } from '../../../core/services/DAO/project-dao.service';
 import { DialogService } from '@services/utils/dialog.service';
+import {LinkComponent} from '@modules/links/link/link.component';
 
 @Component({
   selector: 'app-project',
   standalone: true,
-  imports: [CommonModule, TagComponent],
+  imports: [CommonModule, TagComponent, LinkComponent],
   templateUrl: './project.component.html',
   styleUrl: './project.component.css',
 })
 export class ProjectComponent {
   private dao = inject(ProjectDaoService);
   @Input() project: Project = this.dao.getEmptyProject();
-
   ngOnInit() {
     this.dao.getProject().subscribe((data) => (this.project = data));
   }
+
 }
