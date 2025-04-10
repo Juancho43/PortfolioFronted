@@ -9,10 +9,10 @@ import {
 
 import { Project } from '../../../core/interfaces/Project';
 import { TagComponent } from '../../tags/tag/tag.component';
-import { TagService } from '../../../core/services/tag.service';
+import { TagService } from '@services/http/tag.service';
 import { Tag } from '../../../core/interfaces/Tag';
 import { ProjectDaoService } from '../../../core/services/DAO/project-dao.service';
-import { ProjectService } from '../../../core/services/project.service';
+import { ProjectService } from '@services/http/project.service';
 
 @Component({
   selector: 'app-project-form',

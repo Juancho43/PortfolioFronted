@@ -1,5 +1,5 @@
 import { Component, inject, Input, OnInit, signal } from '@angular/core';
-import { ProjectService } from '../../../core/services/project.service';
+import { ProjectService } from '@services/http/project.service';
 import { CommonModule } from '@angular/common';
 import { ProjectComponent } from '../project/project.component';
 import { Project } from '../../../core/interfaces/Project';

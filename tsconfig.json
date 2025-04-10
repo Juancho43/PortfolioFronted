@@ -25,6 +25,7 @@
       "@model/*": ["src/app/core/interfaces/*"],
       "@core/*": ["src/app/core/*"],
       "@services/*": ["src/app/core/services/*"],
+      "@http/*": ["src/app/core/services/http/*"],
       "@dao/*": ["src/app/core/services/DAO/*"],
       "@endpoints/*": ["src/app/core/services/endpoints/*"],
       "@modules/*": ["src/app/modules/*"],

@@ -1,10 +1,10 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Profile } from '../interfaces/Profile';
-import { environment } from '../../../environments/environment';
-import { ApiResponse } from '../interfaces/ApiResponse';
-import { profileEndpoint } from './endpoints/profile.endpoint';
+import { Profile } from '@model/Profile';
+import { environment } from '@environments/environment';
+import { ApiResponse } from '@model/ApiResponse';
+import { profileEndpoint } from '@endpoints/profile.endpoint';
 
 @Injectable({
   providedIn: 'root',

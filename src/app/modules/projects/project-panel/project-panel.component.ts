@@ -6,7 +6,7 @@ import {
   TableData,
 } from '../../../core/interfaces/TableData';
 
-import { ProjectService } from '../../../core/services/project.service';
+import { ProjectService } from '@services/http/project.service';
 
 @Component({
   selector: 'app-project-panel',

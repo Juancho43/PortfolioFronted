@@ -5,7 +5,7 @@ import {
   convertToTableData,
   TableData,
 } from '../../../core/interfaces/TableData';
-import { EducationService } from '../../../core/services/education.service';
+import { EducationService } from '@services/http/education.service';
 import { EducationDaoService } from '../../../core/services/DAO/education-dao.service';
 
 @Component({

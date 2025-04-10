@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ProfileService } from '../../../core/services/profile.service';
+import { ProfileService } from '@services/http/profile.service';
 
 @Component({
   selector: 'app-cv-profile-form',

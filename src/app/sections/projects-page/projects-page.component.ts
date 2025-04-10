@@ -1,8 +1,8 @@
 import { Component, inject, signal } from '@angular/core';
 import { ProjectListComponent } from '@modules/projects/project-list/project-list.component';
 import { TagListComponent } from '@modules/tags/tag-list/tag-list.component';
-import { ProjectService } from '@services/project.service';
-import { TagService } from '@services/tag.service';
+import { ProjectService } from '@services/http/project.service';
+import { TagService } from '@services/http/tag.service';
 import { Tag } from '@model/Tag';
 import { Project } from '@model/Project';
 import { toObservable } from '@angular/core/rxjs-interop';

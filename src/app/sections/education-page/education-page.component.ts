@@ -2,10 +2,10 @@ import { Component, inject, signal } from '@angular/core';
 import { EducationListComponent } from '@modules/education/education-list/education-list.component';
 import { Tag } from '@model/Tag';
 import { Education } from '@model/Education';
-import { EducationService } from '@services/education.service';
+import { EducationService } from '@services/http/education.service';
 import { TagListComponent } from '@modules/tags/tag-list/tag-list.component';
-import {TagService} from '@services/tag.service';
-import {toObservable} from '@angular/core/rxjs-interop';
+import { TagService } from '@services/http/tag.service';
+import { toObservable } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-education-page',
@@ -46,7 +46,7 @@ export class EducationPageComponent {
   getEducationsByTagId(id: number) {
     this.service.getByTag(id).subscribe((res) => {
       this.educationsList.set(res.data!);
-    })
+    });
   }
   getTags(): void {
     this.tagService.getAllEducationTags().subscribe((res) => {

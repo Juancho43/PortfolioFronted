@@ -5,7 +5,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { TagService } from '../../../core/services/tag.service';
+import { TagService } from '@services/http/tag.service';
 import { Tag } from '../../../core/interfaces/Tag';
 
 @Component({

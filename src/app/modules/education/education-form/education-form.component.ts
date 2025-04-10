@@ -5,7 +5,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { EducationService } from '../../../core/services/education.service';
+import { EducationService } from '@services/http/education.service';
 import { Education } from '../../../core/interfaces/Education';
 import { EducationDaoService } from '../../../core/services/DAO/education-dao.service';
 

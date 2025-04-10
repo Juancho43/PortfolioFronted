@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { ProfileService } from '@services/profile.service';
+import { ProfileService } from '@services/http/profile.service';
 import { ProfileDaoService } from '@dao/profile-dao.service';
 import { Profile } from '@model/Profile';
 

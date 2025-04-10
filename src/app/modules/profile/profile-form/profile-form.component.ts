@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 
 import { Project } from '../../../core/interfaces/Project';
-import { ProfileService } from '../../../core/services/profile.service';
+import { ProfileService } from '@services/http/profile.service';
 import { Profile } from '../../../core/interfaces/Profile';
 
 @Component({

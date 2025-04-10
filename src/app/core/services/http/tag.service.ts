@@ -1,11 +1,11 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Tag } from '../interfaces/Tag';
-import { environment } from '../../../environments/environment';
-import { ApiResponseCollection } from '../interfaces/ApiResponseCollection';
-import { ApiResponse } from '../interfaces/ApiResponse';
-import { tagEndpoints } from './endpoints/tag.endpoint';
+import { Tag } from '@model/Tag';
+import { environment } from '@environments/environment';
+import { ApiResponseCollection } from '@model/ApiResponseCollection';
+import { ApiResponse } from '@model/ApiResponse';
+import { tagEndpoints } from '@endpoints/tag.endpoint';
 
 @Injectable({
   providedIn: 'root',
@@ -22,18 +22,18 @@ export class TagService {
   getAllEducationTags(): Observable<ApiResponseCollection<Tag>> {
     return this.http.get<ApiResponseCollection<Tag>>(
       environment.api_url + tagEndpoints.getEducation,
-    )
+    );
   }
 
   getAllWorkTags(): Observable<ApiResponseCollection<Tag>> {
     return this.http.get<ApiResponseCollection<Tag>>(
       environment.api_url + tagEndpoints.getWork,
-    )
+    );
   }
   getAllProjectTags(): Observable<ApiResponseCollection<Tag>> {
     return this.http.get<ApiResponseCollection<Tag>>(
       environment.api_url + tagEndpoints.getProject,
-    )
+    );
   }
   getById(id: number): Observable<ApiResponse<Tag>> {
     return this.http.get<ApiResponse<Tag>>(

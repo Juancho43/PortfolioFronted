@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { ProfileService } from '../../../core/services/profile.service';
+import { ProfileService } from '@services/http/profile.service';
 import { FormsModule } from '@angular/forms';
 
 @Component({

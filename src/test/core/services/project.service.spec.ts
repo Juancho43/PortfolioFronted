@@ -1,6 +1,10 @@
-import {createHttpFactory, HttpMethod, SpectatorHttp} from '@ngneat/spectator/jest';
-import {ProjectService} from '@services/project.service';
-import {environment} from '@environments/environment';
+import {
+  createHttpFactory,
+  HttpMethod,
+  SpectatorHttp,
+} from '@ngneat/spectator/jest';
+import { ProjectService } from '@services/http/project.service';
+import { environment } from '@environments/environment';
 
 describe('ProjectService', () => {
   let spectator: SpectatorHttp<ProjectService>;
@@ -15,11 +19,8 @@ describe('ProjectService', () => {
   });
 
   it('can test HttpClient.get', () => {
-    spectator.service.getAll().subscribe((data) => {
-    })
+    spectator.service.getAll().subscribe((data) => {});
     const url = `${environment.api_url}/project`;
     spectator.expectOne(url, HttpMethod.GET);
   });
-
-
 });

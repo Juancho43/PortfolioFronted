@@ -1,11 +1,11 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Work } from '../interfaces/Work';
-import { environment } from '../../../environments/environment';
-import { ApiResponseCollection } from '../interfaces/ApiResponseCollection';
-import { ApiResponse } from '../interfaces/ApiResponse';
-import { workEndpoint } from './endpoints/work.endpoint';
+import { Work } from '@model/Work';
+import { environment } from '@environments/environment';
+import { ApiResponseCollection } from '@model/ApiResponseCollection';
+import { ApiResponse } from '@model/ApiResponse';
+import { workEndpoint } from '@endpoints/work.endpoint';
 
 @Injectable({
   providedIn: 'root',

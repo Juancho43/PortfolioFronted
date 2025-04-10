@@ -5,7 +5,7 @@ import {
   convertToTableData,
   TableData,
 } from '../../../core/interfaces/TableData';
-import { TagService } from '../../../core/services/tag.service';
+import { TagService } from '@services/http/tag.service';
 import { DataTableComponent } from '../../../core/shared/data-table/data-table.component';
 
 @Component({
