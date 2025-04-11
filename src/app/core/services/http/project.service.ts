@@ -33,6 +33,13 @@ export class ProjectService {
     );
   }
 
+  getBySlug(slug: string): Observable<ApiResponse<Project>> {
+    return this.http.get<ApiResponse<Project>>(
+      environment.api_url +
+        projectEndpoint.getBySlug.replace(':slug', slug.toString()),
+    );
+  }
+
   getByEducation(id: number): Observable<ApiResponseCollection<Project>> {
     const url =
       environment.api_url +

@@ -3,6 +3,8 @@ import { Tag } from './Tag';
 
 export interface Work {
   id?: number;
+  name?: string;
+  slug?: string;
   company: string;
   position: string;
   start_date: Date;

@@ -1,5 +1,5 @@
 <div>
   @for (item of projects; track item.name) {
-    <app-project-card [project]="item" (click)="open(item)"/>
+    <app-project-card [project]="item"  [routerLink]="['../project' ,item.slug]"/>
   }
 </div>

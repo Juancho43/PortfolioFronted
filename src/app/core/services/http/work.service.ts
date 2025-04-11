@@ -25,6 +25,12 @@ export class WorkService {
     );
   }
 
+  getBySlug(slug: string): Observable<ApiResponse<Work>> {
+    return this.http.get<ApiResponse<Work>>(
+      environment.api_url + workEndpoint.getBySlug.replace(':slug', slug),
+    );
+  }
+
   post(work: Work): Observable<ApiResponse<Work>> {
     return this.http.post<ApiResponse<Work>>(
       environment.api_url + workEndpoint.post,

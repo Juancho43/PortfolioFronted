@@ -5,6 +5,7 @@ import { Link } from './Link';
 export interface Education {
   id?: number;
   name: string;
+  slug?: string;
   description: string;
   startDate: Date;
   endDate?: Date;

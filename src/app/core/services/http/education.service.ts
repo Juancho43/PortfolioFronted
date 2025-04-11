@@ -33,6 +33,13 @@ export class EducationService {
     );
   }
 
+  getBySlug(slug: string): Observable<ApiResponse<Education>> {
+    return this.http.get<ApiResponse<Education>>(
+      environment.api_url +
+        educationEndpoint.getBySlug.replace(':slug', slug.toString()),
+    );
+  }
+
   post(education: Education): Observable<ApiResponse<Education>> {
     return this.http.post<ApiResponse<Education>>(
       environment.api_url + educationEndpoint.post,

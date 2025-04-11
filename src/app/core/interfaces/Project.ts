@@ -4,6 +4,7 @@ import { Link } from './Link';
 export interface Project {
   id?: number;
   name: string;
+  slug?: string;
   description: string;
   tags?: Tag[];
   links?: Link[];

@@ -2,9 +2,11 @@
   display: flex;
   flex-direction: column;
   padding: 1rem;
-  width: 30dvw;
+  width: 70dvw;
   transition: 0s;
-  background-color: var( --color-three);
+  background-color: var( --glass-color);
+  border-radius: 10px;
+  align-items: flex-start;
 }
 
 .Project p{
