@@ -45,7 +45,7 @@ export class WorkService {
     );
   }
 
-  delete(id: number): Observable<ApiResponse<any>> {
+  delete(id: number): Observable<ApiResponse<Work>> {
     return this.http.delete<ApiResponse<Work>>(
       environment.api_url + workEndpoint.delete.replace(':id', id.toString()),
     );

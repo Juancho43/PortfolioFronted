@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Project } from '../../interfaces/Project';
-import { Education } from '../../interfaces/Education';
+import { Education } from '@model/Education';
 
 @Injectable({
   providedIn: 'root',
@@ -9,8 +8,9 @@ import { Education } from '../../interfaces/Education';
 export class EducationDaoService {
   private _education: BehaviorSubject<Education> =
     new BehaviorSubject<Education>(this.getEmptyEducation());
-  private _educations: BehaviorSubject<Education[]> =
-    new BehaviorSubject<Education[]>([]);
+  private _educations: BehaviorSubject<Education[]> = new BehaviorSubject<
+    Education[]
+  >([]);
 
   getEducation() {
     return this._education.asObservable();
@@ -19,7 +19,6 @@ export class EducationDaoService {
   setEducation(item: Education) {
     this._education.next(item);
   }
-
 
   getEducations() {
     return this._educations.asObservable();

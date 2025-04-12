@@ -39,8 +39,8 @@ export class LinkService {
     );
   }
 
-  delete(id: number): Observable<ApiResponse<any>> {
-    return this.http.delete<ApiResponse<any>>(
+  delete(id: number): Observable<ApiResponse<Link>> {
+    return this.http.delete<ApiResponse<Link>>(
       environment.api_url + linkEndpoints.delete.replace(':id', id.toString()),
     );
   }

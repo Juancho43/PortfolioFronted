@@ -61,7 +61,7 @@ export class ProjectService {
     );
   }
 
-  delete(id: number): Observable<ApiResponse<any>> {
+  delete(id: number): Observable<ApiResponse<Project>> {
     return this.http.delete<ApiResponse<Project>>(
       environment.api_url +
         projectEndpoint.delete.replace(':id', id.toString()),

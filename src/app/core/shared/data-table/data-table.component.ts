@@ -11,7 +11,7 @@ import { TableData } from '../../interfaces/TableData';
 export class DataTableComponent {
   @Input() columns: string[] = [];
   @Input() data: TableData[] = [];
-  @Input() tilte: string = '';
+  @Input() tilte = '';
   @Output() onEdit = new EventEmitter<any>();
   @Output() onDelete = new EventEmitter<any>();
   handleEdit(data: any) {

@@ -1,11 +1,9 @@
-import { Component, inject, signal } from '@angular/core';
-import { ContactComponent } from '../../modules/contact/contact.component';
-import { ProfileDaoService } from '../../core/services/DAO/profile-dao.service';
-import { environment } from '../../../environments/environment';
-import { Profile } from '../../core/interfaces/Profile';
+import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
+import { ContactComponent } from '@modules/contact/contact.component';
+import { environment } from '@environments/environment';
 import { ProfileService } from '@services/http/profile.service';
-import { lastValueFrom } from 'rxjs';
-import {MetaTagsService} from '@services/utils/meta-tags.service';
+import { MetaTagsService } from '@services/utils/meta-tags.service';
+
 @Component({
   selector: 'app-contact-page',
   standalone: true,
@@ -13,9 +11,8 @@ import {MetaTagsService} from '@services/utils/meta-tags.service';
   templateUrl: './contact-page.component.html',
   styleUrl: './contact-page.component.css',
 })
-export class ContactPageComponent {
+export class ContactPageComponent implements OnInit, OnDestroy {
   protected readonly environment = environment;
-  private dao = inject(ProfileDaoService);
   private service = inject(ProfileService);
   private metaTagService = inject(MetaTagsService);
   linkedin = signal<string>('');
@@ -23,7 +20,7 @@ export class ContactPageComponent {
   github = signal<string>('');
   cv = signal<string>('');
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getData();
     this.setMetaTags();
   }

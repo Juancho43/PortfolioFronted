@@ -17,7 +17,7 @@ import { Tag } from '../../../core/interfaces/Tag';
 })
 export class TagFormComponent implements OnInit {
   private tagService = inject(TagService);
-  edit: boolean = false;
+  edit = false;
   currentTag: Tag = {
     id: 0,
     name: '',

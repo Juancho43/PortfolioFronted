@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import {
   FormArray,
   FormControl,
@@ -21,12 +21,12 @@ import { ProjectService } from '@services/http/project.service';
   templateUrl: './project-form.component.html',
   styleUrls: ['./project-form.component.css', '../../../core/styles/forms.css'],
 })
-export class ProjectFormComponent {
+export class ProjectFormComponent implements OnInit {
   private service = inject(ProjectService);
   private proyectsDAO = inject(ProjectDaoService);
   private tagsService = inject(TagService);
   tags: Tag[] = [];
-  edit: boolean = false;
+  edit = false;
   currentProyect: Project = this.proyectsDAO.getEmptyProject();
   ProyectForm: FormGroup = new FormGroup({
     id: new FormControl(0),

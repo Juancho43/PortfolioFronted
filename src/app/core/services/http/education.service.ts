@@ -54,7 +54,7 @@ export class EducationService {
     );
   }
 
-  delete(id: number): Observable<ApiResponse<any>> {
+  delete(id: number): Observable<ApiResponse<Education>> {
     return this.http.delete<ApiResponse<Education>>(
       environment.api_url +
         educationEndpoint.delete.replace(':id', id.toString()),

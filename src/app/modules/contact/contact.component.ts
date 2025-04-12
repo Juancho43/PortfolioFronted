@@ -8,8 +8,8 @@ import {Component, Input} from '@angular/core';
   styleUrl: './contact.component.css'
 })
 export class ContactComponent {
-  @Input() img : string = '';
-  @Input() nickname : string = '';
-  @Input() url : string = '';
+  @Input() img  = '';
+  @Input() nickname  = '';
+  @Input() url  = '';
 
 }

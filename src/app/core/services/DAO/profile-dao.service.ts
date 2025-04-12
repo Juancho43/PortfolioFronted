@@ -14,12 +14,8 @@ export class ProfileDaoService {
     return this._profile.asObservable();
   }
 
-  setProfile(item: any) {
+  setProfile(item: Profile) {
     this._profile.next(item);
-  }
-
-  getVariable(variable: string) {
-    // return this._profile.getValue().links.find(link => link.name === variable)?.link;
   }
 
   getEmptyProfile(): Profile {

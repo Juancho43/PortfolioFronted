@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
 import { ProjectListComponent } from '@modules/projects/project-list/project-list.component';
 import { TagListComponent } from '@modules/tags/tag-list/tag-list.component';
 import { ProjectService } from '@services/http/project.service';
@@ -7,7 +7,7 @@ import { Tag } from '@model/Tag';
 import { Project } from '@model/Project';
 import { toObservable } from '@angular/core/rxjs-interop';
 import { MetaTagsService } from '@services/utils/meta-tags.service';
-import {RouterOutlet} from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-projects-page',
@@ -16,7 +16,7 @@ import {RouterOutlet} from '@angular/router';
   templateUrl: './projects-page.component.html',
   styleUrl: './projects-page.component.css',
 })
-export class ProjectsPageComponent {
+export class ProjectsPageComponent implements OnInit, OnDestroy {
   private projectService = inject(ProjectService);
   private tagService = inject(TagService);
   private metaTagService = inject(MetaTagsService);

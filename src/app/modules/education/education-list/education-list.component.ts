@@ -1,6 +1,5 @@
-import { Component, inject, Input } from '@angular/core';
-import { EducationService } from '@services/http/education.service';
-import { Education } from '../../../core/interfaces/Education';
+import { Component, Input } from '@angular/core';
+import { Education } from '@model/Education';
 import { EducationComponent } from '../education/education.component';
 
 @Component({

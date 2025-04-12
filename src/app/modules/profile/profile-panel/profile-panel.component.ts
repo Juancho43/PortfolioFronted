@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ProfileFormComponent } from '../profile-form/profile-form.component';
 import { DataTableComponent } from '../../../core/shared/data-table/data-table.component';
 import { ProfileService } from '@services/http/profile.service';
@@ -22,16 +22,16 @@ import { CvProfileFormComponent } from '../cv-profile-form/cv-profile-form.compo
     '../../../core/styles/panel.css',
   ],
 })
-export class ProfilePanelComponent {
+export class ProfilePanelComponent implements OnInit {
   private service = inject(ProfileService);
   private dao = inject(ProfileDaoService);
-  tilte: string = 'Usuario';
+  tilte = 'Usuario';
   colums: string[] = [];
   data: TableData[] = [];
 
   profileColumns: string[] = [];
   profileData: TableData[] = [];
-  profileTilte: string = 'Perfil';
+  profileTilte = 'Perfil';
   profile: any;
 
   ngOnInit() {

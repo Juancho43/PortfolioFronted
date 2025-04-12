@@ -8,7 +8,7 @@ import { environment } from '../../../../environments/environment';
 })
 export class AuthService {
   private http = inject(HttpClient);
-  private _login: boolean = true;
+  private _login = true;
   private _lastLogin: Date = new Date();
 
   sendLogin(data: { email: string; password: string }) {

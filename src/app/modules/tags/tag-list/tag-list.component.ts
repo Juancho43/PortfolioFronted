@@ -11,7 +11,7 @@ import { TagComponent } from '../tag/tag.component';
 })
 export class TagListComponent {
   @Input() tags: Tag[] = [];
-  @Input() optionList: boolean = false;
+  @Input() optionList = false;
   @Output() tagSelected = new EventEmitter<number>();
   allTag: Tag = {
     id: 0,

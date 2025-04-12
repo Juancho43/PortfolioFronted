@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ThemeService } from '@services/utils/theme.service';
 
 @Component({
@@ -8,9 +8,9 @@ import { ThemeService } from '@services/utils/theme.service';
   templateUrl: './dark-mode.component.html',
   styleUrl: './dark-mode.component.css',
 })
-export class DarkModeComponent {
+export class DarkModeComponent implements OnInit {
   private themeService = inject(ThemeService);
-  url: string = '';
+  url = '';
 
   ngOnInit(): void {
     this.themeService.theme$.subscribe(

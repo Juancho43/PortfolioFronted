@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -19,10 +19,10 @@ import { EducationDaoService } from '../../../core/services/DAO/education-dao.se
     '../../../core/styles/forms.css',
   ],
 })
-export class EducationFormComponent {
+export class EducationFormComponent implements OnInit {
   private service = inject(EducationService);
   private dao = inject(EducationDaoService);
-  edit: boolean = false;
+  edit = false;
 
   currentEducation: Education = this.dao.getEmptyEducation();
 

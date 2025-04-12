@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { EducationFormComponent } from '../education-form/education-form.component';
 import { DataTableComponent } from '../../../core/shared/data-table/data-table.component';
 import {
@@ -18,10 +18,10 @@ import { EducationDaoService } from '../../../core/services/DAO/education-dao.se
     '../../../core/styles/panel.css',
   ],
 })
-export class EducationPanelComponent {
+export class EducationPanelComponent implements OnInit {
   private service = inject(EducationService);
   private dao = inject(EducationDaoService);
-  tilte: string = 'Formación';
+  tilte = 'Formación';
   educationColumns: string[] = [];
   educationData: TableData[] = [];
 

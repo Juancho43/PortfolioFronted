@@ -28,8 +28,8 @@ export class LoginFormComponent {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      let email = this.loginForm.get('email')?.value!;
-      let password = this.loginForm.get('password')?.value!;
+      const email = this.loginForm.get('email')?.value!;
+      const password = this.loginForm.get('password')?.value!;
       this.authService.sendLogin({ email, password }).subscribe((res: any) => {
         if (res.message == 'Hi') {
           this.authService.saveToken(res.accessToken);

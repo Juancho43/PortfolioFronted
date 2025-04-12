@@ -18,16 +18,16 @@ export class ProfileService {
     );
   }
 
-  postImg(img: FormData, id: number): Observable<any> {
-    return this.http.post(
+  postImg(img: FormData, id: number): Observable<ApiResponse<string>> {
+    return this.http.post<ApiResponse<string>>(
       environment.api_url +
         profileEndpoint.postImg.replace(':id', id.toString()),
       img,
     );
   }
 
-  postCv(cv: FormData, id: number): Observable<any> {
-    return this.http.post(
+  postCv(cv: FormData, id: number): Observable<ApiResponse<string>> {
+    return this.http.post<ApiResponse<string>>(
       environment.api_url +
         profileEndpoint.postCV.replace(':id', id.toString()),
       cv,

@@ -55,7 +55,7 @@ export class TagService {
     );
   }
 
-  delete(id: number): Observable<ApiResponse<any>> {
+  delete(id: number): Observable<ApiResponse<Tag>> {
     return this.http.delete<ApiResponse<Tag>>(
       environment.api_url + tagEndpoints.delete.replace(':id', id.toString()),
     );

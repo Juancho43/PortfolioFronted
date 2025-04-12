@@ -1,6 +1,4 @@
-export interface TableData {
-  [key: string]: any;
-}
+export type TableData = Record<string, any>;
 
 export function convertToTableData(data: any[]): TableData[] {
   return data.map((item) => {

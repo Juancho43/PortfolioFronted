@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { TagFormComponent } from '../tag-form/tag-form.component';
 
 import {
@@ -15,9 +15,9 @@ import { DataTableComponent } from '../../../core/shared/data-table/data-table.c
   templateUrl: './tags-panel.component.html',
   styleUrls: ['./tags-panel.component.css', '../../../core/styles/panel.css'],
 })
-export class TagsPanelComponent {
+export class TagsPanelComponent implements OnInit {
   private service = inject(TagService);
-  tilte: string = 'Etiquetas';
+  tilte = 'Etiquetas';
   tagsColumns: string[] = [];
   tagsData: TableData[] = [];
 

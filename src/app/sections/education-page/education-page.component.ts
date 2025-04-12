@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
 import { EducationListComponent } from '@modules/education/education-list/education-list.component';
 import { Tag } from '@model/Tag';
 import { Education } from '@model/Education';
@@ -6,7 +6,7 @@ import { EducationService } from '@services/http/education.service';
 import { TagListComponent } from '@modules/tags/tag-list/tag-list.component';
 import { TagService } from '@services/http/tag.service';
 import { toObservable } from '@angular/core/rxjs-interop';
-import {MetaTagsService} from '@services/utils/meta-tags.service';
+import { MetaTagsService } from '@services/utils/meta-tags.service';
 
 @Component({
   selector: 'app-education-page',
@@ -15,7 +15,7 @@ import {MetaTagsService} from '@services/utils/meta-tags.service';
   templateUrl: './education-page.component.html',
   styleUrl: './education-page.component.css',
 })
-export class EducationPageComponent {
+export class EducationPageComponent implements OnInit, OnDestroy {
   private service = inject(EducationService);
   private tagService = inject(TagService);
   private metaTagService = inject(MetaTagsService);

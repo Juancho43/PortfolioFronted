@@ -1,8 +1,8 @@
-import { Component, inject, Input, signal } from '@angular/core';
-import { Project } from '../../../core/interfaces/Project';
+import { Component, inject, Input, OnInit, signal } from '@angular/core';
+import { Project } from '@model/Project';
 import { TagListComponent } from '../../tags/tag-list/tag-list.component';
-import { Tag } from '../../../core/interfaces/Tag';
-import { ProjectDaoService } from '../../../core/services/DAO/project-dao.service';
+import { Tag } from '@model/Tag';
+import { ProjectDaoService } from '@dao/project-dao.service';
 
 @Component({
   selector: 'app-project-card',
@@ -11,7 +11,7 @@ import { ProjectDaoService } from '../../../core/services/DAO/project-dao.servic
   templateUrl: './project-card.component.html',
   styleUrl: './project-card.component.css',
 })
-export class ProjectCardComponent {
+export class ProjectCardComponent implements OnInit {
   private dao = inject(ProjectDaoService);
 
   @Input() project: Project = this.dao.getEmptyProject();

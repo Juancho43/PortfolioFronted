@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ProjectFormComponent } from '../project-form/project-form.component';
 import { DataTableComponent } from '../../../core/shared/data-table/data-table.component';
 import {
@@ -18,9 +18,9 @@ import { ProjectService } from '@services/http/project.service';
     '../../../core/styles/panel.css',
   ],
 })
-export class ProjectPanelComponent {
+export class ProjectPanelComponent implements OnInit {
   private service = inject(ProjectService);
-  tilte: string = 'Proyectos';
+  tilte = 'Proyectos';
   projectColumns: string[] = [];
   projectData: TableData[] = [];
 

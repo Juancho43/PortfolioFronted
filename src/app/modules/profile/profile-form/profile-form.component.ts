@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -17,10 +17,10 @@ import { Profile } from '../../../core/interfaces/Profile';
   templateUrl: './profile-form.component.html',
   styleUrls: ['./profile-form.component.css', '../../../core/styles/forms.css'],
 })
-export class ProfileFormComponent {
+export class ProfileFormComponent implements OnInit {
   private service = inject(ProfileService);
 
-  edit: boolean = true;
+  edit = true;
   @Input() currentProfile: Profile = {
     id: 0,
     description: '',
