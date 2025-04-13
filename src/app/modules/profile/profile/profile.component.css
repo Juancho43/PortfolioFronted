@@ -20,9 +20,11 @@ article img{
   filter: drop-shadow(5px 5px 5px rgba(255, 251, 251, 0.5));
   border-radius: 10px 0 0 10px;
   object-fit: contain;
-  height: 16em;
-  width: auto;
   margin-right: 3em;
+  height:fit-content ;
+  max-height: 300px;
+  width: auto;
+  max-width: 200px;
 }
 article div{
   width: 70vw;
@@ -38,6 +40,12 @@ article p{
   line-height: 2em;
   font-family: var(--font-two),'sans-serif';
 }
+
+div:first-child{
+  position: relative;
+
+}
+
 
 @media (max-width: 767px) {
   /* Estilos para pantallas de hasta 767px de ancho */

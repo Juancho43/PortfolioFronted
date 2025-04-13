@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, input} from '@angular/core';
 
 @Component({
   selector: 'app-contact',
@@ -8,8 +8,8 @@ import {Component, Input} from '@angular/core';
   styleUrl: './contact.component.css'
 })
 export class ContactComponent {
-  @Input() img  = '';
-  @Input() nickname  = '';
-  @Input() url  = '';
+  readonly img = input('');
+  readonly nickname = input('');
+  readonly url = input('');
 
 }

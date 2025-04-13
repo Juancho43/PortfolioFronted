@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, input} from '@angular/core';
 
 import {Tag} from "../../../core/interfaces/Tag";
 import {CommonModule} from '@angular/common';
@@ -14,12 +14,12 @@ import {CommonModule} from '@angular/common';
 })
 export class TagComponent {
 
-@Input() tag : Tag = {
-  id: 0,
-  name: '',
-  created_at: new Date(),
-  updated_at: new Date()
-};
+readonly tag = input<Tag>({
+    id: 0,
+    name: '',
+    created_at: new Date(),
+    updated_at: new Date()
+});
 
 
 

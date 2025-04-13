@@ -1,5 +1,5 @@
 <section class="tagList">
-  @for (item of tags; track item.name) {
+  @for (item of tags(); track item.name) {
     <app-tag
       [tag]="item"
       (click)="onTagClick(item.id!)"
@@ -7,7 +7,7 @@
   } @empty {
     <li>Sin etiquetas disponibles.</li>
   }
-  @if (optionList){
+  @if (optionList()){
     <app-tag
     [tag]="allTag"
     (click)="onAllTagClick()"

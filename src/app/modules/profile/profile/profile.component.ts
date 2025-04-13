@@ -1,7 +1,8 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { ProfileService } from '@services/http/profile.service';
 import { ProfileDaoService } from '@dao/profile-dao.service';
 import { Profile } from '@model/Profile';
+import { environment } from '@environments/environment';
 
 @Component({
   selector: 'app-profile',
@@ -15,7 +16,7 @@ export class ProfileComponent implements OnInit {
   private profileDao = inject(ProfileDaoService);
 
   profile?: Profile;
-  photo = '';
+  photo = signal<string>('');
 
   ngOnInit() {
     this.getData();
@@ -25,7 +26,10 @@ export class ProfileComponent implements OnInit {
     this.profileService.getProfile(1).subscribe((profile) => {
       this.profileDao.setProfile(profile.data!);
       this.profile = profile.data;
-      // this.photo = environment.public_url + profile.data?.links.find(link => link.name == 'photo_url')?.link;
+      this.photo.set(
+        environment.public_url +
+          profile.data!.links?.find((link) => link.name == 'photo_url')?.link,
+      );
     });
   }
 }

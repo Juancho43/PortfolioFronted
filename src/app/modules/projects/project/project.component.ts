@@ -1,13 +1,13 @@
-import { Component, inject, Input, OnDestroy, OnInit } from '@angular/core';
-import { Project } from '../../../core/interfaces/Project';
+import { Component, inject, OnDestroy, OnInit, input } from '@angular/core';
+import { Project } from '@model/Project';
 import { CommonModule } from '@angular/common';
 import { TagComponent } from '../../tags/tag/tag.component';
-import { ProjectDaoService } from '../../../core/services/DAO/project-dao.service';
-import { DialogService } from '@services/utils/dialog.service';
+import { ProjectDaoService } from '@dao/project-dao.service';
 import { LinkComponent } from '@modules/links/link/link.component';
 import { ProjectService } from '@http/project.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MetaTagsService } from '@services/utils/meta-tags.service';
+import { Tag } from '@model/Tag';
 
 @Component({
   selector: 'app-project',
@@ -23,7 +23,7 @@ export class ProjectComponent implements OnInit, OnDestroy {
   private service = inject(ProjectService);
   private dao = inject(ProjectDaoService);
 
-  @Input() project: Project = this.dao.getEmptyProject();
+  project: Project = this.dao.getEmptyProject();
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
@@ -40,19 +40,20 @@ export class ProjectComponent implements OnInit, OnDestroy {
   }
 
   setMetaTags() {
-    this.meta.updateTitle(`Proyecto - ${this.project.name}`);
+    let project = this.project;
+    this.meta.updateTitle(`Proyecto - ${project.name}`);
     this.meta.addMetaTags([
       {
-        name: this.project.name,
-        content: this.project.name,
+        name: project.name,
+        content: project.name,
       },
       {
         name: 'description',
-        content: this.project.description,
+        content: project.description,
       },
       {
         name: 'keywords',
-        content: this.project.tags!.map((tag) => tag.name).join(','),
+        content: project.tags!.map((tag: Tag) => tag.name).join(','),
       },
     ]);
   }

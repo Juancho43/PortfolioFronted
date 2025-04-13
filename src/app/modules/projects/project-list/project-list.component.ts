@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 import { Project } from '@model/Project';
@@ -13,5 +13,5 @@ import { RouterLink } from '@angular/router';
   styleUrl: './project-list.component.css',
 })
 export class ProjectListComponent {
-  @Input() projects: Project[] = [];
+  readonly projects = input<Project[]>([]);
 }

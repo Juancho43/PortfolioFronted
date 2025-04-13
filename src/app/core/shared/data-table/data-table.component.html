@@ -1,17 +1,17 @@
 <table class="table glass">
-  <caption>{{tilte}}</caption>
+  <caption>{{tilte()}}</caption>
   <thead>
   <tr>
-    @for(item of columns; track item){
+    @for(item of columns(); track item){
       <th>{{ item }}</th>
     }
   </tr>
   </thead>
   <tbody>
 
-  @for(row of data; track row){
+  @for(row of data(); track row){
   <tr>
-    @for(column of columns; track column){
+    @for(column of columns(); track column){
 
         <td>{{ row[column] }}</td>
 

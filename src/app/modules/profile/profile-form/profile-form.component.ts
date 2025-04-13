@@ -1,4 +1,4 @@
-import { Component, inject, Input, OnInit } from '@angular/core';
+import { Component, inject, OnInit, input } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -21,13 +21,13 @@ export class ProfileFormComponent implements OnInit {
   private service = inject(ProfileService);
 
   edit = true;
-  @Input() currentProfile: Profile = {
+  readonly currentProfile = input<Profile>({
     id: 0,
     description: '',
     rol: '',
     links: [],
     name: '',
-  };
+});
   ProfileForm: FormGroup = new FormGroup({
     id: new FormControl(0),
     nombre: new FormControl('', [Validators.required]),
@@ -38,12 +38,13 @@ export class ProfileFormComponent implements OnInit {
   ngOnInit() {}
 
   setForm() {
-    if (this.currentProfile.id != 0) {
+    const currentProfile = this.currentProfile();
+    if (currentProfile.id != 0) {
       this.ProfileForm.patchValue({
-        id: this.currentProfile?.id,
-        nombre: this.currentProfile.name,
-        rol: this.currentProfile.rol,
-        presentacion: this.currentProfile.description,
+        id: currentProfile?.id,
+        nombre: currentProfile.name,
+        rol: currentProfile.rol,
+        presentacion: currentProfile.description,
       });
     }
   }
@@ -51,14 +52,15 @@ export class ProfileFormComponent implements OnInit {
   onSubmit() {
     this.mapperProyecto();
     if (this.edit) {
-      this.service.putProfile(this.currentProfile).subscribe();
+      this.service.putProfile(this.currentProfile()).subscribe();
     }
   }
   mapperProyecto() {
-    this.currentProfile.id = this.ProfileForm.get('id')?.value;
+    const currentProfile = this.currentProfile();
+    currentProfile.id = this.ProfileForm.get('id')?.value;
     // this.currentProfile. = this.ProfileForm.get("nombre")?.value;
-    this.currentProfile.description =
+    currentProfile.description =
       this.ProfileForm.get('presentacion')?.value;
-    this.currentProfile.rol = this.ProfileForm.get('rol')?.value;
+    currentProfile.rol = this.ProfileForm.get('rol')?.value;
   }
 }

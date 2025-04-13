@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { Tag } from '@model/Tag';
 import { TagComponent } from '../tag/tag.component';
 
@@ -10,9 +10,9 @@ import { TagComponent } from '../tag/tag.component';
   styleUrl: './tag-list.component.css',
 })
 export class TagListComponent {
-  @Input() tags: Tag[] = [];
-  @Input() optionList = false;
-  @Output() tagSelected = new EventEmitter<number>();
+  readonly tags = input<Tag[]>([]);
+  readonly optionList = input(false);
+  readonly tagSelected = output<number>();
   allTag: Tag = {
     id: 0,
     name: 'Todo',

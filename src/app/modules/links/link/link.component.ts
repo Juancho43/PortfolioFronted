@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, input} from '@angular/core';
 import {Link} from '@model/Link';
 
 @Component({
@@ -9,9 +9,9 @@ import {Link} from '@model/Link';
   styleUrl: './link.component.css',
 })
 export class LinkComponent {
-  @Input() link : Link = {
+  readonly link = input<Link>({
     id: 0,
     name: '',
     link: '',
-  };
+});
 }
