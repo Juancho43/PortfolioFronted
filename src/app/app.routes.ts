@@ -17,6 +17,7 @@ import { EducationComponent } from '@modules/education/education/education.compo
 export const routes: Routes = [
   { path: 'home', component: HomePageComponent },
   { path: 'education', component: EducationPageComponent },
+  { path: 'education/by/:tag', component: EducationPageComponent },
   { path: 'education/:slug', component: EducationComponent },
   { path: 'projects', component: ProjectsPageComponent },
   { path: 'project/:slug', component: ProjectComponent },

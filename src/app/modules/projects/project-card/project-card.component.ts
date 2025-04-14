@@ -1,4 +1,11 @@
-import { Component, inject, OnInit, signal, input } from '@angular/core';
+import {
+  Component,
+  inject,
+  OnInit,
+  signal,
+  input,
+  computed,
+} from '@angular/core';
 import { Project } from '@model/Project';
 import { TagListComponent } from '../../tags/tag-list/tag-list.component';
 import { Tag } from '@model/Tag';
@@ -11,13 +18,8 @@ import { ProjectDaoService } from '@dao/project-dao.service';
   templateUrl: './project-card.component.html',
   styleUrl: './project-card.component.css',
 })
-export class ProjectCardComponent implements OnInit {
+export class ProjectCardComponent {
   private dao = inject(ProjectDaoService);
-
   readonly project = input<Project>(this.dao.getEmptyProject());
-  tags = signal<Tag[]>([]);
-
-  ngOnInit() {
-    this.tags.set(this.project().tags!.slice(0, 3));
-  }
+  readonly tags = computed(() => this.project().tags?.slice(0, 3) || []);
 }

@@ -21,6 +21,6 @@ export class TagListComponent {
     this.tagSelected.emit(tagId);
   }
   onAllTagClick() {
-    this.tagSelected.emit(this.allTag.id);
+    this.tagSelected.emit(this.allTag.id!);
   }
 }

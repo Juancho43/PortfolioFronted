@@ -1,17 +1,25 @@
-import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
+import {
+  Component,
+  inject,
+  input,
+  OnDestroy,
+  OnInit,
+  signal,
+} from '@angular/core';
 import { EducationListComponent } from '@modules/education/education-list/education-list.component';
 import { Tag } from '@model/Tag';
 import { Education } from '@model/Education';
 import { EducationService } from '@services/http/education.service';
 import { TagListComponent } from '@modules/tags/tag-list/tag-list.component';
 import { TagService } from '@services/http/tag.service';
-import { toObservable } from '@angular/core/rxjs-interop';
+import { rxResource, toObservable } from '@angular/core/rxjs-interop';
 import { MetaTagsService } from '@services/utils/meta-tags.service';
+import { SpinnerComponent } from '@core/shared/spinner/spinner.component';
 
 @Component({
   selector: 'app-education-page',
   standalone: true,
-  imports: [EducationListComponent, TagListComponent],
+  imports: [EducationListComponent, TagListComponent, SpinnerComponent],
   templateUrl: './education-page.component.html',
   styleUrl: './education-page.component.css',
 })
@@ -19,7 +27,14 @@ export class EducationPageComponent implements OnInit, OnDestroy {
   private service = inject(EducationService);
   private tagService = inject(TagService);
   private metaTagService = inject(MetaTagsService);
+
+  tag = input<string>();
+
   educationsList = signal<Education[]>([]);
+  educationsResource = rxResource({
+    loader: () => this.service.getAll(),
+  });
+
   tagsList = signal<Tag[]>([]);
   selectedTagId = signal<number | null>(null);
 
@@ -58,7 +73,7 @@ export class EducationPageComponent implements OnInit, OnDestroy {
 
   getEducationsByTagId(id: number) {
     this.service.getByTag(id).subscribe((res) => {
-      this.educationsList.set(res.data!);
+      // this.educationsResource.set([res.data!);
     });
   }
   getTags(): void {
@@ -70,4 +85,6 @@ export class EducationPageComponent implements OnInit, OnDestroy {
   handleTagSelected(tagId: number): void {
     this.selectedTagId.set(tagId);
   }
+
+  protected readonly name = name;
 }

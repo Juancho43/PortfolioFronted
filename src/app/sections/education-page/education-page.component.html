@@ -5,5 +5,13 @@
     (tagSelected)="handleTagSelected($event)"
     [optionList]="true"
   />
-  <app-education-list [educations]="educationsList()"/>
+
+  {{tag()!}}
+
+  @if (educationsResource.isLoading()){
+    <app-spinner/>
+  } @else {
+  <app-education-list [educations]="educationsResource.value()?.data!"/>
+
+  }
 </section>
