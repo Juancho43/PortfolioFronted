@@ -17,18 +17,23 @@ import { ProjectListComponent } from '@modules/projects/project-list/project-lis
 
 export const routes: Routes = [
   { path: 'home', component: HomePageComponent },
-  { path: 'education', component: EducationPageComponent },
-  { path: 'education/by/:tag', component: EducationPageComponent },
-  { path: 'education/:slug', component: EducationComponent },
+  {
+    path: 'education',
+    component: EducationPageComponent,
+    children: [
+      { path: ':tag', component: EducationPageComponent },
+      { path: 'current/:slug', component: EducationComponent },
+    ],
+  },
+
   {
     path: 'projects',
     component: ProjectsPageComponent,
     children: [
-      { path: 'all', component: ProjectListComponent },
-      { path: 'by/:tag', component: ProjectListComponent },
+      { path: ':tag', component: ProjectListComponent },
+      { path: 'current/:slug', component: ProjectComponent },
     ],
   },
-  { path: 'project/:slug', component: ProjectComponent },
   { path: 'contact', component: ContactPageComponent },
   { path: 'login', component: LoginFormComponent },
   {

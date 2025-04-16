@@ -3,7 +3,7 @@
     @if(optionList()){
       <app-tag
         [tag]="item"
-        [routerLink]='page() + "/by/" + item.id'
+        [routerLink]="[item.id]"
       />
     }@else{
       <app-tag

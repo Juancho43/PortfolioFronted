@@ -1,5 +1,11 @@
 <div>
-  @for (item of projectsList; track item.name) {
-    <app-project-card [project]="item"  [routerLink]="['../project' ,item.slug]"/>
+  @if(!projectsResource.isLoading()){
+    @for (item of projectsResource.value(); track item.name) {
+      <app-project-card [project]="item"  [routerLink]="['../current' ,item.slug]"/>
+    }
+  } @else {
+    <app-spinner/>
   }
+
+
 </div>
