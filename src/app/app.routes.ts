@@ -13,13 +13,21 @@ import { authGuard } from '@core/guards/auth.guard';
 
 import { ProjectComponent } from '@modules/projects/project/project.component';
 import { EducationComponent } from '@modules/education/education/education.component';
+import { ProjectListComponent } from '@modules/projects/project-list/project-list.component';
 
 export const routes: Routes = [
   { path: 'home', component: HomePageComponent },
   { path: 'education', component: EducationPageComponent },
   { path: 'education/by/:tag', component: EducationPageComponent },
   { path: 'education/:slug', component: EducationComponent },
-  { path: 'projects', component: ProjectsPageComponent },
+  {
+    path: 'projects',
+    component: ProjectsPageComponent,
+    children: [
+      { path: 'all', component: ProjectListComponent },
+      { path: 'by/:tag', component: ProjectListComponent },
+    ],
+  },
   { path: 'project/:slug', component: ProjectComponent },
   { path: 'contact', component: ContactPageComponent },
   { path: 'login', component: LoginFormComponent },

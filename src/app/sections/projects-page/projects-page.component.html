@@ -1,11 +1,14 @@
 <section>
   <h2>Proyectos</h2>
-  <app-tag-list
-  [tags]="tagsList()"
-  (tagSelected)="handleTagSelected($event)"
-  [optionList] = "true"
-  />
-
-  <app-project-list [projects]="projectsList()" />
+  @if(tagsList.isLoading()){
+    <app-spinner/>
+  }@else{
+    <app-tag-list
+    [tags]="tagsList.value()?.data!"
+    page = "/projects"
+    [optionList] = "true"
+    />
+  }
+  <router-outlet/>
 </section>
-<router-outlet/>
+

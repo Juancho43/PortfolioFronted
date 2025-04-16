@@ -2,11 +2,9 @@
   <h2>Formación</h2>
   <app-tag-list
     [tags]="tagsList()"
-    (tagSelected)="handleTagSelected($event)"
+    page = 'education'
     [optionList]="true"
   />
-
-  {{tag()!}}
 
   @if (educationsResource.isLoading()){
     <app-spinner/>

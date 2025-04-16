@@ -1,16 +1,23 @@
 <section class="tagList">
   @for (item of tags(); track item.name) {
-    <app-tag
-      [tag]="item"
-      (click)="onTagClick(item.id!)"
-    />
+    @if(optionList()){
+      <app-tag
+        [tag]="item"
+        [routerLink]='page() + "/by/" + item.id'
+      />
+    }@else{
+      <app-tag
+        [tag]="item"
+      />
+    }
+
   } @empty {
     <li>Sin etiquetas disponibles.</li>
   }
   @if (optionList()){
     <app-tag
     [tag]="allTag"
-    (click)="onAllTagClick()"
+    [routerLink]='["/projects/all"]'
     />
   }
 </section>
