@@ -26,10 +26,9 @@ export class EducationService {
     return this.http.get<ApiResponse<Education>>(url);
   }
 
-  getByTag(id: number): Observable<ApiResponseCollection<Education>> {
+  getByTag(tagName: string): Observable<ApiResponseCollection<Education>> {
     return this.http.get<ApiResponseCollection<Education>>(
-      environment.api_url +
-        educationEndpoint.getByTag.replace(':id', id.toString()),
+      environment.api_url + educationEndpoint.getByTag.replace(':tag', tagName),
     );
   }
 

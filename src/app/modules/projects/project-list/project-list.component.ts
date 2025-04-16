@@ -1,4 +1,4 @@
-import { Component, effect, inject, Input, input } from '@angular/core';
+import { Component, effect, inject, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Project } from '@model/Project';
 import { ProjectCardComponent } from '../project-card/project-card.component';
@@ -18,7 +18,7 @@ import { SpinnerComponent } from '@core/shared/spinner/spinner.component';
 })
 export class ProjectListComponent {
   private service = inject(ProjectService);
-  readonly tag = input<number | string>('all');
+  readonly tag = input<string>('all');
   readonly projectsList = input<Project[]>([]);
 
   projectsResource = rxResource({
@@ -26,7 +26,7 @@ export class ProjectListComponent {
       const currentTag = this.tag();
       if (currentTag !== 'all') {
         return this.service
-          .getByTag(parseInt(currentTag as string))
+          .getByTag(currentTag)
           .pipe(switchMap((res) => of(res.data || [])));
       } else if (currentTag.includes('all')) {
         return this.service

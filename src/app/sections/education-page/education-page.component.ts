@@ -36,16 +36,7 @@ export class EducationPageComponent implements OnInit, OnDestroy {
   });
 
   tagsList = signal<Tag[]>([]);
-  selectedTagId = signal<number | null>(null);
-
-  constructor() {
-    const selectedTagObservable = toObservable(this.selectedTagId);
-    selectedTagObservable.subscribe((tagId) => {
-      if (tagId !== null) {
-        this.getEducationsByTagId(tagId);
-      }
-    });
-  }
+  constructor() {}
 
   ngOnInit(): void {
     this.getEducations();
@@ -71,8 +62,8 @@ export class EducationPageComponent implements OnInit, OnDestroy {
     });
   }
 
-  getEducationsByTagId(id: number) {
-    this.service.getByTag(id).subscribe((res) => {
+  getEducationsByTagId(tagName: string) {
+    this.service.getByTag(tagName).subscribe((res) => {
       // this.educationsResource.set([res.data!);
     });
   }
@@ -81,10 +72,4 @@ export class EducationPageComponent implements OnInit, OnDestroy {
       this.tagsList.set(res.data!);
     });
   }
-
-  handleTagSelected(tagId: number): void {
-    this.selectedTagId.set(tagId);
-  }
-
-  protected readonly name = name;
 }

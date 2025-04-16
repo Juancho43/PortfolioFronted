@@ -26,10 +26,9 @@ export class ProjectService {
     );
   }
 
-  getByTag(id: number): Observable<ApiResponseCollection<Project>> {
+  getByTag(tagName: string): Observable<ApiResponseCollection<Project>> {
     return this.http.get<ApiResponseCollection<Project>>(
-      environment.api_url +
-        projectEndpoint.getByTag.replace(':id', id.toString()),
+      environment.api_url + projectEndpoint.getByTag.replace(':tag', tagName),
     );
   }
 
@@ -40,10 +39,10 @@ export class ProjectService {
     );
   }
 
-  getByEducation(id: number): Observable<ApiResponseCollection<Project>> {
+  getByEducation(slug: string): Observable<ApiResponseCollection<Project>> {
     const url =
       environment.api_url +
-      projectEndpoint.getByEducation.replace(':id', id.toString());
+      projectEndpoint.getByEducation.replace(':slug', slug);
     return this.http.get<ApiResponseCollection<Project>>(url);
   }
 
