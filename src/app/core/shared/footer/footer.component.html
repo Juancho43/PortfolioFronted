@@ -1,4 +1,7 @@
 <footer>
   <p>Bravo, Juan Alé - 2025</p>
   <a routerLink = "/admin">Admin</a>
+  @if (showLogout()){
+    <a routerLink = "/logout">Logout</a>
+  }
 </footer>

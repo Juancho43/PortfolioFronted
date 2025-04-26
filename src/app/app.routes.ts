@@ -57,6 +57,12 @@ export const routes: Routes = [
       import('./modules/auth/login-form/login-form.component').then(),
   },
   {
+    path: 'logout',
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./modules/auth/logout-form/logout-form.component').then(),
+  },
+  {
     path: 'admin',
     loadComponent: () =>
       import('./sections/admin-page/admin-page.component').then(),

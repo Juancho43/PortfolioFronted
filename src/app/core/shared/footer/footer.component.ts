@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import {RouterLink} from "@angular/router";
+import { Component, effect, inject, OnInit, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { CookieService } from '@services/utils/cookie.service';
+import { AuthService } from '@services/utils/auth.service';
 
 @Component({
   selector: 'app-footer',
@@ -8,4 +10,13 @@ import {RouterLink} from "@angular/router";
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.css',
 })
-export class FooterComponent {}
+export class FooterComponent implements OnInit {
+  private auth = inject(AuthService);
+  showLogout = signal<boolean>(false);
+
+  ngOnInit() {
+    this.auth.login$.subscribe((data) => {
+      this.showLogout.set(data);
+    });
+  }
+}

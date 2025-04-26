@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -7,17 +7,19 @@ import {
 } from '@angular/forms';
 import { AuthService } from '../../../core/services/utils/auth.service';
 import { Router } from '@angular/router';
+import { ApiResponse } from '@model/ApiResponse';
 
 @Component({
   selector: 'app-login-form',
   imports: [ReactiveFormsModule],
   standalone: true,
   templateUrl: './login-form.component.html',
-  styleUrls: ['./login-form.component.css', '../../../core/styles/forms.css'],
+  styleUrls: ['../../../core/styles/forms.css', './login-form.component.css'],
 })
-export default class LoginFormComponent {
+export default class LoginFormComponent implements OnInit {
   private authService = inject(AuthService);
   private router = inject(Router);
+
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [
@@ -26,16 +28,20 @@ export default class LoginFormComponent {
     ]),
   });
 
+  ngOnInit() {
+    if (this.authService.isLoggedIn()) {
+      this.router.navigateByUrl('/admin/profile');
+    }
+  }
+
   onSubmit() {
     if (this.loginForm.valid) {
       const email = this.loginForm.get('email')?.value!;
       const password = this.loginForm.get('password')?.value!;
-      this.authService.sendLogin({ email, password }).subscribe((res: any) => {
+      this.authService.sendLogin({ email, password }).subscribe((res) => {
         if (res.message == 'Hi') {
-          this.authService.saveToken(res.accessToken);
-          this.authService.login = true;
+          this.authService.login(res.data);
           this.router.navigateByUrl('/admin/profile');
-          alert('Welcome');
         } else {
           alert('Login failed');
         }

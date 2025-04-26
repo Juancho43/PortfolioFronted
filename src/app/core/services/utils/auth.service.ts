@@ -1,45 +1,58 @@
-import { inject, Injectable } from '@angular/core';
-import { getCookie, removeCookie, setCookie } from 'typescript-cookie';
+import { inject, Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../../../environments/environment';
+import { environment } from '@environments/environment';
+import { CookieService } from '@services/utils/cookie.service';
+import { ApiResponse } from '@model/ApiResponse';
+import { checkToken } from '@core/guards/token.interceptor';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   private http = inject(HttpClient);
-  private _login = true;
-  private _lastLogin: Date = new Date();
+  private cookieService = inject(CookieService);
+  login$ = new BehaviorSubject<boolean>(false);
+  $lastLogin = signal<Date>(new Date());
 
   sendLogin(data: { email: string; password: string }) {
-    return this.http.post(environment.api_url + '/login', data);
+    return this.http.post<ApiResponse<any>>(
+      environment.api_url + '/login',
+      data,
+    );
   }
 
-  get login(): boolean {
-    return this._login;
+  sendLogout() {
+    return this.http.post<ApiResponse<any>>(environment.api_url + '/logout', {
+      context: checkToken(),
+    });
   }
 
-  set login(value: boolean) {
-    this._login = value;
-  }
-
-  get lastLogin(): Date {
-    return this._lastLogin;
-  }
-
-  set lastLogin(value: Date) {
-    this._lastLogin = value;
+  login(token: string) {
+    this.saveToken(token);
+    this.login$.next(true);
+    this.$lastLogin.set(new Date());
   }
 
   saveToken(token: string) {
-    setCookie('token', token, { expires: 365, path: '/' });
+    this.cookieService.saveCookie('token', token);
+  }
+
+  logout() {
+    this.cookieService.removeCookie('token');
+    this.login$.next(false);
   }
 
   getToken() {
-    return getCookie('token');
+    return this.cookieService.getCookie('token');
   }
 
-  removeToken() {
-    removeCookie('token');
+  isLoggedIn() {
+    if (this.getToken() !== undefined) {
+      this.login$.next(true);
+    } else {
+      this.login$.next(false);
+    }
+    return this.login$.getValue();
   }
 }

@@ -5,6 +5,7 @@ import { Profile } from '@model/Profile';
 import { environment } from '@environments/environment';
 import { ApiResponse } from '@model/ApiResponse';
 import { profileEndpoint } from '@endpoints/profile.endpoint';
+import { checkToken } from '@core/guards/token.interceptor';
 
 @Injectable({
   providedIn: 'root',
@@ -23,6 +24,7 @@ export class ProfileService {
       environment.api_url +
         profileEndpoint.postImg.replace(':id', id.toString()),
       img,
+      { context: checkToken() },
     );
   }
 
@@ -31,6 +33,7 @@ export class ProfileService {
       environment.api_url +
         profileEndpoint.postCV.replace(':id', id.toString()),
       cv,
+      { context: checkToken() },
     );
   }
 
@@ -39,6 +42,7 @@ export class ProfileService {
       profileEndpoint.update.replace(':id', profile.id!.toString()) +
         environment.api_url,
       profile,
+      { context: checkToken() },
     );
   }
 }
