@@ -1,52 +1,120 @@
 import { Routes } from '@angular/router';
-import { EducationPageComponent } from './sections/education-page/education-page.component';
-import { HomePageComponent } from './sections/home-page/home-page.component';
-import { AdminPageComponent } from './sections/admin-page/admin-page.component';
-import { ContactPageComponent } from './sections/contact-page/contact-page.component';
-import { EducationPanelComponent } from '@modules/education/education-panel/education-panel.component';
-import { ProjectsPageComponent } from './sections/projects-page/projects-page.component';
-import { ProfilePanelComponent } from '@modules/profile/profile-panel/profile-panel.component';
-import { ProjectPanelComponent } from '@modules/projects/project-panel/project-panel.component';
-import { TagsPanelComponent } from '@modules/tags/tags-panel/tags-panel.component';
-import { LoginFormComponent } from '@modules/auth/login-form/login-form.component';
 import { authGuard } from '@core/guards/auth.guard';
 
-import { ProjectComponent } from '@modules/projects/project/project.component';
-import { EducationComponent } from '@modules/education/education/education.component';
-import { ProjectListComponent } from '@modules/projects/project-list/project-list.component';
-
 export const routes: Routes = [
-  { path: 'home', component: HomePageComponent },
+  {
+    path: 'home',
+    loadComponent: () =>
+      import('./sections/home-page/home-page.component').then(
+        (c) => c.HomePageComponent,
+      ),
+  },
   {
     path: 'education',
-    component: EducationPageComponent,
+    loadComponent: () =>
+      import('./sections/education-page/education-page.component').then(
+        (c) => c.EducationPageComponent,
+      ),
     children: [
-      { path: ':tag', component: EducationPageComponent },
-      { path: 'current/:slug', component: EducationComponent },
+      {
+        path: ':tag',
+        loadComponent: () =>
+          import(
+            './modules/education/education-list/education-list.component'
+          ).then((c) => c.EducationListComponent),
+      },
+      {
+        path: 'current/:slug',
+        loadComponent: () =>
+          import('./modules/education/education/education.component').then(
+            (c) => c.EducationComponent,
+          ),
+      },
     ],
   },
 
   {
     path: 'projects',
-    component: ProjectsPageComponent,
+    loadComponent: () =>
+      import('./sections/projects-page/projects-page.component').then(
+        (c) => c.ProjectsPageComponent,
+      ),
     children: [
-      { path: ':tag', component: ProjectListComponent },
-      { path: 'current/:slug', component: ProjectComponent },
+      {
+        path: ':tag',
+        loadComponent: () =>
+          import('./modules/projects/project-list/project-list.component').then(
+            (c) => c.ProjectListComponent,
+          ),
+      },
+      {
+        loadComponent: () =>
+          import('./modules/projects/project/project.component').then(
+            (c) => c.ProjectComponent,
+          ),
+        path: 'current/:slug',
+      },
     ],
   },
-  { path: 'contact', component: ContactPageComponent },
-  { path: 'login', component: LoginFormComponent },
+  {
+    path: 'contact',
+    loadComponent: () =>
+      import('./sections/contact-page/contact-page.component').then(
+        (c) => c.ContactPageComponent,
+      ),
+  },
+  {
+    path: 'login',
+    loadComponent: () =>
+      import('./modules/auth/login-form/login-form.component').then(
+        (c) => c.LoginFormComponent,
+      ),
+  },
   {
     path: 'admin',
-    component: AdminPageComponent,
+    loadComponent: () =>
+      import('./sections/admin-page/admin-page.component').then(
+        (c) => c.AdminPageComponent,
+      ),
     canActivate: [authGuard],
     children: [
-      { path: 'profile', component: ProfilePanelComponent },
-      { path: 'education', component: EducationPanelComponent },
-      { path: 'project', component: ProjectPanelComponent },
-      { path: 'tag', component: TagsPanelComponent },
+      {
+        path: 'profile',
+        loadComponent: () =>
+          import(
+            './modules/profile/profile-panel/profile-panel.component'
+          ).then((c) => c.ProfilePanelComponent),
+      },
+      {
+        path: 'education',
+        loadComponent: () =>
+          import(
+            './modules/education/education-panel/education-panel.component'
+          ).then((c) => c.EducationPanelComponent),
+      },
+      {
+        path: 'project',
+        loadComponent: () =>
+          import(
+            './modules/projects/project-panel/project-panel.component'
+          ).then((c) => c.ProjectPanelComponent),
+      },
+      {
+        path: 'tag',
+        loadComponent: () =>
+          import('./modules/tags/tags-panel/tags-panel.component').then(
+            (c) => c.TagsPanelComponent,
+          ),
+      },
     ],
   },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: '**', component: ContactPageComponent },
+  {
+    path: 'not-found',
+    loadComponent: () =>
+      import('./sections/not-found/not-found.component').then(
+        (c) => c.NotFoundComponent,
+      ),
+  },
+  { path: '**', redirectTo: '/not-found' },
 ];
