@@ -1,6 +1,6 @@
 import { Component, input } from '@angular/core';
 import { Education } from '@model/Education';
-import { EducationComponent } from '../education/education.component';
+import EducationComponent from '@modules/education/education/education.component';
 
 @Component({
   selector: 'app-education-list',
@@ -9,6 +9,6 @@ import { EducationComponent } from '../education/education.component';
   templateUrl: './education-list.component.html',
   styleUrl: './education-list.component.css',
 })
-export class EducationListComponent {
+export default class EducationListComponent {
   readonly educations = input<Education[]>([]);
 }

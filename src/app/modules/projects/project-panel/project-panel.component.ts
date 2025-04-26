@@ -18,7 +18,7 @@ import { ProjectService } from '@services/http/project.service';
     '../../../core/styles/panel.css',
   ],
 })
-export class ProjectPanelComponent implements OnInit {
+export default class ProjectPanelComponent implements OnInit {
   private service = inject(ProjectService);
   tilte = 'Proyectos';
   projectColumns: string[] = [];

@@ -16,7 +16,7 @@ import { Tag } from '@model/Tag';
   templateUrl: './project.component.html',
   styleUrl: './project.component.css',
 })
-export class ProjectComponent implements OnInit, OnDestroy {
+export default class ProjectComponent implements OnInit, OnDestroy {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
   private meta = inject(MetaTagsService);

@@ -15,7 +15,7 @@ import { DataTableComponent } from '../../../core/shared/data-table/data-table.c
   templateUrl: './tags-panel.component.html',
   styleUrls: ['./tags-panel.component.css', '../../../core/styles/panel.css'],
 })
-export class TagsPanelComponent implements OnInit {
+export default class TagsPanelComponent implements OnInit {
   private service = inject(TagService);
   tilte = 'Etiquetas';
   tagsColumns: string[] = [];

@@ -16,7 +16,7 @@ import { SpinnerComponent } from '@core/shared/spinner/spinner.component';
   templateUrl: './project-list.component.html',
   styleUrl: './project-list.component.css',
 })
-export class ProjectListComponent {
+export default class ProjectListComponent {
   private service = inject(ProjectService);
   readonly tag = input<string>('all');
   readonly projectsList = input<Project[]>([]);

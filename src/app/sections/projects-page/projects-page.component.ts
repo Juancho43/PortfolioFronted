@@ -13,7 +13,7 @@ import { SpinnerComponent } from '@core/shared/spinner/spinner.component';
   templateUrl: './projects-page.component.html',
   styleUrl: './projects-page.component.css',
 })
-export class ProjectsPageComponent implements OnInit, OnDestroy {
+export default class ProjectsPageComponent implements OnInit, OnDestroy {
   private tagService = inject(TagService);
   private metaTagService = inject(MetaTagsService);
 

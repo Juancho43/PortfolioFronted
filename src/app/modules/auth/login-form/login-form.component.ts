@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.css', '../../../core/styles/forms.css'],
 })
-export class LoginFormComponent {
+export default class LoginFormComponent {
   private authService = inject(AuthService);
   private router = inject(Router);
   loginForm = new FormGroup({

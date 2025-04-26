@@ -11,7 +11,7 @@ import { MetaTagsService } from '@services/utils/meta-tags.service';
   templateUrl: './contact-page.component.html',
   styleUrl: './contact-page.component.css',
 })
-export class ContactPageComponent implements OnInit, OnDestroy {
+export default class ContactPageComponent implements OnInit, OnDestroy {
   protected readonly environment = environment;
   private service = inject(ProfileService);
   private metaTagService = inject(MetaTagsService);

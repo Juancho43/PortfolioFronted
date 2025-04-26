@@ -5,30 +5,24 @@ export const routes: Routes = [
   {
     path: 'home',
     loadComponent: () =>
-      import('./sections/home-page/home-page.component').then(
-        (c) => c.HomePageComponent,
-      ),
+      import('./sections/home-page/home-page.component').then(),
   },
   {
     path: 'education',
     loadComponent: () =>
-      import('./sections/education-page/education-page.component').then(
-        (c) => c.EducationPageComponent,
-      ),
+      import('./sections/education-page/education-page.component').then(),
     children: [
       {
         path: ':tag',
         loadComponent: () =>
           import(
             './modules/education/education-list/education-list.component'
-          ).then((c) => c.EducationListComponent),
+          ).then(),
       },
       {
         path: 'current/:slug',
         loadComponent: () =>
-          import('./modules/education/education/education.component').then(
-            (c) => c.EducationComponent,
-          ),
+          import('./modules/education/education/education.component').then(),
       },
     ],
   },
@@ -36,22 +30,18 @@ export const routes: Routes = [
   {
     path: 'projects',
     loadComponent: () =>
-      import('./sections/projects-page/projects-page.component').then(
-        (c) => c.ProjectsPageComponent,
-      ),
+      import('./sections/projects-page/projects-page.component').then(),
     children: [
       {
         path: ':tag',
         loadComponent: () =>
-          import('./modules/projects/project-list/project-list.component').then(
-            (c) => c.ProjectListComponent,
-          ),
+          import(
+            './modules/projects/project-list/project-list.component'
+          ).then(),
       },
       {
         loadComponent: () =>
-          import('./modules/projects/project/project.component').then(
-            (c) => c.ProjectComponent,
-          ),
+          import('./modules/projects/project/project.component').then(),
         path: 'current/:slug',
       },
     ],
@@ -59,23 +49,17 @@ export const routes: Routes = [
   {
     path: 'contact',
     loadComponent: () =>
-      import('./sections/contact-page/contact-page.component').then(
-        (c) => c.ContactPageComponent,
-      ),
+      import('./sections/contact-page/contact-page.component').then(),
   },
   {
     path: 'login',
     loadComponent: () =>
-      import('./modules/auth/login-form/login-form.component').then(
-        (c) => c.LoginFormComponent,
-      ),
+      import('./modules/auth/login-form/login-form.component').then(),
   },
   {
     path: 'admin',
     loadComponent: () =>
-      import('./sections/admin-page/admin-page.component').then(
-        (c) => c.AdminPageComponent,
-      ),
+      import('./sections/admin-page/admin-page.component').then(),
     canActivate: [authGuard],
     children: [
       {
@@ -83,28 +67,26 @@ export const routes: Routes = [
         loadComponent: () =>
           import(
             './modules/profile/profile-panel/profile-panel.component'
-          ).then((c) => c.ProfilePanelComponent),
+          ).then(),
       },
       {
         path: 'education',
         loadComponent: () =>
           import(
             './modules/education/education-panel/education-panel.component'
-          ).then((c) => c.EducationPanelComponent),
+          ).then(),
       },
       {
         path: 'project',
         loadComponent: () =>
           import(
             './modules/projects/project-panel/project-panel.component'
-          ).then((c) => c.ProjectPanelComponent),
+          ).then(),
       },
       {
         path: 'tag',
         loadComponent: () =>
-          import('./modules/tags/tags-panel/tags-panel.component').then(
-            (c) => c.TagsPanelComponent,
-          ),
+          import('./modules/tags/tags-panel/tags-panel.component').then(),
       },
     ],
   },
@@ -112,9 +94,7 @@ export const routes: Routes = [
   {
     path: 'not-found',
     loadComponent: () =>
-      import('./sections/not-found/not-found.component').then(
-        (c) => c.NotFoundComponent,
-      ),
+      import('./sections/not-found/not-found.component').then(),
   },
   { path: '**', redirectTo: '/not-found' },
 ];

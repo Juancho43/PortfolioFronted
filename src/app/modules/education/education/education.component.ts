@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './education.component.html',
   styleUrl: './education.component.css',
 })
-export class EducationComponent {
+export default class EducationComponent {
   private dao = inject(EducationDaoService);
   readonly education = input<Education>(this.dao.getEmptyEducation());
   readonly reverse = input(false);

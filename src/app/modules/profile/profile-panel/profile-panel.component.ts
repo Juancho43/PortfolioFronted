@@ -22,7 +22,7 @@ import { CvProfileFormComponent } from '../cv-profile-form/cv-profile-form.compo
     '../../../core/styles/panel.css',
   ],
 })
-export class ProfilePanelComponent implements OnInit {
+export default class ProfilePanelComponent implements OnInit {
   private service = inject(ProfileService);
   private dao = inject(ProfileDaoService);
   tilte = 'Usuario';

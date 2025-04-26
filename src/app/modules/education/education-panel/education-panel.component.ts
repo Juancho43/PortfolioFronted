@@ -18,7 +18,7 @@ import { EducationDaoService } from '../../../core/services/DAO/education-dao.se
     '../../../core/styles/panel.css',
   ],
 })
-export class EducationPanelComponent implements OnInit {
+export default class EducationPanelComponent implements OnInit {
   private service = inject(EducationService);
   private dao = inject(EducationDaoService);
   tilte = 'Formación';
