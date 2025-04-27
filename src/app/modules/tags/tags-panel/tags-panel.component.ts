@@ -22,12 +22,12 @@ export default class TagsPanelComponent implements OnInit {
   tagsData: TableData[] = [];
 
   ngOnInit() {
-    // this.service.getTags().subscribe((res) => {
-    //   Object.keys(res.data![0]).forEach((key) => {
-    //     this.tagsColumns.push(key);
-    //   });
-    //
-    //   this.tagsData = convertToTableData(res.data!);
-    // });
+    this.service.getAll().subscribe((res) => {
+      Object.keys(res.data![0]).forEach((key) => {
+        this.tagsColumns.push(key);
+      });
+
+      this.tagsData = convertToTableData(res.data!);
+    });
   }
 }

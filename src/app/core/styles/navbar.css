@@ -1,6 +1,5 @@
 .active{
-  color: var(--color-secondary);
-  background-color: var(--color-primary-alter);
+  box-shadow: var(--color-two) 0px 4px 9px;
 }
 
 ul{
@@ -8,31 +7,34 @@ ul{
   display: flex;
   flex-direction: row;
   width: 100dvw;
-  justify-content: space-evenly;
+  justify-content: center;
+}
+img{
+  width: 70px;
+  height: 70px;
+  display: none;
 }
 li{
   cursor: pointer;
   margin: 1em;
   padding: .3em;
-  border-radius: 5px;
-  width: 15%;
+
+  width: max-content;
   text-align: center;
+
   color: var(--color-primary-alter);
-  background-color: var(--color-secondary-alter);
   text-decoration: none;
-  font-size:large ;
-  transition: background-color 2s;
+  border-bottom: var(--color-primary-alter) 1px solid;
+
+  font-size: 20px;
+  transition: box-shadow 2s;
+
   &:hover{
-    background-color: var(--color-three);
+    box-shadow: var(--color-two) 0px 4px 9px;
     color: var(--color-primary);
   }
 
-
 }
-
-
-
-
 
 
 @media (max-width: 767px) {
@@ -41,12 +43,16 @@ li{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-bottom: 2em;
   }
   nav ul li{
-    width: 90%;
-    height: 1.2em;
+    width: 200px;
+    height: 1.9em;
     margin: 0.2em;
-    font-size: 1.3em;
+    font-size: 1.1em;
+  }
+  img{
+    display: inline-block;
   }
 
 }

@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CvProfileFormComponent } from './cv-profile-form.component';
+import { CvProfileFormComponent } from '@modules/profile/cv-profile-form/cv-profile-form.component';
 
 describe('CvProfileFormComponent', () => {
   let component: CvProfileFormComponent;
@@ -8,9 +8,8 @@ describe('CvProfileFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CvProfileFormComponent]
-    })
-    .compileComponents();
+      imports: [CvProfileFormComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(CvProfileFormComponent);
     component = fixture.componentInstance;

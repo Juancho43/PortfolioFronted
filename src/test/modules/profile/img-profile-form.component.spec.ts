@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ImgProfileFormComponent } from './img-profile-form.component';
+import { ImgProfileFormComponent } from '@modules/profile/img-profile-form/img-profile-form.component';
 
 describe('ImgProfileFormComponent', () => {
   let component: ImgProfileFormComponent;
@@ -8,9 +8,8 @@ describe('ImgProfileFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ImgProfileFormComponent]
-    })
-    .compileComponents();
+      imports: [ImgProfileFormComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ImgProfileFormComponent);
     component = fixture.componentInstance;

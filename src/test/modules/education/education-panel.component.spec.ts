@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EducationPanelComponent } from './education-panel.component';
+import { EducationPanelComponent } from '@modules/education/education-panel/education-panel.component';
 
 describe('EducationPanelComponent', () => {
   let component: EducationPanelComponent;
@@ -8,9 +8,8 @@ describe('EducationPanelComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [EducationPanelComponent]
-    })
-    .compileComponents();
+      imports: [EducationPanelComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(EducationPanelComponent);
     component = fixture.componentInstance;

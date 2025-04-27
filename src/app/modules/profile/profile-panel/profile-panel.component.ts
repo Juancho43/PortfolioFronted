@@ -32,19 +32,29 @@ export default class ProfilePanelComponent implements OnInit {
   profileColumns: string[] = [];
   profileData: TableData[] = [];
   profileTilte = 'Perfil';
+  profileLinkColumns: string[] = [];
+  profileLinkData: TableData[] = [];
+  profileLinkTilte = 'Links';
   profile: any;
 
   ngOnInit() {
     this.service.getProfile(1).subscribe((res) => {
-      // Object.keys(res.data).forEach((key) => {
-      //   this.colums.push(key);
-      // });
-      // Object.keys(res.Profile.profile).forEach((value) => {
-      //   this.profileColumns.push(value);
-      // });
-      // this.data.push(res.Profile);
-      // this.profileData.push(res.Profile.profile);
-      // this.DAO.setProfile(res.Profile);
+      Object.keys(res.data!).forEach((value) => {
+        if (value !== 'links') {
+          this.profileColumns.push(value);
+        }
+      });
+
+      this.profileData.push(res.data!);
+
+      Object.keys(res.data!.links![0]).forEach((value) => {
+        this.profileLinkColumns.push(value);
+      });
+      res.data!.links!.forEach((link: any) => {
+        this.profileLinkData.push(link);
+      });
+
+      this.dao.setProfile(res.data!);
     });
   }
 

@@ -2,21 +2,18 @@ article{
   overflow-x: auto;
   width: 90vw;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
   gap:30px;
 }
 
 article div{
   display: flex;
-  flex-direction: column;
   gap: 15px;
 }
-
-
-form{
-  position: sticky;
-  top:20px;
+.colum{
+    align-items: flex-start;
+    flex-direction: column;
 }
-
 
 
