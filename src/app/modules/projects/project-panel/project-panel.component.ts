@@ -7,10 +7,12 @@ import {
 } from '../../../core/interfaces/TableData';
 
 import { ProjectService } from '@services/http/project.service';
+import ProjectComponent from '@modules/projects/project/project.component';
+import { ProjectDaoService } from '@dao/project-dao.service';
 
 @Component({
   selector: 'app-project-panel',
-  imports: [ProjectFormComponent, DataTableComponent],
+  imports: [ProjectFormComponent, DataTableComponent, ProjectComponent],
   standalone: true,
   templateUrl: './project-panel.component.html',
   styleUrls: [
@@ -20,6 +22,7 @@ import { ProjectService } from '@services/http/project.service';
 })
 export default class ProjectPanelComponent implements OnInit {
   private service = inject(ProjectService);
+  private dao = inject(ProjectDaoService);
   tilte = 'Proyectos';
   projectColumns: string[] = [];
   projectData: TableData[] = [];
@@ -27,10 +30,16 @@ export default class ProjectPanelComponent implements OnInit {
   ngOnInit() {
     this.service.getAll().subscribe((res) => {
       Object.keys(res.data![0]).forEach((key) => {
-        this.projectColumns.push(key);
+        if (!key.includes('tags') && !key.includes('links')) {
+          this.projectColumns.push(key);
+        }
       });
 
       this.projectData = convertToTableData(res.data!);
     });
+  }
+
+  editHandler($event: any) {
+    this.dao.setProject($event);
   }
 }

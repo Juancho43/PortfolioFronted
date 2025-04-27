@@ -1,5 +1,13 @@
 <article>
+  <div>
   <app-project-form/>
-  <app-data-table [data]="projectData" [columns]="projectColumns" [tilte]="tilte"/>
+  <app-project/>
+  </div>
+
+
+  <div>
+    <app-data-table [data]="projectData" [columns]="projectColumns" [tilte]="tilte" (onEdit)="editHandler($event)"/>
+  </div>
+
 </article>
 

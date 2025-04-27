@@ -1,11 +1,18 @@
-import { Component, inject, OnDestroy, OnInit, input } from '@angular/core';
+import {
+  Component,
+  inject,
+  OnDestroy,
+  OnInit,
+  input,
+  signal,
+} from '@angular/core';
 import { Project } from '@model/Project';
 import { CommonModule } from '@angular/common';
 import { TagComponent } from '../../tags/tag/tag.component';
 import { ProjectDaoService } from '@dao/project-dao.service';
 import { LinkComponent } from '@modules/links/link/link.component';
 import { ProjectService } from '@http/project.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { MetaTagsService } from '@services/utils/meta-tags.service';
 import { Tag } from '@model/Tag';
 
@@ -17,21 +24,22 @@ import { Tag } from '@model/Tag';
   styleUrl: './project.component.css',
 })
 export default class ProjectComponent implements OnInit, OnDestroy {
-  private route = inject(ActivatedRoute);
   private router = inject(Router);
   private meta = inject(MetaTagsService);
   private service = inject(ProjectService);
   private dao = inject(ProjectDaoService);
-
-  project: Project = this.dao.getEmptyProject();
+  readonly slug = input<string>('');
+  project = signal<Project>(this.dao.getEmptyProject());
 
   ngOnInit(): void {
-    this.route.params.subscribe((params) => {
-      const slug = params['slug'];
-      if (slug) {
-        this.getData(slug);
-      }
-    });
+    if (this.slug() == '') {
+      this.dao.getProject().subscribe((data) => {
+        this.project.set(data);
+      });
+    } else {
+      this.getData(this.slug());
+      this.setMetaTags();
+    }
   }
 
   ngOnDestroy(): void {
@@ -49,22 +57,25 @@ export default class ProjectComponent implements OnInit, OnDestroy {
       },
       {
         name: 'description',
-        content: project.description,
+        content: project().description,
       },
       {
         name: 'keywords',
-        content: project.tags!.map((tag: Tag) => tag.name).join(','),
+        content: project()
+          .tags!.map((tag: Tag) => tag.name)
+          .join(','),
       },
     ]);
   }
+
   getData(slug: string) {
     this.service.getBySlug(slug).subscribe({
       next: (data) => {
-        this.project = data.data!;
+        this.project.set(data.data!);
         this.setMetaTags();
       },
       error: (error) => {
-        this.router.navigateByUrl('/projects');
+        this.router.navigateByUrl('./not-found');
       },
     });
   }
