@@ -1,7 +1,23 @@
 <form [formGroup]="TagForm" (ngSubmit)="onSubmit()" class="glass">
   <fieldset>
-    <legend>Nueva tag</legend>
-    <input type="text" name="nombre" id="nombre" formControlName="name">
-    <button type="submit">Crear</button>
+    <legend>
+      @if (!edit) {
+        Nueva tag
+      } @else {
+        Editar tag
+      }
+    </legend>
+    <input type="text" name="nombre" id="nombre" formControlName="name" />
+
+    <div class="Buttons">
+      <button type="submit">
+        @if (!edit) {
+          Crear
+        } @else {
+          Editar
+        }
+      </button>
+      <button (click)="cleanForm()">Limpiar</button>
+    </div>
   </fieldset>
 </form>

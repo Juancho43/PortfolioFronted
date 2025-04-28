@@ -9,18 +9,10 @@ import { CvProfileFormComponent } from '../cv-profile-form/cv-profile-form.compo
 
 @Component({
   selector: 'app-profile-panel',
-  imports: [
-    ProfileFormComponent,
-    DataTableComponent,
-    ImgProfileFormComponent,
-    CvProfileFormComponent,
-  ],
+  imports: [ProfileFormComponent, DataTableComponent, ImgProfileFormComponent, CvProfileFormComponent],
   standalone: true,
   templateUrl: './profile-panel.component.html',
-  styleUrls: [
-    './profile-panel.component.css',
-    '../../../core/styles/panel.css',
-  ],
+  styleUrls: ['./profile-panel.component.css', '../../../core/styles/panel.css'],
 })
 export default class ProfilePanelComponent implements OnInit {
   private service = inject(ProfileService);

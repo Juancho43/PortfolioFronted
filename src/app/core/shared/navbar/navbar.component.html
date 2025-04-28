@@ -1,11 +1,11 @@
 <nav>
   <ul>
-    <img src="asset/menu.svg" alt="menu" (click)="toggleNavbar()"/>
-  @if (show()){
-    <li routerLink="home" routerLinkActive="active"  >Acerca de mi</li>
-    <li routerLink="education/all" routerLinkActive="active" >Formación</li>
-    <li routerLink="projects/all" routerLinkActive="active" >Proyectos</li>
-    <li routerLink="contact" routerLinkActive="active" >Contacto</li>
-  }
+    <img src="asset/menu.svg" alt="menu" (click)="toggleNavbar()" />
+    @if (show()) {
+      <li routerLink="home" routerLinkActive="active">Acerca de mi</li>
+      <li routerLink="education/all" routerLinkActive="active">Formación</li>
+      <li routerLink="projects/all" routerLinkActive="active">Proyectos</li>
+      <li routerLink="contact" routerLinkActive="active">Contacto</li>
+    }
   </ul>
 </nav>

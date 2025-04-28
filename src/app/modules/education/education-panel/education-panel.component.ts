@@ -1,10 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { EducationFormComponent } from '../education-form/education-form.component';
 import { DataTableComponent } from '../../../core/shared/data-table/data-table.component';
-import {
-  convertToTableData,
-  TableData,
-} from '../../../core/interfaces/TableData';
+import { convertToTableData, TableData } from '../../../core/interfaces/TableData';
 import { EducationService } from '@services/http/education.service';
 import { EducationDaoService } from '../../../core/services/DAO/education-dao.service';
 
@@ -13,10 +10,7 @@ import { EducationDaoService } from '../../../core/services/DAO/education-dao.se
   imports: [EducationFormComponent, DataTableComponent],
   standalone: true,
   templateUrl: './education-panel.component.html',
-  styleUrls: [
-    './education-panel.component.css',
-    '../../../core/styles/panel.css',
-  ],
+  styleUrls: ['./education-panel.component.css', '../../../core/styles/panel.css'],
 })
 export default class EducationPanelComponent implements OnInit {
   private service = inject(EducationService);

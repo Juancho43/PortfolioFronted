@@ -5,6 +5,6 @@ export const projectEndpoint = {
   getByEducation: '/project/education/:slug',
   getBySlug: '/project/slug/:slug',
   post: '/project/private',
-  update: '/project/private',
+  update: '/project/private/:id',
   delete: '/project/private/:id',
 };

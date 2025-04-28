@@ -1,8 +1,8 @@
 import { Education } from '@model/Education';
 import { faker } from '@faker-js/faker';
-import {generateProjectMocks} from './projects.mock';
-import {generateLinkMocks} from './link.mock';
-import {generateTagMocks} from './tag.mock';
+import { generateProjectMocks } from './projects.mock';
+import { generateLinkMocks } from './link.mock';
+import { generateTagMocks } from './tag.mock';
 
 /**
  * Generates a mock Education object with optional partial data.
@@ -15,13 +15,13 @@ export const educationMock = (data: Partial<Education>): Education => ({
   description: faker.lorem.sentence(),
   startDate: faker.date.past(),
   endDate: faker.date.future(),
-  projects: generateProjectMocks(3, {deleted_at : null}),
-  tags: generateTagMocks(3, {deleted_at : null}),
-  links: generateLinkMocks(3, {deleted_at : null}),
+  projects: generateProjectMocks(3, { deleted_at: null }),
+  tags: generateTagMocks(3, { deleted_at: null }),
+  links: generateLinkMocks(3, { deleted_at: null }),
   created_at: faker.date.past(),
   updated_at: faker.date.past(),
   deleted_at: faker.date.past(),
-  ...data
+  ...data,
 });
 
 /**

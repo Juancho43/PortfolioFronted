@@ -12,7 +12,7 @@ export const tagMock = (data: Partial<Tag>): Tag => ({
   created_at: faker.date.past(),
   updated_at: faker.date.past(),
   deleted_at: faker.date.past(),
-  ...data
+  ...data,
 });
 
 /**

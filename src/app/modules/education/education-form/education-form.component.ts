@@ -1,10 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import {
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { EducationService } from '@services/http/education.service';
 import { Education } from '../../../core/interfaces/Education';
 import { EducationDaoService } from '../../../core/services/DAO/education-dao.service';
@@ -14,10 +9,7 @@ import { EducationDaoService } from '../../../core/services/DAO/education-dao.se
   standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './education-form.component.html',
-  styleUrls: [
-    './education-form.component.css',
-    '../../../core/styles/forms.css',
-  ],
+  styleUrls: ['./education-form.component.css', '../../../core/styles/forms.css'],
 })
 export class EducationFormComponent implements OnInit {
   private service = inject(EducationService);
@@ -71,11 +63,8 @@ export class EducationFormComponent implements OnInit {
   mapperEducation() {
     this.currentEducation.id = this.EducationForm.get('id')?.value;
     this.currentEducation.name = this.EducationForm.get('nombre')?.value;
-    this.currentEducation.description =
-      this.EducationForm.get('resumen')?.value;
-    this.currentEducation.startDate =
-      this.EducationForm.get('fechaInicio')?.value;
-    this.currentEducation.endDate =
-      this.EducationForm.get('fechaFinalizacion')?.value;
+    this.currentEducation.description = this.EducationForm.get('resumen')?.value;
+    this.currentEducation.startDate = this.EducationForm.get('fechaInicio')?.value;
+    this.currentEducation.endDate = this.EducationForm.get('fechaFinalizacion')?.value;
   }
 }

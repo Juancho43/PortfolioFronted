@@ -14,15 +14,11 @@ export class EducationService {
   private http = inject(HttpClient);
 
   getAll(): Observable<ApiResponseCollection<Education>> {
-    return this.http.get<ApiResponseCollection<Education>>(
-      environment.api_url + educationEndpoint.getAll,
-    );
+    return this.http.get<ApiResponseCollection<Education>>(environment.api_url + educationEndpoint.getAll);
   }
 
   getById(id: number): Observable<ApiResponse<Education>> {
-    const url =
-      environment.api_url +
-      educationEndpoint.getById.replace(':id', id.toString());
+    const url = environment.api_url + educationEndpoint.getById.replace(':id', id.toString());
     return this.http.get<ApiResponse<Education>>(url);
   }
 
@@ -34,29 +30,21 @@ export class EducationService {
 
   getBySlug(slug: string): Observable<ApiResponse<Education>> {
     return this.http.get<ApiResponse<Education>>(
-      environment.api_url +
-        educationEndpoint.getBySlug.replace(':slug', slug.toString()),
+      environment.api_url + educationEndpoint.getBySlug.replace(':slug', slug.toString()),
     );
   }
 
   post(education: Education): Observable<ApiResponse<Education>> {
-    return this.http.post<ApiResponse<Education>>(
-      environment.api_url + educationEndpoint.post,
-      education,
-    );
+    return this.http.post<ApiResponse<Education>>(environment.api_url + educationEndpoint.post, education);
   }
 
   update(education: Education): Observable<ApiResponse<Education>> {
-    return this.http.put<ApiResponse<Education>>(
-      environment.api_url + educationEndpoint.update,
-      education,
-    );
+    return this.http.put<ApiResponse<Education>>(environment.api_url + educationEndpoint.update, education);
   }
 
   delete(id: number): Observable<ApiResponse<Education>> {
     return this.http.delete<ApiResponse<Education>>(
-      environment.api_url +
-        educationEndpoint.delete.replace(':id', id.toString()),
+      environment.api_url + educationEndpoint.delete.replace(':id', id.toString()),
     );
   }
 }

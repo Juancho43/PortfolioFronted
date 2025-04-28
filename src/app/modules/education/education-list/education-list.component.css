@@ -9,10 +9,7 @@
   }
 }
 
-
-
-div{
-
+div {
   opacity: 0;
 
   animation-name: slideInUp;

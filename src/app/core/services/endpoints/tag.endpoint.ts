@@ -5,6 +5,6 @@ export const tagEndpoints = {
   getProject: '/tag/from/project',
   getWork: '/tag/from/work',
   post: '/tag/private',
-  update: '/tag/private',
+  update: '/tag/private/:id',
   delete: '/tag/private/:id',
 };

@@ -1,4 +1,4 @@
-article{
+article {
   display: flex;
   width: 80vw;
   height: 10vh;
@@ -8,7 +8,7 @@ article{
   transition: none;
 }
 
-article div{
+article div {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,38 +16,37 @@ article div{
   width: 100%;
 }
 
-article div:first-child{
+article div:first-child {
   width: 30vw;
 }
 
-.reverse{
+.reverse {
   flex-direction: row-reverse;
 }
-.reverse div:first-child{
-
+.reverse div:first-child {
   align-items: end;
 }
 
-
 @media (max-width: 767px) {
   /* Estilos para pantallas de hasta 767px de ancho */
-    article{
-      min-width: 90vw;
-      height: auto;
-      align-items: center;
-    }
-  .reverse, article{
-      flex-direction: column;
-
+  article {
+    min-width: 90vw;
+    height: auto;
+    align-items: center;
   }
-article div{
-  align-items: center;
-  text-align: center;
-}
-    h3, h4{
-      font-size: 20px;
-    }
-    p{
-      font-size: 18px;
-    }
+  .reverse,
+  article {
+    flex-direction: column;
+  }
+  article div {
+    align-items: center;
+    text-align: center;
+  }
+  h3,
+  h4 {
+    font-size: 20px;
+  }
+  p {
+    font-size: 18px;
+  }
 }

@@ -1,8 +1,4 @@
-import {
-  createHttpFactory,
-  HttpMethod,
-  SpectatorHttp,
-} from '@ngneat/spectator/jest';
+import { createHttpFactory, HttpMethod, SpectatorHttp } from '@ngneat/spectator/jest';
 import { ProjectService } from '@services/http/project.service';
 import { environment } from '@environments/environment';
 

@@ -1,11 +1,4 @@
-import {
-  Component,
-  inject,
-  OnInit,
-  signal,
-  input,
-  computed,
-} from '@angular/core';
+import { Component, inject, OnInit, signal, input, computed } from '@angular/core';
 import { Project } from '@model/Project';
 import { TagListComponent } from '../../tags/tag-list/tag-list.component';
 import { Tag } from '@model/Tag';

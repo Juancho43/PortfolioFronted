@@ -1,64 +1,60 @@
-article{
+article {
   display: flex;
   width: 50dvw;
   justify-content: center;
   align-items: center;
   padding-top: 3em;
 }
-header h2{
-  color:var(--color-primary-alter);
+header h2 {
+  color: var(--color-primary-alter);
   text-decoration: underline;
   text-decoration-thickness: 3px;
   text-decoration-color: var(--color-one);
   align-self: flex-start;
 }
 
-
-
-article img{
+article img {
   border: 1px solid white;
   filter: drop-shadow(5px 5px 5px rgba(255, 251, 251, 0.5));
   border-radius: 10px 0 0 10px;
   object-fit: contain;
   margin-right: 3em;
-  height:fit-content ;
+  height: fit-content;
   max-height: 300px;
   width: auto;
   max-width: 200px;
 }
-article div{
+article div {
   width: 70vw;
 }
-article h1{
+article h1 {
   font-size: 3em;
 }
-article h2{
+article h2 {
   font-size: 2.5em;
 }
-article p{
+article p {
   max-width: 50vw;
   line-height: 2em;
-  font-family: var(--font-two),'sans-serif';
+  font-family: var(--font-two), 'sans-serif';
 }
 
-div:first-child{
+div:first-child {
   position: relative;
-
 }
-
 
 @media (max-width: 767px) {
   /* Estilos para pantallas de hasta 767px de ancho */
-  article{
+  article {
     flex-direction: column;
   }
-  article img{
+  article img {
     margin: auto;
   }
-  article h1{
+  article h1 {
     text-align: center;
   }
-  article p{
+  article p {
     max-width: none;
   }
 }

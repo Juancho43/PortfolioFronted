@@ -6,12 +6,8 @@ import { Project } from '../../interfaces/Project';
   providedIn: 'root',
 })
 export class ProjectDaoService {
-  private _projects: BehaviorSubject<Project[]> = new BehaviorSubject<
-    Project[]
-  >([]);
-  private _project: BehaviorSubject<Project> = new BehaviorSubject<Project>(
-    this.getEmptyProject(),
-  );
+  private _projects: BehaviorSubject<Project[]> = new BehaviorSubject<Project[]>([]);
+  private _project: BehaviorSubject<Project> = new BehaviorSubject<Project>(this.getEmptyProject());
 
   getProject() {
     return this._project.asObservable();

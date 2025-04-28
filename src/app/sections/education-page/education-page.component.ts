@@ -1,11 +1,4 @@
-import {
-  Component,
-  inject,
-  input,
-  OnDestroy,
-  OnInit,
-  signal,
-} from '@angular/core';
+import { Component, inject, input, OnDestroy, OnInit, signal } from '@angular/core';
 
 import { Tag } from '@model/Tag';
 import { Education } from '@model/Education';

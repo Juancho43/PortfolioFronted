@@ -1,6 +1,6 @@
-import {createServiceFactory, SpectatorService} from '@ngneat/spectator/jest';
-import {EducationDaoService} from '@dao/education-dao.service';
-import {generateEducationMocks, educationMock} from '@test/core/mocks/education.mock';
+import { createServiceFactory, SpectatorService } from '@ngneat/spectator/jest';
+import { EducationDaoService } from '@dao/education-dao.service';
+import { generateEducationMocks, educationMock } from '@test/core/mocks/education.mock';
 
 describe('EducationDaoService', () => {
   let spectator: SpectatorService<EducationDaoService>;
@@ -23,8 +23,8 @@ describe('EducationDaoService', () => {
       startDate: new Date(0, 1, 1),
       endDate: new Date(0, 1, 1),
       created_at: new Date(0, 1, 1),
-      updated_at : new Date(0, 1, 1),
-      deleted_at : new Date(0, 1, 1),
+      updated_at: new Date(0, 1, 1),
+      deleted_at: new Date(0, 1, 1),
     });
   });
 
@@ -43,5 +43,4 @@ describe('EducationDaoService', () => {
       expect(data).toEqual(educations);
     });
   });
-
 });

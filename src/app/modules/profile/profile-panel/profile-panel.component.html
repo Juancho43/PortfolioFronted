@@ -1,13 +1,11 @@
 <article>
   <div>
-    <app-profile-form [currentProfile]="profile"/>
-    <app-img-profile-form/>
-    <app-cv-profile-form/>
+    <app-profile-form [currentProfile]="profile" />
+    <app-img-profile-form />
+    <app-cv-profile-form />
   </div>
   <div class="colum">
     <app-data-table [data]="profileData" [columns]="profileColumns" [tilte]="profileTilte" (onEdit)="handleEdit()" />
     <app-data-table [data]="profileLinkData" [columns]="profileLinkColumns" [tilte]="profileLinkTilte" />
   </div>
 </article>
-
-

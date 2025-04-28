@@ -1,60 +1,63 @@
-form, fieldset {
+form,
+fieldset {
   display: flex;
   flex-direction: column;
   padding: 10px;
-  gap:20px;
+  gap: 20px;
   font-family: var(--font-one), serif;
-
 }
-fieldset{
+fieldset {
   border: none;
 }
-legend{
+legend {
   text-align: center;
   font-family: var(--font-two), sans-serif;
   font-size: 30px;
   font-weight: bold;
 }
 
-input,textarea,select,option, button {
+input,
+textarea,
+select,
+option,
+button {
   font-size: 18px;
   font-family: var(--font-two), serif;
-  color:black;
+  color: black;
   background-color: rgba(255, 255, 255, 0.5);
   padding: 10px;
 
   border-radius: 3px;
   border: 2px var(--color-primary-alter) solid;
-
 }
-input:focus, textarea:focus, select:focus{
+input:focus,
+textarea:focus,
+select:focus {
   box-shadow: 3px 3px 10px inset var(--color-primary-alter);
   outline: none;
 }
-textarea{
+textarea {
   resize: none;
 }
 
-label{
-  color:var(--color-secondary-alter);
+label {
+  color: var(--color-secondary-alter);
   font-size: 25px;
 }
 
-button{
+button {
   margin: 0 10px;
-  color:var(--color-secondary-alter);
+  color: var(--color-secondary-alter);
   width: max-content;
   flex-grow: 1;
   transition: 2s background-color;
-  &:hover{
+  &:hover {
     background-color: rgba(255, 255, 255, 0.9);
   }
 }
 
-
-.Buttons{
+.Buttons {
   display: flex;
   flex-direction: row;
   justify-items: stretch;
 }
-

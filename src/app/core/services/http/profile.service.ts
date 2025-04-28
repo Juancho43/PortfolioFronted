@@ -14,15 +14,12 @@ export class ProfileService {
   private http = inject(HttpClient);
 
   getProfile(id: number): Observable<ApiResponse<Profile>> {
-    return this.http.get<ApiResponse<Profile>>(
-      environment.api_url + profileEndpoint.get.replace(':id', id.toString()),
-    );
+    return this.http.get<ApiResponse<Profile>>(environment.api_url + profileEndpoint.get.replace(':id', id.toString()));
   }
 
   postImg(img: FormData, id: number): Observable<ApiResponse<string>> {
     return this.http.post<ApiResponse<string>>(
-      environment.api_url +
-        profileEndpoint.postImg.replace(':id', id.toString()),
+      environment.api_url + profileEndpoint.postImg.replace(':id', id.toString()),
       img,
       { context: checkToken() },
     );
@@ -30,8 +27,7 @@ export class ProfileService {
 
   postCv(cv: FormData, id: number): Observable<ApiResponse<string>> {
     return this.http.post<ApiResponse<string>>(
-      environment.api_url +
-        profileEndpoint.postCV.replace(':id', id.toString()),
+      environment.api_url + profileEndpoint.postCV.replace(':id', id.toString()),
       cv,
       { context: checkToken() },
     );
@@ -39,8 +35,7 @@ export class ProfileService {
 
   putProfile(profile: Profile): Observable<ApiResponse<Profile>> {
     return this.http.put<ApiResponse<Profile>>(
-      profileEndpoint.update.replace(':id', profile.id!.toString()) +
-        environment.api_url,
+      profileEndpoint.update.replace(':id', profile.id!.toString()) + environment.api_url,
       profile,
       { context: checkToken() },
     );

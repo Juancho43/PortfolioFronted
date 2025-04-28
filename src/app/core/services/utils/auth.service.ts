@@ -16,10 +16,7 @@ export class AuthService {
   $lastLogin = signal<Date>(new Date());
 
   sendLogin(data: { email: string; password: string }) {
-    return this.http.post<ApiResponse<any>>(
-      environment.api_url + '/login',
-      data,
-    );
+    return this.http.post<ApiResponse<any>>(environment.api_url + '/login', data);
   }
 
   sendLogout() {

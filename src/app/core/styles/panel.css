@@ -1,19 +1,17 @@
-article{
+article {
   overflow-x: auto;
   width: 90vw;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap:30px;
+  gap: 30px;
 }
 
-article div{
+article div {
   display: flex;
   gap: 15px;
 }
-.colum{
-    align-items: flex-start;
-    flex-direction: column;
+.colum {
+  align-items: flex-start;
+  flex-direction: column;
 }
-
-

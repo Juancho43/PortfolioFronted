@@ -6,11 +6,8 @@ import { Education } from '@model/Education';
   providedIn: 'root',
 })
 export class EducationDaoService {
-  private _education: BehaviorSubject<Education> =
-    new BehaviorSubject<Education>(this.getEmptyEducation());
-  private _educations: BehaviorSubject<Education[]> = new BehaviorSubject<
-    Education[]
-  >([]);
+  private _education: BehaviorSubject<Education> = new BehaviorSubject<Education>(this.getEmptyEducation());
+  private _educations: BehaviorSubject<Education[]> = new BehaviorSubject<Education[]>([]);
 
   getEducation() {
     return this._education.asObservable();

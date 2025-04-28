@@ -14,29 +14,19 @@ export class LinkService {
   private http = inject(HttpClient);
 
   getAll(): Observable<ApiResponseCollection<Link>> {
-    return this.http.get<ApiResponseCollection<Link>>(
-      environment.api_url + linkEndpoints.getAll,
-    );
+    return this.http.get<ApiResponseCollection<Link>>(environment.api_url + linkEndpoints.getAll);
   }
 
   getById(id: number): Observable<ApiResponse<Link>> {
-    return this.http.get<ApiResponse<Link>>(
-      environment.api_url + linkEndpoints.getById.replace(':id', id.toString()),
-    );
+    return this.http.get<ApiResponse<Link>>(environment.api_url + linkEndpoints.getById.replace(':id', id.toString()));
   }
 
   post(link: Link): Observable<ApiResponse<Link>> {
-    return this.http.post<ApiResponse<Link>>(
-      environment.api_url + linkEndpoints.post,
-      link,
-    );
+    return this.http.post<ApiResponse<Link>>(environment.api_url + linkEndpoints.post, link);
   }
 
   update(link: Link): Observable<ApiResponse<Link>> {
-    return this.http.put<ApiResponse<Link>>(
-      environment.api_url + linkEndpoints.update,
-      link,
-    );
+    return this.http.put<ApiResponse<Link>>(environment.api_url + linkEndpoints.update, link);
   }
 
   delete(id: number): Observable<ApiResponse<Link>> {

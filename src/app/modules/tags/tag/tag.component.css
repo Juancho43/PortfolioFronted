@@ -1,12 +1,11 @@
-.tag{
+.tag {
   padding: 5px;
-  background-color: rgba(255,255,255,0.4);
+  background-color: rgba(255, 255, 255, 0.4);
   border: 1px solid var(--color-gray);
   color: var(--color-secondary-alter);
-  font-family: var(--font-one),sans-serif;
-  margin:10px;
+  font-family: var(--font-one), sans-serif;
+  margin: 10px;
   border-radius: 10px;
-
 
   display: flex;
   justify-content: center;
@@ -14,7 +13,7 @@
   transition: 2s box-shadow;
 }
 
-.tag:before{
+.tag:before {
   content: '#';
   color: var(--color-primary);
   font-size: 1.2em;

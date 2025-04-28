@@ -1,7 +1,7 @@
 import { Work } from '@model/Work';
 import { faker } from '@faker-js/faker';
-import {generateTagMocks} from './tag.mock';
-import {generateLinkMocks} from './link.mock';
+import { generateTagMocks } from './tag.mock';
+import { generateLinkMocks } from './link.mock';
 
 /**
  * Generates a mock Work object with optional partial data.
@@ -12,15 +12,15 @@ export const workMock = (data: Partial<Work>): Work => ({
   id: faker.number.int(),
   company: faker.lorem.words(2),
   position: faker.lorem.word(),
-  responsibilities : faker.lorem.paragraph(),
+  responsibilities: faker.lorem.paragraph(),
   startDate: faker.date.past(),
   endDate: faker.date.future(),
-  tags: generateTagMocks(3, {deleted_at : null}),
-  links: generateLinkMocks(3, {deleted_at : null}),
+  tags: generateTagMocks(3, { deleted_at: null }),
+  links: generateLinkMocks(3, { deleted_at: null }),
   created_at: faker.date.past(),
   updated_at: faker.date.past(),
   deleted_at: faker.date.past(),
-  ...data
+  ...data,
 });
 
 /**

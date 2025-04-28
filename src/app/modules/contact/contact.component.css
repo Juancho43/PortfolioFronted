@@ -1,23 +1,20 @@
-div{
+div {
   padding: 1.3em;
 }
-img{
+img {
   width: 10vw;
   height: 50px;
   margin: auto;
 }
 
-a{
+a {
   text-align: center;
 }
 @media (max-width: 767px) {
-
-  img{
+  img {
     width: 100%;
   }
-  div{
+  div {
     height: 80px;
   }
-
-
 }

@@ -14,40 +14,26 @@ export class WorkService {
   private http = inject(HttpClient);
 
   getAll(): Observable<ApiResponseCollection<Work>> {
-    return this.http.get<ApiResponseCollection<Work>>(
-      environment.api_url + workEndpoint.getAll,
-    );
+    return this.http.get<ApiResponseCollection<Work>>(environment.api_url + workEndpoint.getAll);
   }
 
   getById(id: number): Observable<ApiResponse<Work>> {
-    return this.http.get<ApiResponse<Work>>(
-      environment.api_url + workEndpoint.getById.replace(':id', id.toString()),
-    );
+    return this.http.get<ApiResponse<Work>>(environment.api_url + workEndpoint.getById.replace(':id', id.toString()));
   }
 
   getBySlug(slug: string): Observable<ApiResponse<Work>> {
-    return this.http.get<ApiResponse<Work>>(
-      environment.api_url + workEndpoint.getBySlug.replace(':slug', slug),
-    );
+    return this.http.get<ApiResponse<Work>>(environment.api_url + workEndpoint.getBySlug.replace(':slug', slug));
   }
 
   post(work: Work): Observable<ApiResponse<Work>> {
-    return this.http.post<ApiResponse<Work>>(
-      environment.api_url + workEndpoint.post,
-      work,
-    );
+    return this.http.post<ApiResponse<Work>>(environment.api_url + workEndpoint.post, work);
   }
 
   update(work: Work): Observable<ApiResponse<Work>> {
-    return this.http.put<ApiResponse<Work>>(
-      environment.api_url + workEndpoint.update,
-      work,
-    );
+    return this.http.put<ApiResponse<Work>>(environment.api_url + workEndpoint.update, work);
   }
 
   delete(id: number): Observable<ApiResponse<Work>> {
-    return this.http.delete<ApiResponse<Work>>(
-      environment.api_url + workEndpoint.delete.replace(':id', id.toString()),
-    );
+    return this.http.delete<ApiResponse<Work>>(environment.api_url + workEndpoint.delete.replace(':id', id.toString()));
   }
 }

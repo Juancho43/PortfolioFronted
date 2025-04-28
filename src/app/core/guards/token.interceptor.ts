@@ -1,8 +1,4 @@
-import {
-  HttpContext,
-  HttpContextToken,
-  HttpInterceptorFn,
-} from '@angular/common/http';
+import { HttpContext, HttpContextToken, HttpInterceptorFn } from '@angular/common/http';
 import { AuthService } from '@services/utils/auth.service';
 import { inject } from '@angular/core';
 

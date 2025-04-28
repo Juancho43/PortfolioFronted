@@ -1,4 +1,4 @@
-footer{
+footer {
   display: flex;
   flex-direction: column;
   background-color: var(--color-secondary);
@@ -7,13 +7,14 @@ footer{
   align-items: flex-start;
   min-height: 70px;
 }
-a,p{
+a,
+p {
   margin: 5px;
 }
 
 @media (max-width: 767px) {
   /* Estilos para pantallas de hasta 767px de ancho */
-  footer{
+  footer {
     position: relative;
   }
 }

@@ -1,13 +1,9 @@
 <article>
-      <img
-        [src]="photo()"
-        [alt]="profile?.name"
-      />
+  <img [src]="photo()" [alt]="profile?.name" />
 
-    <div>
-      <h1>{{profile?.name}}</h1>
-      <h2>{{profile?.rol}}</h2>
-      <p> {{profile?.description!}}</p>
-    </div>
-
+  <div>
+    <h1>{{ profile?.name }}</h1>
+    <h2>{{ profile?.rol }}</h2>
+    <p>{{ profile?.description! }}</p>
+  </div>
 </article>

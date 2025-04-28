@@ -1,12 +1,12 @@
-import {createServiceFactory, SpectatorService} from '@ngneat/spectator/jest';
-import {ProjectDaoService} from '@dao/project-dao.service';
-import {generateProjectMocks, projectMock} from '@test/core/mocks/projects.mock';
+import { createServiceFactory, SpectatorService } from '@ngneat/spectator/jest';
+import { ProjectDaoService } from '@dao/project-dao.service';
+import { generateProjectMocks, projectMock } from '@test/core/mocks/projects.mock';
 
 describe('ProjectDaoService', () => {
   let spectator: SpectatorService<ProjectDaoService>;
   const createService = createServiceFactory(ProjectDaoService);
 
-  beforeEach (() => {
+  beforeEach(() => {
     spectator = createService();
   });
 
@@ -28,15 +28,13 @@ describe('ProjectDaoService', () => {
     spectator.service.getProject().subscribe((data) => {
       expect(data).toEqual(project);
     });
-  })
+  });
 
   it('should have a behavior subject that returns a list of projects', () => {
-      const projects = generateProjectMocks(3, {});
-      spectator.service.setProjects(projects);
-      spectator.service.getProjects().subscribe((data) => {
-        expect(data).toEqual(projects);
-      });
-    },
-  );
-
-})
+    const projects = generateProjectMocks(3, {});
+    spectator.service.setProjects(projects);
+    spectator.service.getProjects().subscribe((data) => {
+      expect(data).toEqual(projects);
+    });
+  });
+});

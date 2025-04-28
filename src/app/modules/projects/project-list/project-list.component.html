@@ -1,11 +1,9 @@
 <div>
-  @if(!projectsResource.isLoading()){
+  @if (!projectsResource.isLoading()) {
     @for (item of projectsResource.value(); track item.name) {
-      <app-project-card [project]="item"  [routerLink]="['../current' ,item.slug]"/>
+      <app-project-card [project]="item" [routerLink]="['../current', item.slug]" />
     }
   } @else {
-    <app-spinner/>
+    <app-spinner />
   }
-
-
 </div>

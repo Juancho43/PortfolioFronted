@@ -1,32 +1,31 @@
-.Project{
+.Project {
   display: flex;
   flex-direction: column;
   padding: 1rem;
   width: 70dvw;
   transition: 0s;
-  background-color: var( --glass-color);
+  background-color: var(--glass-color);
   border-radius: 10px;
   align-items: flex-start;
 }
 
-.Project p{
+.Project p {
   align-self: center;
   word-spacing: 4px;
   line-height: 1.5em;
-  color:var(--color-primary-alter);
+  color: var(--color-primary-alter);
 }
-.Project .Tags{
+.Project .Tags {
   display: flex;
   flex-flow: row wrap;
 }
 
 @media (max-width: 800px) {
-  .Project{
+  .Project {
     min-width: 80vw;
     height: auto;
-
   }
-  .Project p{
+  .Project p {
     width: auto;
   }
 }

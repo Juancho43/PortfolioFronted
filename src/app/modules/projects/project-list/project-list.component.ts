@@ -25,13 +25,9 @@ export default class ProjectListComponent {
     loader: () => {
       const currentTag = this.tag();
       if (currentTag !== 'all') {
-        return this.service
-          .getByTag(currentTag)
-          .pipe(switchMap((res) => of(res.data || [])));
+        return this.service.getByTag(currentTag).pipe(switchMap((res) => of(res.data || [])));
       } else if (currentTag.includes('all')) {
-        return this.service
-          .getAll()
-          .pipe(switchMap((res) => of(res.data || [])));
+        return this.service.getAll().pipe(switchMap((res) => of(res.data || [])));
       }
       return of(this.projectsList());
     },

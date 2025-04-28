@@ -1,5 +1,5 @@
-import {Component, input} from '@angular/core';
-import {Link} from '@model/Link';
+import { Component, input } from '@angular/core';
+import { Link } from '@model/Link';
 
 @Component({
   selector: 'app-link',
@@ -13,5 +13,5 @@ export class LinkComponent {
     id: 0,
     name: '',
     link: '',
-});
+  });
 }

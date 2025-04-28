@@ -1,11 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import {
-  FormArray,
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { FormArray, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { Project } from '../../../core/interfaces/Project';
 import { TagComponent } from '../../tags/tag/tag.component';
@@ -71,10 +65,8 @@ export class ProjectFormComponent implements OnInit {
   mapperProyecto() {
     this.currentProyect.id = this.ProyectForm.get('id')?.value;
     this.currentProyect.name = this.ProyectForm.get('nombre')?.value;
-    this.currentProyect.description =
-      this.ProyectForm.get('descripcion')?.value;
-    this.currentProyect.created_at =
-      this.ProyectForm.get('fechaCreacion')?.value;
+    this.currentProyect.description = this.ProyectForm.get('descripcion')?.value;
+    this.currentProyect.created_at = this.ProyectForm.get('fechaCreacion')?.value;
   }
   mapProyecto() {
     this.ProyectForm.patchValue({

@@ -40,18 +40,10 @@ export default class ContactPageComponent implements OnInit, OnDestroy {
     this.service.getProfile(1).subscribe((res) => {
       if (res.data && res.data.links) {
         console.log(res.data.links);
-        this.linkedin.set(
-          res.data.links.find((link) => link.name === 'linkedin')?.link || '',
-        );
-        this.mail.set(
-          res.data.links.find((link) => link.name === 'mail')?.link || '',
-        );
-        this.github.set(
-          res.data.links.find((link) => link.name === 'github')?.link || '',
-        );
-        this.cv.set(
-          res.data.links.find((link) => link.name === 'cv')?.link || '',
-        );
+        this.linkedin.set(res.data.links.find((link) => link.name === 'linkedin')?.link || '');
+        this.mail.set(res.data.links.find((link) => link.name === 'mail')?.link || '');
+        this.github.set(res.data.links.find((link) => link.name === 'github')?.link || '');
+        this.cv.set(res.data.links.find((link) => link.name === 'cv')?.link || '');
       }
     });
   }

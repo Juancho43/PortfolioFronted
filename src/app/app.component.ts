@@ -9,13 +9,7 @@ import { ThemeService } from '@services/utils/theme.service';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [
-    CommonModule,
-    RouterOutlet,
-    HeaderComponent,
-    NavbarComponent,
-    FooterComponent,
-  ],
+  imports: [CommonModule, RouterOutlet, HeaderComponent, NavbarComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

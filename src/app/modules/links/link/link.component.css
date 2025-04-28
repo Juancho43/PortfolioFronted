@@ -1,8 +1,7 @@
-a{
+a {
   color: var(--color-primary-alter);
-
 }
-a:before{
+a:before {
   content: '';
   color: var(--color-primary);
   display: inline-block; /* Needed to set width and height */

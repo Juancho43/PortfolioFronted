@@ -1,10 +1,5 @@
 import { Component, inject, OnInit, input } from '@angular/core';
-import {
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { Project } from '../../../core/interfaces/Project';
 import { ProfileService } from '@services/http/profile.service';
@@ -27,7 +22,7 @@ export class ProfileFormComponent implements OnInit {
     rol: '',
     links: [],
     name: '',
-});
+  });
   ProfileForm: FormGroup = new FormGroup({
     id: new FormControl(0),
     nombre: new FormControl('', [Validators.required]),
@@ -59,8 +54,7 @@ export class ProfileFormComponent implements OnInit {
     const currentProfile = this.currentProfile();
     currentProfile.id = this.ProfileForm.get('id')?.value;
     // this.currentProfile. = this.ProfileForm.get("nombre")?.value;
-    currentProfile.description =
-      this.ProfileForm.get('presentacion')?.value;
+    currentProfile.description = this.ProfileForm.get('presentacion')?.value;
     currentProfile.rol = this.ProfileForm.get('rol')?.value;
   }
 }

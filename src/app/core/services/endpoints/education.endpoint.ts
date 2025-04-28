@@ -4,6 +4,6 @@ export const educationEndpoint = {
   getByTag: '/education/tag/:tag',
   getBySlug: '/education/slug/:slug',
   post: '/education/private',
-  update: '/education/private',
+  update: '/education/private/:id',
   delete: '/education/private/:id',
 };

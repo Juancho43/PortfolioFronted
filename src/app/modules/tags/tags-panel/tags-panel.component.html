@@ -1,4 +1,5 @@
 <article>
-  <app-tag-form/>
-  <app-data-table [data]="tagsData" [columns]="tagsColumns" [tilte]="tilte"/>
+  <app-tag-form />
+  <app-data-table [data]="tagsData" [columns]="tagsColumns" [tilte]="tilte" (onEdit)="handleEdit($event)"
+                  (onDelete)="handleDelete($event)" />
 </article>

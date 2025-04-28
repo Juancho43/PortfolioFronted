@@ -1,23 +1,23 @@
-.active{
+.active {
   box-shadow: var(--color-two) 0px 4px 9px;
 }
 
-ul{
+ul {
   list-style: none;
   display: flex;
   flex-direction: row;
   width: 100dvw;
   justify-content: center;
 }
-img{
+img {
   width: 70px;
   height: 70px;
   display: none;
 }
-li{
+li {
   cursor: pointer;
   margin: 1em;
-  padding: .3em;
+  padding: 0.3em;
 
   width: max-content;
   text-align: center;
@@ -29,30 +29,27 @@ li{
   font-size: 20px;
   transition: box-shadow 2s;
 
-  &:hover{
+  &:hover {
     box-shadow: var(--color-two) 0px 4px 9px;
     color: var(--color-primary);
   }
-
 }
-
 
 @media (max-width: 767px) {
   /* Estilos para pantallas de hasta 767px de ancho */
-  nav ul{
+  nav ul {
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-bottom: 2em;
   }
-  nav ul li{
+  nav ul li {
     width: 200px;
     height: 1.9em;
     margin: 0.2em;
     font-size: 1.1em;
   }
-  img{
+  img {
     display: inline-block;
   }
-
 }

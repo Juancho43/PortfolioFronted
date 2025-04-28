@@ -26,10 +26,7 @@ export class ProfileComponent implements OnInit {
     this.profileService.getProfile(1).subscribe((profile) => {
       this.profileDao.setProfile(profile.data!);
       this.profile = profile.data;
-      this.photo.set(
-        environment.public_url +
-          profile.data!.links?.find((link) => link.name == 'photo_url')?.link,
-      );
+      this.photo.set(environment.public_url + profile.data!.links?.find((link) => link.name == 'photo_url')?.link);
     });
   }
 }

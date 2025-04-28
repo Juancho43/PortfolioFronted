@@ -6,9 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class ThemeService {
   private darkThemeClass = 'dark-theme';
-  private theme = new BehaviorSubject<'light' | 'dark'>(
-    this.getDefaultColorPreference(),
-  );
+  private theme = new BehaviorSubject<'light' | 'dark'>(this.getDefaultColorPreference());
   theme$ = this.theme.asObservable();
 
   toggleTheme(): void {
@@ -22,9 +20,7 @@ export class ThemeService {
     }
   }
   getDefaultColorPreference(): 'light' | 'dark' {
-    return window.matchMedia('(prefers-color-scheme: dark)').matches
-      ? 'dark'
-      : 'light';
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   }
 
   loadTheme(): void {

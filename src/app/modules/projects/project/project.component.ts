@@ -1,11 +1,4 @@
-import {
-  Component,
-  inject,
-  OnDestroy,
-  OnInit,
-  input,
-  signal,
-} from '@angular/core';
+import { Component, inject, OnDestroy, OnInit, input, signal } from '@angular/core';
 import { Project } from '@model/Project';
 import { CommonModule } from '@angular/common';
 import { TagComponent } from '../../tags/tag/tag.component';

@@ -1,37 +1,33 @@
 <form [formGroup]="EducationForm" (ngSubmit)="onSubmit()" class="glass">
   <fieldset>
-    @if(edit){
+    @if (edit) {
       <legend>Modificar formación:</legend>
-    }@else{
+    } @else {
       <legend>Nueva formación:</legend>
     }
 
     <label for="nombre">Nombre:</label>
-    <input type="text" name="nombre" id="nombre" formControlName="nombre">
+    <input type="text" name="nombre" id="nombre" formControlName="nombre" />
     <label for="resumen">Resumen:</label>
     <textarea name="resumen" id="resumen" cols="30" rows="10" formControlName="resumen"></textarea>
     <label for="fechaInicio">Fecha Inicio:</label>
-    <input type="date" name="fechaInicio" id="fechaInicio" formControlName="fechaInicio">
+    <input type="date" name="fechaInicio" id="fechaInicio" formControlName="fechaInicio" />
     <label for="fechaFinalizacion">Fecha Finalizacion:</label>
-    <input type="date" name="fechaFinalizacion" id="fechaFinalizacion" formControlName="fechaFinalizacion">
+    <input type="date" name="fechaFinalizacion" id="fechaFinalizacion" formControlName="fechaFinalizacion" />
     <label for="tipo">Tipo:</label>
     <select id="tipo" formControlName="tipo">
       <option value="Academico">Academico</option>
       <option value="Curso">Curso</option>
     </select>
-
   </fieldset>
   <div class="Buttons">
     <button type="submit">
-    @if(edit){
-      Modificar.
-    }@else{
-      Crear.
-    }
+      @if (edit) {
+        Modificar.
+      } @else {
+        Crear.
+      }
     </button>
-    <button type="reset" (click)="clean()">
-      Limpiar.
-    </button>
+    <button type="reset" (click)="clean()">Limpiar.</button>
   </div>
-
 </form>

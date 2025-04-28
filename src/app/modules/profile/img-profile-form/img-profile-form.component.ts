@@ -7,10 +7,7 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [FormsModule],
   templateUrl: './img-profile-form.component.html',
-  styleUrls: [
-    './img-profile-form.component.css',
-    '../../../core/styles/forms.css',
-  ],
+  styleUrls: ['./img-profile-form.component.css', '../../../core/styles/forms.css'],
 })
 export class ImgProfileFormComponent {
   private service = inject(ProfileService);

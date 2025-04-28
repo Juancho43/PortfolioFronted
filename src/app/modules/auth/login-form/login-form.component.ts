@@ -1,10 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import {
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../../core/services/utils/auth.service';
 import { Router } from '@angular/router';
 import { ApiResponse } from '@model/ApiResponse';
@@ -22,10 +17,7 @@ export default class LoginFormComponent implements OnInit {
 
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [
-      Validators.required,
-      Validators.minLength(4),
-    ]),
+    password: new FormControl('', [Validators.required, Validators.minLength(4)]),
   });
 
   ngOnInit() {

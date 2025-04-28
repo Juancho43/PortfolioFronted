@@ -7,10 +7,7 @@ import { ProfileService } from '@services/http/profile.service';
   standalone: true,
   imports: [FormsModule],
   templateUrl: './cv-profile-form.component.html',
-  styleUrls: [
-    './cv-profile-form.component.css',
-    '../../../core/styles/forms.css',
-  ],
+  styleUrls: ['./cv-profile-form.component.css', '../../../core/styles/forms.css'],
 })
 export class CvProfileFormComponent {
   private service = inject(ProfileService);

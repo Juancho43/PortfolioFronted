@@ -14,15 +14,12 @@ export class ProjectService {
   private http = inject(HttpClient);
 
   getAll(): Observable<ApiResponseCollection<Project>> {
-    return this.http.get<ApiResponseCollection<Project>>(
-      environment.api_url + projectEndpoint.getAll,
-    );
+    return this.http.get<ApiResponseCollection<Project>>(environment.api_url + projectEndpoint.getAll);
   }
 
   getById(id: number): Observable<ApiResponse<Project>> {
     return this.http.get<ApiResponse<Project>>(
-      environment.api_url +
-        projectEndpoint.getById.replace(':id', id.toString()),
+      environment.api_url + projectEndpoint.getById.replace(':id', id.toString()),
     );
   }
 
@@ -34,36 +31,26 @@ export class ProjectService {
 
   getBySlug(slug: string): Observable<ApiResponse<Project>> {
     return this.http.get<ApiResponse<Project>>(
-      environment.api_url +
-        projectEndpoint.getBySlug.replace(':slug', slug.toString()),
+      environment.api_url + projectEndpoint.getBySlug.replace(':slug', slug.toString()),
     );
   }
 
   getByEducation(slug: string): Observable<ApiResponseCollection<Project>> {
-    const url =
-      environment.api_url +
-      projectEndpoint.getByEducation.replace(':slug', slug);
+    const url = environment.api_url + projectEndpoint.getByEducation.replace(':slug', slug);
     return this.http.get<ApiResponseCollection<Project>>(url);
   }
 
   post(project: Project): Observable<ApiResponse<Project>> {
-    return this.http.post<ApiResponse<Project>>(
-      environment.api_url + projectEndpoint.post,
-      project,
-    );
+    return this.http.post<ApiResponse<Project>>(environment.api_url + projectEndpoint.post, project);
   }
 
   update(project: Project): Observable<ApiResponse<Project>> {
-    return this.http.put<ApiResponse<Project>>(
-      environment.api_url + projectEndpoint.update,
-      project,
-    );
+    return this.http.put<ApiResponse<Project>>(environment.api_url + projectEndpoint.update, project);
   }
 
   delete(id: number): Observable<ApiResponse<Project>> {
     return this.http.delete<ApiResponse<Project>>(
-      environment.api_url +
-        projectEndpoint.delete.replace(':id', id.toString()),
+      environment.api_url + projectEndpoint.delete.replace(':id', id.toString()),
     );
   }
 }

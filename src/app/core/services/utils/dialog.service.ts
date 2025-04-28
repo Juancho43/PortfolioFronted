@@ -8,11 +8,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 export class DialogService {
   private readonly _dialog = inject(MatDialog);
 
-  openModal<CT, T>(
-    ComponentRef: ComponentType<CT>,
-    data?: T,
-    isEditing = false,
-  ): void {
+  openModal<CT, T>(ComponentRef: ComponentType<CT>, data?: T, isEditing = false): void {
     const dialogConfig = new MatDialogConfig();
 
     // dialogConfig.disableClose = true;

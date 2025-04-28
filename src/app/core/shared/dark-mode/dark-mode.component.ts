@@ -13,10 +13,7 @@ export class DarkModeComponent implements OnInit {
   url = '';
 
   ngOnInit(): void {
-    this.themeService.theme$.subscribe(
-      (res) =>
-        (this.url = res === 'dark' ? 'asset/light.svg' : 'asset/dark.svg'),
-    );
+    this.themeService.theme$.subscribe((res) => (this.url = res === 'dark' ? 'asset/light.svg' : 'asset/dark.svg'));
   }
 
   toggleTheme(): void {

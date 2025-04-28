@@ -1,12 +1,12 @@
-header{
-    display: flex;
-    width: 100dvw;
-    justify-content: center;
-    align-items: center;
-    padding-top: 3em;
+header {
+  display: flex;
+  width: 100dvw;
+  justify-content: center;
+  align-items: center;
+  padding-top: 3em;
 }
 
-header img{
+header img {
   border: 1px solid var(--color-primary-alter);
   filter: drop-shadow(5px 5px 5px rgba(255, 251, 251, 0.5));
   border-radius: 10px 0 0 10px;
@@ -15,17 +15,17 @@ header img{
   width: auto;
   margin-right: 3em;
 }
-header div{
+header div {
   width: 70vw;
 }
-header h1{
+header h1 {
   font-size: 3em;
 }
-header h2{
+header h2 {
   font-size: 2.5em;
 }
-header p{
-  color : var(--color-primary);
+header p {
+  color: var(--color-primary);
   max-width: 50vw;
   line-height: 2em;
   font-family: var(--font-two), serif;
@@ -33,16 +33,16 @@ header p{
 
 @media (max-width: 767px) {
   /* Estilos para pantallas de hasta 767px de ancho */
-  header{
+  header {
     flex-direction: column;
   }
-  header img{
+  header img {
     margin: auto;
   }
-  header h1{
+  header h1 {
     text-align: center;
   }
-  header p{
+  header p {
     max-width: none;
   }
 }
