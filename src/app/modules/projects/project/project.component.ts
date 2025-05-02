@@ -22,16 +22,15 @@ export default class ProjectComponent implements OnInit, OnDestroy {
   private service = inject(ProjectService);
   private dao = inject(ProjectDaoService);
   readonly slug = input<string>('');
-  project = signal<Project>(this.dao.getEmptyProject());
+  readonly currentProject = input<Project>({} as Project);
+  project = signal<Project>(this.dao.getProject());
 
   ngOnInit(): void {
-    if (this.slug() == '') {
-      this.dao.getProject().subscribe((data) => {
-        this.project.set(data);
-      });
-    } else {
+    if (this.slug() != '') {
       this.getData(this.slug());
       this.setMetaTags();
+    } else {
+      this.project.set(this.currentProject());
     }
   }
 
@@ -67,7 +66,7 @@ export default class ProjectComponent implements OnInit, OnDestroy {
         this.project.set(data.data!);
         this.setMetaTags();
       },
-      error: (error) => {
+      error: () => {
         this.router.navigateByUrl('./not-found');
       },
     });

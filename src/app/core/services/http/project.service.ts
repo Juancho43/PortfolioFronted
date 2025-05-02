@@ -6,6 +6,7 @@ import { environment } from '@environments/environment';
 import { ApiResponseCollection } from '@model/ApiResponseCollection';
 import { ApiResponse } from '@model/ApiResponse';
 import { projectEndpoint } from '@endpoints/project.endpoint';
+import { checkToken } from '@core/guards/token.interceptor';
 
 @Injectable({
   providedIn: 'root',
@@ -41,16 +42,28 @@ export class ProjectService {
   }
 
   post(project: Project): Observable<ApiResponse<Project>> {
-    return this.http.post<ApiResponse<Project>>(environment.api_url + projectEndpoint.post, project);
+    return this.http.post<ApiResponse<Project>>(environment.api_url + projectEndpoint.post, project, {
+      context: checkToken(),
+    });
   }
 
   update(project: Project): Observable<ApiResponse<Project>> {
-    return this.http.put<ApiResponse<Project>>(environment.api_url + projectEndpoint.update, project);
+    return this.http.put<ApiResponse<Project>>(
+      environment.api_url + projectEndpoint.update.replace(':id', project.id!.toString()),
+      project,
+      {
+        context: checkToken(),
+      },
+    );
   }
 
   delete(id: number): Observable<ApiResponse<Project>> {
     return this.http.delete<ApiResponse<Project>>(
       environment.api_url + projectEndpoint.delete.replace(':id', id.toString()),
+
+      {
+        context: checkToken(),
+      },
     );
   }
 }

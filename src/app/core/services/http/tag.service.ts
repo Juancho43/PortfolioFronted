@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { catchError, Observable, of, tap } from 'rxjs';
 import { Tag } from '@model/Tag';
 import { environment } from '@environments/environment';
@@ -49,7 +49,7 @@ export class TagService {
         tap(() => {
           this.notification.showNotification('¡Actualizacion exitosa!');
         }),
-        catchError((error: HttpErrorResponse) => {
+        catchError(() => {
           this.notification.showNotification('Error al actualizar');
           return of();
         }),
@@ -65,8 +65,22 @@ export class TagService {
         tap(() => {
           this.notification.showNotification('¡Eliminacion exitosa!');
         }),
-        catchError((error: HttpErrorResponse) => {
+        catchError(() => {
           this.notification.showNotification('Error al eliminar');
+          return of();
+        }),
+      );
+  }
+  search(search: string): Observable<ApiResponseCollection<Tag>> {
+    const url = environment.api_url + tagEndpoints.search.replace(':search', search);
+    return this.http
+      .get<ApiResponseCollection<Tag>>(url, {
+        params: { name: search },
+        context: checkToken(),
+      })
+      .pipe(
+        catchError(() => {
+          this.notification.showNotification('Error al obtener datos');
           return of();
         }),
       );

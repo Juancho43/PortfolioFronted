@@ -1,15 +1,14 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { ProjectFormComponent } from '../project-form/project-form.component';
-import { DataTableComponent } from '../../../core/shared/data-table/data-table.component';
-import { convertToTableData, TableData } from '../../../core/interfaces/TableData';
-
 import { ProjectService } from '@services/http/project.service';
-import ProjectComponent from '@modules/projects/project/project.component';
 import { ProjectDaoService } from '@dao/project-dao.service';
+import { Project } from '@model/Project';
+import { rxResource } from '@angular/core/rxjs-interop';
+import { ProjectCardComponent } from '@modules/projects/project-card/project-card.component';
 
 @Component({
   selector: 'app-project-panel',
-  imports: [ProjectFormComponent, DataTableComponent, ProjectComponent],
+  imports: [ProjectFormComponent, ProjectCardComponent],
   standalone: true,
   templateUrl: './project-panel.component.html',
   styleUrls: ['./project-panel.component.css', '../../../core/styles/panel.css'],
@@ -17,23 +16,16 @@ import { ProjectDaoService } from '@dao/project-dao.service';
 export default class ProjectPanelComponent implements OnInit {
   private service = inject(ProjectService);
   private dao = inject(ProjectDaoService);
-  tilte = 'Proyectos';
-  projectColumns: string[] = [];
-  projectData: TableData[] = [];
+  projectsResource = rxResource({
+    loader: () => {
+      return this.service.getAll();
+    },
+  });
+  currentProject = signal<Project>(this.dao.getEmptyProject());
 
-  ngOnInit() {
-    this.service.getAll().subscribe((res) => {
-      Object.keys(res.data![0]).forEach((key) => {
-        if (!key.includes('tags') && !key.includes('links')) {
-          this.projectColumns.push(key);
-        }
-      });
+  ngOnInit() {}
 
-      this.projectData = convertToTableData(res.data!);
-    });
-  }
-
-  editHandler($event: any) {
-    this.dao.setProject($event);
+  selectHandler(project: Project) {
+    this.currentProject.set(project);
   }
 }

@@ -1,95 +1,110 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { AfterViewInit, Component, effect, inject, input } from '@angular/core';
 import { FormArray, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-
-import { Project } from '../../../core/interfaces/Project';
-import { TagComponent } from '../../tags/tag/tag.component';
-import { TagService } from '@services/http/tag.service';
-import { Tag } from '../../../core/interfaces/Tag';
-import { ProjectDaoService } from '../../../core/services/DAO/project-dao.service';
+import { Project } from '@model/Project';
+import { Tag } from '@model/Tag';
+import { ProjectDaoService } from '@dao/project-dao.service';
 import { ProjectService } from '@services/http/project.service';
+import { Link } from '@model/Link';
+import { JoinTagComponent } from '@modules/tags/join-tag/join-tag.component';
+import { JoinLinkComponent } from '@modules/links/join-link/join-link.component';
 
 @Component({
   selector: 'app-project-form',
   standalone: true,
-  imports: [ReactiveFormsModule, TagComponent],
+  imports: [ReactiveFormsModule, JoinTagComponent, JoinLinkComponent],
   templateUrl: './project-form.component.html',
   styleUrls: ['./project-form.component.css', '../../../core/styles/forms.css'],
 })
-export class ProjectFormComponent implements OnInit {
+export class ProjectFormComponent implements AfterViewInit {
   private service = inject(ProjectService);
-  private proyectsDAO = inject(ProjectDaoService);
-  private tagsService = inject(TagService);
-  tags: Tag[] = [];
+  private projectDaoService = inject(ProjectDaoService);
+  readonly currentProject = input.required<Project>();
+
   edit = false;
-  currentProyect: Project = this.proyectsDAO.getEmptyProject();
-  ProyectForm: FormGroup = new FormGroup({
+
+  projectForm: FormGroup = new FormGroup({
     id: new FormControl(0),
-    nombre: new FormControl('', [Validators.required]),
-    descripcion: new FormControl('', [Validators.required]),
-    fechaCreacion: new FormControl(new Date(), [Validators.required]),
+    name: new FormControl('', [Validators.required]),
+    description: new FormControl('', [Validators.required]),
+    tags: new FormArray<FormControl<number[]>>([]),
+    links: new FormArray<FormControl<number[]>>([]),
   });
 
-  ngOnInit() {
-    this.getTagData();
-    this.getCurrentProyect();
-    this.clean();
-  }
-
-  getTagData() {
-    // this.tagsService.getTags().subscribe({
-    //   next: (x) => {
-    //     // this.tags = x.tagDTOList
-    //   },
-    // });
-  }
-
-  getCurrentProyect() {
-    this.proyectsDAO.getProject().subscribe((res) => {
-      this.currentProyect = res;
+  constructor() {
+    effect(() => {
+      this.currentProject();
       this.update();
     });
   }
-  update() {
-    this.mapProyecto();
-    this.edit = true;
+
+  ngAfterViewInit() {
+    this.clean();
   }
+
   onSubmit() {
-    this.mapperProyecto();
-    console.log('xxxx');
     if (!this.edit) {
-      // this.proyectsService.postProyecto(this.currentProyect).subscribe();
+      this.service.post(this.mapperProject()).subscribe();
     } else {
-      // this.proyectsService.putProyecto(this.currentProyect).subscribe();
+      this.service.update(this.mapperProject()).subscribe();
     }
+    this.clean();
   }
-  mapperProyecto() {
-    this.currentProyect.id = this.ProyectForm.get('id')?.value;
-    this.currentProyect.name = this.ProyectForm.get('nombre')?.value;
-    this.currentProyect.description = this.ProyectForm.get('descripcion')?.value;
-    this.currentProyect.created_at = this.ProyectForm.get('fechaCreacion')?.value;
+
+  mapperProject() {
+    return {
+      id: this.projectForm.get('id')?.value,
+      name: this.projectForm.get('name')?.value,
+      description: this.projectForm.get('description')?.value,
+      tags: this.projectForm.get('tags')?.value,
+      links: this.projectForm.get('links')?.value,
+    };
   }
-  mapProyecto() {
-    this.ProyectForm.patchValue({
-      id: this.currentProyect.id,
-      nombre: this.currentProyect.name,
-      descripcion: this.currentProyect.description,
-      fechaCreacion: this.currentProyect.created_at,
+
+  mapProject() {
+    this.projectForm.patchValue({
+      id: this.currentProject().id,
+      name: this.currentProject().name,
+      description: this.currentProject().description,
+      tags: this.currentProject().tags!,
+      links: this.currentProject().links!!,
+    });
+    this.patchTagsValues();
+    this.patchLinksValues();
+  }
+
+  patchTagsValues(tags: Tag[] = this.currentProject().tags!) {
+    const tagsArray = this.projectForm.get('tags') as FormArray;
+    tagsArray.clear();
+    tags.forEach((tag) => {
+      tagsArray.push(new FormControl(tag.id));
     });
   }
 
-  addTag(tag: Tag) {
-    // if (!this.currentProyect.tags.find((p) => p == tag)) {
-    //   this.currentProyect.tags.push(tag);
-    // }
+  patchLinksValues(links: Link[] = this.currentProject().links!) {
+    const linksArray = this.projectForm.get('links') as FormArray;
+    linksArray.clear();
+    links.forEach((link) => {
+      linksArray.push(new FormControl(link.id));
+    });
   }
-  removeTag(tag: Tag) {
-    // this.currentProyect.tags = this.currentProyect.tags.filter((p) => p != tag);
+  clean() {
+    this.projectForm.reset();
+    this.projectDaoService.setProject(this.projectDaoService.getEmptyProject());
+    this.edit = false;
   }
 
-  clean() {
-    this.ProyectForm.reset();
-    console.log('clena');
-    this.proyectsDAO.setProject(this.proyectsDAO.getEmptyProject());
-    this.edit = false;
+  update() {
+    this.mapProject();
+    this.edit = true;
+  }
+  deleteProject() {
+    this.service.delete(this.currentProject().id!).subscribe({
+      next: () => {
+        this.clean();
+      },
+      error: (error) => {
+        console.error('Error deleting project:', error);
+      },
+    });
   }
 }

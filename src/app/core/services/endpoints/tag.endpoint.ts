@@ -7,4 +7,5 @@ export const tagEndpoints = {
   post: '/tag/private',
   update: '/tag/private/:id',
   delete: '/tag/private/:id',
+  search: '/tag/search/:search',
 };

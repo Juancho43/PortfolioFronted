@@ -5,8 +5,10 @@ fieldset {
   padding: 10px;
   gap: 20px;
   font-family: var(--font-one), serif;
+  height: 80dvh;
 }
 fieldset {
+  overflow-y: scroll;
   border: none;
 }
 legend {
@@ -37,7 +39,7 @@ select:focus {
   outline: none;
 }
 textarea {
-  resize: none;
+  resize: both;
 }
 
 label {
@@ -49,15 +51,9 @@ button {
   margin: 0 10px;
   color: var(--color-secondary-alter);
   width: max-content;
-  flex-grow: 1;
+
   transition: 2s background-color;
   &:hover {
     background-color: rgba(255, 255, 255, 0.9);
   }
-}
-
-.Buttons {
-  display: flex;
-  flex-direction: row;
-  justify-items: stretch;
 }

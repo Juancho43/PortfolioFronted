@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Project } from '../../interfaces/Project';
+import { Project } from '@model/Project';
 
 @Injectable({
   providedIn: 'root',
@@ -9,8 +9,13 @@ export class ProjectDaoService {
   private _projects: BehaviorSubject<Project[]> = new BehaviorSubject<Project[]>([]);
   private _project: BehaviorSubject<Project> = new BehaviorSubject<Project>(this.getEmptyProject());
 
+  project = signal<Project>(this.getEmptyProject());
+  getProjectSignal() {
+    return this.project();
+  }
+
   getProject() {
-    return this._project.asObservable();
+    return this._project.getValue();
   }
 
   setProject(item: Project) {
@@ -34,6 +39,8 @@ export class ProjectDaoService {
     return {
       description: '',
       name: '',
+      tags: [],
+      links: [],
     };
   }
 }

@@ -6,7 +6,7 @@
   font-family: var(--font-one), sans-serif;
   margin: 10px;
   border-radius: 10px;
-
+  width: fit-content;
   display: flex;
   justify-content: center;
   align-content: center;

@@ -1,0 +1,23 @@
+<div class="Buttons">
+  <button (click)="toggleShow()">
+    @if (show()) {
+      Ocultar etiquetas
+    } @else {
+      Mostrar etiquetas
+    }
+  </button>
+  <button (click)="reset()">Limpiar tags</button>
+</div>
+
+@if (show()) {
+  <div>
+    <div>
+      Etiquetas:
+      @for (tag of currentTags(); track $index) {
+        <app-tag [tag]="tag" (click)="removeTag(tag)" />
+      }
+    </div>
+
+    <app-tag-searcher (tagSelected)="addTag($event)" />
+  </div>
+}

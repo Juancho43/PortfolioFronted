@@ -1,0 +1,26 @@
+<div class="Buttons">
+  <button (click)="toggleShow()">
+    @if (show()) {
+      Ocultar enlaces
+    } @else {
+      Mostrar enlaces
+    }
+  </button>
+  <button (click)="reset()">Limpiar enlaces</button>
+</div>
+
+@if (show()) {
+  <div>
+    <div>
+      Enlaces:
+      @for (link of currentLinks(); track $index) {
+        <div class="container">
+          <app-link [link]="link" />
+          <p (click)="removeLink(link)">Eliminar</p>
+        </div>
+      }
+    </div>
+
+    <app-link-form (linkCreated)="addLink($event)" />
+  </div>
+}

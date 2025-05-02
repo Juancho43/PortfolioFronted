@@ -1,4 +1,4 @@
-<form [formGroup]="ProyectForm" class="glass">
+<form [formGroup]="projectForm" class="glass">
   <fieldset>
     <legend>
       @if (edit) {
@@ -7,23 +7,13 @@
         Nuevo proyecto
       }
     </legend>
-    <input type="text" name="nombre" id="nombre" formControlName="nombre" />
-    <textarea name="descripcion" id="descripcion" cols="30" rows="10" formControlName="descripcion"></textarea>
-    <input type="date" name="fechaCreacion" id="fechaCreacion" formControlName="fechaCreacion" />
-    <select multiple formControlName="tags">
-      @for (item of tags; track item.name) {
-        <option (click)="addTag(item)">{{ item.name }}</option>
-      }
-    </select>
-
-    <label>Etiquetas:</label>
-    @for (item of currentProyect.tags; track item.id) {
-      <app-tag [tag]="item" (dblclick)="removeTag(item)" />
-    } @empty {
-      Seleccione alguna etiqueta.
-    }
+    <input type="text" name="name" id="name" formControlName="name" />
+    <textarea name="description" id="description" cols="30" rows="10" formControlName="description"></textarea>
+    <app-join-tag [initialTags]="currentProject().tags" (finalTags)="patchTagsValues($event)" />
+    <app-join-link [initialLinks]="currentProject().links" (finalLinks)="patchLinksValues($event)" />
   </fieldset>
-  <fieldset class="Buttons">
+
+  <div class="Buttons">
     <button (click)="clean()">Limpiar.</button>
     <button (click)="onSubmit()">
       @if (edit) {
@@ -32,5 +22,8 @@
         Crear nuevo.
       }
     </button>
-  </fieldset>
+    @if (edit) {
+      <button (click)="deleteProject()" class="delete">Eliminar.</button>
+    }
+  </div>
 </form>

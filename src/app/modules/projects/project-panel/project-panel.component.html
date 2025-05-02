@@ -1,10 +1,8 @@
 <article>
   <div>
-    <app-project-form />
-    <app-project />
+    @for (project of projectsResource.value()?.data!; track $index) {
+      <app-project-card [project]="project" (click)="selectHandler(project)" />
+    }
   </div>
-
-  <div>
-    <app-data-table [data]="projectData" [columns]="projectColumns" [tilte]="tilte" (onEdit)="editHandler($event)" />
-  </div>
+  <app-project-form [currentProject]="currentProject()" />
 </article>

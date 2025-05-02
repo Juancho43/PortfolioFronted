@@ -1,14 +1,17 @@
 article {
+  display: flex;
+
   overflow-x: auto;
   width: 90vw;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
   gap: 30px;
 }
 
 article div {
   display: flex;
+  flex-direction: column;
   gap: 15px;
 }
 .colum {

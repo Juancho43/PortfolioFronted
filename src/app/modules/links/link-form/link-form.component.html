@@ -1,1 +1,7 @@
-<p>link-form works!</p>
+<form [formGroup]="linkForm" class="glass" (ngSubmit)="submitLink()">
+  <input type="text" formControlName="name" placeholder="Nombre del enlace" />
+  <input type="url" formControlName="url" placeholder="URL" />
+  <button type="submit" [disabled]="linkForm.invalid || submitting">
+    {{ submitting ? 'Guardando...' : 'Añadir enlace' }}
+  </button>
+</form>
