@@ -1,23 +1,25 @@
-<form [formGroup]="TagForm" (ngSubmit)="onSubmit()" class="glass">
+<form class="InsideForm" [formGroup]="TagForm" (ngSubmit)="onSubmit()">
   <fieldset>
     <legend>
-      @if (!edit) {
+      @if (!edit()) {
         Nueva tag
       } @else {
         Editar tag
       }
     </legend>
     <input type="text" name="nombre" id="nombre" formControlName="name" />
-
     <div class="Buttons">
       <button type="submit">
-        @if (!edit) {
-          Crear
+        @if (!edit()) {
+          Crear.
         } @else {
-          Editar
+          Editar.
         }
       </button>
-      <button (click)="cleanForm()">Limpiar</button>
+      <button (click)="clean()">Limpiar.</button>
+      @if (edit()) {
+        <button (click)="deleteTag()" class="delete">Eliminar.</button>
+      }
     </div>
   </fieldset>
 </form>

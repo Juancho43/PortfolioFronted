@@ -1,19 +1,17 @@
-<div class="tag-search glass">
-  <input type="text" placeholder="Buscar etiquetas..." [(ngModel)]="searchTerm" (input)="onSearchInput()" />
+<div class="tag-search">
+  <input type="text" placeholder="Buscar etiquetas..." [(ngModel)]="searchTerm" />
 
   <div class="tag-results">
-    @if (loading()) {
+    @if (tags.isLoading()) {
       <p>Buscando...</p>
-    } @else if (error()) {
-      <p>Error: {{ error() }}</p>
-    } @else if (filteredTags().length > 0) {
+    } @else if (tags.error()) {
+      <p>Error: {{ tags.error() }}</p>
+    } @else {
       <div class="results-list">
-        @for (tag of filteredTags(); track tag.id) {
+        @for (tag of tags.value()?.data; track tag.id) {
           <app-tag [tag]="tag" (click)="selectTag(tag)" />
         }
       </div>
-    } @else {
-      <p>No se encontraron etiquetas</p>
     }
   </div>
 </div>

@@ -4,5 +4,10 @@
       <app-project-card [project]="project" (click)="selectHandler(project)" />
     }
   </div>
-  <app-project-form [currentProject]="currentProject()" />
+  <app-project-form
+    [currentProject]="currentProject()"
+    (projectCreated)="this.projectsResource.reload()"
+    (projectUpdated)="this.projectsResource.reload()"
+    (cleaned)="handleClearForm()"
+  />
 </article>

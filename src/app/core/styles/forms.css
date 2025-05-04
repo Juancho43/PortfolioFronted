@@ -2,19 +2,18 @@ form,
 fieldset {
   display: flex;
   flex-direction: column;
-  padding: 10px;
-  gap: 20px;
+  padding: 5px;
+  overflow: hidden;
   font-family: var(--font-one), serif;
-  height: 80dvh;
-}
-fieldset {
-  overflow-y: scroll;
   border: none;
+}
+div {
+  overflow: hidden;
 }
 legend {
   text-align: center;
   font-family: var(--font-two), sans-serif;
-  font-size: 30px;
+  font-size: 24px;
   font-weight: bold;
 }
 
@@ -44,16 +43,34 @@ textarea {
 
 label {
   color: var(--color-secondary-alter);
-  font-size: 25px;
+  font-size: 20px;
 }
 
 button {
   margin: 0 10px;
   color: var(--color-secondary-alter);
-  width: max-content;
+  height: 40px;
 
   transition: 2s background-color;
   &:hover {
     background-color: rgba(255, 255, 255, 0.9);
   }
+}
+
+.Buttons {
+  height: auto;
+  display: flex;
+  width: 80%;
+  flex-direction: row;
+  justify-content: space-around;
+  justify-self: center;
+}
+
+.Buttons button {
+  font-size: 0.9em;
+  font-family: var(--font-two), serif;
+  color: black;
+  border: 1px solid var(--color-primary-alter);
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 10px;
 }

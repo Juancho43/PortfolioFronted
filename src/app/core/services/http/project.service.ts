@@ -1,18 +1,20 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { catchError, Observable, of, tap } from 'rxjs';
 import { Project } from '@model/Project';
 import { environment } from '@environments/environment';
 import { ApiResponseCollection } from '@model/ApiResponseCollection';
 import { ApiResponse } from '@model/ApiResponse';
 import { projectEndpoint } from '@endpoints/project.endpoint';
 import { checkToken } from '@core/guards/token.interceptor';
+import { NotificationService } from '@services/utils/notification.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProjectService {
   private http = inject(HttpClient);
+  private notification = inject(NotificationService);
 
   getAll(): Observable<ApiResponseCollection<Project>> {
     return this.http.get<ApiResponseCollection<Project>>(environment.api_url + projectEndpoint.getAll);
@@ -42,28 +44,58 @@ export class ProjectService {
   }
 
   post(project: Project): Observable<ApiResponse<Project>> {
-    return this.http.post<ApiResponse<Project>>(environment.api_url + projectEndpoint.post, project, {
-      context: checkToken(),
-    });
+    return this.http
+      .post<ApiResponse<Project>>(environment.api_url + projectEndpoint.post, project, {
+        context: checkToken(),
+      })
+      .pipe(
+        tap(() => {
+          this.notification.showSuccesNotification();
+        }),
+        catchError(() => {
+          this.notification.showErrorNotification();
+          return of();
+        }),
+      );
   }
 
   update(project: Project): Observable<ApiResponse<Project>> {
-    return this.http.put<ApiResponse<Project>>(
-      environment.api_url + projectEndpoint.update.replace(':id', project.id!.toString()),
-      project,
-      {
-        context: checkToken(),
-      },
-    );
+    return this.http
+      .put<ApiResponse<Project>>(
+        environment.api_url + projectEndpoint.update.replace(':id', project.id!.toString()),
+        project,
+        {
+          context: checkToken(),
+        },
+      )
+      .pipe(
+        tap(() => {
+          this.notification.showSuccesNotification();
+        }),
+        catchError(() => {
+          this.notification.showErrorNotification();
+          return of();
+        }),
+      );
   }
 
   delete(id: number): Observable<ApiResponse<Project>> {
-    return this.http.delete<ApiResponse<Project>>(
-      environment.api_url + projectEndpoint.delete.replace(':id', id.toString()),
+    return this.http
+      .delete<ApiResponse<Project>>(
+        environment.api_url + projectEndpoint.delete.replace(':id', id.toString()),
 
-      {
-        context: checkToken(),
-      },
-    );
+        {
+          context: checkToken(),
+        },
+      )
+      .pipe(
+        tap(() => {
+          this.notification.showSuccesNotification();
+        }),
+        catchError(() => {
+          this.notification.showErrorNotification();
+          return of();
+        }),
+      );
   }
 }

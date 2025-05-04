@@ -1,0 +1,52 @@
+form {
+  width: 60dvw;
+  height: 70dvh;
+  display: grid;
+  justify-content: start;
+  align-items: self-start;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 8px;
+  overflow-y: scroll;
+}
+div {
+  width: 30dvw;
+  justify-self: center;
+  overflow-y: hidden;
+  height: 25dvh;
+}
+.div1 {
+  height: 30px;
+  width: 60dvw;
+  grid-column: span 2 / span 2;
+}
+
+.div2 {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: fit-content;
+  grid-row: span 4 / span 4;
+  grid-row-start: 2;
+}
+
+.div4 {
+  grid-row: span 2 / span 2;
+  grid-row-start: 2;
+  overflow-y: scroll;
+}
+
+.div6 {
+  overflow-y: scroll;
+  grid-row: span 2 / span 2;
+  grid-column-start: 2;
+  grid-row-start: 4;
+}
+.div5 {
+  background: var(--color-three);
+  height: max-content;
+  width: 60dvw;
+  grid-column: span 2 / span 2;
+  grid-column-start: 1;
+  grid-row-start: 6;
+}

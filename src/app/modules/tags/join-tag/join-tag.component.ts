@@ -1,49 +1,52 @@
-import { Component, effect, inject, input, output, signal } from '@angular/core';
+import { Component, effect, input, output, signal } from '@angular/core';
 import { Tag } from '@model/Tag';
-import { TagService } from '@http/tag.service';
-import { rxResource } from '@angular/core/rxjs-interop';
 import { TagComponent } from '@modules/tags/tag/tag.component';
 import { TagSearcherComponent } from '@modules/tags/tag-searcher/tag-searcher.component';
+import { TagFormComponent } from '@modules/tags/tag-form/tag-form.component';
 
 @Component({
   selector: 'app-join-tag',
   standalone: true,
-  imports: [TagComponent, TagSearcherComponent],
+  imports: [TagComponent, TagSearcherComponent, TagFormComponent],
   templateUrl: './join-tag.component.html',
   styleUrl: './join-tag.component.css',
 })
 export class JoinTagComponent {
-  private service = inject(TagService);
-  readonly initialTags = input<Tag[]>();
-  tagsResource = rxResource({
-    loader: () => {
-      return this.service.getAll();
-    },
-  });
+  readonly initialTags = input.required<Tag[]>();
+
   currentTags = signal<Tag[]>([]);
+  selectedTag = signal<Tag>({} as Tag);
   finalTags = output<Tag[]>();
 
   show = signal<boolean>(false);
+  showForm = signal<boolean>(false);
+  showSearch = signal<boolean>(false);
 
   constructor() {
     effect(() => {
       this.initialTags();
-      this.currentTags.set(this.initialTags()!);
+      this.currentTags.set(this.initialTags());
     });
   }
 
   toggleShow() {
     this.show.set(!this.show());
   }
+  toggleShowForm() {
+    this.showForm.set(!this.showForm());
+  }
+  toggleShowSearch() {
+    this.showSearch.set(!this.showSearch());
+  }
 
   reset() {
     this.currentTags.set([]);
   }
-
-  removeTag(tag: Tag) {
-    const updatedTags = this.currentTags().filter((t) => t.id !== tag.id);
-    this.currentTags.set(updatedTags);
-    this.finalTags.emit(updatedTags);
+  editTag(tag: Tag) {
+    this.selectedTag.set(tag);
+  }
+  handleClearForm() {
+    this.selectedTag.set({} as Tag);
   }
 
   addTag(tag: Tag) {
@@ -52,5 +55,17 @@ export class JoinTagComponent {
       this.currentTags.set(updatedTags);
       this.finalTags.emit(updatedTags);
     }
+  }
+
+  updateTag(tag: Tag) {
+    const updatedTags = this.currentTags().map((t) => (t.id === tag.id ? tag : t));
+    this.currentTags.set(updatedTags);
+    this.finalTags.emit(updatedTags);
+  }
+
+  removeTag(tag: Tag) {
+    const updatedTags = this.currentTags().filter((t) => t.id !== tag.id);
+    this.currentTags.set(updatedTags);
+    this.finalTags.emit(updatedTags);
   }
 }

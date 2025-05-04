@@ -1,6 +1,5 @@
-import { Component, effect, inject, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { CookieService } from '@services/utils/cookie.service';
 import { AuthService } from '@services/utils/auth.service';
 
 @Component({

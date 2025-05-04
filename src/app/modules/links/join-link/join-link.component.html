@@ -14,13 +14,19 @@
     <div>
       Enlaces:
       @for (link of currentLinks(); track $index) {
-        <div class="container">
+        <div class="Container">
           <app-link [link]="link" />
+          <p (click)="editLink(link)">Editar</p>
           <p (click)="removeLink(link)">Eliminar</p>
         </div>
       }
     </div>
 
-    <app-link-form (linkCreated)="addLink($event)" />
+    <app-link-form
+      [currentLink]="selectedLink()"
+      (linkCreated)="addLink($event)"
+      (linkUpdated)="updateLink($event)"
+      (cleaned)="handleClearForm()"
+    />
   </div>
 }

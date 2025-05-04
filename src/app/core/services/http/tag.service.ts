@@ -35,9 +35,19 @@ export class TagService {
   }
 
   post(tag: Tag): Observable<ApiResponse<Tag>> {
-    return this.http.post<ApiResponse<Tag>>(environment.api_url + tagEndpoints.post, tag, {
-      context: checkToken(),
-    });
+    return this.http
+      .post<ApiResponse<Tag>>(environment.api_url + tagEndpoints.post, tag, {
+        context: checkToken(),
+      })
+      .pipe(
+        tap(() => {
+          this.notification.showSuccesNotification();
+        }),
+        catchError(() => {
+          this.notification.showErrorNotification();
+          return of();
+        }),
+      );
   }
 
   update(tag: Tag): Observable<ApiResponse<Tag>> {
@@ -47,10 +57,10 @@ export class TagService {
       })
       .pipe(
         tap(() => {
-          this.notification.showNotification('¡Actualizacion exitosa!');
+          this.notification.showSuccesNotification();
         }),
         catchError(() => {
-          this.notification.showNotification('Error al actualizar');
+          this.notification.showErrorNotification();
           return of();
         }),
       );
@@ -63,10 +73,10 @@ export class TagService {
       })
       .pipe(
         tap(() => {
-          this.notification.showNotification('¡Eliminacion exitosa!');
+          this.notification.showSuccesNotification();
         }),
         catchError(() => {
-          this.notification.showNotification('Error al eliminar');
+          this.notification.showErrorNotification();
           return of();
         }),
       );
@@ -80,7 +90,7 @@ export class TagService {
       })
       .pipe(
         catchError(() => {
-          this.notification.showNotification('Error al obtener datos');
+          this.notification.showErrorNotification();
           return of();
         }),
       );

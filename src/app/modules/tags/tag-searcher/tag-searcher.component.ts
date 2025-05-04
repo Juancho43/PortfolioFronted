@@ -1,9 +1,10 @@
-import { Component, inject, OnDestroy, output, signal } from '@angular/core';
+import { Component, effect, inject, OnDestroy, output, signal } from '@angular/core';
 import { TagComponent } from '@modules/tags/tag/tag.component';
 import { Tag } from '@model/Tag';
 import { TagService } from '@http/tag.service';
-import { debounceTime, distinctUntilChanged, Subject, switchMap, takeUntil } from 'rxjs';
+
 import { FormsModule } from '@angular/forms';
+import { rxResource } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-tag-searcher',
@@ -13,52 +14,31 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './tag-searcher.component.css',
 })
 export class TagSearcherComponent implements OnDestroy {
-  tagSelected = output<Tag>();
   private tagService = inject(TagService);
-  private searchSubject = new Subject<string>();
-  private destroy$ = new Subject<void>();
-
-  searchTerm = '';
-  filteredTags = signal<Tag[]>([]);
-  loading = signal(false);
-  error = signal<string | null>(null);
+  tagSelected = output<Tag>();
+  searchTerm = signal<string>('');
+  tags = rxResource({
+    request: () => ({
+      requestTag: this.searchTerm(),
+    }),
+    loader: ({ request }) => {
+      if (request.requestTag.length > 0) {
+        return this.tagService.search(request.requestTag);
+      } else {
+        return this.tagService.getAll();
+      }
+    },
+  });
 
   constructor() {
-    this.setupSearch();
+    effect(() => {
+      this.searchTerm();
+      this.tags.reload();
+    });
   }
 
   ngOnDestroy() {
-    this.destroy$.next();
-    this.destroy$.complete();
-  }
-
-  setupSearch() {
-    this.searchSubject
-      .pipe(
-        debounceTime(300),
-        distinctUntilChanged(),
-        switchMap((term) => {
-          this.loading.set(true);
-          this.error.set(null);
-          return this.tagService.search(term);
-        }),
-        takeUntil(this.destroy$),
-      )
-      .subscribe({
-        next: (tags) => {
-          this.filteredTags.set(tags.data!);
-          this.loading.set(false);
-        },
-        error: (err) => {
-          console.error('Error searching tags', err);
-          this.error.set('Error al buscar etiquetas');
-          this.loading.set(false);
-        },
-      });
-  }
-
-  onSearchInput() {
-    this.searchSubject.next(this.searchTerm);
+    this.tags.destroy();
   }
 
   selectTag(tag: Tag) {

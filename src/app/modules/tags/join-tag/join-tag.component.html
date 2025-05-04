@@ -14,10 +14,41 @@
     <div>
       Etiquetas:
       @for (tag of currentTags(); track $index) {
-        <app-tag [tag]="tag" (click)="removeTag(tag)" />
+        <div class="Container">
+          <app-tag [tag]="tag" />
+          <p (click)="editTag(tag)">Editar</p>
+          <p (click)="removeTag(tag)">Eliminar</p>
+        </div>
       }
     </div>
 
-    <app-tag-searcher (tagSelected)="addTag($event)" />
+    <div class="Buttons">
+      <button (click)="toggleShowSearch()">
+        @if (showSearch()) {
+          Ocultar busqueda
+        } @else {
+          Mostrar busqueda
+        }
+      </button>
+      <button (click)="toggleShowForm()">
+        @if (showForm()) {
+          Ocultar formulario
+        } @else {
+          Mostrar formulario
+        }
+      </button>
+    </div>
+
+    @if (showSearch()) {
+      <app-tag-searcher (tagSelected)="addTag($event)" />
+    }
+    @if (showForm()) {
+      <app-tag-form
+        [currentTag]="selectedTag()!"
+        (tagUpdated)="updateTag($event)"
+        (tagCreated)="addTag($event)"
+        (cleaned)="handleClearForm()"
+      />
+    }
   </div>
 }

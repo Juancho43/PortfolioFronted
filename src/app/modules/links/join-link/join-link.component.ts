@@ -1,7 +1,6 @@
-import { Component, effect, inject, input, output, signal } from '@angular/core';
-import { rxResource } from '@angular/core/rxjs-interop';
+import { Component, effect, input, output, signal } from '@angular/core';
 import { Link } from '@model/Link';
-import { LinkService } from '@http/link.service';
+
 import { LinkFormComponent } from '@modules/links/link-form/link-form.component';
 import { LinkComponent } from '@modules/links/link/link.component';
 
@@ -13,14 +12,10 @@ import { LinkComponent } from '@modules/links/link/link.component';
   standalone: true,
 })
 export class JoinLinkComponent {
-  private service = inject(LinkService);
-  readonly initialLinks = input<Link[]>();
-  tagsResource = rxResource({
-    loader: () => {
-      return this.service.getAll();
-    },
-  });
+  readonly initialLinks = input.required<Link[]>();
+
   currentLinks = signal<Link[]>([]);
+  selectedLink = signal<Link>({} as Link);
   finalLinks = output<Link[]>();
 
   show = signal<boolean>(false);
@@ -40,10 +35,11 @@ export class JoinLinkComponent {
     this.currentLinks.set([]);
   }
 
-  removeLink(link: Link) {
-    const updatedLinks = this.currentLinks().filter((t) => t.id !== link.id);
-    this.currentLinks.set(updatedLinks);
-    this.finalLinks.emit(updatedLinks);
+  editLink(link: Link) {
+    this.selectedLink.set(link);
+  }
+  handleClearForm() {
+    this.selectedLink.set({} as Link);
   }
 
   addLink(link: Link) {
@@ -52,5 +48,17 @@ export class JoinLinkComponent {
       this.currentLinks.set(updatedLinks);
       this.finalLinks.emit(updatedLinks);
     }
+  }
+
+  updateLink(link: Link) {
+    const updatedLinks = this.currentLinks().map((t) => (t.id === link.id ? link : t));
+    this.currentLinks.set(updatedLinks);
+    this.finalLinks.emit(updatedLinks);
+  }
+
+  removeLink(link: Link) {
+    const updatedLinks = this.currentLinks().filter((t) => t.id !== link.id);
+    this.currentLinks.set(updatedLinks);
+    this.finalLinks.emit(updatedLinks);
   }
 }

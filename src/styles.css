@@ -115,21 +115,22 @@ article {
   transition: 1s;
 }
 
-.Buttons {
+.Container {
   display: flex;
-  width: 80%;
-  flex-direction: row;
-  justify-content: space-around;
-  justify-self: center;
+  width: 85%;
+  justify-content: space-between;
+  align-items: center;
+}
+.Container * {
+  margin: 5px 0;
+}
+button,
+input {
+  color: black;
+  font-size: 17px;
 }
 
-.Buttons button {
-  font-size: 0.9em;
-  font-family: var(--font-two), serif;
-  color: black;
-  border: 1px solid var(--color-primary-alter);
-  background-color: rgba(255, 255, 255, 0.5);
-  padding: 10px;
+.InsideForm {
 }
 
 .glass:hover {
