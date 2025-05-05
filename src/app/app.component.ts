@@ -5,11 +5,12 @@ import { NavbarComponent } from '@core/shared/navbar/navbar.component';
 import { FooterComponent } from '@core/shared/footer/footer.component';
 import { CommonModule } from '@angular/common';
 import { ThemeService } from '@services/utils/theme.service';
+import {SpinnerComponent} from '@core/shared/spinner/spinner.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, HeaderComponent, NavbarComponent, FooterComponent],
+  imports: [CommonModule, RouterOutlet, HeaderComponent, NavbarComponent, FooterComponent, SpinnerComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

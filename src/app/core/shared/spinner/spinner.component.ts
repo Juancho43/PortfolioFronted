@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-
+import {Component, inject} from '@angular/core';
+import { LoadingService } from '@services/utils/loading.service';
 @Component({
   selector: 'app-spinner',
   standalone: true,
@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
   templateUrl: './spinner.component.html',
   styleUrl: './spinner.component.css',
 })
-export class SpinnerComponent {}
+export class SpinnerComponent {
+  private LoadingService = inject(LoadingService);
+    isLoading = this.LoadingService.loading;
+}

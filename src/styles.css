@@ -64,7 +64,7 @@ body {
   background: var(--background);
   background-size: 190%;
   animation-timing-function: ease;
-  animation-name: main1;
+  /*animation-name: main1;*/
   animation-duration: 10s;
   animation-iteration-count: infinite;
 }
