@@ -7,12 +7,11 @@ import { ProjectService } from '@http/project.service';
 import { rxResource } from '@angular/core/rxjs-interop';
 
 import { of, switchMap } from 'rxjs';
-import { SpinnerComponent } from '@core/shared/spinner/spinner.component';
 
 @Component({
   selector: 'app-project-list',
   standalone: true,
-  imports: [CommonModule, ProjectCardComponent, RouterLink, SpinnerComponent],
+  imports: [CommonModule, ProjectCardComponent, RouterLink],
   templateUrl: './project-list.component.html',
   styleUrl: './project-list.component.css',
 })

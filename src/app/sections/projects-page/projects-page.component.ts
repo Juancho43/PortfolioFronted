@@ -4,12 +4,11 @@ import { TagService } from '@services/http/tag.service';
 import { rxResource } from '@angular/core/rxjs-interop';
 import { MetaTagsService } from '@services/utils/meta-tags.service';
 import { RouterOutlet } from '@angular/router';
-import { SpinnerComponent } from '@core/shared/spinner/spinner.component';
 
 @Component({
   selector: 'app-projects-page',
   standalone: true,
-  imports: [TagListComponent, RouterOutlet, SpinnerComponent],
+  imports: [TagListComponent, RouterOutlet],
   templateUrl: './projects-page.component.html',
   styleUrl: './projects-page.component.css',
 })

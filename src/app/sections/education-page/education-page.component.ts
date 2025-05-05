@@ -7,13 +7,12 @@ import { TagListComponent } from '@modules/tags/tag-list/tag-list.component';
 import { TagService } from '@services/http/tag.service';
 import { rxResource } from '@angular/core/rxjs-interop';
 import { MetaTagsService } from '@services/utils/meta-tags.service';
-import { SpinnerComponent } from '@core/shared/spinner/spinner.component';
 import EducationListComponent from '@modules/education/education-list/education-list.component';
 
 @Component({
   selector: 'app-education-page',
   standalone: true,
-  imports: [TagListComponent, SpinnerComponent, EducationListComponent],
+  imports: [TagListComponent, EducationListComponent],
   templateUrl: './education-page.component.html',
   styleUrl: './education-page.component.css',
 })

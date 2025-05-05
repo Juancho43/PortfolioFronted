@@ -1,10 +1,5 @@
 <section>
   <h2>Formación</h2>
   <app-tag-list [tags]="tagsList()" page="education" [optionList]="true" />
-
-  @if (educationsResource.isLoading()) {
-    <app-spinner />
-  } @else {
-    <app-education-list [educations]="educationsResource.value()?.data!" />
-  }
+  <app-education-list [educations]="educationsResource.value()?.data!" />
 </section>
