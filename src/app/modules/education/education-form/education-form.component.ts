@@ -1,22 +1,21 @@
-import {Component, inject, output, input, signal, effect} from '@angular/core';
-import {FormArray, FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import { Component, inject, output, input, signal, effect } from '@angular/core';
+import { FormArray, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { EducationService } from '@services/http/education.service';
 import { Education } from '@model/Education';
-import {Tag} from '@model/Tag';
-import {Link} from '@model/Link';
-import {Project} from '@model/Project';
-import {JoinLinkComponent} from '@modules/links/join-link/join-link.component';
-import {JoinTagComponent} from '@modules/tags/join-tag/join-tag.component';
-
+import { Tag } from '@model/Tag';
+import { Link } from '@model/Link';
+import { Project } from '@model/Project';
+import { JoinLinkComponent } from '@modules/links/join-link/join-link.component';
+import { JoinTagComponent } from '@modules/tags/join-tag/join-tag.component';
 
 @Component({
   selector: 'app-education-form',
   standalone: true,
   imports: [ReactiveFormsModule, JoinLinkComponent, JoinTagComponent],
   templateUrl: './education-form.component.html',
-  styleUrls: ['../../../core/styles/forms.css','./education-form.component.css' ],
+  styleUrls: ['../../../core/styles/forms.css', './education-form.component.css'],
 })
-export class EducationFormComponent{
+export class EducationFormComponent {
   /** Service for handling project API operations */
   private service = inject(EducationService);
 
@@ -35,13 +34,12 @@ export class EducationFormComponent{
   /** Signal that indicates if the component is in edit mode */
   edit = signal<boolean>(false);
 
-
   EducationForm: FormGroup = new FormGroup({
     id: new FormControl(0),
     name: new FormControl('', [Validators.required]),
     description: new FormControl('', [Validators.required]),
-    startDate: new FormControl(new Date(), [Validators.required]),
-    endDate: new FormControl(new Date(), [Validators.required]),
+    startDate: new FormControl(new Date(0, 1, 1), [Validators.required]),
+    endDate: new FormControl(null),
     tags: new FormArray<FormControl<number[]>>([]),
     links: new FormArray<FormControl<number[]>>([]),
     projects: new FormArray<FormControl<number[]>>([]),
@@ -58,7 +56,6 @@ export class EducationFormComponent{
       }
     });
   }
-
 
   clean() {
     this.EducationForm.reset();
@@ -116,7 +113,7 @@ export class EducationFormComponent{
       start_date: this.EducationForm.get('startDate')?.value,
       end_date: this.EducationForm.get('endDate')?.value,
       tags: this.EducationForm.get('tags')?.value,
-      links: this.EducationForm.get('links')?.value
+      links: this.EducationForm.get('links')?.value,
     };
   }
 
@@ -137,13 +134,11 @@ export class EducationFormComponent{
     this.clean();
   }
 
-  deleteEducation(){
+  deleteEducation() {
     this.service.delete(this.currentEducation().id!).subscribe({
       next: () => {
         this.clean();
       },
     });
   }
-
-
 }
