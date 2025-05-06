@@ -1,70 +1,149 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {Component, inject, output, input, signal, effect} from '@angular/core';
+import {FormArray, FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import { EducationService } from '@services/http/education.service';
-import { Education } from '../../../core/interfaces/Education';
-import { EducationDaoService } from '../../../core/services/DAO/education-dao.service';
+import { Education } from '@model/Education';
+import {Tag} from '@model/Tag';
+import {Link} from '@model/Link';
+import {Project} from '@model/Project';
+import {JoinLinkComponent} from '@modules/links/join-link/join-link.component';
+import {JoinTagComponent} from '@modules/tags/join-tag/join-tag.component';
+
 
 @Component({
   selector: 'app-education-form',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, JoinLinkComponent, JoinTagComponent],
   templateUrl: './education-form.component.html',
-  styleUrls: ['./education-form.component.css', '../../../core/styles/forms.css'],
+  styleUrls: ['../../../core/styles/forms.css','./education-form.component.css' ],
 })
-export class EducationFormComponent implements OnInit {
+export class EducationFormComponent{
+  /** Service for handling project API operations */
   private service = inject(EducationService);
-  private dao = inject(EducationDaoService);
-  edit = false;
 
-  currentEducation: Education = this.dao.getEmptyEducation();
+  /** Required input property that receives the project to be viewed or edited */
+  readonly currentEducation = input.required<Education>();
+
+  /** Output event emitted when a new project is created */
+  educationCreated = output<Education>();
+
+  /** Output event emitted when an existing project is updated */
+  educationUpdated = output<Education>();
+
+  /** Output event emitted when the form is cleaned/reset */
+  cleaned = output<boolean>();
+
+  /** Signal that indicates if the component is in edit mode */
+  edit = signal<boolean>(false);
+
 
   EducationForm: FormGroup = new FormGroup({
     id: new FormControl(0),
-    nombre: new FormControl('', [Validators.required]),
-    resumen: new FormControl('', [Validators.required]),
-    tipo: new FormControl('', [Validators.required]),
-    fechaInicio: new FormControl(new Date(), [Validators.required]),
-    fechaFinalizacion: new FormControl(new Date(), [Validators.required]),
+    name: new FormControl('', [Validators.required]),
+    description: new FormControl('', [Validators.required]),
+    startDate: new FormControl(new Date(), [Validators.required]),
+    endDate: new FormControl(new Date(), [Validators.required]),
+    tags: new FormArray<FormControl<number[]>>([]),
+    links: new FormArray<FormControl<number[]>>([]),
+    projects: new FormArray<FormControl<number[]>>([]),
   });
 
-  ngOnInit() {
-    this.dao.getEducation().subscribe((res) => {
-      this.currentEducation = res;
-      this.setForm();
+  constructor() {
+    effect(() => {
+      const education = this.currentEducation();
+      // Only consider it an edit operation if the education has a valid ID
+      if (education && education.id) {
+        this.update();
+      } else {
+        this.edit.set(false);
+      }
     });
-    this.clean();
+  }
+
+
+  clean() {
+    this.EducationForm.reset();
+    this.cleaned.emit(true);
+    this.edit.set(false);
+  }
+
+  update() {
+    this.mapEducation();
+    this.edit.set(true);
+  }
+
+  mapEducation() {
+    this.EducationForm.patchValue({
+      id: this.currentEducation().id,
+      name: this.currentEducation().name,
+      description: this.currentEducation().description,
+      startDate: this.currentEducation().start_date,
+      endDate: this.currentEducation().end_date!,
+      projects: this.currentEducation().projects!,
+      tags: this.currentEducation().tags!,
+      links: this.currentEducation().links!,
+    });
+    this.patchTagsValues();
+    this.patchLinksValues();
+    this.patchProjectsValues();
+  }
+  patchTagsValues(tags: Tag[] = this.currentEducation().tags || []) {
+    const tagsArray = this.EducationForm.get('tags') as FormArray;
+    tagsArray.clear();
+    tags.forEach((tag) => {
+      tagsArray.push(new FormControl(tag.id));
+    });
+  }
+
+  patchProjectsValues(projects: Project[] = this.currentEducation().projects || []) {
+    const projectsArray = this.EducationForm.get('projects') as FormArray;
+    projectsArray.clear();
+    projects.forEach((project) => {
+      projectsArray.push(new FormControl(project.id));
+    });
+  }
+  patchLinksValues(links: Link[] = this.currentEducation().links || []) {
+    const linksArray = this.EducationForm.get('links') as FormArray;
+    linksArray.clear();
+    links.forEach((link) => {
+      linksArray.push(new FormControl(link.id));
+    });
+  }
+  mapperEducation(): Education {
+    return {
+      id: this.EducationForm.get('id')?.value,
+      name: this.EducationForm.get('name')?.value,
+      description: this.EducationForm.get('description')?.value,
+      start_date: this.EducationForm.get('startDate')?.value,
+      end_date: this.EducationForm.get('endDate')?.value,
+      tags: this.EducationForm.get('tags')?.value,
+      links: this.EducationForm.get('links')?.value
+    };
   }
 
   onSubmit() {
-    this.mapperEducation();
-    if (!this.edit) {
-      this.service.post(this.currentEducation).subscribe();
+    if (!this.edit()) {
+      this.service.post(this.mapperEducation()).subscribe({
+        next: (response) => {
+          this.educationCreated.emit(response.data!);
+        },
+      });
     } else {
-      this.service.update(this.currentEducation).subscribe();
+      this.service.update(this.mapperEducation()).subscribe({
+        next: (response) => {
+          this.educationUpdated.emit(response.data!);
+        },
+      });
     }
     this.clean();
   }
 
-  clean() {
-    this.edit = false;
-  }
-
-  setForm() {
-    this.edit = true;
-    this.EducationForm.patchValue({
-      id: this.currentEducation.id,
-      nombre: this.currentEducation.name,
-      resumen: this.currentEducation.description,
-      fechaInicio: this.currentEducation.startDate,
-      fechaFinalizacion: this.currentEducation.endDate,
+  deleteEducation(){
+    this.service.delete(this.currentEducation().id!).subscribe({
+      next: () => {
+        this.clean();
+      },
     });
   }
 
-  mapperEducation() {
-    this.currentEducation.id = this.EducationForm.get('id')?.value;
-    this.currentEducation.name = this.EducationForm.get('nombre')?.value;
-    this.currentEducation.description = this.EducationForm.get('resumen')?.value;
-    this.currentEducation.startDate = this.EducationForm.get('fechaInicio')?.value;
-    this.currentEducation.endDate = this.EducationForm.get('fechaFinalizacion')?.value;
-  }
+
 }

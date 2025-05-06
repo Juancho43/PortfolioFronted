@@ -7,8 +7,8 @@ export interface Education {
   name: string;
   slug?: string;
   description: string;
-  startDate: Date;
-  endDate?: Date;
+  start_date: Date;
+  end_date?: Date;
   projects?: Project[];
   tags?: Tag[];
   links?: Link[];

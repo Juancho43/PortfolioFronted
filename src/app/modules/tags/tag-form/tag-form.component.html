@@ -16,7 +16,7 @@
           Editar.
         }
       </button>
-      <button (click)="clean()">Limpiar.</button>
+      <button type="reset" (click)="clean()">Limpiar.</button>
       @if (edit()) {
         <button (click)="deleteTag()" class="delete">Eliminar.</button>
       }

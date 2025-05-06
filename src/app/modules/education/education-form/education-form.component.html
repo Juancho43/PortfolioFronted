@@ -1,33 +1,51 @@
 <form [formGroup]="EducationForm" (ngSubmit)="onSubmit()" class="glass">
-  <fieldset>
-    @if (edit) {
-      <legend>Modificar formación:</legend>
+  <div class="div1">
+  <legend>
+    @if (!edit()) {
+      Nuevo formación
     } @else {
-      <legend>Nueva formación:</legend>
+      Editar formación
     }
-
-    <label for="nombre">Nombre:</label>
-    <input type="text" name="nombre" id="nombre" formControlName="nombre" />
-    <label for="resumen">Resumen:</label>
-    <textarea name="resumen" id="resumen" cols="30" rows="10" formControlName="resumen"></textarea>
-    <label for="fechaInicio">Fecha Inicio:</label>
-    <input type="date" name="fechaInicio" id="fechaInicio" formControlName="fechaInicio" />
-    <label for="fechaFinalizacion">Fecha Finalizacion:</label>
-    <input type="date" name="fechaFinalizacion" id="fechaFinalizacion" formControlName="fechaFinalizacion" />
-    <label for="tipo">Tipo:</label>
-    <select id="tipo" formControlName="tipo">
-      <option value="Academico">Academico</option>
-      <option value="Curso">Curso</option>
-    </select>
-  </fieldset>
-  <div class="Buttons">
-    <button type="submit">
-      @if (edit) {
-        Modificar.
-      } @else {
-        Crear.
-      }
-    </button>
-    <button type="reset" (click)="clean()">Limpiar.</button>
+  </legend>
   </div>
+
+  <div class="div2">
+    <legend>Datos</legend>
+    <label for="name">Nombre:</label>
+    <input type="text" name="name" id="name" formControlName="name" />
+    <label for="description">Descripción:</label>
+    <textarea name="description" id="description" cols="30" rows="10" formControlName="description"></textarea>
+    <label for="startDate">Fecha Inicio:</label>
+    <input type="date" name="startDate" id="startDate" formControlName="startDate" />
+    <label for="endDate">Fecha Finalización:</label>
+    <input type="date" name="endDate" id="endDate" formControlName="endDate" />
+  </div>
+  <div class="div4">
+    <div class="Buttons">
+      <button type="reset" (click)="clean()">Limpiar.</button>
+      <button type="submit" (click)="onSubmit()">
+        @if (!edit()) {
+          Crear nuevo.
+        } @else {
+          Guardar cambios.
+        }
+      </button>
+      @if (edit()) {
+        <button (click)="deleteEducation()" class="delete">Eliminar.</button>
+      }
+    </div>
+  </div>
+
+  <div class="div5">
+    <legend>Proyectos</legend>
+  </div>
+  <div class="div6">
+    <legend>Enlaces</legend>
+    <app-join-link [initialLinks]="currentEducation().links || []" (finalLinks)="patchLinksValues($event)" />
+  </div>
+  <div class="div7">
+    <legend>Etiquetas</legend>
+    <app-join-tag [initialTags]="currentEducation().tags || []" (finalTags)="patchTagsValues($event)" />
+  </div>
+
 </form>

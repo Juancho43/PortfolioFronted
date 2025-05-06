@@ -1,8 +1,6 @@
-import { Component, inject, OnInit, signal, input, computed } from '@angular/core';
+import { Component, input, computed } from '@angular/core';
 import { Project } from '@model/Project';
 import { TagListComponent } from '../../tags/tag-list/tag-list.component';
-import { Tag } from '@model/Tag';
-import { ProjectDaoService } from '@dao/project-dao.service';
 
 @Component({
   selector: 'app-project-card',
@@ -12,7 +10,6 @@ import { ProjectDaoService } from '@dao/project-dao.service';
   styleUrl: './project-card.component.css',
 })
 export class ProjectCardComponent {
-  private dao = inject(ProjectDaoService);
-  readonly project = input<Project>(this.dao.getEmptyProject());
+  readonly project = input<Project>({} as Project);
   readonly tags = computed(() => this.project().tags?.slice(0, 3) || []);
 }

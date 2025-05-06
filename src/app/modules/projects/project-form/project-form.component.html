@@ -13,11 +13,11 @@
     <input type="text" name="name" id="name" formControlName="name" />
     <textarea name="description" id="description" cols="30" rows="10" formControlName="description"></textarea>
   </div>
-  <div class="div4">
+  <div class="div6">
     <legend>Etiquetas</legend>
     <app-join-tag [initialTags]="currentProject().tags || []" (finalTags)="patchTagsValues($event)" />
   </div>
-  <div class="div6">
+  <div class="div4">
     <legend>Enlaces</legend>
     <app-join-link [initialLinks]="currentProject().links || []" (finalLinks)="patchLinksValues($event)" />
   </div>
@@ -25,8 +25,8 @@
   <div class="div5">
     <legend>Acciones</legend>
     <div class="Buttons">
-      <button (click)="clean()">Limpiar.</button>
-      <button (click)="onSubmit()">
+      <button type="reset" (click)="clean()">Limpiar.</button>
+      <button type="submit" (click)="onSubmit()">
         @if (!edit()) {
           Crear nuevo.
         } @else {

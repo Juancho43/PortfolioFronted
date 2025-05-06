@@ -1,7 +1,7 @@
 <article [ngClass]="{ reverse: reverse(), glass: true }">
   <div>
     <h3>{{ education().name }}</h3>
-    <h4>{{ education().endDate }}</h4>
+    <h4>{{ education().end_date | date }}</h4>
   </div>
   <div>
     <p>{{ education().description }}</p>

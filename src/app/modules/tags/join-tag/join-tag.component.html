@@ -1,12 +1,12 @@
 <div class="Buttons">
-  <button (click)="toggleShow()">
+  <button type="button" (click)="toggleShow()">
     @if (show()) {
       Ocultar etiquetas
     } @else {
       Mostrar etiquetas
     }
   </button>
-  <button (click)="reset()">Limpiar tags</button>
+  <button type="reset" (click)="reset()">Limpiar tags</button>
 </div>
 
 @if (show()) {
@@ -23,14 +23,14 @@
     </div>
 
     <div class="Buttons">
-      <button (click)="toggleShowSearch()">
+      <button type="button" (click)="toggleShowSearch()">
         @if (showSearch()) {
           Ocultar busqueda
         } @else {
           Mostrar busqueda
         }
       </button>
-      <button (click)="toggleShowForm()">
+      <button type="button" (click)="toggleShowForm()">
         @if (showForm()) {
           Ocultar formulario
         } @else {

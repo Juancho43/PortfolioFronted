@@ -54,7 +54,7 @@ export class EducationService {
 
   update(education: Education): Observable<ApiResponse<Education>> {
     return this.http
-      .put<ApiResponse<Education>>(environment.api_url + educationEndpoint.update, education, { context: checkToken() })
+      .put<ApiResponse<Education>>(environment.api_url + educationEndpoint.update.replace('id',education.id!.toString()), education, { context: checkToken() })
       .pipe(
         tap(() => {
           this.notification.showSuccesNotification();

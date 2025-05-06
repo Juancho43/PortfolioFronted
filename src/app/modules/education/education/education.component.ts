@@ -1,6 +1,5 @@
 import { Component, inject, input } from '@angular/core';
 import { Education } from '@model/Education';
-import { EducationDaoService } from '@dao/education-dao.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -11,7 +10,6 @@ import { CommonModule } from '@angular/common';
   styleUrl: './education.component.css',
 })
 export default class EducationComponent {
-  private dao = inject(EducationDaoService);
-  readonly education = input<Education>(this.dao.getEmptyEducation());
+  readonly education = input<Education>({} as Education);
   readonly reverse = input(false);
 }
