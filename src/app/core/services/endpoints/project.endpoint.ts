@@ -8,4 +8,5 @@ export const projectEndpoint = {
   search: '/project/search/',
   update: '/project/private/:id',
   delete: '/project/private/:id',
+  search: '/project/search',
 };
