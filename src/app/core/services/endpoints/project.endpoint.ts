@@ -7,4 +7,5 @@ export const projectEndpoint = {
   post: '/project/private',
   update: '/project/private/:id',
   delete: '/project/private/:id',
+  search: '/project/search',
 };

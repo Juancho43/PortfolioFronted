@@ -82,7 +82,7 @@ export class TagService {
       );
   }
   search(search: string): Observable<ApiResponseCollection<Tag>> {
-    const url = environment.api_url + tagEndpoints.search.replace(':search', search);
+    const url = environment.api_url + tagEndpoints.search;
     return this.http
       .get<ApiResponseCollection<Tag>>(url, {
         params: { name: search },
