@@ -1,0 +1,17 @@
+<div class="tag-search">
+  <input type="text" placeholder="Buscar etiquetas..." [(ngModel)]="searchTerm" />
+
+  <div class="tag-results">
+    @if (projects.isLoading()) {
+      <p>Buscando...</p>
+    } @else if (projects.error()) {
+      <p>Error: {{ projects.error() }}</p>
+    } @else {
+      <div class="results-list">
+        @for (project of projects.value()?.data; track project.id) {
+          <app-tag [tag]="{id:project.id!, name:project.name}" (click)="selectProject(project)" />
+        }
+      </div>
+    }
+  </div>
+</div>

@@ -7,11 +7,12 @@ import { Link } from '@model/Link';
 import { Project } from '@model/Project';
 import { JoinLinkComponent } from '@modules/links/join-link/join-link.component';
 import { JoinTagComponent } from '@modules/tags/join-tag/join-tag.component';
+import {JoinProjectComponent} from '@modules/projects/join-project/join-project.component';
 
 @Component({
   selector: 'app-education-form',
   standalone: true,
-  imports: [ReactiveFormsModule, JoinLinkComponent, JoinTagComponent],
+  imports: [ReactiveFormsModule, JoinLinkComponent, JoinTagComponent, JoinProjectComponent],
   templateUrl: './education-form.component.html',
   styleUrls: ['../../../core/styles/forms.css', './education-form.component.css'],
 })

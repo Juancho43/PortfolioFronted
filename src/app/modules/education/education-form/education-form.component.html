@@ -38,6 +38,7 @@
 
   <div class="div5">
     <legend>Proyectos</legend>
+    <app-join-project [initialProjects]="currentEducation().projects || []" (finalProjects)="patchProjectsValues($event)" />
   </div>
   <div class="div6">
     <legend>Enlaces</legend>

@@ -8,6 +8,8 @@ import { ApiResponse } from '@model/ApiResponse';
 import { projectEndpoint } from '@endpoints/project.endpoint';
 import { checkToken } from '@core/guards/token.interceptor';
 import { NotificationService } from '@services/utils/notification.service';
+import {Tag} from '@model/Tag';
+import {tagEndpoints} from '@endpoints/tag.endpoint';
 
 @Injectable({
   providedIn: 'root',
@@ -92,6 +94,20 @@ export class ProjectService {
         tap(() => {
           this.notification.showSuccesNotification();
         }),
+        catchError(() => {
+          this.notification.showErrorNotification();
+          return of();
+        }),
+      );
+  }
+  search(search: string): Observable<ApiResponseCollection<Project>> {
+    const url = environment.api_url + projectEndpoint.search;
+    return this.http
+      .get<ApiResponseCollection<Project>>(url, {
+        params: { name: search },
+        context: checkToken(),
+      })
+      .pipe(
         catchError(() => {
           this.notification.showErrorNotification();
           return of();

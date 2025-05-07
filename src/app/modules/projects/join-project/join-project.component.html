@@ -1,1 +1,55 @@
-<p>join-project works!</p>
+<div class="Buttons">
+  <button type="button" (click)="toggleShow()">
+    @if (show()) {
+      Ocultar proyectos
+    } @else {
+      Mostrar proyectos
+    }
+  </button>
+  <button type="reset" (click)="reset()">Limpiar proyectos</button>
+</div>
+
+@if (show()) {
+  <div>
+    <div>
+      Proyectos:
+      @for (project of currentProjects(); track $index) {
+        <div class="Container">
+          <app-tag [tag]="{id:project.id!, name:project.name}" />
+          <p (click)="editProject(project)">Editar</p>
+          <p (click)="removeProject(project)">Eliminar</p>
+        </div>
+      }
+    </div>
+
+    <div class="Buttons">
+      <button type="button" (click)="toggleShowSearch()">
+        @if (showSearch()) {
+          Ocultar búsqueda
+        } @else {
+          Mostrar búsqueda
+        }
+      </button>
+      <button type="button" (click)="toggleShowForm()">
+        @if (showForm()) {
+          Ocultar formulario
+        } @else {
+          Mostrar formulario
+        }
+      </button>
+    </div>
+
+    @if (showSearch()) {
+
+      <app-project-searcher (projectSelected)="addProject($event)" />
+    }
+    @if (showForm()) {
+<!--      <app-tag-form-->
+<!--        [currentTag]="selectedTag()!"-->
+<!--        (tagUpdated)="updateTag($event)"-->
+<!--        (tagCreated)="addTag($event)"-->
+<!--        (cleaned)="handleClearForm()"-->
+<!--      />-->
+    }
+  </div>
+}
