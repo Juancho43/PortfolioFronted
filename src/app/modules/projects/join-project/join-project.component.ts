@@ -2,6 +2,7 @@ import {Component, effect, input, output, signal} from '@angular/core';
 import {ProjectSearcherComponent} from '@modules/projects/project-searcher/project-searcher.component';
 import {TagComponent} from '@modules/tags/tag/tag.component';
 import {Project} from '@model/Project';
+import { ProjectFormMiniComponent } from '@modules/projects/project-form-mini/project-form-mini.component';
 
 
 
@@ -9,11 +10,7 @@ import {Project} from '@model/Project';
 @Component({
   selector: 'app-join-project',
   standalone: true,
-  imports: [
-    ProjectSearcherComponent,
-    TagComponent,
-
-  ],
+  imports: [ProjectSearcherComponent, TagComponent, ProjectFormMiniComponent],
   templateUrl: './join-project.component.html',
   styleUrl: './join-project.component.css',
 })

@@ -60,6 +60,9 @@ export class EducationFormComponent {
 
   clean() {
     this.EducationForm.reset();
+    this.patchTagsValues([]);
+    this.patchLinksValues([]);
+    this.patchProjectsValues([]);
     this.cleaned.emit(true);
     this.edit.set(false);
   }
@@ -115,6 +118,7 @@ export class EducationFormComponent {
       end_date: this.EducationForm.get('endDate')?.value,
       tags: this.EducationForm.get('tags')?.value,
       links: this.EducationForm.get('links')?.value,
+      projects: this.EducationForm.get('projects')?.value,
     };
   }
 

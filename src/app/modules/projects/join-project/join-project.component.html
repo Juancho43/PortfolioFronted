@@ -44,12 +44,12 @@
       <app-project-searcher (projectSelected)="addProject($event)" />
     }
     @if (showForm()) {
-<!--      <app-tag-form-->
-<!--        [currentTag]="selectedTag()!"-->
-<!--        (tagUpdated)="updateTag($event)"-->
-<!--        (tagCreated)="addTag($event)"-->
-<!--        (cleaned)="handleClearForm()"-->
-<!--      />-->
+      <app-project-form-mini
+        [currentProject]="selectedProject()!"
+        (projectUpdated)="updateProject($event)"
+        (projectCreated)="addProject($event)"
+        (cleaned)="handleClearForm()"
+      />
     }
   </div>
 }

@@ -67,6 +67,8 @@ export class ProjectFormComponent {
    */
   clean() {
     this.projectForm.reset();
+    this.patchTagsValues([]);
+    this.patchLinksValues([]);
     this.cleaned.emit(true);
     this.edit.set(false);
   }

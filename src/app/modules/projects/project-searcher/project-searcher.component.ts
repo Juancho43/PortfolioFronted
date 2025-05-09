@@ -8,14 +8,11 @@ import {TagComponent} from '@modules/tags/tag/tag.component';
 @Component({
   selector: 'app-project-searcher',
   standalone: true,
-  imports: [
-    FormsModule,
-    TagComponent
-  ],
+  imports: [FormsModule, TagComponent],
   templateUrl: './project-searcher.component.html',
-  styleUrl: './project-searcher.component.css'
+  styleUrl: './project-searcher.component.css',
 })
-export class ProjectSearcherComponent implements OnDestroy{
+export class ProjectSearcherComponent implements OnDestroy {
   private service = inject(ProjectService);
   projectSelected = output<Project>();
   searchTerm = signal<string>('');
