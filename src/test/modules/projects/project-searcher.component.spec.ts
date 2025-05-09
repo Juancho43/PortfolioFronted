@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProjectSearcherComponent } from './project-searcher.component';
+import { ProjectSearcherComponent } from '@modules/projects/project-searcher/project-searcher.component';
 
 describe('ProjectSearcherComponent', () => {
   let component: ProjectSearcherComponent;

@@ -1,5 +1,5 @@
 import { Component, input, output } from '@angular/core';
-import { TableData } from '../../interfaces/TableData';
+import { TableData } from '@model/TableData';
 
 @Component({
   selector: 'app-data-table',

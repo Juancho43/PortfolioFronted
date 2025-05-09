@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProjectFormMiniComponent } from './project-form-mini.component';
+import { ProjectFormMiniComponent } from '@modules/projects/project-form-mini/project-form-mini.component';
 
 describe('ProjectFormMiniComponent', () => {
   let component: ProjectFormMiniComponent;

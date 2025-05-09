@@ -1,11 +1,11 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from '@core/shared/header/header.component';
-import { NavbarComponent } from '@core/shared/navbar/navbar.component';
-import { FooterComponent } from '@core/shared/footer/footer.component';
+import { HeaderComponent } from '@modules/shared/header/header.component';
+import { NavbarComponent } from '@modules/shared/navbar/navbar.component';
+import { FooterComponent } from '@modules/shared/footer/footer.component';
 import { CommonModule } from '@angular/common';
 import { ThemeService } from '@services/utils/theme.service';
-import {SpinnerComponent} from '@core/shared/spinner/spinner.component';
+import {SpinnerComponent} from '@modules/shared/spinner/spinner.component';
 
 @Component({
   selector: 'app-root',

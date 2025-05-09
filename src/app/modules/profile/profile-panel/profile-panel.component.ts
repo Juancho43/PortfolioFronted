@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ProfileFormComponent } from '../profile-form/profile-form.component';
-import { DataTableComponent } from '../../../core/shared/data-table/data-table.component';
+import { DataTableComponent } from '@modules/shared/data-table/data-table.component';
 import { ProfileService } from '@services/http/profile.service';
 import { TableData } from '../../../core/interfaces/TableData';
 import { ProfileDaoService } from '../../../core/services/DAO/profile-dao.service';

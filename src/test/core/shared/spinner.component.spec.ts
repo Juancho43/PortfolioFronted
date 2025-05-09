@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SpinnerComponent } from '@core/shared/spinner/spinner.component';
+import { SpinnerComponent } from '@modules/shared/spinner/spinner.component';
 
 describe('SpinnerComponent', () => {
   let component: SpinnerComponent;

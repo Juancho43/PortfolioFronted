@@ -3,7 +3,7 @@ import { TagFormComponent } from '../tag-form/tag-form.component';
 
 import { convertToTableData, TableData } from '../../../core/interfaces/TableData';
 import { TagService } from '@services/http/tag.service';
-import { DataTableComponent } from '../../../core/shared/data-table/data-table.component';
+import { DataTableComponent } from '@modules/shared/data-table/data-table.component';
 import { TagDaoService } from '@dao/tag-dao.service';
 import { Tag } from '@model/Tag';
 import { ApiResponseCollection } from '@model/ApiResponseCollection';

@@ -6,7 +6,7 @@ import { RouterLink, RouterModule } from '@angular/router';
   standalone: true,
   imports: [RouterLink, RouterModule],
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css', '../../styles/navbar.css'],
+  styleUrls: ['./navbar.component.css', '../../../core/styles/navbar.css'],
 })
 export class NavbarComponent {
   show = signal<boolean>(true);

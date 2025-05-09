@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TagSearcherComponent } from './tag-searcher.component';
+import { TagSearcherComponent } from '@modules/tags/tag-searcher/tag-searcher.component';
 
 describe('TagSearcherComponent', () => {
   let component: TagSearcherComponent;

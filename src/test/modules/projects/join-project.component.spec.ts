@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { JoinProjectComponent } from './join-project.component';
+import { JoinProjectComponent } from '@modules/projects/join-project/join-project.component';
 
 describe('JoinProjectComponent', () => {
   let component: JoinProjectComponent;

@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DarkModeComponent } from '@core/shared/dark-mode/dark-mode.component';
+import { DarkModeComponent } from '@modules/shared/dark-mode/dark-mode.component';
 
 describe('DarkModeComponent', () => {
   let component: DarkModeComponent;

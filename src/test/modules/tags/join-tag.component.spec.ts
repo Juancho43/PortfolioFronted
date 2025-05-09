@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { JoinTagComponent } from './join-tag.component';
+import { JoinTagComponent } from '@modules/tags/join-tag/join-tag.component';
 
 describe('JoinTagComponent', () => {
   let component: JoinTagComponent;

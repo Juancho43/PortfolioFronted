@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ProfileComponent } from '@modules/profile/profile/profile.component';
-import { DarkModeComponent } from '@core/shared/dark-mode/dark-mode.component';
+import { DarkModeComponent } from '@modules/shared/dark-mode/dark-mode.component';
 
 @Component({
   selector: 'app-header',
