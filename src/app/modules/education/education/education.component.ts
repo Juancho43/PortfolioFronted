@@ -1,4 +1,4 @@
-import { Component, inject, input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { Education } from '@model/Education';
 import { CommonModule } from '@angular/common';
 

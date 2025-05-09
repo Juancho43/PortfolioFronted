@@ -16,7 +16,7 @@ export const routes: Routes = [
       },
       {
         path: 'current/:slug',
-        loadComponent: () => import('./modules/education/education/education.component').then(),
+        loadComponent: () => import('./modules/education/education-detail/education-detail.component').then(),
       },
     ],
   },

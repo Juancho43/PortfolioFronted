@@ -13,7 +13,6 @@ import { RouterLink } from '@angular/router';
 export class TagListComponent {
   readonly tags = input<Tag[]>([]);
   readonly optionList = input(false);
-  readonly page = input<string>('');
 
   allTag: Tag = {
     id: 0,

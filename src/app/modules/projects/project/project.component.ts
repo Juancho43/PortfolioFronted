@@ -40,7 +40,7 @@ export default class ProjectComponent implements OnInit, OnDestroy {
   }
 
   setMetaTags() {
-    let project = this.project;
+    const project = this.project;
     this.meta.updateTitle(`Proyecto - ${project.name}`);
     this.meta.addMetaTags([
       {

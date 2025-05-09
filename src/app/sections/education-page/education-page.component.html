@@ -1,5 +1,5 @@
 <section>
-  <h2>Formación</h2>
-  <app-tag-list [tags]="tagsList()" page="education" [optionList]="true" />
-  <app-education-list [educations]="educationsResource.value()?.data!" />
+  <h2>Formaciones</h2>
+  <app-tag-list [tags]="tagsList.value()!.data!" [optionList]="true" />
+  <router-outlet />
 </section>

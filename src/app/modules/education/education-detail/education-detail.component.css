@@ -1,0 +1,31 @@
+.Project {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  max-width: max-content;
+  transition: 0s;
+  background-color: var(--glass-color);
+  background-blend-mode: difference;
+  border-radius: 10px;
+  align-items: flex-start;
+}
+.Project p {
+  align-self: center;
+  word-spacing: 4px;
+  line-height: 1.5em;
+  color: var(--color-primary-alter);
+}
+.Project .Tags {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+@media (max-width: 800px) {
+  .Project {
+    min-width: 80vw;
+    height: auto;
+  }
+  .Project p {
+    width: auto;
+  }
+}
