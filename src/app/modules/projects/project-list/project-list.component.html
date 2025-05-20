@@ -1,5 +1,5 @@
 <div>
     @for (item of projectsResource.value()!; track item.name) {
-      <app-project-card [project]="item" [routerLink]="['../current', item.slug]" />
+      <app-project-card [project]="item" [routerLink]="['/projects','current', item.slug]" />
     }
 </div>

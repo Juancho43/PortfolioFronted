@@ -18,7 +18,7 @@ export default class EducationPageComponent implements OnInit, OnDestroy {
 
   tag = input<string>();
   tagsList = rxResource({
-    loader: () => this.tagService.getAllProjectTags(),
+    loader: () => this.tagService.getAllEducationTags(),
   });
 
   ngOnInit(): void {

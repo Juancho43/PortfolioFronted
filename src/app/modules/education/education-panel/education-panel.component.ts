@@ -1,7 +1,6 @@
 import {Component, inject, signal} from '@angular/core';
 import { EducationFormComponent } from '../education-form/education-form.component';
 import { EducationService } from '@services/http/education.service';
-import {ProjectCardComponent} from '@modules/projects/project-card/project-card.component';
 import {rxResource} from '@angular/core/rxjs-interop';
 import {Education} from '@model/Education';
 import {EducationCardComponent} from '@modules/education/education-card/education-card.component';

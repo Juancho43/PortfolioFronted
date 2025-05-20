@@ -1,10 +1,12 @@
 <article>
-  <div>
+  <div class="List">
     @for (education of educationsResource.value()?.data!; track $index) {
       <app-education-card [education]="education"  (click)="selectHandler(education)" />
     }
   </div>
+
   <app-education-form
+    class="Form"
     [currentEducation]="currentEducation()"
     (educationCreated)="this.educationsResource.reload()"
     (educationUpdated)="this.educationsResource.reload()"

@@ -1,15 +1,24 @@
 <article class="Project">
-  <h3>{{ this.education().name }}</h3>
-  <p>{{ education().description }}</p>
 
-  <div class="Links">
-    @for (item of education().links; track item.id) {
-      <app-link [link]="item" />
-    }
-  </div>
-  <div class="Tags">
-    @for (item of education().tags; track item.id) {
-      <app-tag [tag]="item" />
-    }
-  </div>
+    <h3>{{ this.education().name }}</h3>
+    <p>{{ education().description }}</p>
+
+    <div class="Links">
+      @for (item of education().links; track item.id) {
+        <app-link [link]="item" />
+      }
+    </div>
+    <div class="Tags">
+      @for (item of education().tags; track item.id) {
+        <app-tag [tag]="item" />
+      }
+    </div>
+
+</article>
+<article class="Projects">
+
+    <h4>Proyectos realizados.</h4>
+    <app-project-list [projectsList]="education().projects!" />
+
+
 </article>

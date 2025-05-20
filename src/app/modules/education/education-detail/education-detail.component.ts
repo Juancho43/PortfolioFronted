@@ -6,11 +6,12 @@ import { EducationService } from '@http/education.service';
 import { Education } from '@model/Education';
 import { LinkComponent } from '@modules/links/link/link.component';
 import { TagComponent } from '@modules/tags/tag/tag.component';
+import ProjectListComponent from '@modules/projects/project-list/project-list.component';
 
 @Component({
   selector: 'app-education-detail',
   standalone: true,
-  imports: [LinkComponent, TagComponent],
+  imports: [LinkComponent, TagComponent, ProjectListComponent],
   templateUrl: './education-detail.component.html',
   styleUrl: './education-detail.component.css',
 })

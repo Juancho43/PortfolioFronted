@@ -16,8 +16,7 @@
   <div class="div6">
     <legend>Etiquetas</legend>
     <app-join-tag [initialTags]="currentProject().tags || []" (finalTags)="patchTagsValues($event)" />
-  </div>
-  <div class="div4">
+
     <legend>Enlaces</legend>
     <app-join-link [initialLinks]="currentProject().links || []" (finalLinks)="patchLinksValues($event)" />
   </div>

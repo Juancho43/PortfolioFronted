@@ -2,6 +2,7 @@ article {
   display: flex;
 
   overflow-x: auto;
+  overflow-y: hidden;
   width: 90vw;
   justify-content: center;
   align-items: center;
@@ -9,12 +10,15 @@ article {
   gap: 30px;
 }
 
-article div {
+.List{
   display: flex;
   flex-direction: column;
   gap: 15px;
+  height:70dvh;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
-.colum {
-  align-items: flex-start;
-  flex-direction: column;
+
+.Form{
+  height:70dvh;
 }

@@ -1,0 +1,14 @@
+p{
+  text-align: left;
+  font-size: 1.6rem;
+  line-height: 1.1em;
+
+}
+
+article{
+  width: 100%;
+  justify-self: center;
+  align-self: center;
+  flex-direction: column;
+  padding: 1em;
+}

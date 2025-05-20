@@ -1,4 +1,6 @@
 .Project {
+  align-self: center;
+  justify-self: center;
   display: flex;
   flex-direction: column;
   padding: 1rem;
@@ -7,7 +9,7 @@
   background-color: var(--glass-color);
   background-blend-mode: difference;
   border-radius: 10px;
-  align-items: flex-start;
+
 }
 .Project p {
   align-self: center;
@@ -19,11 +21,24 @@
   display: flex;
   flex-flow: row wrap;
 }
+article{
+  padding: 2rem;
+}
+.Projects{
+  h4{
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 
 @media (max-width: 800px) {
   .Project {
-    min-width: 80vw;
+    max-width: 70vw;
     height: auto;
+    padding: 10px;
   }
   .Project p {
     width: auto;

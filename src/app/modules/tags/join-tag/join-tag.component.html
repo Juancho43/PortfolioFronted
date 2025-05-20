@@ -1,3 +1,4 @@
+<div class="JoinContainer">
 <div class="Buttons">
   <button type="button" (click)="toggleShow()">
     @if (show()) {
@@ -12,7 +13,6 @@
 @if (show()) {
   <div>
     <div>
-      Etiquetas:
       @for (tag of currentTags(); track $index) {
         <div class="Container">
           <app-tag [tag]="tag" />
@@ -52,3 +52,4 @@
     }
   </div>
 }
+</div>
