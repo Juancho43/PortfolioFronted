@@ -6,6 +6,7 @@ footer {
   justify-content: center;
   align-items: flex-start;
   min-height: 70px;
+  width: 100dvw;
 }
 a,
 p {
@@ -16,5 +17,8 @@ p {
   /* Estilos para pantallas de hasta 767px de ancho */
   footer {
     position: relative;
+    align-items: center;
   }
+
+
 }

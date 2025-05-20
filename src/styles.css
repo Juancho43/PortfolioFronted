@@ -75,7 +75,8 @@ main {
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+
+  align-items: center;
   gap: 3em;
 }
 
@@ -174,4 +175,9 @@ input {
 
 @media (max-width: 767px) {
   /* Estilos para pantallas de hasta 767px de ancho */
+  section, article {
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
 }
