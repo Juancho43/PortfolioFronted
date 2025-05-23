@@ -6,10 +6,10 @@ import { LinkComponent } from '@modules/links/link/link.component';
 
 @Component({
   selector: 'app-join-link',
+  standalone: true,
   imports: [LinkFormComponent, LinkComponent],
   templateUrl: './join-link.component.html',
-  styleUrl: './join-link.component.css',
-  standalone: true,
+  styleUrls: ['../../../core/styles/join.css','../../../core/styles/forms.css','./join-link.component.css'],
 })
 export class JoinLinkComponent {
   readonly initialLinks = input.required<Link[]>();

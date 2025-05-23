@@ -1,0 +1,20 @@
+.Searcher{
+  color: var(--color-primary);
+  padding: 5px;
+  display: grid;
+  grid-template-columns:repeat(2, 50%);
+  grid-template-rows: repeat(2, 25px) ;
+}
+.Searcher input{
+  width: 100%;
+  font-size: 18px;
+  font-family: var(--font-two), serif;
+  padding: 10px;
+  border: 1px solid var(--glass-border-color);
+  background: var(--color-primary);
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+}
+
+

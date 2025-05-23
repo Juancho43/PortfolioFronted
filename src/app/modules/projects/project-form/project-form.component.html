@@ -1,5 +1,5 @@
 <form [formGroup]="projectForm" class="glass">
-  <div class="div1">
+  <div class="header">
     <legend>
       @if (!edit()) {
         Nuevo proyecto
@@ -8,33 +8,30 @@
       }
     </legend>
   </div>
-  <div class="div2">
+  <div class="left flex">
     <legend>Datos</legend>
+    <label for="name">Nombre:</label>
     <input type="text" name="name" id="name" formControlName="name" />
+    <label for="description">Descripción</label>
     <textarea name="description" id="description" cols="30" rows="10" formControlName="description"></textarea>
   </div>
-  <div class="div6">
-    <legend>Etiquetas</legend>
+  <div class="right flex">
+    <legend>Metadatos</legend>
     <app-join-tag [initialTags]="currentProject().tags || []" (finalTags)="patchTagsValues($event)" />
-
-    <legend>Enlaces</legend>
     <app-join-link [initialLinks]="currentProject().links || []" (finalLinks)="patchLinksValues($event)" />
   </div>
-
-  <div class="div5">
+  <div class="actions">
     <legend>Acciones</legend>
-    <div class="Buttons">
-      <button type="reset" (click)="clean()">Limpiar.</button>
-      <button type="submit" (click)="onSubmit()">
-        @if (!edit()) {
-          Crear nuevo.
-        } @else {
-          Guardar cambios.
-        }
-      </button>
-      @if (edit()) {
-        <button (click)="deleteProject()" class="delete">Eliminar.</button>
+    <button type="reset" (click)="clean()">Limpiar.</button>
+    <button type="submit" (click)="onSubmit()">
+      @if (!edit()) {
+        Crear nuevo.
+      } @else {
+        Guardar cambios.
       }
-    </div>
+    </button>
+    @if (edit()) {
+      <button (click)="deleteProject()" class="delete">Eliminar.</button>
+    }
   </div>
 </form>

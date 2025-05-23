@@ -1,5 +1,4 @@
 <form class="InsideForm" [formGroup]="projectForm" (ngSubmit)="onSubmit()">
-  <fieldset>
     <legend>
       @if (!edit()) {
         Nuevo proyecto
@@ -8,7 +7,7 @@
       }
     </legend>
     <input type="text" name="nombre" id="nombre" formControlName="name" />
-    <div class="Buttons">
+
       <button type="submit">
         @if (!edit()) {
           Crear.
@@ -20,6 +19,6 @@
       @if (edit()) {
         <button (click)="deleteProject()" class="delete">Eliminar.</button>
       }
-    </div>
-  </fieldset>
+
+
 </form>

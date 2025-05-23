@@ -1,11 +1,22 @@
 form,
 fieldset {
-  display: flex;
-  flex-direction: column;
   padding: 5px;
   overflow: hidden;
   font-family: var(--font-one), serif;
   border: none;
+}
+
+form{
+  width: 60dvw;
+  height: 70dvh;
+  display: grid;
+  grid-template-areas: "header header"
+                   "left right"
+                   "footer footer";
+  grid-template-columns: repeat(2, 30dvw);
+  grid-template-rows: 30px calc(70dvh - 120px) 30px;
+  overflow: hidden;
+  justify-content: stretch;
 }
 
 legend {
@@ -22,16 +33,16 @@ option,
 button {
   font-size: 18px;
   font-family: var(--font-two), serif;
-  color: black;
-  background-color: rgba(255, 255, 255, 0.5);
   padding: 10px;
   border-radius: 3px;
-  border: 2px var(--color-primary-alter) solid;
+  color: var(--color-black-secondary);
+  background: rgba(255,255,255, 0.8);
+  border: 2px solid var(--color-gray);
 }
 input:focus,
 textarea:focus,
 select:focus {
-  box-shadow: 3px 3px 10px inset var(--color-primary-alter);
+  box-shadow: 3px 3px 10px inset var(--color-three);
   outline: none;
 }
 textarea {
@@ -39,34 +50,65 @@ textarea {
 }
 
 label {
-  color: var(--color-secondary-alter);
+  color: var(--color-primary);
   font-size: 20px;
 }
 
 button {
-  color: var(--color-secondary-alter);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-primary-alter);
   height: 40px;
-
+  font-size: 1.2em;
+  font-family: var(--font-two), serif;
+  border: 1px solid var(--color-primary-alter);
+  background-color: var(--color-one);
+  padding: 10px;
   transition: 2s background-color;
   &:hover {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: var(--color-two);
   }
 }
 
-.Buttons {
-  height: auto;
+.header {
+  grid-area: header;
+}
+.left {
+  grid-area:left;
+
+}
+.flex{
   display: flex;
-  width: 80%;
-  flex-direction: row;
-  justify-content: space-around;
-  justify-self: center;
+  flex-direction: column;
+  justify-content:flex-start;
+  gap: 20px;
 }
 
-.Buttons button {
-  font-size: 0.9em;
-  font-family: var(--font-two), serif;
-  color: black;
-  border: 1px solid var(--color-primary-alter);
-  background-color: rgba(255, 255, 255, 0.5);
-  padding: 10px;
+.right {
+  grid-area:right;
+  overflow-y: scroll;
 }
+.actions {
+  grid-area: footer;
+  height: fit-content;
+  display: grid;
+  grid-template-columns: repeat(3,20dvw);
+  grid-template-rows: repeat(2,30px);
+}
+.actions button{
+  padding:0;
+  height: 30px;
+  font-size: large;
+}
+.actions > legend{
+  grid-column: 2;
+}
+.actions > button {
+  grid-row: 2;
+  align-self: stretch;
+}
+.actions > button:nth-child(2) {
+  grid-column: 3;
+}
+
+

@@ -22,9 +22,9 @@ li {
   width: max-content;
   text-align: center;
 
-  color: var(--color-primary-alter);
+  color: var(--color-white);
   text-decoration: none;
-  border-bottom: var(--color-primary-alter) 1px solid;
+  border-bottom: var(--color-white) 1px solid;
 
   font-size: 20px;
   transition: box-shadow 2s;

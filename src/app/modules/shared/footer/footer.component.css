@@ -1,24 +1,24 @@
 footer {
   display: flex;
   flex-direction: column;
-  background-color: var(--color-secondary);
-  color: var(--color-primary);
+  background-color: var(--color-black-secondary);
+
   justify-content: center;
   align-items: flex-start;
   min-height: 70px;
   width: 100dvw;
+  font-size: large;
+
 }
 a,
 p {
+  color: var(--color-white-secondary);
   margin: 5px;
 }
 
 @media (max-width: 767px) {
-  /* Estilos para pantallas de hasta 767px de ancho */
   footer {
     position: relative;
     align-items: center;
   }
-
-
 }

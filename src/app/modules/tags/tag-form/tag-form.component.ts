@@ -11,7 +11,7 @@ import { Tag } from '@model/Tag';
   standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './tag-form.component.html',
-  styleUrls: ['./tag-form.component.css'],
+  styleUrls: ['../../../core/styles/forms.css','../../../core/styles/mini-form.css','./tag-form.component.css'],
 })
 export class TagFormComponent {
   /** Service for handling tag API operations */

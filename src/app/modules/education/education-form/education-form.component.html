@@ -1,15 +1,15 @@
 <form [formGroup]="EducationForm"  class="glass">
-  <div class="div1">
-  <legend>
-    @if (!edit()) {
-      Nuevo formación
-    } @else {
-      Editar formación
-    }
-  </legend>
+  <div class="header">
+    <legend>
+      @if (!edit()) {
+        Nuevo formación
+      } @else {
+        Editar formación
+      }
+    </legend>
   </div>
 
-  <div class="div2">
+  <div class="left flex">
     <legend>Datos</legend>
     <label for="name">Nombre:</label>
     <input type="text" name="name" id="name" formControlName="name" />
@@ -20,33 +20,27 @@
     <label for="endDate">Fecha Finalización:</label>
     <input type="date" name="endDate" id="endDate" formControlName="endDate" />
   </div>
-  <div class="div4">
-    <div class="Buttons">
-      <button type="reset" (click)="clean()">Limpiar.</button>
-      <button type="submit" (click)="onSubmit()">
-        @if (!edit()) {
-          Crear nuevo.
-        } @else {
-          Guardar cambios.
-        }
-      </button>
-      @if (edit()) {
-        <button (click)="deleteEducation()" class="delete">Eliminar.</button>
-      }
-    </div>
-  </div>
 
-  <div class="div5">
-    <legend>Proyectos</legend>
-    <app-join-project [initialProjects]="currentEducation().projects || []" (finalProjects)="patchProjectsValues($event)" />
+
+  <div class="right flex">
+    <legend>Metadatos</legend>
+      <app-join-project [initialProjects]="currentEducation().projects || []" (finalProjects)="patchProjectsValues($event)" />
+      <app-join-link [initialLinks]="currentEducation().links || []" (finalLinks)="patchLinksValues($event)" />
+      <app-join-tag [initialTags]="currentEducation().tags || []" (finalTags)="patchTagsValues($event)" />
   </div>
-  <div class="div6">
-    <legend>Enlaces</legend>
-    <app-join-link [initialLinks]="currentEducation().links || []" (finalLinks)="patchLinksValues($event)" />
-  </div>
-  <div class="div7">
-    <legend>Etiquetas</legend>
-    <app-join-tag [initialTags]="currentEducation().tags || []" (finalTags)="patchTagsValues($event)" />
+  <div class="actions">
+    <legend>Acciones</legend>
+    <button type="reset" (click)="clean()">Limpiar.</button>
+    <button type="submit" (click)="onSubmit()">
+      @if (!edit()) {
+        Crear nuevo.
+      } @else {
+        Guardar cambios.
+      }
+    </button>
+    @if (edit()) {
+      <button (click)="deleteEducation()" class="delete">Eliminar.</button>
+    }
   </div>
 
 </form>

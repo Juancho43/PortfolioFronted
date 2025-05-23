@@ -9,7 +9,7 @@ import { TagFormComponent } from '@modules/tags/tag-form/tag-form.component';
   standalone: true,
   imports: [TagComponent, TagSearcherComponent, TagFormComponent],
   templateUrl: './join-tag.component.html',
-  styleUrl: './join-tag.component.css',
+  styleUrls: ['../../../core/styles/join.css','../../../core/styles/forms.css','./join-tag.component.css'],
 })
 export class JoinTagComponent {
   readonly initialTags = input.required<Tag[]>();

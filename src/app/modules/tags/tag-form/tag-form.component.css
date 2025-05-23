@@ -1,5 +1,3 @@
-form {
-  background: none;
-  height: auto;
-  overflow: hidden;
+input{
+  grid-column: 1/-1;
 }

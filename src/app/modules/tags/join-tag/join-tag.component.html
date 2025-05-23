@@ -1,14 +1,15 @@
 <div class="JoinContainer">
-<div class="Buttons">
-  <button type="button" (click)="toggleShow()">
-    @if (show()) {
-      Ocultar etiquetas
-    } @else {
-      Mostrar etiquetas
-    }
-  </button>
-  <button type="reset" (click)="reset()">Limpiar tags</button>
-</div>
+  <legend>Etiquetas</legend>
+  <div class="Buttons">
+    <button type="button" (click)="toggleShow()">
+      @if (show()) {
+        Ocultar etiquetas
+      } @else {
+        Mostrar etiquetas
+      }
+    </button>
+    <button type="reset" (click)="reset()">Limpiar tags</button>
+  </div>
 
 @if (show()) {
   <div>
