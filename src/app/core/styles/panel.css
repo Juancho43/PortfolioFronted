@@ -1,9 +1,5 @@
-body{
-  animation-name: none;
-}
 article {
   display: flex;
-
   overflow-x: auto;
   overflow-y: hidden;
   width: 90vw;
@@ -23,3 +19,10 @@ article {
 }
 
 
+@media (max-width: 767px) {
+  /* Estilos para pantallas de hasta 767px de ancho */
+ article {
+   flex-direction: column;
+ }
+
+}

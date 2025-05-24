@@ -115,5 +115,36 @@ button {
 .actions > button:nth-child(2) {
   grid-column: 3;
 }
+.short{
+  grid-template-rows: 30px auto 30px;
+}
 
 
+@media (max-width: 767px) {
+  /* Estilos para pantallas de hasta 767px de ancho */
+ form{
+   grid-template-columns: 100%;
+   grid-template-rows: 30px repeat(2, 60dvh) 30px;
+   grid-template-areas: "header" "left" "right" "footer";
+   overflow-y: auto;
+   width: 80dvw;
+   padding: 0px;
+   gap:1.1em;
+ }
+  button, .actions button{
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    height: 40px;
+    font-size: .8em;
+    border: 1px solid var(--color-primary-alter);
+    padding: 4px;
+  }
+  .actions{
+    border-top: 2px solid var(--color-primary-alter);
+
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+}
