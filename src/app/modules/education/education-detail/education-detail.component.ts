@@ -1,12 +1,11 @@
-import { Component, inject, input, signal } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, effect, inject, input, OnDestroy } from '@angular/core';
 import { MetaTagsService } from '@services/utils/meta-tags.service';
 import { Tag } from '@model/Tag';
 import { EducationService } from '@http/education.service';
-import { Education } from '@model/Education';
 import { LinkComponent } from '@modules/links/link/link.component';
 import { TagComponent } from '@modules/tags/tag/tag.component';
 import ProjectListComponent from '@modules/projects/project-list/project-list.component';
+import { rxResource } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-education-detail',
@@ -15,23 +14,28 @@ import ProjectListComponent from '@modules/projects/project-list/project-list.co
   templateUrl: './education-detail.component.html',
   styleUrl: './education-detail.component.css',
 })
-export default class EducationDetailComponent {
-  private router = inject(Router);
+export default class EducationDetailComponent implements  OnDestroy {
   private meta = inject(MetaTagsService);
   private service = inject(EducationService);
-
   readonly slug = input<string>('');
-  readonly currentEducation = input<Education>({} as Education);
-  education = signal<Education>({} as Education);
 
-  ngOnInit(): void {
-    if (this.slug() != '') {
-      this.getData(this.slug());
-      this.setMetaTags();
-    } else {
-      this.education.set(this.currentEducation());
-    }
+  educationResource = rxResource({
+    request : () => ({
+      slug : this.slug(),
+    }),
+    loader: ({request}) => {
+        return this.service.getBySlug(request.slug);
+    },
+  });
+
+  constructor() {
+    effect(() => {
+      this.educationResource.value();
+      if(!this.educationResource.isLoading()) this.setMetaTags();
+
+    });
   }
+
 
   ngOnDestroy(): void {
     this.meta.updateTitle('Bravo, Juan Alé');
@@ -39,35 +43,28 @@ export default class EducationDetailComponent {
   }
 
   setMetaTags() {
-    const project = this.education;
-    this.meta.updateTitle(`Formacion - ${project.name}`);
+    const education = this.educationResource.value()!.data!;
+    this.meta.updateTitle(`${education.name} - Formación `);
     this.meta.addMetaTags([
       {
-        name: project.name,
-        content: project.name,
+        name: education.name,
+        content: education.name,
       },
       {
         name: 'description',
-        content: project().description,
+        content: education.description,
+      },
+      {
+        name: 'og:description',
+        content: education.description,
       },
       {
         name: 'keywords',
-        content: project()
+        content: education
           .tags!.map((tag: Tag) => tag.name)
           .join(','),
       },
     ]);
   }
 
-  getData(slug: string) {
-    this.service.getBySlug(slug).subscribe({
-      next: (data) => {
-        this.education.set(data.data!);
-        this.setMetaTags();
-      },
-      error: () => {
-        this.router.navigateByUrl('./not-found');
-      },
-    });
-  }
 }

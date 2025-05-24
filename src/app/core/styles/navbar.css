@@ -1,5 +1,5 @@
 .active {
-  box-shadow: var(--color-two) 0px 4px 9px;
+  box-shadow: var(--color-two) 0 4px 9px;
 }
 
 ul {
@@ -30,7 +30,7 @@ li {
   transition: box-shadow 2s;
 
   &:hover {
-    box-shadow: var(--color-two) 0px 4px 9px;
+    box-shadow: var(--color-two) 0 4px 9px;
     color: var(--color-primary);
   }
 }

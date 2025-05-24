@@ -1,4 +1,4 @@
-import { Component, effect, inject, input } from '@angular/core';
+import { Component, effect, inject, input, OnDestroy } from '@angular/core';
 import { Education } from '@model/Education';
 import EducationComponent from '@modules/education/education/education.component';
 import { rxResource } from '@angular/core/rxjs-interop';
@@ -13,10 +13,9 @@ import { RouterLink } from '@angular/router';
   templateUrl: './education-list.component.html',
   styleUrl: './education-list.component.css',
 })
-export default class EducationListComponent {
-  readonly educations = input<Education[]>([]);
-
+export default class EducationListComponent implements OnDestroy {
   private service = inject(EducationService);
+  readonly educations = input<Education[]>([]);
   readonly tag = input<string>('all');
 
   educationResource = rxResource({
@@ -36,5 +35,9 @@ export default class EducationListComponent {
       this.tag();
       this.educationResource.reload();
     });
+  }
+
+  ngOnDestroy() {
+    this.educationResource.destroy();
   }
 }

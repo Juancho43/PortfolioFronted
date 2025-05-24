@@ -1,4 +1,4 @@
-import { Component, inject, input, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { TagListComponent } from '@modules/tags/tag-list/tag-list.component';
 import { TagService } from '@services/http/tag.service';
 import { rxResource } from '@angular/core/rxjs-interop';
@@ -16,27 +16,16 @@ export default class EducationPageComponent implements OnInit, OnDestroy {
   private tagService = inject(TagService);
   private metaTagService = inject(MetaTagsService);
 
-  tag = input<string>();
   tagsList = rxResource({
     loader: () => this.tagService.getAllEducationTags(),
   });
 
   ngOnInit(): void {
-    this.setMetaTags();
+    this.metaTagService.updateTitle('Formación - Bravo, Juan Alé');
   }
 
   ngOnDestroy(): void {
-    this.metaTagService.removeAllMetaTags();
     this.metaTagService.updateTitle('Bravo, Juan Alé');
   }
-
-  setMetaTags() {
-    this.metaTagService.updateTitle('Formación');
-    this.metaTagService.addMetaTags([
-      { name: 'description', content: 'Formación realizada.' },
-      { name: 'og:description', content: 'Formación realizada.' },
-    ]);
-  }
-
 
 }
