@@ -12,10 +12,10 @@ import { rxResource } from '@angular/core/rxjs-interop';
   selector: 'app-project',
   standalone: true,
   imports: [CommonModule, TagComponent, LinkComponent],
-  templateUrl: './project.component.html',
-  styleUrls: ['../../../core/styles/detail.css','./project.component.css'],
+  templateUrl: './project-detail.component.html',
+  styleUrls: ['../../../core/styles/detail.css','./project-detail.component.css'],
 })
-export default class ProjectComponent implements OnDestroy {
+export default class ProjectDetailComponent implements OnDestroy {
   private service = inject(ProjectService);
   private meta = inject(MetaTagsService);
   readonly slug = input<string>('');

@@ -30,7 +30,7 @@ export const routes: Routes = [
         loadComponent: () => import('./modules/projects/project-list/project-list.component').then(),
       },
       {
-        loadComponent: () => import('./modules/projects/project/project.component').then(),
+        loadComponent: () => import('@modules/projects/project/project-detail.component').then(),
         path: 'current/:slug',
       },
     ],
