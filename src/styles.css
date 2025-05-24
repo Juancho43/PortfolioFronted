@@ -15,7 +15,9 @@
   --color-gray: rgba(200, 200, 200, 0.5);
   --glass-color: rgba(129, 116, 160, 0.2);
   --glass-border-color: rgba(255, 255, 255, 0.125);
+
   --background: linear-gradient(60deg, var(--color-one), var(--color-two));
+
   --font-one: 'Montserrat', sans-serif;
   --font-two: 'Poppins', sans-serif;
 }
@@ -69,10 +71,10 @@
 body {
   background: var(--background);
   background-size: 190%;
-  animation-timing-function: ease;
+  animation-timing-function: ease-in;
   animation-name: main1;
   animation-duration: 50s;
-  animation-iteration-count: 1;
+  animation-iteration-count: infinite;
 }
 main {
   height: 100dvh;

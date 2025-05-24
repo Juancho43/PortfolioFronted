@@ -12,7 +12,7 @@ import { rxResource } from '@angular/core/rxjs-interop';
   standalone: true,
   imports: [LinkComponent, TagComponent, ProjectListComponent],
   templateUrl: './education-detail.component.html',
-  styleUrl: './education-detail.component.css',
+  styleUrls: ['../../../core/styles/detail.css','./education-detail.component.css'],
 })
 export default class EducationDetailComponent implements  OnDestroy {
   private meta = inject(MetaTagsService);
@@ -60,9 +60,7 @@ export default class EducationDetailComponent implements  OnDestroy {
       },
       {
         name: 'keywords',
-        content: education
-          .tags!.map((tag: Tag) => tag.name)
-          .join(','),
+        content: education.tags?.length ? education.tags.map((tag: Tag) => tag.name).join(',') : '',
       },
     ]);
   }

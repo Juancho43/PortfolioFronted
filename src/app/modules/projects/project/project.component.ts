@@ -13,7 +13,7 @@ import { rxResource } from '@angular/core/rxjs-interop';
   standalone: true,
   imports: [CommonModule, TagComponent, LinkComponent],
   templateUrl: './project.component.html',
-  styleUrl: './project.component.css',
+  styleUrls: ['../../../core/styles/detail.css','./project.component.css'],
 })
 export default class ProjectComponent implements OnDestroy {
   private service = inject(ProjectService);
@@ -60,11 +60,9 @@ export default class ProjectComponent implements OnDestroy {
       },
       {
         name: 'keywords',
-        content: project
-          .tags!.map((tag: Tag) => tag.name)
-          .join(','),
+        content: project.tags?.length ? project.tags.map((tag: Tag) => tag.name).join(',') : '',
       },
-    ]);
+    ])
   }
 
 
