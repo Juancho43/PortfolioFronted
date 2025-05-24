@@ -1,47 +1,36 @@
 import { Component, effect, inject, input, output, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { TagService } from '@services/http/tag.service';
-import { Tag } from '@model/Tag';
-/**
- * Component that provides a form for creating and editing tags
- * Supports adding new tags and updating existing ones through a reactive form
- */
+import { TagService } from '@http/tag.service';
+import { Tag } from '@app/core/interfaces/Tag';
+import { Project } from '@model/Project';
+
 @Component({
   selector: 'app-tag-form',
   standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './tag-form.component.html',
-  styleUrls: ['../../../core/styles/forms.css','../../../core/styles/mini-form.css','./tag-form.component.css'],
+  styleUrls: [ '../../../core/styles/forms.css','./tag-form.component.css'],
 })
 export class TagFormComponent {
-  /** Service for handling tag API operations */
   private service = inject(TagService);
 
-  /** Input property for passing a tag to edit */
-  readonly currentTag = input<Tag>({} as Tag);
+  readonly currentTag = input.required<Tag>();
 
-  /** Event emitted when a new tag is created */
   tagCreated = output<Tag>();
 
-  /** Event emitted when a tag is updated */
   tagUpdated = output<Tag>();
 
-  /** Event emitted when the form is reset */
   cleaned = output<boolean>();
 
-  /** Signal indicating whether the form is in edit mode */
+  /** Signal that indicates if the component is in edit mode */
   edit = signal<boolean>(false);
 
-  /** Form group for tag data input and validation */
-  TagForm: FormGroup = new FormGroup({
+  /** Form group for project data input with validation */
+  tagForm: FormGroup = new FormGroup({
     id: new FormControl(0),
     name: new FormControl('', [Validators.required]),
   });
 
-  /**
-   * Sets up a reactive effect to handle changes to the currentTag input
-   * Updates the form and edit mode when a valid tag is provided
-   */
   constructor() {
     effect(() => {
       const tag = this.currentTag();
@@ -54,60 +43,41 @@ export class TagFormComponent {
     });
   }
 
-  /**
-   * Updates the form with current tag data and sets edit mode to true
-   */
+  clean() {
+    this.tagForm.reset();
+    this.cleaned.emit(true);
+    this.edit.set(false);
+  }
+
   update() {
     this.mapTag();
     this.edit.set(true);
   }
 
-  /**
-   * Creates a tag object from form values
-   * @returns {Tag} Object with tag id and name from the form
-   */
-  mapperTag(): Tag {
-    return {
-      id: this.TagForm.get('id')?.value,
-      name: this.TagForm.get('name')?.value,
-    };
-  }
-
-  /**
-   * Populates the form with data from the current tag
-   */
   mapTag() {
-    this.TagForm.patchValue({
+    this.tagForm.patchValue({
       id: this.currentTag().id,
       name: this.currentTag().name,
     });
   }
 
-  /**
-   * Resets the form and notifies parent component
-   */
-  clean() {
-    this.TagForm.reset();
-    this.cleaned.emit(true);
-    this.edit.set(false);
+  mapperTag(): Tag {
+    return {
+      id: this.tagForm.get('id')?.value,
+      name: this.tagForm.get('name')?.value,
+    };
   }
-
-  /**
-   * Handles form submission
-   * Creates a new tag or updates existing one based on edit mode
-   * Emits the created/updated tag and cleans the form
-   */
   onSubmit() {
     if (!this.edit()) {
       this.service.post(this.mapperTag()).subscribe({
-        next: (createdLink) => {
-          this.tagCreated.emit(createdLink.data!);
+        next: (response) => {
+          this.tagCreated.emit(response.data!);
         },
       });
     } else {
       this.service.update(this.mapperTag()).subscribe({
-        next: (createdLink) => {
-          this.tagUpdated.emit(createdLink.data!);
+        next: (response) => {
+          this.tagUpdated.emit(response.data!);
         },
       });
     }
@@ -115,7 +85,7 @@ export class TagFormComponent {
   }
 
   /**
-   * Deletes the current tag and resets the form
+   * Deletes the current tag and cleans the form
    */
   deleteTag() {
     this.service.delete(this.currentTag().id!).subscribe({

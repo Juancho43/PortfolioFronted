@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LinkFormComponent } from '@modules/links/link-form/link-form.component';
+import { LinkMiniFormComponent } from '@modules/links/link-mini-form/link-mini-form.component';
 
-describe('LinkFormComponent', () => {
-  let component: LinkFormComponent;
-  let fixture: ComponentFixture<LinkFormComponent>;
+describe('LinkMiniFormComponent', () => {
+  let component: LinkMiniFormComponent;
+  let fixture: ComponentFixture<LinkMiniFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LinkFormComponent],
+      imports: [LinkMiniFormComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(LinkFormComponent);
+    fixture = TestBed.createComponent(LinkMiniFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

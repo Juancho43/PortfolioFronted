@@ -1,49 +1,37 @@
 import { Component, effect, inject, input, output, signal } from '@angular/core';
+import { TagService } from '@http/tag.service';
 import { Link } from '@model/Link';
-import { LinkService } from '@http/link.service';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { LinkService } from '@http/link.service';
 
-/**
- * Component for creating and editing links.
- * Provides a form interface with validation for managing links with create, update, and delete operations.
- */
 @Component({
   selector: 'app-link-form',
   standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './link-form.component.html',
-  styleUrls: ['../../../core/styles/forms.css','../../../core/styles/mini-form.css','./link-form.component.css'],
+  styleUrls: [ '../../../core/styles/forms.css','./link-form.component.css'],
 })
 export class LinkFormComponent {
-  /** Service for handling link API operations */
   private service = inject(LinkService);
 
-  /** Input property that receives the link to be edited */
-  currentLink = input<Link>({} as Link);
+  readonly currentLink = input.required<Link>();
 
-  /** Output event emitted when a new link is created */
   linkCreated = output<Link>();
 
-  /** Output event emitted when an existing link is updated */
   linkUpdated = output<Link>();
 
-  /** Output event emitted when the form is cleaned/reset */
   cleaned = output<boolean>();
 
   /** Signal that indicates if the component is in edit mode */
   edit = signal<boolean>(false);
 
-  /** Form group for link data input with validation */
-  linkForm = new FormGroup({
+  /** Form group for project data input with validation */
+  linkForm: FormGroup = new FormGroup({
     id: new FormControl(0),
     name: new FormControl('', [Validators.required]),
-    url: new FormControl('', [Validators.required, Validators.pattern('https?://.+')]),
+    link : new FormControl('', Validators.required),
   });
 
-  /**
-   * Sets up a reactive effect to monitor changes to currentLink
-   * and update the form and edit state accordingly.
-   */
   constructor() {
     effect(() => {
       const link = this.currentLink();
@@ -56,61 +44,43 @@ export class LinkFormComponent {
     });
   }
 
-  /**
-   * Updates the form with current link data and sets edit mode to true
-   */
-  update() {
-    this.mapLink();
-    this.edit.set(true);
-  }
-
-  /**
-   * Maps form data to a link object
-   * @returns {Link} Link data extracted from the form
-   */
-  mapperLink(): Link {
-    return {
-      id: this.linkForm.get('id')?.value!,
-      name: this.linkForm.get('name')?.value!,
-      link: this.linkForm.get('url')?.value!,
-    };
-  }
-
-  /**
-   * Maps the current link data to the form fields
-   */
-  mapLink() {
-    this.linkForm.patchValue({
-      id: this.currentLink().id!,
-      name: this.currentLink().name!,
-      url: this.currentLink().link!,
-    });
-  }
-
-  /**
-   * Resets the form, emits cleaned event, and sets edit mode to false
-   */
   clean() {
     this.linkForm.reset();
     this.cleaned.emit(true);
     this.edit.set(false);
   }
 
-  /**
-   * Handles form submission by either creating a new link or updating an existing one
-   * based on the edit state. Emits appropriate events and cleans the form afterward.
-   */
-  submitLink() {
+  update() {
+    this.mapLink();
+    this.edit.set(true);
+  }
+
+  mapLink() {
+    this.linkForm.patchValue({
+      id: this.currentLink().id,
+      name: this.currentLink().name,
+      link: this.currentLink().link,
+    });
+  }
+
+  mapperLink(): Link {
+    return {
+      id: this.linkForm.get('id')?.value,
+      name: this.linkForm.get('name')?.value,
+      link: this.linkForm.get('link')?.value
+    };
+  }
+  onSubmit() {
     if (!this.edit()) {
       this.service.post(this.mapperLink()).subscribe({
-        next: (createdLink) => {
-          this.linkCreated.emit(createdLink.data!);
+        next: (response) => {
+          this.linkCreated.emit(response.data!);
         },
       });
     } else {
       this.service.update(this.mapperLink()).subscribe({
-        next: (createdLink) => {
-          this.linkUpdated.emit(createdLink.data!);
+        next: (response) => {
+          this.linkUpdated.emit(response.data!);
         },
       });
     }
@@ -118,7 +88,7 @@ export class LinkFormComponent {
   }
 
   /**
-   * Deletes the current link and cleans the form
+   * Deletes the current tag and cleans the form
    */
   deleteLink() {
     this.service.delete(this.currentLink().id!).subscribe({

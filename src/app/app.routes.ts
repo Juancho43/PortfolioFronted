@@ -68,6 +68,10 @@ export const routes: Routes = [
       {
         path: 'tags',
         loadComponent: () => import('./modules/tags/tags-panel/tags-panel.component').then(),
+      },
+      {
+        path: 'links',
+        loadComponent: () => import('./modules/links/link-panel/link-panel.component').then(),
       }
       // {
       //   path: 'work',

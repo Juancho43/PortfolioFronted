@@ -1,1 +1,14 @@
-<p>link-panel works!</p>
+<article>
+  <div class="List">
+    @for (link of linksResource.value()?.data!; track $index) {
+      <app-link [link]="link" (click)="selectHandler(link)" />
+    }
+  </div>
+  <app-link-form
+    [currentLink]="this.currentLink()"
+    (linkCreated)="this.linksResource.reload()"
+    (linkUpdated)="this.linksResource.reload()"
+    (cleaned)="handleClearForm()"
+  />
+
+</article>

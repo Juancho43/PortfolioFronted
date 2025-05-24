@@ -1,13 +1,13 @@
 import { Component, effect, input, output, signal } from '@angular/core';
 import { Link } from '@model/Link';
 
-import { LinkFormComponent } from '@modules/links/link-form/link-form.component';
+import { LinkMiniFormComponent } from '@modules/links/link-mini-form/link-mini-form.component';
 import { LinkComponent } from '@modules/links/link/link.component';
 
 @Component({
   selector: 'app-join-link',
   standalone: true,
-  imports: [LinkFormComponent, LinkComponent],
+  imports: [LinkMiniFormComponent, LinkComponent],
   templateUrl: './join-link.component.html',
   styleUrls: ['../../../core/styles/join.css','../../../core/styles/forms.css','./join-link.component.css'],
 })

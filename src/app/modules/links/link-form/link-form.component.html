@@ -1,24 +1,33 @@
-<form [formGroup]="linkForm" (ngSubmit)="submitLink()">
-  <legend>
-    @if (!edit()) {
-      Nuevo enlace
-    } @else {
-      Editar enlace
+<form [formGroup]="linkForm" class="glass">
+  <div class="header">
+    <legend>
+      @if (!edit()) {
+        Nuevo link
+      } @else {
+        Editar link
+      }
+    </legend>
+  </div>
+  <div class="center flex">
+    <legend>Datos</legend>
+    <label for="name">Nombre:</label>
+    <input type="text" name="name" id="name" formControlName="name" />
+    <label for="link">URL:</label>
+    <input type="text" name="link" id="link" formControlName="link" />
+  </div>
+  <div class="actions">
+    <legend>Acciones</legend>
+    <button type="reset" (click)="clean()">Limpiar.</button>
+    <button type="submit" (click)="onSubmit()">
+      @if (!edit()) {
+        Crear nuevo.
+      } @else {
+        Guardar cambios.
+      }
+    </button>
+    @if (edit()) {
+      <button (click)="deleteLink()" class="delete">Eliminar.</button>
     }
-  </legend>
-  <input type="text" formControlName="name" placeholder="Nombre del enlace" />
-  <input type="url" formControlName="url" placeholder="URL" />
-
-  <button type="submit">
-    @if (!edit()) {
-      Crear.
-    } @else {
-      Editar.
-    }
-  </button>
-  <button type="reset" (click)="clean()">Limpiar.</button>
-  @if (edit()) {
-    <button (click)="deleteLink()" class="delete">Eliminar.</button>
-  }
+  </div>
 
 </form>
