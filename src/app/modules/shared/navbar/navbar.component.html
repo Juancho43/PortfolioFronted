@@ -1,6 +1,6 @@
 <nav>
   <ul>
-    <img src="asset/menu.svg" alt="menu" (click)="toggleNavbar()" />
+    <img src="asset/menu.svg" alt="menu" (click)="toggleNavbar()" tabindex="1"/>
     @if (show()) {
       <li routerLink="home" routerLinkActive="active">Acerca de mi</li>
       <li routerLink="education/all" routerLinkActive="active">Formación</li>

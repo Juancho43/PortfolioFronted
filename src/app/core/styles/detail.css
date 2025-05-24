@@ -32,7 +32,7 @@ article p{
 
 @media (max-width: 800px) {
   article{
-    min-width: 80vw;
+    max-width: 80vw;
     height: auto;
   }
   article p {
