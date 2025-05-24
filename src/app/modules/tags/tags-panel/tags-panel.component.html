@@ -1,10 +1,14 @@
 <article>
-  <app-tag-form />
-  <app-data-table
-    [data]="tagsData"
-    [columns]="tagsColumns"
-    [tilte]="tilte"
-    (onEdit)="handleEdit($event)"
-    (onDelete)="handleDelete($event)"
+  <div class="List">
+    @for (tag of tagsResource.value()?.data!; track $index) {
+      <app-tag [tag]="tag" (click)="selectHandler(tag)" />
+    }
+  </div>
+  <app-tag-form
+    [currentTag]="this.currentTag()"
+    (tagCreated)="this.tagsResource.reload()"
+    (tagUpdated)="this.tagsResource.reload()"
+    (cleaned)="handleClearForm()"
   />
+
 </article>

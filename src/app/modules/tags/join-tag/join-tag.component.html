@@ -44,7 +44,7 @@
       <app-tag-searcher (tagSelected)="addTag($event)" />
     }
     @if (showForm()) {
-      <app-tag-form
+      <app-tag-mini-form
         [currentTag]="selectedTag()!"
         (tagUpdated)="updateTag($event)"
         (tagCreated)="addTag($event)"

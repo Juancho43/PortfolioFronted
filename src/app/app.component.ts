@@ -6,11 +6,20 @@ import { FooterComponent } from '@modules/shared/footer/footer.component';
 import { CommonModule } from '@angular/common';
 import { ThemeService } from '@services/utils/theme.service';
 import {SpinnerComponent} from '@modules/shared/spinner/spinner.component';
+import { UpButtonComponent } from '@modules/shared/up-button/up-button.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, HeaderComponent, NavbarComponent, FooterComponent, SpinnerComponent],
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    HeaderComponent,
+    NavbarComponent,
+    FooterComponent,
+    SpinnerComponent,
+    UpButtonComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

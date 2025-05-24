@@ -1,41 +1,33 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { TagFormComponent } from '../tag-form/tag-form.component';
-
-import { convertToTableData, TableData } from '../../../core/interfaces/TableData';
+import { Component, inject, signal } from '@angular/core';
 import { TagService } from '@services/http/tag.service';
-import { DataTableComponent } from '@modules/shared/data-table/data-table.component';
-import { TagDaoService } from '@dao/tag-dao.service';
 import { Tag } from '@model/Tag';
-import { ApiResponseCollection } from '@model/ApiResponseCollection';
+import { TagComponent } from '@modules/tags/tag/tag.component';
+import { rxResource } from '@angular/core/rxjs-interop';
+import { TagFormComponent } from '@modules/tags/tag-form/tag-form.component';
+
 
 @Component({
   selector: 'app-tags-panel',
-  imports: [TagFormComponent, DataTableComponent],
+  imports: [TagFormComponent, TagComponent],
   standalone: true,
   templateUrl: './tags-panel.component.html',
   styleUrls: ['./tags-panel.component.css', '../../../core/styles/panel.css'],
 })
-export default class TagsPanelComponent implements OnInit {
+export default class TagsPanelComponent {
   private service = inject(TagService);
-  private dao = inject(TagDaoService);
-  tilte = 'Etiquetas';
-  tagsColumns: string[] = [];
-  tagsData: TableData[] = [];
+  currentTag = signal<Tag>({} as Tag);
+  tagsResource = rxResource({
+    loader: () => {
+      return this.service.getAll();
+    },
+  });
 
-  ngOnInit() {
-    this.service.getAll().subscribe((res) => {
-      Object.keys(res.data![0]).forEach((key) => {
-        this.tagsColumns.push(key);
-      });
-      this.tagsData = convertToTableData(res.data!);
-    });
+  selectHandler(tag: Tag) {
+    this.currentTag.set(tag);
   }
 
-  handleEdit($event: Tag) {
-    this.dao.setTag($event);
-  }
-
-  handleDelete($event: Tag) {
-    this.service.delete($event.id!).subscribe();
+  handleClearForm() {
+    this.currentTag.set({} as Tag);
+    this.tagsResource.reload();
   }
 }

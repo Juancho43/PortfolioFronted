@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TagFormComponent } from '@modules/tags/tag-form/tag-form.component';
+import { TagMiniFormComponent } from '@modules/tags/tag-mini-form/tag-mini-form.component';
 
-describe('TagFormComponent', () => {
-  let component: TagFormComponent;
-  let fixture: ComponentFixture<TagFormComponent>;
+describe('TagMiniFormComponent', () => {
+  let component: TagMiniFormComponent;
+  let fixture: ComponentFixture<TagMiniFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TagFormComponent],
+      imports: [TagMiniFormComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(TagFormComponent);
+    fixture = TestBed.createComponent(TagMiniFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

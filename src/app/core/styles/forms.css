@@ -88,6 +88,11 @@ button {
   grid-area:right;
   overflow-y: scroll;
 }
+.center{
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
 .actions {
   grid-area: footer;
   height: fit-content;

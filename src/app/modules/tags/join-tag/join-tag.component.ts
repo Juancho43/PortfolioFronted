@@ -2,12 +2,12 @@ import { Component, effect, input, output, signal } from '@angular/core';
 import { Tag } from '@model/Tag';
 import { TagComponent } from '@modules/tags/tag/tag.component';
 import { TagSearcherComponent } from '@modules/tags/tag-searcher/tag-searcher.component';
-import { TagFormComponent } from '@modules/tags/tag-form/tag-form.component';
+import { TagMiniFormComponent } from '@modules/tags/tag-mini-form/tag-mini-form.component';
 
 @Component({
   selector: 'app-join-tag',
   standalone: true,
-  imports: [TagComponent, TagSearcherComponent, TagFormComponent],
+  imports: [TagComponent, TagSearcherComponent, TagMiniFormComponent],
   templateUrl: './join-tag.component.html',
   styleUrls: ['../../../core/styles/join.css','../../../core/styles/forms.css','./join-tag.component.css'],
 })

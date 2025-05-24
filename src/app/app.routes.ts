@@ -65,6 +65,10 @@ export const routes: Routes = [
         path: 'project',
         loadComponent: () => import('./modules/projects/project-panel/project-panel.component').then(),
       },
+      {
+        path: 'tags',
+        loadComponent: () => import('./modules/tags/tags-panel/tags-panel.component').then(),
+      }
       // {
       //   path: 'work',
       //   loadComponent: () => import('./modules/tags/tags-panel/tags-panel.component').then(),
