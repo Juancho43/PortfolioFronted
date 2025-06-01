@@ -1,9 +1,0 @@
-.container {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-}
-.container * {
-  margin: 10px 0;
-  font-size: larger;
-}

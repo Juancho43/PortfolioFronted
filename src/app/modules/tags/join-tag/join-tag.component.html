@@ -12,7 +12,7 @@
   </div>
 
 @if (show()) {
-  <div>
+  <div class="JoinContainerContent">
     <div class="Container">
       @for (tag of currentTags(); track $index) {
         <app-tag [tag]="tag" />

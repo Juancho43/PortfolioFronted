@@ -37,9 +37,11 @@ export class JoinProjectComponent {
   }
   toggleShowForm() {
     this.showForm.set(!this.showForm());
+    if(this.showForm()) this.showSearch.set(false);
   }
   toggleShowSearch() {
     this.showSearch.set(!this.showSearch());
+    if(this.showSearch()) this.showForm.set(false);
   }
 
   reset() {
