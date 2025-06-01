@@ -31,7 +31,7 @@ article {
   .List{
     flex-flow: row wrap;
     width: 80dvw;
-    height: auto;
+    height: 60dvh;
   }
 
 }
