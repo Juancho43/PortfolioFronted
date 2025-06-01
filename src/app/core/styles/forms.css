@@ -42,7 +42,7 @@ button {
 input:focus,
 textarea:focus,
 select:focus {
-  box-shadow: 3px 3px 10px inset var(--color-three);
+  box-shadow: 3px 3px 10px inset var(--color-one);
   outline: none;
 }
 textarea {
@@ -82,11 +82,11 @@ button {
   flex-direction: column;
   justify-content:flex-start;
   gap: 20px;
+  overflow-y: scroll;
 }
 
 .right {
   grid-area:right;
-  overflow-y: scroll;
 }
 .center{
   grid-column-start: 1;
@@ -116,7 +116,8 @@ button {
   grid-column: 3;
 }
 .short{
-  grid-template-rows: 30px auto 30px;
+  grid-template-rows: 30px 1fr;
+  height: Auto;
 }
 
 
@@ -128,7 +129,7 @@ button {
    grid-template-areas: "header" "left" "right" "footer";
    overflow-y: auto;
    width: 80dvw;
-   padding: 0px;
+   padding: 0;
    gap:1.1em;
  }
   button, .actions button{

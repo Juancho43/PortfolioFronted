@@ -23,7 +23,7 @@ export default class LogoutFormComponent {
       this.authService.sendLogout().subscribe((res) => {
         if (res.message == 'Bye') {
           this.authService.logout();
-          this.router.navigateByUrl('./home');
+          this.router.navigateByUrl('/');
         }
       });
     }

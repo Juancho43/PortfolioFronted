@@ -16,11 +16,11 @@ export class AuthService {
   $lastLogin = signal<Date>(new Date());
 
   sendLogin(data: { email: string; password: string }) {
-    return this.http.post<ApiResponse<any>>(environment.api_url + '/login', data);
+    return this.http.post<ApiResponse<string>>(environment.api_url + '/login', data);
   }
 
   sendLogout() {
-    return this.http.post<ApiResponse<any>>(environment.api_url + '/logout', {
+    return this.http.post<ApiResponse<string>>(environment.api_url + '/logout',{}, {
       context: checkToken(),
     });
   }

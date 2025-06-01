@@ -19,7 +19,7 @@ export default class ContactPageComponent implements OnInit, OnDestroy {
   mail = signal<string>('');
   github = signal<string>('');
   cv = signal<string>('');
-
+  platzi = signal<string>('');
   ngOnInit(): void {
     this.getData();
     this.setMetaTags();
@@ -43,6 +43,7 @@ export default class ContactPageComponent implements OnInit, OnDestroy {
         this.mail.set(res.data.links.find((link) => link.name === 'mail')?.link || '');
         this.github.set(res.data.links.find((link) => link.name === 'github')?.link || '');
         this.cv.set(res.data.links.find((link) => link.name === 'cv')?.link || '');
+        this.platzi.set(res.data.links.find((link) => link.name === 'Perfil')?.link || '');
       }
     });
   }

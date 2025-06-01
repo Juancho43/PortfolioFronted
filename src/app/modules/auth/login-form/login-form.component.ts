@@ -1,8 +1,8 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { AuthService } from '../../../core/services/utils/auth.service';
+import { AuthService } from '@services/utils/auth.service';
 import { Router } from '@angular/router';
-import { ApiResponse } from '@model/ApiResponse';
+
 
 @Component({
   selector: 'app-login-form',
@@ -28,11 +28,11 @@ export default class LoginFormComponent implements OnInit {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      const email = this.loginForm.get('email')?.value!;
-      const password = this.loginForm.get('password')?.value!;
+      const email = this.loginForm.get('email')?.value ?? '';
+      const password = this.loginForm.get('password')?.value ?? '';
       this.authService.sendLogin({ email, password }).subscribe((res) => {
         if (res.message == 'Hi') {
-          this.authService.login(res.data);
+          this.authService.login(res.data!);
           this.router.navigateByUrl('/admin/profile');
         } else {
           alert('Login failed');
