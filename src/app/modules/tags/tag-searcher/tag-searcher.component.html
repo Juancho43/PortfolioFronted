@@ -7,7 +7,7 @@
     } @else if (tags.error()) {
       <p>Error: {{ tags.error() }}</p>
     } @else {
-      <div class="results-list">
+      <div class="Results">
         @for (tag of tags.value()?.data; track tag.id) {
           <app-tag [tag]="tag" (click)="selectTag(tag)" />
         }

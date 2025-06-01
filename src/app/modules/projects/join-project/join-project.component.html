@@ -15,13 +15,11 @@
 
 @if (show()) {
   <div>
-    <div>
+    <div class="Container">
       @for (project of currentProjects(); track $index) {
-        <div class="Container">
-          <app-tag [tag]="{id:project.id!, name:project.name}" />
-          <p (click)="editProject(project)">Editar</p>
-          <p (click)="removeProject(project)">Eliminar</p>
-        </div>
+        <app-tag [tag]="{id:project.id!, name:project.name}" />
+        <p (click)="editProject(project)">Editar</p>
+        <p (click)="removeProject(project)">Eliminar</p>
       }
     </div>
 

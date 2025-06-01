@@ -54,7 +54,7 @@ export class ProfileService {
     return this.http
       .put<
         ApiResponse<Profile>
-      >(profileEndpoint.update.replace(':id', profile.id!.toString()) + environment.api_url, profile, { context: checkToken() })
+      >(environment.api_url + profileEndpoint.update.replace(':id', profile.id!.toString()), profile, { context: checkToken() })
       .pipe(
         tap(() => {
           this.notification.showSuccesNotification();

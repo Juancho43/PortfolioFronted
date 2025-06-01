@@ -10,7 +10,7 @@ import { LinkFormComponent } from '@modules/links/link-form/link-form.component'
   standalone: true,
   imports: [LinkComponent, LinkFormComponent],
   templateUrl: './link-panel.component.html',
-  styleUrls: ['./link-panel.component.css', '../../../core/styles/panel.css'],
+  styleUrls: [ '../../../core/styles/panel.css', './link-panel.component.css' ],
 })
 export default class LinkPanelComponent {
   private service = inject(LinkService);

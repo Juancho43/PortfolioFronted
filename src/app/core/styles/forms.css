@@ -83,6 +83,7 @@ button {
   justify-content:flex-start;
   gap: 20px;
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .right {
@@ -121,15 +122,16 @@ button {
 }
 
 
-@media (max-width: 767px) {
-  /* Estilos para pantallas de hasta 767px de ancho */
+@media (max-width: 1800px) {
+
  form{
+   padding: 8px;
    grid-template-columns: 100%;
    grid-template-rows: 30px repeat(2, 60dvh) 30px;
    grid-template-areas: "header" "left" "right" "footer";
    overflow-y: auto;
    width: 80dvw;
-   padding: 0;
+   height: 80dvh;
    gap:1.1em;
  }
   button, .actions button{

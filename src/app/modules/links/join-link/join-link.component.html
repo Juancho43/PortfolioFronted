@@ -13,13 +13,11 @@
 
 @if (show()) {
   <div>
-    <div>
+    <div class="Container">
       @for (link of currentLinks(); track $index) {
-        <div class="Container">
-          <app-link [link]="link" />
-          <p (click)="editLink(link)">Editar</p>
-          <p (click)="removeLink(link)">Eliminar</p>
-        </div>
+        <app-link [link]="link" />
+        <p (click)="editLink(link)">Editar</p>
+        <p (click)="removeLink(link)">Eliminar</p>
       }
     </div>
 

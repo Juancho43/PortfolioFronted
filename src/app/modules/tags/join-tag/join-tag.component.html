@@ -13,13 +13,11 @@
 
 @if (show()) {
   <div>
-    <div>
+    <div class="Container">
       @for (tag of currentTags(); track $index) {
-        <div class="Container">
-          <app-tag [tag]="tag" />
-          <p (click)="editTag(tag)">Editar</p>
-          <p (click)="removeTag(tag)">Eliminar</p>
-        </div>
+        <app-tag [tag]="tag" />
+        <p (click)="editTag(tag)">Editar</p>
+        <p (click)="removeTag(tag)">Eliminar</p>
       }
     </div>
 

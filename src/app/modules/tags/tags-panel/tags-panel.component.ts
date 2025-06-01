@@ -11,7 +11,7 @@ import { TagFormComponent } from '@modules/tags/tag-form/tag-form.component';
   imports: [TagFormComponent, TagComponent],
   standalone: true,
   templateUrl: './tags-panel.component.html',
-  styleUrls: ['./tags-panel.component.css', '../../../core/styles/panel.css'],
+  styleUrls: [ '../../../core/styles/panel.css', './tags-panel.component.css' ],
 })
 export default class TagsPanelComponent {
   private service = inject(TagService);

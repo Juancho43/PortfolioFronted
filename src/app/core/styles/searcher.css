@@ -17,4 +17,16 @@
   grid-row-start: 1;
 }
 
-
+.Searcher .Results{
+  width: 200%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.Searcher input{
+  text-align: center;
+  font-family: var(--font-two), sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 4px;
+}

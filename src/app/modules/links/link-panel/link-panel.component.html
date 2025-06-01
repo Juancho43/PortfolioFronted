@@ -1,5 +1,5 @@
 <article>
-  <div class="List">
+  <div class="List Meta">
     @for (link of linksResource.value()?.data!; track $index) {
       <app-link [link]="link" (click)="selectHandler(link)" />
     }

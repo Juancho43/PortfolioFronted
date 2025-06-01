@@ -1,60 +1,63 @@
-import { Component, inject, OnInit, input } from '@angular/core';
+import { Component, inject, OnInit, input, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
-import { Project } from '../../../core/interfaces/Project';
 import { ProfileService } from '@services/http/profile.service';
-import { Profile } from '../../../core/interfaces/Profile';
+import { Profile } from '@model/Profile';
+import { ImgProfileFormComponent } from '@modules/profile/img-profile-form/img-profile-form.component';
+import { CvProfileFormComponent } from '@modules/profile/cv-profile-form/cv-profile-form.component';
+import { JoinLinkComponent } from '@modules/links/join-link/join-link.component';
 
 @Component({
   selector: 'app-profile-form',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, ImgProfileFormComponent, CvProfileFormComponent, JoinLinkComponent],
   templateUrl: './profile-form.component.html',
   styleUrls: ['./profile-form.component.css', '../../../core/styles/forms.css'],
 })
 export class ProfileFormComponent implements OnInit {
   private service = inject(ProfileService);
+  edit = signal<boolean>(true);
 
-  edit = true;
-  readonly currentProfile = input<Profile>({
-    id: 0,
-    description: '',
-    rol: '',
-    links: [],
-    name: '',
-  });
+  readonly currentProfile = input<Profile>({} as Profile);
   ProfileForm: FormGroup = new FormGroup({
     id: new FormControl(0),
-    nombre: new FormControl('', [Validators.required]),
-    presentacion: new FormControl('', [Validators.required]),
-    rol: new FormControl('', [Validators.required]),
+    name: new FormControl('', [Validators.required]),
+    presentation: new FormControl('', [Validators.required]),
+    role: new FormControl('', [Validators.required]),
   });
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.setForm();
+  }
 
   setForm() {
     const currentProfile = this.currentProfile();
     if (currentProfile.id != 0) {
       this.ProfileForm.patchValue({
         id: currentProfile?.id,
-        nombre: currentProfile.name,
-        rol: currentProfile.rol,
-        presentacion: currentProfile.description,
+        name: currentProfile.name,
+        role: currentProfile.rol,
+        presentation: currentProfile.description,
       });
     }
   }
 
-  onSubmit() {
-    this.mapperProyecto();
-    if (this.edit) {
-      this.service.putProfile(this.currentProfile()).subscribe();
+  clean() {
+    this.ProfileForm.reset();
+    this.edit.set(false);
+  }
+
+  mapperProfile(): Profile {
+    return {
+      id: this.currentProfile().id,
+      name: this.ProfileForm.get("name")?.value ?? '',
+      description: this.ProfileForm.get('presentation')?.value ?? '',
+      rol: this.ProfileForm.get('role')?.value ?? '',
     }
   }
-  mapperProyecto() {
-    const currentProfile = this.currentProfile();
-    currentProfile.id = this.ProfileForm.get('id')?.value;
-    // this.currentProfile. = this.ProfileForm.get("nombre")?.value;
-    currentProfile.description = this.ProfileForm.get('presentacion')?.value;
-    currentProfile.rol = this.ProfileForm.get('rol')?.value;
+  onSubmit() {
+    if (this.edit()) {
+      this.service.putProfile( this.mapperProfile()).subscribe();
+    }
   }
 }

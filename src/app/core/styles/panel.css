@@ -18,11 +18,20 @@ article {
   overflow-x: hidden;
 }
 
+.Meta{
+  flex-flow: row wrap;
+  width: 80dvw;
+  height: auto;
+}
 
-@media (max-width: 767px) {
-  /* Estilos para pantallas de hasta 767px de ancho */
+@media (max-width: 1800px) {
  article {
    flex-direction: column;
  }
+  .List{
+    flex-flow: row wrap;
+    width: 80dvw;
+    height: auto;
+  }
 
 }

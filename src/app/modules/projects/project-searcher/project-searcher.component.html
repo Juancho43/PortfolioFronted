@@ -1,5 +1,5 @@
 <div class="Searcher">
-  <input type="text" placeholder="Buscar etiquetas..." [(ngModel)]="searchTerm" />
+  <input type="text" placeholder="Buscar proyecto..." [(ngModel)]="searchTerm" />
 
   <div class="tag-results">
     @if (projects.isLoading()) {
@@ -7,7 +7,7 @@
     } @else if (projects.error()) {
       <p>Error: {{ projects.error() }}</p>
     } @else {
-      <div class="results-list">
+      <div class="Results">
         @for (project of projects.value()?.data; track project.id) {
           <app-tag [tag]="{id:project.id!, name:project.name}" (click)="selectProject(project)" />
         }

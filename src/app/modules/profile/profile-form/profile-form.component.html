@@ -1,12 +1,38 @@
 <form [formGroup]="ProfileForm" (ngSubmit)="onSubmit()" class="glass">
-  <fieldset>
-    <legend>Perfil:</legend>
+
+  <div class="header">
+    <legend>
+      @if (!this.edit()){
+        Editar Perfil:
+      }
+    </legend>
+  </div>
+  <div class="left flex">
+      <legend>Datos</legend>
     <label for="nombre">Nombre:</label>
-    <input type="text" name="nombre" id="nombre" formControlName="nombre" />
+    <input type="text" name="nombre" id="nombre" formControlName="name" />
     <label for="presentacion">Presentación:</label>
-    <textarea name="presentacion" id="presentacion" cols="30" rows="10" formControlName="presentacion"></textarea>
+    <textarea name="presentacion" id="presentacion" cols="30" rows="10" formControlName="presentation"></textarea>
     <label for="rol">Rol:</label>
-    <input type="text" name="rol" id="rol" formControlName="rol" />
-  </fieldset>
-  <button type="submit">Crear</button>
+    <input type="text" name="rol" id="rol" formControlName="role" />
+  </div>
+  <div class="right flex">
+    <legend>Metadatos</legend>
+    <app-img-profile-form/>
+    <app-cv-profile-form/>
+    <app-join-link
+      [initialLinks]="currentProfile().links || []"
+    />
+  </div>
+  <div class="actions">
+    <legend>Acciones</legend>
+    <button type="reset" (click)="clean()">Limpiar.</button>
+    <button type="submit" (click)="onSubmit()">
+      @if (!edit()) {
+        Crear nuevo.
+      } @else {
+        Guardar cambios.
+      }
+    </button>
+  </div>
 </form>

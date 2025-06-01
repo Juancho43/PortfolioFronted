@@ -19,3 +19,13 @@
 .JoinContainer button{
   padding: 5px;
 }
+
+.Container{
+  margin: 10px 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3,33.33%);
+  grid-template-rows: 20px;
+  justify-items: start;
+  justify-content: space-between;
+}
