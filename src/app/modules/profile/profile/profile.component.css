@@ -2,8 +2,7 @@ article {
   display: flex;
   width: 50dvw;
   justify-content: center;
-  align-items: center;
-  padding-top: 3em;
+
 }
 header h2 {
   color: var(--color-primary-alter);
@@ -19,9 +18,9 @@ article img {
   border-radius: 10px 0 0 10px;
   object-fit: contain;
   margin-right: 3em;
-  height: fit-content;
-  max-height: 300px;
-  width: auto;
+
+  max-height: 400px;
+  /*aspect-ratio: 9/16;*/
   max-width: 200px;
 }
 article div {
@@ -43,16 +42,22 @@ div:first-child {
   position: relative;
 }
 
-@media (max-width: 767px) {
-  /* Estilos para pantallas de hasta 767px de ancho */
+@media (max-width: 680px) {
+
   article {
+    width: 90dvw;
     flex-direction: column;
+    align-items: start;
   }
   article img {
-    margin: auto;
+    align-self: center;
+    margin-bottom: 16px;
   }
   article h1 {
-    text-align: center;
+    font-size: 2.5em;
+  }
+  article h2{
+    font-size: 2em;
   }
   article p {
     max-width: none;

@@ -10,16 +10,19 @@
 }
 
 .active {
-  box-shadow: var(--color-two) 0 4px 9px;
+  backdrop-filter:drop-shadow(0 0 4px var(--color-two));
 }
 
-ul {
-  list-style: none;
+nav, ul {
   display: flex;
   flex-direction: row;
   width: 100dvw;
   justify-content: center;
+}
 
+ul{
+  list-style: none;
+  width: 80dvw;
 }
 img {
   width: 70px;
@@ -31,7 +34,6 @@ li {
   cursor: pointer;
   margin: 1em;
   padding: 0.3em;
-
   width: max-content;
   text-align: center;
 
@@ -50,7 +52,7 @@ li {
 
 @media (max-width: 767px) {
   /* Estilos para pantallas de hasta 767px de ancho */
-  nav ul {
+  nav ul, nav {
     flex-direction: column;
     align-items: center;
     justify-content: center;

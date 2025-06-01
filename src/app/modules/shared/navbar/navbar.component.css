@@ -1,6 +1,14 @@
-img:focus{
-  transform: rotate(180deg);
-  transition: ease .1s;
+img{
+  transition: all 1s ease;
+}
+.toggle{
+  transform: rotateX(45deg);
   filter: drop-shadow(0px 1px 3px rgba(0,0,0,0.2)) ;
 }
+.appear {
+  display: flex;
 
+}
+.hide{
+  display: none;
+}

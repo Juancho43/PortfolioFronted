@@ -69,21 +69,26 @@
 }
 
 body {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary-alter) var(--color-one);
+
+
   background: var(--background);
   background-size: 190%;
+  background-attachment: fixed;
   animation-timing-function: ease-in;
   animation-name: main1;
   animation-duration: 50s;
   animation-iteration-count: infinite;
+
+  overflow: hidden;
+  overflow-y: auto;
 }
 main {
   height: 100dvh;
   width: 100dvw;
-  overflow: hidden;
-  overflow-y: auto;
   display: flex;
   flex-direction: column;
-
   align-items: center;
   gap: 3em;
 }
