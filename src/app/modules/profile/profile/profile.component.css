@@ -2,7 +2,7 @@ article {
   display: flex;
   width: 50dvw;
   justify-content: center;
-
+  align-items: center;
 }
 header h2 {
   color: var(--color-primary-alter);
@@ -14,14 +14,22 @@ header h2 {
 
 article img {
   border: 1px solid white;
-  filter: drop-shadow(5px 5px 5px rgba(255, 251, 251, 0.5));
+  filter:
+    drop-shadow(5px 5px 5px rgba(255, 251, 251, 0.5))
+    grayscale(var(--grayscale));
   border-radius: 10px 0 0 10px;
-  object-fit: contain;
+  object-fit:cover;
   margin-right: 3em;
-
-  max-height: 400px;
-  /*aspect-ratio: 9/16;*/
+  max-height: 300px;
+  aspect-ratio: 2/3;
   max-width: 200px;
+  transition: all 2s;
+}
+
+article img:hover {
+  transform: scale(1.05) ;
+  drop-shadow(5px 5px 5px var(--color-primary-alter));
+  transition: transform 0.3s ease-in-out;
 }
 article div {
   width: 70vw;

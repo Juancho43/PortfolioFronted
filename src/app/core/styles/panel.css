@@ -1,37 +1,35 @@
 article {
   display: flex;
+  flex-direction: column;
   overflow-x: auto;
   overflow-y: hidden;
   width: 90vw;
   justify-content: center;
   align-items: center;
-  flex-direction: row;
   gap: 30px;
 }
+div{
 
-.List{
   display: flex;
-  flex-direction: column;
-  gap: 15px;
-  height:70dvh;
-  overflow-y: scroll;
-  overflow-x: hidden;
-}
-
-.Meta{
-  flex-flow: row wrap;
+  flex-flow: row;
+  height: fit-content;
+  max-height: 80dvh;
   width: 80dvw;
-  height: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
+  gap: 20px;
 }
 
-@media (max-width: 1800px) {
- article {
-   flex-direction: column;
- }
-  .List{
+
+@media (max-width: 1500px) {
+
+  div{
     flex-flow: row wrap;
+    justify-content: center;
     width: 80dvw;
-    height: 60dvh;
+    /*height: 10dvh;*/
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 
 }

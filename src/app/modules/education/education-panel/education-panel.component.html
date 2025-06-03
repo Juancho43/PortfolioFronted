@@ -1,5 +1,5 @@
 <article>
-  <div class="List">
+  <div>
     @for (education of educationsResource.value()?.data!; track $index) {
       <app-education-card [education]="education"  (click)="selectHandler(education)" />
     }

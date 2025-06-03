@@ -1,7 +1,7 @@
 <article>
-  <div class="List Meta">
+  <div >
     @for (link of linksResource.value()?.data!; track $index) {
-      <app-link [link]="link" (click)="selectHandler(link)" />
+      <app-link [link]="link" (drag)="selectHandler(link)" />
     }
   </div>
   <app-link-form

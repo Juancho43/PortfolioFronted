@@ -8,7 +8,7 @@ import { rxResource } from '@angular/core/rxjs-interop';
   imports: [ProfileFormComponent],
   standalone: true,
   templateUrl: './profile-panel.component.html',
-  styleUrls: [ './profile-panel.component.css','../../../core/styles/panel.css'],
+  styleUrls: [ '../../../core/styles/panel.css','./profile-panel.component.css'],
 })
 export default class ProfilePanelComponent {
   private service = inject(ProfileService);

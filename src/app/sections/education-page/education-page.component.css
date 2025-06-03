@@ -11,3 +11,6 @@ div {
     justify-content: center;
   }
 }
+@media (max-width: 400px) {
+  background: red;
+}

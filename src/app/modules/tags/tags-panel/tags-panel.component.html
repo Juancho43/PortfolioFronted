@@ -1,5 +1,5 @@
 <article>
-  <div class="List Meta">
+  <div>
     @for (tag of tagsResource.value()?.data!; track $index) {
       <app-tag [tag]="tag" (click)="selectHandler(tag)" />
     }

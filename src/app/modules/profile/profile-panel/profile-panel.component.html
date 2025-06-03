@@ -1,21 +1,7 @@
 @if(!profileResource.isLoading()){
   @let profile = profileResource.value()?.data!;
   <article>
-    <div>
-      <h2>Perfil</h2>
-      <p>{{profile.name}}</p>
-      <p>{{profile.rol}}</p>
-      <p>{{profile.description}}</p>
-      <div>
-        @for(link of profile.links; track $index) {
-          <p>{{link.name}}-{{link.link}}</p>
-        }
-      </div>
-    </div>
-    <div>
       <app-profile-form [currentProfile]="profile"/>
-
-    </div>
   </article>
 
 }

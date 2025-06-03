@@ -6,3 +6,13 @@
   min-height: 100px;
   padding: 10px;
 }
+
+@media (max-width: 760px) {
+  .Card {
+    width: 60dvw;
+  }
+  .Card h2 {
+    font-size: 1.2rem;
+  }
+
+}

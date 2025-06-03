@@ -1,5 +1,0 @@
-article {
-  display: grid;
-  grid-template-columns: 20dvw 60dvw;
-  gap: 1rem;
-}

@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-up-button',
@@ -7,15 +7,23 @@ import { Component, HostListener } from '@angular/core';
   templateUrl: './up-button.component.html',
   styleUrl: './up-button.component.css'
 })
-export class UpButtonComponent {
-  isVisible = true;
+export class UpButtonComponent implements OnDestroy{
+  isVisible = false;
+  content = document.querySelector('main')!;
 
-  @HostListener('window:scroll')
-  onWindowScroll() {
-    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-    this.isVisible = scrollTop > 300;
+  constructor() {
+    this.content.addEventListener('scroll', () => {
+      this.isVisible = this.content.scrollTop > 100;
+    });
   }
+
   scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    this.content.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  ngOnDestroy() {
+    this.content.removeEventListener('scroll', () => {
+      this.isVisible = this.content.scrollTop > 100;
+    });
   }
 }

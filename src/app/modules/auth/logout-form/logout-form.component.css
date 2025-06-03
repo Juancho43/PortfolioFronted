@@ -3,4 +3,12 @@ form {
   flex-direction: column;
   gap:8px;
   height: fit-content;
+  width: 20dvw;
 }
+
+@media (max-width: 800px) {
+  .short{
+    width: 35dvw;
+  }
+}
+

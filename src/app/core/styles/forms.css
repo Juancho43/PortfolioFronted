@@ -7,6 +7,8 @@ fieldset {
 }
 
 form{
+  background: var(--glass-color);
+
   width: 60dvw;
   height: 70dvh;
   display: grid;
@@ -117,10 +119,19 @@ button {
   grid-column: 3;
 }
 .short{
+  grid-template-columns: repeat(2, 15dvw);
+  width:30dvw;
   grid-template-rows: 30px 1fr;
   height: Auto;
 }
-
+.short .actions{
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+}
+.short .center{
+  overflow: hidden;
+}
 
 @media (max-width: 1800px) {
 
@@ -148,6 +159,16 @@ button {
     display: flex;
     flex-direction: column;
     gap: 6px;
+  }
+
+
+}
+@media (max-width: 800px) {
+  .short{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    width: 80dvw;
   }
 
 }

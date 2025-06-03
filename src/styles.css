@@ -15,20 +15,40 @@
   --color-gray: rgba(200, 200, 200, 0.5);
   --glass-color: rgba(129, 116, 160, 0.2);
   --glass-border-color: rgba(255, 255, 255, 0.125);
-
+  --grayscale: 0%;
   --background: linear-gradient(60deg, var(--color-one), var(--color-two));
-
+  --shiny: linear-gradient(60deg, var(--glass-color), var(--glass-border-color));
   --font-one: 'Montserrat', sans-serif;
   --font-two: 'Poppins', sans-serif;
 }
 
 .dark-theme {
+  --grayscale: 40%;
   transition: 1s background;
   --color-primary: var(--color-white);
   --color-primary-alter: var(--color-white-secondary);
   --color-one: #1e2f54;
   --color-two: #480967;
   --color-three: #4c2d14;
+}
+
+@keyframes shine{
+
+  0% {
+    background: var(--glass-color);
+  }
+  50% {
+    background: var(--background);
+    filter:
+      drop-shadow(0 0 6px var(--color-white))
+      saturate(1.5);
+  ;
+    box-shadow: 0 2px 20px var(--color-primary-alter);
+  }
+  100% {
+    background: var(--glass-color);
+
+  }
 }
 
 @keyframes main1 {
@@ -71,27 +91,28 @@
 body {
   scrollbar-width: thin;
   scrollbar-color: var(--color-primary-alter) var(--color-one);
-
-
   background: var(--background);
-  background-size: 190%;
-  background-attachment: fixed;
-  animation-timing-function: ease-in;
+  background-size: 200%;
+  animation-timing-function: ease-out;
   animation-name: main1;
-  animation-duration: 50s;
-  animation-iteration-count: infinite;
+  animation-duration: 3s;
+  animation-iteration-count: 3;
 
-  overflow: hidden;
-  overflow-y: auto;
 }
+
 main {
+  overflow-x: hidden;
+  overflow-y: scroll;
   height: 100dvh;
   width: 100dvw;
+
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   gap: 3em;
 }
+
 
 h1,
 h2 {
@@ -110,7 +131,6 @@ section {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  flex-grow: 1;
   width: 90vw;
   margin-left: 2vw;
   margin-right: 2vw;
@@ -128,6 +148,13 @@ article {
   border: 1px solid var(--glass-border-color);
   transition: 1s;
 }
+.glass:hover {
+  animation: shine 2s;
+
+  box-shadow: 0 2px 10px var(--color-primary-alter);
+}
+
+
 
 .Container {
   display: flex;
@@ -144,8 +171,12 @@ input {
   font-size: 17px;
 }
 
-.glass:hover {
-  box-shadow: 0 2px 10px var(--color-primary-alter);
+
+.header{
+  grid-area: header;
+}
+.footer{
+  grid-area: footer;
 }
 
 
@@ -156,4 +187,7 @@ input {
     align-items: center;
     align-content: center;
   }
+}
+
+@media (max-width: 400px) {
 }

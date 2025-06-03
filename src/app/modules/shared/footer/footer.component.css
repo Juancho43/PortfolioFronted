@@ -2,9 +2,6 @@ footer {
   display:flex;
   flex-direction: column;
   background-color: var(--color-black-secondary);
-
-
-
   min-height: 70px;
   width: 100dvw;
   font-size: large;

@@ -12,3 +12,10 @@ img{
 .hide{
   display: none;
 }
+img:hover {
+  transform: scale(1.1);
+  filter:
+
+    drop-shadow(0 0 2px var(--color-three))
+    drop-shadow(0 0 6px var(--color-white));
+}

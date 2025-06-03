@@ -10,3 +10,11 @@ button img {
   filter: invert(1);
   transition: all 0.3s ease;
 }
+
+button:hover img {
+  transform: scale(1.1);
+  filter:
+    blur(1px)
+    drop-shadow(0 0 2px var(--color-one))
+    drop-shadow(0 0 6px var(--color-two));
+}
