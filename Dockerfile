@@ -4,24 +4,15 @@ FROM node:18-alpine AS build
 WORKDIR /app
 COPY package*.json ./
 RUN npm ci
+
+run npm install -g @angular/cli
 COPY . .
-RUN npm run build
+RUN npm run build --configuration=production
 
-# Etapa de producción con Apache
-FROM httpd:2.4-alpine
 
-# Habilitar mod_rewrite
-RUN sed -i '/LoadModule rewrite_module/s/^#//g' /usr/local/apache2/conf/httpd.conf
+FROM nginx:latest
 
-# Permitir .htaccess
-RUN sed -i 's/AllowOverride None/AllowOverride All/g' /usr/local/apache2/conf/httpd.conf
-
-# Copiar archivos construidos al directorio de Apache
-COPY --from=build /app/dist/tu-app-name /usr/local/apache2/htdocs/
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=build /app/dist/portfolio/browser /usr/share/nginx/html
 
 EXPOSE 8080
-
-# Cambiar puerto de Apache
-RUN sed -i 's/Listen 80/Listen 8080/g' /usr/local/apache2/conf/httpd.conf
-
-CMD ["httpd-foreground"]
