@@ -19,6 +19,9 @@ RUN sed -i 's/AllowOverride None/AllowOverride All/g' /usr/local/apache2/conf/ht
 # Copiar archivos construidos al directorio de Apache
 COPY --from=build /app/dist/tu-app-name /usr/local/apache2/htdocs/
 
-EXPOSE 80
+EXPOSE 8080
+
+# Cambiar puerto de Apache
+RUN sed -i 's/Listen 80/Listen 8080/g' /usr/local/apache2/conf/httpd.conf
 
 CMD ["httpd-foreground"]
