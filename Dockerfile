@@ -2,8 +2,10 @@
 FROM node:latest as build
 WORKDIR /app
 COPY package*.json ./
-RUN npm install
+# Remove the problematic cache mount
+RUN npm ci
 COPY . .
+# Remove the problematic cache mount
 RUN npm run build
 
 # Stage 1: serve app with nginx
