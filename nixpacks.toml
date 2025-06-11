@@ -8,4 +8,4 @@ cmds = [
 cmd = "./run.sh"
 
 [setup]
-nixPkgs = ["apache2"]
+nixPkgs = ["nginx"]
