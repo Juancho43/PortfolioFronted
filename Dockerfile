@@ -1,11 +1,9 @@
 # Stage 0: compile angular frontend
-FROM node:latest as build
+FROM node:latest AS build
 WORKDIR /app
 COPY package*.json ./
-# Remove the problematic cache mount
 RUN npm ci
 COPY . .
-# Remove the problematic cache mount
 RUN npm run build
 
 # Stage 1: serve app with nginx
