@@ -1,13 +1,22 @@
 # Stage 0: compile angular frontend
 FROM node:latest as build
 WORKDIR /app
-COPY . .
+COPY package*.json ./
 RUN npm install
-RUN npm run build --prod
+COPY . .
+RUN npm run build
 
+# Stage 1: serve app with apache
+FROM httpd:latest
+# Remove default apache welcome page
+RUN rm -rf /usr/local/apache2/htdocs/*
 
-# Stage 1: serve app with nginx server
-FROM nginx:latest
-COPY --from=build /app/dist/portfolio  /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Copy built files to apache html directory
+COPY --from=build /app/dist/portfolio/browser /usr/local/apache2/htdocs/
+
+# Copy custom apache config if needed
+# COPY ./apache.conf /usr/local/apache2/conf/httpd.conf
+
 EXPOSE 80
+
+CMD ["httpd-foreground"]
