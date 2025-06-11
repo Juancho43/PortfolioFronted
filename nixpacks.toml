@@ -5,10 +5,7 @@ cmds = [
 ]
 
 [start]
-cmd = "httpd-foreground"
+cmd = "./run.sh"
 
 [setup]
-nixPkgs = ["apache"]
-
-[nginx]
-use = false
+nixPkgs = ["apache2"]
