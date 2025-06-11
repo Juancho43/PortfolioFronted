@@ -13,7 +13,8 @@ RUN rm -rf /usr/share/nginx/html/*
 
 # Copy built files to nginx html directory
 COPY --from=build /app/dist/portfolio /usr/share/nginx/html/
-
+RUN mkdir -p /etc/nginx/ssl
+COPY ssl/cert.pem ssl/key.pem /etc/nginx/ssl/
 # Configure nginx for Angular routing
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
