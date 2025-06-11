@@ -8,6 +8,6 @@ RUN npm run build --prod
 
 # Stage 1: serve app with nginx server
 FROM nginx:latest
-COPY --from=build /app/dist/portfolio/browser  /usr/share/nginx/html
+COPY --from=build /app/dist/portfolio  /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
