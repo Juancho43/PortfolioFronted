@@ -19,6 +19,7 @@ RUN npm run build
 # Etapa 2: Servir con Nginx
 FROM nginx:1.21-alpine
 
+RUN rm /etc/nginx/conf.d/default.conf
 # Copiar archivos de build desde la etapa anterior
 COPY --from=build /app/dist/portfolio/browser /usr/share/nginx/html/
 
