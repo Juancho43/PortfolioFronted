@@ -20,7 +20,7 @@ RUN npm run build
 FROM nginx:1.21-alpine
 
 # Copiar archivos de build desde la etapa anterior
-COPY --from=build /app/dist/portfolio/browser /usr/share/nginx/html/
+COPY --from=build /app/dist/portfolio /usr/share/nginx/html/
 
 # Copiar configuración personalizada de Nginx
 COPY nginx.conf /etc/nginx/nginx.conf
