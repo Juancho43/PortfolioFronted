@@ -1,37 +1,33 @@
-FROM node:18-alpine
 
-# Install nginx
-RUN apk add --no-cache nginx
+# Etapa 1: Build de la aplicación Angular
+FROM node:18-alpine AS build
 
-# Set working directory
+# Establecer directorio de trabajo
 WORKDIR /app
 
-# Copy package files
+# Copiar package.json y package-lock.json
 COPY package*.json ./
 
-# Install dependencies (incluye devDependencies para el build)
-RUN npm ci --include=dev
+# Instalar dependencias
+RUN npm ci --only=production
 
-# Install Angular CLI globally
-RUN npm install -g @angular/cli
-
-# Copy source code
+# Copiar el código fuente
 COPY . .
 
-# Build the application
-RUN ng build --configuration=production
+# Construir la aplicación para producción
+RUN npm run build --prod
 
-# Copy built files to nginx directory
-RUN cp -r dist/portfolio/* /usr/share/nginx/html/
+# Etapa 2: Servir con Nginx
+FROM nginx:1.21-alpine
 
-# Copy nginx config
+# Copiar archivos de build desde la etapa anterior
+COPY --from=build /app/dist/* /usr/share/nginx/html/
+
+# Copiar configuración personalizada de Nginx
 COPY nginx.conf /etc/nginx/nginx.conf
 
-# Create nginx directories
-RUN mkdir -p /run/nginx
-
-# Expose port
+# Exponer puerto 80
 EXPOSE 80
 
-# Start nginx
+# Comando por defecto
 CMD ["nginx", "-g", "daemon off;"]
