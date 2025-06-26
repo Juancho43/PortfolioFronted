@@ -1,4 +1,3 @@
-
 # Etapa 1: Build de la aplicación Angular
 FROM node:18-alpine AS build
 
@@ -8,14 +7,14 @@ WORKDIR /app
 # Copiar package.json y package-lock.json
 COPY package*.json ./
 
-# Instalar dependencias
-RUN npm ci --only=production
+# Instalar dependencias (incluyendo devDependencies para el build)
+RUN npm ci
 
 # Copiar el código fuente
 COPY . .
 
 # Construir la aplicación para producción
-RUN npm run build --prod
+RUN npm run build
 
 # Etapa 2: Servir con Nginx
 FROM nginx:1.21-alpine
