@@ -8,7 +8,6 @@ import { rxResource } from '@angular/core/rxjs-interop';
 
 import { of, switchMap } from 'rxjs';
 
-
 @Component({
   selector: 'app-project-list',
   standalone: true,
@@ -25,16 +24,14 @@ export default class ProjectListComponent {
     loader: () => {
       const projectsList = this.projectsList;
       const currentTag = this.tag();
-       if (currentTag !== 'all' && currentTag !== 'none') {
+      if (currentTag !== 'all' && currentTag !== 'none') {
         return this.service.getByTag(currentTag).pipe(switchMap((res) => of(res.data || [])));
-        }else if(currentTag === 'all') {
+      } else if (currentTag === 'all') {
         return this.service.getAll().pipe(switchMap((res) => of(res.data || [])));
-        }
-        return of(projectsList);
-    }}
-      )
-
-
+      }
+      return of(projectsList);
+    },
+  });
 
   constructor() {
     effect(() => {

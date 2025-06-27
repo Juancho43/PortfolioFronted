@@ -12,30 +12,28 @@ import { rxResource } from '@angular/core/rxjs-interop';
   standalone: true,
   imports: [LinkComponent, TagComponent, ProjectListComponent],
   templateUrl: './education-detail.component.html',
-  styleUrls: ['../../../core/styles/detail.css','./education-detail.component.css'],
+  styleUrls: ['../../../core/styles/detail.css', './education-detail.component.css'],
 })
-export default class EducationDetailComponent implements  OnDestroy {
+export default class EducationDetailComponent implements OnDestroy {
   private meta = inject(MetaTagsService);
   private service = inject(EducationService);
   readonly slug = input<string>('');
 
   educationResource = rxResource({
-    request : () => ({
-      slug : this.slug(),
+    request: () => ({
+      slug: this.slug(),
     }),
-    loader: ({request}) => {
-        return this.service.getBySlug(request.slug);
+    loader: ({ request }) => {
+      return this.service.getBySlug(request.slug);
     },
   });
 
   constructor() {
     effect(() => {
       this.educationResource.value();
-      if(!this.educationResource.isLoading()) this.setMetaTags();
-
+      if (!this.educationResource.isLoading()) this.setMetaTags();
     });
   }
-
 
   ngOnDestroy(): void {
     this.meta.updateTitle('Bravo, Juan Alé');
@@ -64,5 +62,4 @@ export default class EducationDetailComponent implements  OnDestroy {
       },
     ]);
   }
-
 }

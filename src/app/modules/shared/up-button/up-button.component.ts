@@ -1,13 +1,14 @@
 import { Component, OnDestroy } from '@angular/core';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-up-button',
   standalone: true,
-  imports: [],
+  imports: [NgOptimizedImage],
   templateUrl: './up-button.component.html',
-  styleUrl: './up-button.component.css'
+  styleUrl: './up-button.component.css',
 })
-export class UpButtonComponent implements OnDestroy{
+export class UpButtonComponent implements OnDestroy {
   isVisible = false;
   content = document.querySelector('main')!;
 

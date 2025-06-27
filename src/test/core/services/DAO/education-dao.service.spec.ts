@@ -1,6 +1,6 @@
 import { createServiceFactory, SpectatorService } from '@ngneat/spectator/jest';
 import { EducationDaoService } from '@dao/education-dao.service';
-import { generateEducationMocks, educationMock } from '@test/core/mocks/education.mock';
+import { educationMock, generateEducationMocks } from '@test/core/mocks/education.mock';
 
 describe('EducationDaoService', () => {
   let spectator: SpectatorService<EducationDaoService>;

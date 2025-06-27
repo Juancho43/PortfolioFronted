@@ -1,4 +1,16 @@
+li > img{
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+}
+
+li{
+  display:flex;
+  align-items: center;
+  gap: 0.5em;
+}
 img{
+
   transition: all 1s ease;
 }
 .toggle{

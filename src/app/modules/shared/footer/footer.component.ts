@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { AuthService } from '@services/utils/auth.service';
 
@@ -9,13 +9,7 @@ import { AuthService } from '@services/utils/auth.service';
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.css',
 })
-export class FooterComponent implements OnInit {
+export class FooterComponent {
   private auth = inject(AuthService);
-  showLogout = signal<boolean>(false);
-
-  ngOnInit() {
-    this.auth.login$.subscribe((data) => {
-      this.showLogout.set(data);
-    });
-  }
+  showLogout = this.auth.$login;
 }

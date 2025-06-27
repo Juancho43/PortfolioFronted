@@ -5,10 +5,14 @@ import { ProjectService } from '@http/project.service';
 
 @Component({
   selector: 'app-project-form-mini',
-  standalone:true,
+  standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './project-form-mini.component.html',
-  styleUrls: ['../../../core/styles/forms.css','../../../core/styles/mini-form.css','./project-form-mini.component.css'],
+  styleUrls: [
+    '../../../core/styles/forms.css',
+    '../../../core/styles/mini-form.css',
+    './project-form-mini.component.css',
+  ],
 })
 export class ProjectFormMiniComponent {
   /** Service for handling tag API operations */
@@ -67,7 +71,7 @@ export class ProjectFormMiniComponent {
     return {
       id: this.projectForm.get('id')?.value,
       name: this.projectForm.get('name')?.value,
-      description:'',
+      description: '',
     };
   }
 

@@ -1,4 +1,4 @@
-import { Component, inject, output, input, signal, effect } from '@angular/core';
+import { Component, effect, inject, input, output, signal } from '@angular/core';
 import { FormArray, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { EducationService } from '@services/http/education.service';
 import { Education } from '@model/Education';
@@ -7,7 +7,7 @@ import { Link } from '@model/Link';
 import { Project } from '@model/Project';
 import { JoinLinkComponent } from '@modules/links/join-link/join-link.component';
 import { JoinTagComponent } from '@modules/tags/join-tag/join-tag.component';
-import {JoinProjectComponent} from '@modules/projects/join-project/join-project.component';
+import { JoinProjectComponent } from '@modules/projects/join-project/join-project.component';
 
 @Component({
   selector: 'app-education-form',

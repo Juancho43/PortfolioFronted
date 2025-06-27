@@ -2,14 +2,13 @@ import { Component, effect, inject, input, output, signal } from '@angular/core'
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TagService } from '@http/tag.service';
 import { Tag } from '@app/core/interfaces/Tag';
-import { Project } from '@model/Project';
 
 @Component({
   selector: 'app-tag-form',
   standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './tag-form.component.html',
-  styleUrls: [ '../../../core/styles/forms.css','./tag-form.component.css'],
+  styleUrls: ['../../../core/styles/forms.css', './tag-form.component.css'],
 })
 export class TagFormComponent {
   private service = inject(TagService);

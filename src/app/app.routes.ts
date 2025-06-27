@@ -49,11 +49,10 @@ export const routes: Routes = [
     loadComponent: () => import('./modules/auth/logout-form/logout-form.component').then(),
   },
   {
-    path:'password-reset',
+    path: 'password-reset',
     canActivate: [authGuard],
     loadComponent: () => import('./modules/auth/password-reset-form/password-reset-form.component').then(),
-  }
-  ,
+  },
   {
     path: 'admin',
     loadComponent: () => import('./sections/admin-page/admin-page.component').then(),
@@ -78,7 +77,7 @@ export const routes: Routes = [
       {
         path: 'links',
         loadComponent: () => import('./modules/links/link-panel/link-panel.component').then(),
-      }
+      },
       // {
       //   path: 'work',
       //   loadComponent: () => import('./modules/tags/tags-panel/tags-panel.component').then(),
@@ -86,9 +85,9 @@ export const routes: Routes = [
     ],
   },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '**', redirectTo: '/not-found' },
   {
     path: 'not-found',
     loadComponent: () => import('./sections/not-found/not-found.component').then(),
   },
-  { path: '**', redirectTo: '/not-found' },
 ];

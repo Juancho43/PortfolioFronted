@@ -1,4 +1,4 @@
-import { Component, inject, OnDestroy, input, effect } from '@angular/core';
+import { Component, effect, inject, input, OnDestroy } from '@angular/core';
 import { Project } from '@model/Project';
 import { CommonModule } from '@angular/common';
 import { TagComponent } from '../../tags/tag/tag.component';
@@ -13,7 +13,7 @@ import { rxResource } from '@angular/core/rxjs-interop';
   standalone: true,
   imports: [CommonModule, TagComponent, LinkComponent],
   templateUrl: './project-detail.component.html',
-  styleUrls: ['../../../core/styles/detail.css','./project-detail.component.css'],
+  styleUrls: ['../../../core/styles/detail.css', './project-detail.component.css'],
 })
 export default class ProjectDetailComponent implements OnDestroy {
   private service = inject(ProjectService);
@@ -22,18 +22,18 @@ export default class ProjectDetailComponent implements OnDestroy {
   readonly currentProject = input<Project>({} as Project);
 
   projectResource = rxResource({
-    request : () => ({
-        slug : this.slug(),
-        currentProject : this.currentProject(),
+    request: () => ({
+      slug: this.slug(),
+      currentProject: this.currentProject(),
     }),
-    loader : ({request})=> {
-        return this.service.getBySlug(request.slug);
-    }
-  })
+    loader: ({ request }) => {
+      return this.service.getBySlug(request.slug);
+    },
+  });
   constructor() {
     effect(() => {
       this.projectResource.value();
-      if(!this.projectResource.isLoading()) this.setMetaTags();
+      if (!this.projectResource.isLoading()) this.setMetaTags();
     });
   }
 
@@ -62,8 +62,6 @@ export default class ProjectDetailComponent implements OnDestroy {
         name: 'keywords',
         content: project.tags?.length ? project.tags.map((tag: Tag) => tag.name).join(',') : '',
       },
-    ])
+    ]);
   }
-
-
 }

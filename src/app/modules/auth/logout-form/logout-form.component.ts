@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '@services/utils/auth.service';
-import {Router, RouterLink} from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-logout-form',
@@ -22,8 +22,7 @@ export default class LogoutFormComponent {
     if (this.logoutForm.get('confirmation')?.value) {
       this.authService.sendLogout().subscribe((res) => {
         if (res.message == 'Bye') {
-          this.authService.logout();
-          this.router.navigateByUrl('/');
+          this.router.navigateByUrl('/home');
         }
       });
     }

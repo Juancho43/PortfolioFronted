@@ -1,4 +1,4 @@
-import { Component, input, computed } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
 import { Project } from '@model/Project';
 import { TagListComponent } from '../../tags/tag-list/tag-list.component';
 

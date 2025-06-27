@@ -11,7 +11,7 @@ import { rxResource } from '@angular/core/rxjs-interop';
   standalone: true,
   imports: [TagComponent, FormsModule],
   templateUrl: './tag-searcher.component.html',
-  styleUrls: ['../../../core/styles/searcher.css','./tag-searcher.component.css'],
+  styleUrls: ['../../../core/styles/searcher.css', './tag-searcher.component.css'],
 })
 export class TagSearcherComponent implements OnDestroy {
   private tagService = inject(TagService);

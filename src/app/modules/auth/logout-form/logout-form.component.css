@@ -8,7 +8,6 @@ form {
 
 @media (max-width: 800px) {
   .short{
-    width: 35dvw;
+    width: 80dvw;
   }
 }
-

@@ -3,7 +3,6 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { AuthService } from '@services/utils/auth.service';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-login-form',
   imports: [ReactiveFormsModule],
@@ -21,7 +20,7 @@ export default class LoginFormComponent implements OnInit {
   });
 
   ngOnInit() {
-    if (this.authService.isLoggedIn()) {
+    if (this.authService.$login()) {
       this.router.navigateByUrl('/admin/profile');
     }
   }
@@ -32,7 +31,6 @@ export default class LoginFormComponent implements OnInit {
       const password = this.loginForm.get('password')?.value ?? '';
       this.authService.sendLogin({ email, password }).subscribe((res) => {
         if (res.message == 'Hi') {
-          this.authService.login(res.data!);
           this.router.navigateByUrl('/admin/profile');
         } else {
           alert('Login failed');

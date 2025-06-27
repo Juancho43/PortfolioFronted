@@ -1,18 +1,15 @@
-import {Component, effect, input, output, signal} from '@angular/core';
-import {ProjectSearcherComponent} from '@modules/projects/project-searcher/project-searcher.component';
-import {TagComponent} from '@modules/tags/tag/tag.component';
-import {Project} from '@model/Project';
+import { Component, effect, input, output, signal } from '@angular/core';
+import { ProjectSearcherComponent } from '@modules/projects/project-searcher/project-searcher.component';
+import { TagComponent } from '@modules/tags/tag/tag.component';
+import { Project } from '@model/Project';
 import { ProjectFormMiniComponent } from '@modules/projects/project-form-mini/project-form-mini.component';
-
-
-
 
 @Component({
   selector: 'app-join-project',
   standalone: true,
   imports: [ProjectSearcherComponent, TagComponent, ProjectFormMiniComponent],
   templateUrl: './join-project.component.html',
-  styleUrls: ['../../../core/styles/join.css','../../../core/styles/forms.css','./join-project.component.css'],
+  styleUrls: ['../../../core/styles/join.css', '../../../core/styles/forms.css', './join-project.component.css'],
 })
 export class JoinProjectComponent {
   readonly initialProjects = input.required<Project[]>();
@@ -37,11 +34,11 @@ export class JoinProjectComponent {
   }
   toggleShowForm() {
     this.showForm.set(!this.showForm());
-    if(this.showForm()) this.showSearch.set(false);
+    if (this.showForm()) this.showSearch.set(false);
   }
   toggleShowSearch() {
     this.showSearch.set(!this.showSearch());
-    if(this.showSearch()) this.showForm.set(false);
+    if (this.showSearch()) this.showForm.set(false);
   }
 
   reset() {

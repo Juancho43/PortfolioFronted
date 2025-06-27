@@ -1,4 +1,4 @@
-import { Injectable, inject } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
@@ -7,14 +7,13 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class NotificationService {
   private snackBar = inject(MatSnackBar);
 
-  showNotification(message: string, action: string = 'Close', duration: number = 3000) {
+  showNotification(message: string, action = 'Close', duration = 3000) {
     this.snackBar.open(message, action, {
       duration: duration,
       horizontalPosition: 'right',
       verticalPosition: 'top',
     });
   }
-
   showSuccesNotification() {
     this.showNotification('¡Operación exitosa!', 'Cerrar', 3000);
   }

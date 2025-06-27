@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, input, signal } from '@angular/core';
+import { Component, inject, input, OnInit, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { ProfileService } from '@services/http/profile.service';
@@ -50,14 +50,14 @@ export class ProfileFormComponent implements OnInit {
   mapperProfile(): Profile {
     return {
       id: this.currentProfile().id,
-      name: this.ProfileForm.get("name")?.value ?? '',
+      name: this.ProfileForm.get('name')?.value ?? '',
       description: this.ProfileForm.get('presentation')?.value ?? '',
       rol: this.ProfileForm.get('role')?.value ?? '',
-    }
+    };
   }
   onSubmit() {
     if (this.edit()) {
-      this.service.putProfile( this.mapperProfile()).subscribe();
+      this.service.putProfile(this.mapperProfile()).subscribe();
     }
   }
 }

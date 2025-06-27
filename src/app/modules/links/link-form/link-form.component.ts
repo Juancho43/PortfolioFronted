@@ -8,7 +8,7 @@ import { LinkService } from '@http/link.service';
   standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './link-form.component.html',
-  styleUrls: [ '../../../core/styles/forms.css','./link-form.component.css'],
+  styleUrls: ['../../../core/styles/forms.css', './link-form.component.css'],
 })
 export class LinkFormComponent {
   private service = inject(LinkService);
@@ -28,7 +28,7 @@ export class LinkFormComponent {
   linkForm: FormGroup = new FormGroup({
     id: new FormControl(0),
     name: new FormControl('', [Validators.required]),
-    link : new FormControl('', Validators.required),
+    link: new FormControl('', Validators.required),
   });
 
   constructor() {
@@ -66,7 +66,7 @@ export class LinkFormComponent {
     return {
       id: this.linkForm.get('id')?.value,
       name: this.linkForm.get('name')?.value,
-      link: this.linkForm.get('link')?.value
+      link: this.linkForm.get('link')?.value,
     };
   }
   onSubmit() {

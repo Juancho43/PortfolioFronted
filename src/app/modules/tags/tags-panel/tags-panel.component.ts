@@ -5,13 +5,12 @@ import { TagComponent } from '@modules/tags/tag/tag.component';
 import { rxResource } from '@angular/core/rxjs-interop';
 import { TagFormComponent } from '@modules/tags/tag-form/tag-form.component';
 
-
 @Component({
   selector: 'app-tags-panel',
   imports: [TagFormComponent, TagComponent],
   standalone: true,
   templateUrl: './tags-panel.component.html',
-  styleUrls: [ '../../../core/styles/panel.css', './tags-panel.component.css' ],
+  styleUrls: ['../../../core/styles/panel.css', './tags-panel.component.css'],
 })
 export default class TagsPanelComponent {
   private service = inject(TagService);

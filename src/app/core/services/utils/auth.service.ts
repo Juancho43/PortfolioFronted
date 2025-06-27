@@ -4,7 +4,7 @@ import { environment } from '@environments/environment';
 import { CookieService } from '@services/utils/cookie.service';
 import { ApiResponse } from '@model/ApiResponse';
 import { checkToken } from '@core/guards/token.interceptor';
-import { BehaviorSubject, catchError, of, tap } from 'rxjs';
+import { catchError, of, tap } from 'rxjs';
 import { authEndpoint } from '@endpoints/auth.endpoint';
 import { NotificationService } from '@services/utils/notification.service';
 
@@ -15,12 +15,12 @@ export class AuthService {
   private http = inject(HttpClient);
   private cookieService = inject(CookieService);
   private notification = inject(NotificationService);
-  login$ = new BehaviorSubject<boolean>(false);
-  $lastLogin = signal<Date>(new Date());
+  $login = this.isLoggedIn();
 
   sendLogin(data: { email: string; password: string }) {
     return this.http.post<ApiResponse<string>>(environment.api_url + authEndpoint.login, data).pipe(
-      tap(() => {
+      tap((res) => {
+        this.login(res.data!);
         this.notification.showSuccesNotification();
       }),
       catchError(() => {
@@ -31,35 +31,45 @@ export class AuthService {
   }
 
   sendLogout() {
-    return this.http.post<ApiResponse<string>>(environment.api_url + authEndpoint.logout,{}, {
-      context: checkToken(),
-    }).pipe(
-      tap(() => {
-        this.notification.showSuccesNotification();
-      }),
-      catchError(() => {
-        this.notification.showErrorNotification();
-        return of();
-      }),
-    );
+    return this.http
+      .post<ApiResponse<string>>(
+        environment.api_url + authEndpoint.logout,
+        {},
+        {
+          context: checkToken(),
+        },
+      )
+      .pipe(
+        tap(() => {
+          this.logout();
+          this.notification.showSuccesNotification();
+        }),
+        catchError(() => {
+          this.notification.showErrorNotification();
+          return of();
+        }),
+      );
   }
-  sendPasswordReset(data: {new_password: string}) {
-    return this.http.post<ApiResponse<string>>(environment.api_url + authEndpoint.passwordReset, data, {
-      context: checkToken(),
-    }).pipe(
-      tap(() => {
-        this.notification.showSuccesNotification();
-      }),
-      catchError(() => {
-        this.notification.showErrorNotification();
-        return of();
-      }),
-    );
+  sendPasswordReset(data: { new_password: string }) {
+    return this.http
+      .post<ApiResponse<string>>(environment.api_url + authEndpoint.passwordReset, data, {
+        context: checkToken(),
+      })
+      .pipe(
+        tap(() => {
+          this.notification.showSuccesNotification();
+          this.logout();
+        }),
+
+        catchError(() => {
+          this.notification.showErrorNotification();
+          return of();
+        }),
+      );
   }
   login(token: string) {
     this.saveToken(token);
-    this.login$.next(true);
-    this.$lastLogin.set(new Date());
+    this.$login.set(true);
   }
 
   saveToken(token: string) {
@@ -68,21 +78,13 @@ export class AuthService {
 
   logout() {
     this.cookieService.removeCookie('token');
-    this.login$.next(false);
+    this.$login.set(false);
   }
 
   getToken() {
     return this.cookieService.getCookie('token');
   }
-
   isLoggedIn() {
-    if (this.getToken() !== undefined) {
-      this.login$.next(true);
-    } else {
-      this.login$.next(false);
-    }
-    return this.login$.getValue();
+    return signal(this.getToken() !== undefined);
   }
-
-
 }

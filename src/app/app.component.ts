@@ -5,7 +5,7 @@ import { NavbarComponent } from '@modules/shared/navbar/navbar.component';
 import { FooterComponent } from '@modules/shared/footer/footer.component';
 import { CommonModule } from '@angular/common';
 import { ThemeService } from '@services/utils/theme.service';
-import {SpinnerComponent} from '@modules/shared/spinner/spinner.component';
+import { SpinnerComponent } from '@modules/shared/spinner/spinner.component';
 import { UpButtonComponent } from '@modules/shared/up-button/up-button.component';
 
 @Component({

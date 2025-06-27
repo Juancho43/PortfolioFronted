@@ -6,7 +6,7 @@ import { getCookie, removeCookie, setCookie } from 'typescript-cookie';
 })
 export class CookieService {
   saveCookie(key: string, value: string) {
-    setCookie(key, value, { expires: 365, path: '/' });
+    setCookie(key, value, { expires: 10, path: '/' });
   }
 
   getCookie(cookie: string) {

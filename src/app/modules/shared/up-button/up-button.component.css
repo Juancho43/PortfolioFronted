@@ -24,9 +24,12 @@ button img {
 }
 
 button:hover img {
+  filter: invert(1);
   transform: scale(1.1);
+
 }
 button:hover {
+
   background-color: var(--color-two);
 }
 

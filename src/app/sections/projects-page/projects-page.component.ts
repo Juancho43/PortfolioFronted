@@ -21,7 +21,6 @@ export default class ProjectsPageComponent implements OnInit, OnDestroy {
   });
 
   ngOnInit(): void {
-
     this.metaTagService.updateTitle('Proyectos - Bravo, Juan Alé');
   }
 

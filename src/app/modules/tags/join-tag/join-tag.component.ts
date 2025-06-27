@@ -9,7 +9,7 @@ import { TagMiniFormComponent } from '@modules/tags/tag-mini-form/tag-mini-form.
   standalone: true,
   imports: [TagComponent, TagSearcherComponent, TagMiniFormComponent],
   templateUrl: './join-tag.component.html',
-  styleUrls: ['../../../core/styles/join.css','../../../core/styles/forms.css','./join-tag.component.css'],
+  styleUrls: ['../../../core/styles/join.css', '../../../core/styles/forms.css', './join-tag.component.css'],
 })
 export class JoinTagComponent {
   readonly initialTags = input.required<Tag[]>();
@@ -34,11 +34,11 @@ export class JoinTagComponent {
   }
   toggleShowForm() {
     this.showForm.set(!this.showForm());
-    if(this.showForm()) this.showSearch.set(false);
+    if (this.showForm()) this.showSearch.set(false);
   }
   toggleShowSearch() {
     this.showSearch.set(!this.showSearch());
-    if(this.showSearch()) this.showForm.set(false);
+    if (this.showSearch()) this.showForm.set(false);
   }
 
   reset() {

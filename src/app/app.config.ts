@@ -4,12 +4,13 @@ import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { tokenInterceptor } from '@core/guards/token.interceptor';
 import { provideAnimations } from '@angular/platform-browser/animations';
-import {loaderInterceptor} from '@core/guards/loader.interceptor';
+import { loaderInterceptor } from '@core/guards/loader.interceptor';
+
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes, withComponentInputBinding()),
-    provideHttpClient(withInterceptors([tokenInterceptor,loaderInterceptor])),
+    provideHttpClient(withInterceptors([tokenInterceptor, loaderInterceptor])),
     provideAnimations(),
   ],
 };

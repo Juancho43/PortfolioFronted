@@ -8,9 +8,8 @@ describe('LinkFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LinkFormComponent]
-    })
-    .compileComponents();
+      imports: [LinkFormComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(LinkFormComponent);
     component = fixture.componentInstance;

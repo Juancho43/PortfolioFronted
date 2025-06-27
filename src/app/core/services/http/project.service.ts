@@ -8,8 +8,6 @@ import { ApiResponse } from '@model/ApiResponse';
 import { projectEndpoint } from '@endpoints/project.endpoint';
 import { checkToken } from '@core/guards/token.interceptor';
 import { NotificationService } from '@services/utils/notification.service';
-import { Tag } from '@model/Tag';
-import { tagEndpoints } from '@endpoints/tag.endpoint';
 
 @Injectable({
   providedIn: 'root',

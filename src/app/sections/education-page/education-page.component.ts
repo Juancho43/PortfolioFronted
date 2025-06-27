@@ -27,5 +27,4 @@ export default class EducationPageComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.metaTagService.updateTitle('Bravo, Juan Alé');
   }
-
 }

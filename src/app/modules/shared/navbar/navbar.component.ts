@@ -1,13 +1,13 @@
 import { Component, HostListener, signal } from '@angular/core';
 import { RouterLink, RouterModule } from '@angular/router';
-import { NgClass } from '@angular/common';
+import { NgClass, NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterLink, RouterModule, NgClass],
+  imports: [RouterLink, RouterModule, NgClass, NgOptimizedImage],
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css', '../../../core/styles/navbar.css'],
+  styleUrls: ['../../../core/styles/navbar.css', './navbar.component.css'],
 })
 export class NavbarComponent {
   show = signal<boolean>(true);

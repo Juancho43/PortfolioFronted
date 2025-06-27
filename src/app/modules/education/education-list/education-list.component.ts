@@ -9,7 +9,7 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-education-list',
   standalone: true,
-  imports: [EducationComponent,RouterLink],
+  imports: [EducationComponent, RouterLink],
   templateUrl: './education-list.component.html',
   styleUrl: './education-list.component.css',
 })

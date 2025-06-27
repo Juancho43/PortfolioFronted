@@ -9,7 +9,7 @@ import { LinkComponent } from '@modules/links/link/link.component';
   standalone: true,
   imports: [LinkMiniFormComponent, LinkComponent],
   templateUrl: './join-link.component.html',
-  styleUrls: ['../../../core/styles/join.css','../../../core/styles/forms.css','./join-link.component.css'],
+  styleUrls: ['../../../core/styles/join.css', '../../../core/styles/forms.css', './join-link.component.css'],
 })
 export class JoinLinkComponent {
   readonly initialLinks = input.required<Link[]>();
