@@ -4,7 +4,9 @@ import { environment } from '@environments/environment';
 import { CookieService } from '@services/utils/cookie.service';
 import { ApiResponse } from '@model/ApiResponse';
 import { checkToken } from '@core/guards/token.interceptor';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, catchError, of, tap } from 'rxjs';
+import { authEndpoint } from '@endpoints/auth.endpoint';
+import { NotificationService } from '@services/utils/notification.service';
 
 @Injectable({
   providedIn: 'root',
@@ -12,19 +14,48 @@ import { BehaviorSubject } from 'rxjs';
 export class AuthService {
   private http = inject(HttpClient);
   private cookieService = inject(CookieService);
+  private notification = inject(NotificationService);
   login$ = new BehaviorSubject<boolean>(false);
   $lastLogin = signal<Date>(new Date());
 
   sendLogin(data: { email: string; password: string }) {
-    return this.http.post<ApiResponse<string>>(environment.api_url + '/login', data);
+    return this.http.post<ApiResponse<string>>(environment.api_url + authEndpoint.login, data).pipe(
+      tap(() => {
+        this.notification.showSuccesNotification();
+      }),
+      catchError(() => {
+        this.notification.showErrorNotification();
+        return of();
+      }),
+    );
   }
 
   sendLogout() {
-    return this.http.post<ApiResponse<string>>(environment.api_url + '/logout',{}, {
+    return this.http.post<ApiResponse<string>>(environment.api_url + authEndpoint.logout,{}, {
       context: checkToken(),
-    });
+    }).pipe(
+      tap(() => {
+        this.notification.showSuccesNotification();
+      }),
+      catchError(() => {
+        this.notification.showErrorNotification();
+        return of();
+      }),
+    );
   }
-
+  sendPasswordReset(data: {new_password: string}) {
+    return this.http.post<ApiResponse<string>>(environment.api_url + authEndpoint.passwordReset, data, {
+      context: checkToken(),
+    }).pipe(
+      tap(() => {
+        this.notification.showSuccesNotification();
+      }),
+      catchError(() => {
+        this.notification.showErrorNotification();
+        return of();
+      }),
+    );
+  }
   login(token: string) {
     this.saveToken(token);
     this.login$.next(true);
@@ -52,4 +83,6 @@ export class AuthService {
     }
     return this.login$.getValue();
   }
+
+
 }

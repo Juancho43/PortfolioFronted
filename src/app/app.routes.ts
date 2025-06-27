@@ -49,6 +49,12 @@ export const routes: Routes = [
     loadComponent: () => import('./modules/auth/logout-form/logout-form.component').then(),
   },
   {
+    path:'password-reset',
+    canActivate: [authGuard],
+    loadComponent: () => import('./modules/auth/password-reset-form/password-reset-form.component').then(),
+  }
+  ,
+  {
     path: 'admin',
     loadComponent: () => import('./sections/admin-page/admin-page.component').then(),
     canActivate: [authGuard],
