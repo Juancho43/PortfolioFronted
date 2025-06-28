@@ -102,15 +102,9 @@ body {
 
 main {
   overflow-x: hidden;
-  overflow-y: scroll;
-  height: 100dvh;
+  min-height: 100dvh;
   width: 100dvw;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  gap: 3em;
+  flex: 1 0 auto;
 }
 
 
