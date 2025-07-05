@@ -27,7 +27,7 @@ article div:first-child {
   align-items: end;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1000px) {
   /* Estilos para pantallas de hasta 767px de ancho */
   article {
     min-width: 90vw;

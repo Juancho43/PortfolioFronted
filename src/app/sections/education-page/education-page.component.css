@@ -3,7 +3,7 @@ div {
   justify-content: space-between;
 
 }
-@media (max-width: 767px) {
+@media (max-width: 1000px) {
   div {
 
     gap: 10px;

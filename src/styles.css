@@ -113,10 +113,18 @@ h1,
 h2 {
   font-family: var(--font-two), sans-serif;
 }
-h2 {
+h3 {
+  font-size: 1.6rem;
   align-self: flex-start;
 }
+h4{
+  font-size: 1.3rem;
+  align-self: flex-start;
+}
+h5{
+  font-size: 1.1rem;
 
+}
 a {
   border: none;
   text-decoration: none;
@@ -175,14 +183,11 @@ input {
 }
 
 
-@media (max-width: 767px) {
+@media (max-width: 1000px) {
   /* Estilos para pantallas de hasta 767px de ancho */
   section, article {
     justify-content: center;
     align-items: center;
     align-content: center;
   }
-}
-
-@media (max-width: 400px) {
 }
