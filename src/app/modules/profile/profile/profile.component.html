@@ -1,5 +1,11 @@
 <article>
-  <img [src]="photo()" [alt]="profile?.name" />
+  <img
+    [ngSrc]="photo() || 'assets/images/placeholder.png'"
+    priority
+    width="200"
+    height="300"
+    [alt]="profile?.name"
+  />
 
   <div>
     <h1>{{ profile?.name }}</h1>

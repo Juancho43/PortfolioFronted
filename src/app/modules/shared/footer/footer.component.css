@@ -5,11 +5,6 @@ footer {
   min-height: 70px;
   width: 100dvw;
   font-size: large;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  z-index: 100;
-  margin-top: 20px;
 }
 a,
 p {

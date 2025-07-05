@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 
 @Component({
@@ -8,23 +8,18 @@ import { NgOptimizedImage } from '@angular/common';
   templateUrl: './up-button.component.html',
   styleUrl: './up-button.component.css',
 })
-export class UpButtonComponent implements OnDestroy {
-  isVisible = false;
-  content = document.querySelector('main')!;
+export class UpButtonComponent {
+  isVisible = signal(window.scrollY > 100);
+
 
   constructor() {
-    this.content.addEventListener('scroll', () => {
-      this.isVisible = this.content.scrollTop > 100;
+    window.addEventListener('scroll', () => {
+      this.isVisible.set(window.scrollY > 100);
     });
   }
-
   scrollToTop() {
-    this.content.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top:0, left:0, behavior:'smooth' });
   }
 
-  ngOnDestroy() {
-    this.content.removeEventListener('scroll', () => {
-      this.isVisible = this.content.scrollTop > 100;
-    });
-  }
+
 }

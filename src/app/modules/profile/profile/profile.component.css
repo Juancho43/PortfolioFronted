@@ -28,7 +28,7 @@ article img {
 
 article img:hover {
   transform: scale(1.05) ;
-  drop-shadow(5px 5px 5px var(--color-primary-alter));
+  filter: drop-shadow(5px 5px 5px var(--color-primary-alter));
   transition: transform 0.3s ease-in-out;
 }
 article div {
