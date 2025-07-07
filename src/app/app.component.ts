@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { ThemeService } from '@services/utils/theme.service';
 import { SpinnerComponent } from '@modules/shared/spinner/spinner.component';
 import { UpButtonComponent } from '@modules/shared/up-button/up-button.component';
+import { ShareButtonComponent } from '@modules/shared/share-button/share-button.component';
 
 @Component({
   selector: 'app-root',
@@ -19,9 +20,10 @@ import { UpButtonComponent } from '@modules/shared/up-button/up-button.component
     FooterComponent,
     SpinnerComponent,
     UpButtonComponent,
+    ShareButtonComponent,
   ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+  styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
   private themeService = inject(ThemeService);

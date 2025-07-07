@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './education.component.html',
-  styleUrl: './education.component.css',
+  styleUrl: './education.component.scss',
 })
 export default class EducationComponent {
   readonly education = input<Education>({} as Education);

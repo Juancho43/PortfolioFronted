@@ -10,7 +10,7 @@ import { TagComponent } from '@modules/tags/tag/tag.component';
   standalone: true,
   imports: [FormsModule, TagComponent],
   templateUrl: './project-searcher.component.html',
-  styleUrls: ['../../../core/styles/searcher.css', './project-searcher.component.css'],
+  styleUrl: './project-searcher.component.scss',
 })
 export class ProjectSearcherComponent implements OnDestroy {
   private service = inject(ProjectService);

@@ -10,7 +10,7 @@ import { EducationCardComponent } from '@modules/education/education-card/educat
   imports: [EducationFormComponent, EducationCardComponent],
   standalone: true,
   templateUrl: './education-panel.component.html',
-  styleUrls: ['./education-panel.component.css', '../../../core/styles/panel.css'],
+  styleUrl: './education-panel.component.scss',
 })
 export default class EducationPanelComponent {
   private service = inject(EducationService);

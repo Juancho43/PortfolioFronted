@@ -1,0 +1,20 @@
+@use '../../../../styles';
+footer {
+  @include styles.flex-column();
+  background-color: var(--color-black-secondary);
+  min-height: 70px;
+  width: 100dvw;
+  font-size: large;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+
+  a, p {
+    color: var(--color-white);
+    margin: 5px;
+    text-align: center;
+  }
+}
+
+

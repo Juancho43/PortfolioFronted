@@ -13,7 +13,7 @@ import { rxResource } from '@angular/core/rxjs-interop';
   standalone: true,
   imports: [CommonModule, TagComponent, LinkComponent],
   templateUrl: './project-detail.component.html',
-  styleUrls: ['../../../core/styles/detail.css', './project-detail.component.css'],
+  styleUrl: './project-detail.component.scss',
 })
 export default class ProjectDetailComponent implements OnDestroy {
   private service = inject(ProjectService);

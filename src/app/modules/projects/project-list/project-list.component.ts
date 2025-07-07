@@ -13,7 +13,7 @@ import { of, switchMap } from 'rxjs';
   standalone: true,
   imports: [CommonModule, ProjectCardComponent, RouterLink],
   templateUrl: './project-list.component.html',
-  styleUrl: './project-list.component.css',
+  styleUrl: './project-list.component.scss',
 })
 export default class ProjectListComponent {
   private service = inject(ProjectService);

@@ -11,7 +11,9 @@ export class MetaTagsService {
   updateTitle(title: string) {
     this.titleService.setTitle(title);
   }
-
+  getTitle(): string {
+    return this.titleService.getTitle();
+  }
   updateMetaTags(tags: { name: string; content: string }[]) {
     tags.forEach((tag) => {
       this.meta.updateTag({ name: tag.name, content: tag.content });

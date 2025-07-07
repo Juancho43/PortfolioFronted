@@ -16,7 +16,7 @@ import { JoinLinkComponent } from '@modules/links/join-link/join-link.component'
   standalone: true,
   imports: [ReactiveFormsModule, JoinTagComponent, JoinLinkComponent],
   templateUrl: './project-form.component.html',
-  styleUrls: [ '../../../core/styles/forms.css','./project-form.component.css'],
+  styleUrl :  './project-form.component.scss',
 })
 export class ProjectFormComponent {
   /** Service for handling project API operations */

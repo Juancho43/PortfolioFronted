@@ -6,7 +6,7 @@ import { Link } from '@model/Link';
   standalone: true,
   imports: [],
   templateUrl: './link.component.html',
-  styleUrl: './link.component.css',
+  styleUrl: './link.component.scss',
 })
 export class LinkComponent {
   readonly link = input<Link>({

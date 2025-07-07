@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   imports: [ReactiveFormsModule],
   standalone: true,
   templateUrl: './login-form.component.html',
-  styleUrls: ['../../../core/styles/forms.css', './login-form.component.css'],
+  styleUrl: './login-form.component.scss',
 })
 export default class LoginFormComponent implements OnInit {
   private authService = inject(AuthService);

@@ -14,7 +14,7 @@ import { JoinProjectComponent } from '@modules/projects/join-project/join-projec
   standalone: true,
   imports: [ReactiveFormsModule, JoinLinkComponent, JoinTagComponent, JoinProjectComponent],
   templateUrl: './education-form.component.html',
-  styleUrls: ['../../../core/styles/forms.css', './education-form.component.css'],
+  styleUrl: './education-form.component.scss',
 })
 export class EducationFormComponent {
   /** Service for handling project API operations */

@@ -1,0 +1,38 @@
+
+
+button {
+
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 60px;
+  height: 60px;
+  background-color: var(--color-one);
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 1s ease-in-out;
+}
+
+button img {
+  width: 50%;
+  height: 50%;
+}
+
+button:hover img {
+  filter: invert(1);
+  transform: scale(1.1);
+
+}
+button:hover {
+  background-color: var(--color-three);
+}
+
+button:focus {
+  outline: none;
+}

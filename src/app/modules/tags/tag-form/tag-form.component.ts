@@ -8,7 +8,7 @@ import { Tag } from '@app/core/interfaces/Tag';
   standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './tag-form.component.html',
-  styleUrls: ['../../../core/styles/forms.css', './tag-form.component.css'],
+  styleUrl: './tag-form.component.scss',
 })
 export class TagFormComponent {
   private service = inject(TagService);

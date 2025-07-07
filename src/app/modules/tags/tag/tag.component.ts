@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './tag.component.html',
-  styleUrl: './tag.component.css',
+  styleUrl: './tag.component.scss',
 })
 export class TagComponent {
   readonly tag = input<Tag>({

@@ -46,6 +46,7 @@
     "prettier": "^3.5.3",
     "prettier-plugin-embed": "^0.5.0",
     "prettier-plugin-tailwindcss": "^0.6.11",
+    "schematics-scss-migrate": "^2.3.17",
     "stylelint": "^16.19.1",
     "stylelint-config-recommended-scss": "^14.1.0",
     "stylelint-config-standard": "^38.0.0",

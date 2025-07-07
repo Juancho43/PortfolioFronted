@@ -1,0 +1,29 @@
+@use "vars" as v;
+@keyframes shine{
+
+  0%,100% {
+    background: v.$glass-color;
+  }
+  50% {
+    background: var(--background);
+    filter:
+      drop-shadow(0 0 6px var(--color-white-secondary))
+      saturate(1.5);
+  ;
+    box-shadow: 0 2px 20px var(--color-primary-alter);
+  }
+
+}
+
+@keyframes main1 {
+  0%, 100% {
+    background-position: 0 50%;
+    background-size: 100vw;
+  }
+
+  50% {
+    background-position: 100% 20%;
+    background-size: 300vw;
+  }
+
+}

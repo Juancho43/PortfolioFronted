@@ -9,7 +9,7 @@ import { MetaTagsService } from '@services/utils/meta-tags.service';
   standalone: true,
   imports: [ContactComponent],
   templateUrl: './contact-page.component.html',
-  styleUrl: './contact-page.component.css',
+  styleUrl: './contact-page.component.scss',
 })
 export default class ContactPageComponent implements OnInit, OnDestroy {
   protected readonly environment = environment;

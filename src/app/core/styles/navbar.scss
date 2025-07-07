@@ -1,0 +1,79 @@
+
+@use 'mixins';
+@use 'vars';
+@use 'animations';
+@use 'mediaQueries';
+@keyframes toggleView {
+  from {
+    transform: translateY(-100%);
+  }
+
+  to{
+    transform: translateY(0);
+  }
+
+}
+
+.active {
+  backdrop-filter:drop-shadow(0 0 4px var(--color-two));
+}
+nav{
+  @include mixins.flex-row();
+  width: 100dvw;
+  justify-content: center;
+
+  ul{
+    @include mixins.flex-row();
+    width: 100dvw;
+    justify-content: center;
+    list-style: none;
+  }
+  img {
+    width: 70px;
+    height: 70px;
+    display: none;
+  }
+  li {
+    animation: toggleView 1s;
+    cursor: pointer;
+    margin: 1em;
+    padding: 0.3em;
+    width: max-content;
+    text-align: center;
+
+    color: var(--color-white);
+    text-decoration: underline;
+    text-decoration-color: var(--color-primary);
+    font-size: 20px;
+    transition: box-shadow  2s;
+
+    &:hover {
+      //filter: drop-shadow( var(--color-two) 0 4px 9px);
+      color: var(--color-primary);
+    }
+  }
+}
+
+
+
+
+
+@media (max-width: 767px) {
+  /* Estilos para pantallas de hasta 767px de ancho */
+  nav ul, nav {
+    @include mixins.flex-column();
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2em;
+  }
+  nav ul li {
+    width: 200px;
+    height: 1.9em;
+    margin: 0.2em;
+    font-size: 1.6em;
+  }
+
+  img {
+    display: inline-block;
+  }
+}

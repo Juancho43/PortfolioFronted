@@ -8,7 +8,7 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [TagComponent, RouterLink],
   templateUrl: './tag-list.component.html',
-  styleUrl: './tag-list.component.css',
+  styleUrl: './tag-list.component.scss',
 })
 export class TagListComponent {
   readonly tags = input<Tag[]>([]);

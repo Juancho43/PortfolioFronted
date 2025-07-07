@@ -1,0 +1,105 @@
+@use "../src/app/core/styles/vars" as v;
+@use "../src/app/core/styles/mixins" as m;
+@use "../src/app/core/styles/animations" as anims;
+@use '../src/app/core/styles/layout' as layout;
+@forward "../src/app/core/styles/mixins";
+@forward "../src/app/core/styles/vars";
+@forward "../src/app/core/styles/animations";
+@forward "../src/app/core/styles/mediaQueries";
+* {
+  padding: 0;
+  margin: 0;
+  color: var(--color-primary);
+  font-family: var(--font-one), sans-serif;
+  user-select: none;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-one);justify-content: center;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary-alter);
+  border-radius: 1px;
+}
+
+body {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary-alter) var(--color-one);
+  background: var(--background);
+  background-size: 200%;
+  animation-timing-function: ease-out;
+  animation-name: main1;
+  animation-duration: 15s;
+  animation-iteration-count: 3;
+  @include m.flex-column();
+  width: 100dvw;
+  height: auto;
+  overflow-x: hidden;
+}
+
+main {
+  overflow: hidden;
+  min-height: 80dvh;
+  @include m.flex-column();
+  align-items: center;
+}
+
+
+h1, h2, h3, h4, h5 {
+  font-family: v.$font-one, sans-serif;
+}
+h3 {
+  font-size: 1.6rem;
+  align-self: flex-start;
+}
+h4{
+  font-size: 1.3rem;
+  align-self: flex-start;
+}
+h5{
+  font-size: 1.1rem;
+
+}
+a {
+  border: none;
+  text-decoration: none;
+}
+p{
+  color: var(--color-primary);
+}
+
+.glass {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: v.$glass-color;
+  border-radius: 12px;
+  border: 1px solid v.$glass-border-color;
+  transition: 1s;
+}
+.glass:hover {
+  animation: shine 2s;
+
+  box-shadow: 0 2px 10px var(--color-primary-alter);
+}
+
+
+
+.Container {
+  @include m.flex-row;
+  width: 85%;
+  justify-content: space-between;
+  align-items: center;
+}
+.Container * {
+  margin: 5px 0;
+}
+button,
+input {
+  color: var(--color-primary);
+  font-size: 17px;
+}
+

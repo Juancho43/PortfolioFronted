@@ -9,7 +9,7 @@ import { NgOptimizedImage } from '@angular/common';
   imports: [NgOptimizedImage],
   standalone: true,
   templateUrl: './profile.component.html',
-  styleUrl: './profile.component.css',
+  styleUrl: './profile.component.scss',
 })
 export class ProfileComponent implements OnInit {
   private profileService = inject(ProfileService);

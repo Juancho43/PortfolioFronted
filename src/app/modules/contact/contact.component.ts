@@ -5,7 +5,7 @@ import { Component, input } from '@angular/core';
   imports: [],
   templateUrl: './contact.component.html',
   standalone: true,
-  styleUrl: './contact.component.css',
+  styleUrl: './contact.component.scss',
 })
 export class ContactComponent {
   readonly img = input('');

@@ -1,0 +1,35 @@
+
+$color-gray: rgba(200, 200, 200, 0.5);
+$glass-color: rgba(129, 116, 160, 0.2);
+$glass-border-color: rgba(255, 255, 255, 0.125);
+
+// Fonts
+$font-one: 'Montserrat', sans-serif;
+$font-two: 'Poppins', sans-serif;
+
+
+:root{
+  --color-black: #292929;
+  --color-black-secondary: #261f00;
+  --color-white: #dcdcdc;
+  --color-white-secondary: #fcfcfa;
+
+  --color-one: #86a6fb;
+  --color-two: rgb(168, 136, 181);
+  --color-three: #rgb(238, 201, 144);
+  --background: linear-gradient(60deg, var(--color-one), var(--color-two));
+  --shiny: linear-gradient(60deg, var(--glass-color), var(--glass-border-color));
+
+  --color-primary : var(--color-black);
+  --color-primary-alter : var(--color-black-secondary);
+}
+
+.dark-theme {
+  --color-one: #1e2f54;
+  --color-two: #480967;
+  --color-three: #4c2d14;
+  --color-primary: var(--color-white);
+  --color-primary-alter: var(--color-white-secondary);
+  --grayscale: 40%;
+  transition: 1s background;
+}

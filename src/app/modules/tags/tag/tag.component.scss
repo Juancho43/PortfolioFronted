@@ -1,0 +1,28 @@
+@use '../../../core/styles/mixins' as mixins;
+@use '../../../core/styles/vars' as vars;
+.tag {
+  padding: 2px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border: 1px solid vars.$color-gray;
+  color : var(--color-black-secondary);
+  font-family: vars.$color-gray, sans-serif;
+  font-weight: bold;
+  margin: 10px;
+  border-radius: 10px;
+  width: fit-content;
+  @include mixins.flex-row;
+  justify-content: center;
+  align-content: center;
+  transition: 2s box-shadow;
+}
+
+.tag:before {
+  content: '#';
+  color: var(--color-primary);
+  font-size: 1.2em;
+  margin-right: 5px;
+}
+
+.tag:hover{
+  filter: drop-shadow(0 0 6px var(--color-white));
+}

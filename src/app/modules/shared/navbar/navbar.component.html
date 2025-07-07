@@ -1,19 +1,32 @@
 <nav>
   <img
-    src="asset/menu.svg"
+    ngSrc="asset/menu.svg"
     alt="menu"
     (click)="toggleNavbar()"
-    [ngClass]="{'toggle': show()}"
     tabindex="1"
+    width="30"
+    height="30"
   />
+
   <ul
     [ngClass]="{'appear' : show(), 'hide' : !show()}"
-
   >
-    <li routerLink="home" routerLinkActive="active"><img ngSrc="asset/info.svg" height="5" width="5" alt="info">Acerca de mi</li>
-    <li routerLink="education/all" routerLinkActive="active"><img ngSrc="asset/education.svg" height="5" width="5" alt="education">Formación</li>
-    <li routerLink="projects/all" routerLinkActive="active"><img ngSrc="asset/code.svg" height="5" width="5" alt="projects">Proyectos</li>
-    <li routerLink="contact" routerLinkActive="active"><img ngSrc="asset/bookmark.svg" height="5" width="5" alt="contact">Enlaces</li>
+    <li routerLink="home" routerLinkActive="active">
+      <img ngSrc="asset/info.svg" height="5" width="5" alt="info">
+      Acerca de mi
+    </li>
+    <li routerLink="education/all" routerLinkActive="active">
+      <img ngSrc="asset/education.svg" height="5" width="5" alt="education">
+      Formación
+    </li>
+    <li routerLink="projects/all" routerLinkActive="active">
+      <img ngSrc="asset/code.svg" height="5" width="5" alt="projects">
+      Proyectos
+    </li>
+    <li routerLink="contact" routerLinkActive="active">
+      <img ngSrc="asset/bookmark.svg" height="5" width="5" alt="contact">
+      Enlaces
+    </li>
   </ul>
 
 </nav>

@@ -6,6 +6,6 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   standalone: true,
   imports: [RouterOutlet, RouterLink],
   templateUrl: './admin-page.component.html',
-  styleUrls: ['./admin-page.component.css', '../../core/styles/navbar.css'],
+  styleUrl: './admin-page.component.scss',
 })
 export default class AdminPageComponent {}

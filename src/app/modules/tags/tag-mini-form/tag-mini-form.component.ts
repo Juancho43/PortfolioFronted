@@ -12,7 +12,7 @@ import { Tag } from '@model/Tag';
   standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './tag-mini-form.component.html',
-  styleUrls: ['../../../core/styles/forms.css','../../../core/styles/mini-form.css','./tag-mini-form.component.css'],
+  styleUrl : './tag-mini-form.component.scss',
 })
 export class TagMiniFormComponent {
   /** Service for handling tag API operations */

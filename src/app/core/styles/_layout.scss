@@ -1,0 +1,22 @@
+@use 'mixins';
+@use 'mediaQueries';
+section {
+  @include mixins.flex-column();
+  align-items: center;
+  width: 90vw;
+  margin-left: 2vw;
+  margin-right: 2vw;
+}
+article {
+  @include mixins.flex-row();
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+@include mediaQueries.tablet() {
+  section, article {
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
+}

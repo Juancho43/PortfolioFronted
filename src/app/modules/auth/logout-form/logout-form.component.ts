@@ -8,7 +8,7 @@ import { Router, RouterLink } from '@angular/router';
   imports: [ReactiveFormsModule, RouterLink],
   standalone: true,
   templateUrl: './logout-form.component.html',
-  styleUrls: ['../../../core/styles/forms.css', './logout-form.component.css'],
+  styleUrl: './logout-form.component.scss',
 })
 export default class LogoutFormComponent {
   private authService = inject(AuthService);

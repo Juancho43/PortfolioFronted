@@ -7,7 +7,7 @@ import { TagListComponent } from '@modules/tags/tag-list/tag-list.component';
   standalone: true,
   imports: [TagListComponent],
   templateUrl: './education-card.component.html',
-  styleUrl: './education-card.component.css',
+  styleUrl: './education-card.component.scss',
 })
 export class EducationCardComponent {
   readonly education = input.required<Education>();

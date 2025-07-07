@@ -6,7 +6,7 @@ import { ThemeService } from '@services/utils/theme.service';
   standalone: true,
   imports: [],
   templateUrl: './dark-mode.component.html',
-  styleUrl: './dark-mode.component.css',
+  styleUrl: './dark-mode.component.scss',
 })
 export class DarkModeComponent implements OnInit {
   private themeService = inject(ThemeService);

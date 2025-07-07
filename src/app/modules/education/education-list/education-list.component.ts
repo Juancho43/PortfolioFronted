@@ -11,7 +11,7 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [EducationComponent, RouterLink],
   templateUrl: './education-list.component.html',
-  styleUrl: './education-list.component.css',
+  styleUrl: './education-list.component.scss',
 })
 export default class EducationListComponent implements OnDestroy {
   private service = inject(EducationService);

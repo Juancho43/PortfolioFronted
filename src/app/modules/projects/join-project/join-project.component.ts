@@ -9,7 +9,7 @@ import { ProjectFormMiniComponent } from '@modules/projects/project-form-mini/pr
   standalone: true,
   imports: [ProjectSearcherComponent, TagComponent, ProjectFormMiniComponent],
   templateUrl: './join-project.component.html',
-  styleUrls: ['../../../core/styles/join.css', '../../../core/styles/forms.css', './join-project.component.css'],
+  styleUrl: './join-project.component.scss',
 })
 export class JoinProjectComponent {
   readonly initialProjects = input.required<Project[]>();

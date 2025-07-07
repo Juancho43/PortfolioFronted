@@ -6,7 +6,7 @@ import { NgOptimizedImage } from '@angular/common';
   standalone: true,
   imports: [NgOptimizedImage],
   templateUrl: './up-button.component.html',
-  styleUrl: './up-button.component.css',
+  styleUrl: './up-button.component.scss',
 })
 export class UpButtonComponent {
   isVisible = signal(window.scrollY > 100);

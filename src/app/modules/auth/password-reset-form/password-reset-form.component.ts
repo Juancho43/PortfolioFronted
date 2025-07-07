@@ -7,7 +7,7 @@ import { AuthService } from '@services/utils/auth.service';
   imports: [FormsModule, ReactiveFormsModule],
   standalone: true,
   templateUrl: './password-reset-form.component.html',
-  styleUrls: ['../../../core/styles/forms.css', './password-reset-form.component.css'],
+  styleUrl: './password-reset-form.component.scss',
 })
 export default class PasswordResetFormComponent {
   private service = inject(AuthService);

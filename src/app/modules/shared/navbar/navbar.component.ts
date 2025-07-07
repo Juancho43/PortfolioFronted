@@ -7,7 +7,7 @@ import { NgClass, NgOptimizedImage } from '@angular/common';
   standalone: true,
   imports: [RouterLink, RouterModule, NgClass, NgOptimizedImage],
   templateUrl: './navbar.component.html',
-  styleUrls: ['../../../core/styles/navbar.css', './navbar.component.css'],
+  styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent {
   show = signal<boolean>(true);

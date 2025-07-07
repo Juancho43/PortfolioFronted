@@ -12,7 +12,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
   standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './link-mini-form.component.html',
-  styleUrls: ['../../../core/styles/forms.css','../../../core/styles/mini-form.css','./link-mini-form.component.css'],
+  styleUrl:'./link-mini-form.component.scss',
 })
 export class LinkMiniFormComponent {
   /** Service for handling link API operations */

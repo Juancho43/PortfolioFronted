@@ -8,11 +8,9 @@ import { ProjectService } from '@http/project.service';
   standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './project-form-mini.component.html',
-  styleUrls: [
-    '../../../core/styles/forms.css',
-    '../../../core/styles/mini-form.css',
-    './project-form-mini.component.css',
-  ],
+  styleUrl:
+    './project-form-mini.component.scss',
+
 })
 export class ProjectFormMiniComponent {
   /** Service for handling tag API operations */

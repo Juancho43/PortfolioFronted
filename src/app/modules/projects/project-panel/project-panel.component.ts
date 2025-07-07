@@ -10,7 +10,7 @@ import { ProjectCardComponent } from '@modules/projects/project-card/project-car
   imports: [ProjectFormComponent, ProjectCardComponent],
   standalone: true,
   templateUrl: './project-panel.component.html',
-  styleUrls: ['./project-panel.component.css', '../../../core/styles/panel.css'],
+  styleUrl: './project-panel.component.scss',
 })
 export default class ProjectPanelComponent {
   private service = inject(ProjectService);

@@ -7,6 +7,6 @@ import { DarkModeComponent } from '@modules/shared/dark-mode/dark-mode.component
   standalone: true,
   imports: [ProfileComponent, DarkModeComponent],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css',
+  styleUrl: './header.component.scss',
 })
 export class HeaderComponent {}

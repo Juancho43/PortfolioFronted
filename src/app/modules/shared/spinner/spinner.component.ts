@@ -6,7 +6,7 @@ import { LoadingService } from '@services/utils/loading.service';
   standalone: true,
   imports: [],
   templateUrl: './spinner.component.html',
-  styleUrl: './spinner.component.css',
+  styleUrl: './spinner.component.scss',
 })
 export class SpinnerComponent {
   private LoadingService = inject(LoadingService);

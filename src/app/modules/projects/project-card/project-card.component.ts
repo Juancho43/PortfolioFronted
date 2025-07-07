@@ -7,7 +7,7 @@ import { TagListComponent } from '../../tags/tag-list/tag-list.component';
   standalone: true,
   imports: [TagListComponent],
   templateUrl: './project-card.component.html',
-  styleUrl: './project-card.component.css',
+  styleUrl: './project-card.component.scss',
 })
 export class ProjectCardComponent {
   readonly project = input<Project>({} as Project);

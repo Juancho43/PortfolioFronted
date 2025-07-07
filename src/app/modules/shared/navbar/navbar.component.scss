@@ -1,0 +1,42 @@
+@use '../../../core/styles/navbar';
+
+nav{
+  li > img{
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+  }
+
+  li{
+    display:flex;
+    align-items: center;
+    gap: 0.5em;
+  }
+  img{
+    display: none;
+    transition: all 1s ease;
+    @media (max-width: 767px) {
+      display: inline-block;
+
+    }
+  }
+  .toggle{
+    transform: rotateX(45deg);
+    filter: drop-shadow(0px 1px 3px rgba(0,0,0,0.2)) ;
+  }
+  .appear {
+    display: flex;
+
+  }
+  .hide{
+    display: none;
+  }
+  img:hover {
+    transform: scale(1.1);
+    filter:
+
+      drop-shadow(0 0 2px var(--color-three))
+      drop-shadow(0 0 6px var(--color-white));
+  }
+
+}

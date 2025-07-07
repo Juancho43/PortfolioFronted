@@ -10,7 +10,7 @@ import { RouterOutlet } from '@angular/router';
   standalone: true,
   imports: [TagListComponent, RouterOutlet],
   templateUrl: './education-page.component.html',
-  styleUrl: './education-page.component.css',
+  styleUrl: './education-page.component.scss',
 })
 export default class EducationPageComponent implements OnInit, OnDestroy {
   private tagService = inject(TagService);

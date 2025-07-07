@@ -12,7 +12,7 @@ import { rxResource } from '@angular/core/rxjs-interop';
   standalone: true,
   imports: [LinkComponent, TagComponent, ProjectListComponent],
   templateUrl: './education-detail.component.html',
-  styleUrls: ['../../../core/styles/detail.css', './education-detail.component.css'],
+  styleUrl: './education-detail.component.scss',
 })
 export default class EducationDetailComponent implements OnDestroy {
   private meta = inject(MetaTagsService);

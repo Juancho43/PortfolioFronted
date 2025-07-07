@@ -12,7 +12,7 @@ import { JoinLinkComponent } from '@modules/links/join-link/join-link.component'
   standalone: true,
   imports: [ReactiveFormsModule, ImgProfileFormComponent, CvProfileFormComponent, JoinLinkComponent],
   templateUrl: './profile-form.component.html',
-  styleUrls: ['./profile-form.component.css', '../../../core/styles/forms.css'],
+  styleUrl: './profile-form.component.scss',
 })
 export class ProfileFormComponent implements OnInit {
   private service = inject(ProfileService);

@@ -8,7 +8,7 @@ import { LinkService } from '@http/link.service';
   standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './link-form.component.html',
-  styleUrls: ['../../../core/styles/forms.css', './link-form.component.css'],
+  styleUrl:'./link-form.component.scss',
 })
 export class LinkFormComponent {
   private service = inject(LinkService);
