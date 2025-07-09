@@ -1,6 +1,7 @@
 import { Component, inject, linkedSignal } from '@angular/core';
 import { MetaTagsService } from '@services/utils/meta-tags.service';
 import { NgOptimizedImage } from '@angular/common';
+import { environment } from '@environments/environment.development';
 
 @Component({
   selector: 'app-share-button',
@@ -12,9 +13,10 @@ export class ShareButtonComponent {
   private metaService = inject(MetaTagsService);
   show = linkedSignal(()=> !!navigator.share);
   share() {
-    if (this.show()) {
+
       navigator
         .share({
+          text: this.metaService.getDescription(),
           title: this.metaService.getTitle(),
           url: window.location.href,
         })
@@ -22,8 +24,5 @@ export class ShareButtonComponent {
           alert('Gracias por compartir!');
         })
         .catch(console.error);
-    } else {
-      console.log('Servicio no disponible en este navegador');
-    }
   }
 }
