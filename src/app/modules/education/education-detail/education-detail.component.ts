@@ -31,34 +31,31 @@ export default class EducationDetailComponent implements OnDestroy {
   constructor() {
     effect(() => {
       this.educationResource.value();
-      if (!this.educationResource.isLoading()) this.setMetaTags();
+      if (!this.educationResource.isLoading()) {
+        this.meta.removeAllMetaTags();
+        this.setMetaTags();
+      }
     });
   }
 
   ngOnDestroy(): void {
-    this.meta.updateTitle('Bravo, Juan Alé');
+    this.meta.addTitle('Bravo, Juan Alé');
     this.meta.removeAllMetaTags();
   }
 
   setMetaTags() {
     const education = this.educationResource.value()!.data!;
-    this.meta.updateTitle(`${education.name} - Formación `);
+    this.meta.addTitle(`${education.name} - Formación `);
+    this.meta.addDescriptionMetaTag(education.description);
+    this.meta.addKeywordsMetaTag(education.tags?.length ? education.tags.map((tag: Tag) => tag.name).join(',') : '');
     this.meta.addMetaTags([
       {
-        name: education.name,
-        content: education.name,
+        name: 'og:type',
+        content: 'article',
       },
       {
-        name: 'description',
-        content: education.description,
-      },
-      {
-        name: 'og:description',
-        content: education.description,
-      },
-      {
-        name: 'keywords',
-        content: education.tags?.length ? education.tags.map((tag: Tag) => tag.name).join(',') : '',
+        name: 'og:url',
+        content: window.location.href,
       },
     ]);
   }

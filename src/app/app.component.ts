@@ -9,6 +9,7 @@ import { SpinnerComponent } from '@modules/shared/spinner/spinner.component';
 import { UpButtonComponent } from '@modules/shared/up-button/up-button.component';
 import { ShareButtonComponent } from '@modules/shared/share-button/share-button.component';
 import { CanonicalUrlService } from '@services/utils/canonical-url.service';
+import { MetaTagsService } from '@services/utils/meta-tags.service';
 
 @Component({
   selector: 'app-root',
@@ -29,8 +30,19 @@ import { CanonicalUrlService } from '@services/utils/canonical-url.service';
 export class AppComponent implements OnInit {
   private themeService = inject(ThemeService);
   private canonicalUrl = inject(CanonicalUrlService);
+  private metaService = inject(MetaTagsService);
   ngOnInit(): void {
     this.themeService.loadTheme();
     this.canonicalUrl.setupCanonicalLink();
+    this.metaService.addImageMetaTag('asset/ogimage.jpeg');
+    this.metaService.addMetaTags([ {
+      name: 'og:site_name',
+      content: 'Juan Alé Bravo',
+    },
+      {
+        name: 'twitter:site',
+        content: '@juanalebravo',
+      }
+    ])
   }
 }

@@ -21,10 +21,12 @@ export default class EducationPageComponent implements OnInit, OnDestroy {
   });
 
   ngOnInit(): void {
-    this.metaTagService.updateTitle('Formación - Bravo, Juan Alé');
+    this.metaTagService.addTitle('Formación - Bravo, Juan Alé');
+    this.metaTagService.addDescriptionMetaTag('Formación de Juan Alé, programador full stack. Descubre su trayectoria académica y profesional.')
   }
 
   ngOnDestroy(): void {
-    this.metaTagService.updateTitle('Bravo, Juan Alé');
+    this.metaTagService.addTitle('Bravo, Juan Alé');
+    this.metaTagService.removeAllMetaTags();
   }
 }

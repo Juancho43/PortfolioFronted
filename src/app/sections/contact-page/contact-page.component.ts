@@ -22,20 +22,16 @@ export default class ContactPageComponent implements OnInit, OnDestroy {
   platzi = signal<string>('');
   ngOnInit(): void {
     this.getData();
-    this.setMetaTags();
-  }
-  ngOnDestroy(): void {
-    this.metaTagService.removeAllMetaTags();
-    this.metaTagService.updateTitle('Bravo, Juan Alé');
+    this.metaTagService.addTitle('Contacto - Bravo, Juan Alé');
+    this.metaTagService.addDescriptionMetaTag('Enlaces de contacto de Juan Alé, programador full stack. Conectá conmigo a través de LinkedIn, GitHub, correo electrónico o mi CV.')
   }
 
-  setMetaTags() {
-    this.metaTagService.updateTitle('Contactame');
-    this.metaTagService.addMetaTags([
-      { name: 'description', content: 'Contactarme.' },
-      { name: 'og:description', content: 'Contactarme.' },
-    ]);
+
+  ngOnDestroy(): void {
+    this.metaTagService.removeAllMetaTags();
+    this.metaTagService.addTitle('Bravo, Juan Alé');
   }
+
   getData() {
     this.service.getProfile(1).subscribe((res) => {
       if (res.data && res.data.links) {

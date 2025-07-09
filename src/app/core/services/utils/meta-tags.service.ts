@@ -8,8 +8,18 @@ export class MetaTagsService {
   private meta = inject(Meta);
   private titleService = inject(Title);
 
-  updateTitle(title: string) {
+  addTitle(title: string) {
     this.titleService.setTitle(title);
+    this.addMetaTags([
+      {
+        name: 'og:title',
+        content: title,
+      },
+      {
+        name: 'twitter:title',
+        content: title,
+      }
+    ])
   }
   getTitle(): string {
     return this.titleService.getTitle();
@@ -30,10 +40,28 @@ export class MetaTagsService {
     this.meta.removeTag(selector);
   }
 
+  addImageMetaTag(url: string) {
+    this.meta.addTag({ property: 'og:image', content: url });
+    this.meta.addTag({ name: 'twitter:image', content: url });
+  }
+
+  addDescriptionMetaTag(content: string) {
+    this.meta.addTag({ name: 'description', content });
+    this.meta.addTag({ property: 'og:description', content });
+    this.meta.addTag({ name: 'twitter:description', content: content });
+  }
+
+  addKeywordsMetaTag(keywords: string) {
+    this.meta.addTag({ name: 'keywords', content: keywords });
+  }
+
   removeAllMetaTags() {
     this.meta.removeTag("name='description'");
     this.meta.removeTag("name='keywords'");
     this.meta.removeTag("property='og:title'");
     this.meta.removeTag("property='og:description'");
+    this.meta.removeTag("property='twitter:title'");
+    this.meta.removeTag("property='twitter:description'");
+
   }
 }

@@ -18,17 +18,9 @@ export class CanonicalUrlService {
       filter(event => event instanceof NavigationEnd)
     ).subscribe(() => {
       this.url.set(environment.base_url + this.router.url);
-
-      // Remove any existing canonical link
-      this.removeExistingCanonicalLink();
-
       this.setCanonicalLink(this.url());
-
-
     });
-
     this.setInitialCanonicalLink();
-
   }
 
 
@@ -59,7 +51,7 @@ export class CanonicalUrlService {
    * Removes any existing canonical link from the document head.
    */
   private removeExistingCanonicalLink(): void {
-    const existingLink = document.querySelector('link[rel="canonical"]');
+    const existingLink = document.querySelector('link[rel="canonical"]')!;
     if (existingLink) {
       existingLink.remove();
     }

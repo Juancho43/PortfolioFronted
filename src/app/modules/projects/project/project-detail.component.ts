@@ -33,34 +33,32 @@ export default class ProjectDetailComponent implements OnDestroy {
   constructor() {
     effect(() => {
       this.projectResource.value();
-      if (!this.projectResource.isLoading()) this.setMetaTags();
+      if (!this.projectResource.isLoading()) {
+        this.meta.removeAllMetaTags();
+        this.setMetaTags();
+      }
     });
   }
 
   ngOnDestroy(): void {
-    this.meta.updateTitle('Bravo, Juan Alé');
+    this.meta.addTitle('Bravo, Juan Alé');
     this.meta.removeAllMetaTags();
   }
 
   setMetaTags() {
+    this.meta.removeAllMetaTags();
     const project = this.projectResource.value()!.data!;
-    this.meta.updateTitle(`${project.name} - Proyecto`);
+    this.meta.addTitle(`${project.name} - Proyecto`);
+    this.meta.addDescriptionMetaTag(project.description);
+    this.meta.addKeywordsMetaTag(project.tags?.length ? project.tags.map((tag: Tag) => tag.name).join(',') : '');
     this.meta.addMetaTags([
       {
-        name: project.name,
-        content: project.name,
+        name: 'og:type',
+        content: 'article',
       },
       {
-        name: 'description',
-        content: project.description,
-      },
-      {
-        name: 'og:description',
-        content: project.description,
-      },
-      {
-        name: 'keywords',
-        content: project.tags?.length ? project.tags.map((tag: Tag) => tag.name).join(',') : '',
+        name: 'og:url',
+        content: window.location.href,
       },
     ]);
   }
