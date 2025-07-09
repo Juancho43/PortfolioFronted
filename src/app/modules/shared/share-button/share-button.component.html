@@ -1,3 +1,5 @@
-<button (click)="share()">
-  <img ngSrc="asset/share.svg" height="5" width="5" alt="share">
-</button>
+@if (show()) {
+  <button (click)="share()">
+    <img ngSrc="asset/share.svg" height="5" width="5" alt="share">
+  </button>
+}

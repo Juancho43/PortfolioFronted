@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, linkedSignal } from '@angular/core';
 import { MetaTagsService } from '@services/utils/meta-tags.service';
 import { NgOptimizedImage } from '@angular/common';
 
@@ -10,9 +10,9 @@ import { NgOptimizedImage } from '@angular/common';
 })
 export class ShareButtonComponent {
   private metaService = inject(MetaTagsService);
-
+  show = linkedSignal(()=> !!navigator.share);
   share() {
-    if (navigator.share) {
+    if (this.show()) {
       navigator
         .share({
           title: this.metaService.getTitle(),
