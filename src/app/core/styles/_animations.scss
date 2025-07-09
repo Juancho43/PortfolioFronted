@@ -2,7 +2,7 @@
 @keyframes shine{
 
   0%,100% {
-    background: v.$glass-color;
+    background: var(--glass-color);
   }
   50% {
     background: var(--background);

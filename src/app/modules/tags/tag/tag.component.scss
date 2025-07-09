@@ -3,9 +3,9 @@
 .tag {
   padding: 2px;
   background-color: rgba(255, 255, 255, 0.4);
-  border: 1px solid vars.$color-gray;
+  border: 1px solid var(--color-gray);
   color : var(--color-black-secondary);
-  font-family: vars.$color-gray, sans-serif;
+  font-family: var(--font-one), sans-serif;
   font-weight: bold;
   margin: 10px;
   border-radius: 10px;

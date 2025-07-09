@@ -50,7 +50,7 @@ main {
 
 
 h1, h2, h3, h4, h5 {
-  font-family: v.$font-one, sans-serif;
+  font-family: var(--font-one), sans-serif;
 }
 h3 {
   font-size: 1.6rem;
@@ -75,9 +75,9 @@ p{
 .glass {
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
-  background-color: v.$glass-color;
+  background-color: var(--glass-color);
   border-radius: 12px;
-  border: 1px solid v.$glass-border-color;
+  border: 1px solid var(--glass-border-color);
   transition: 1s;
 }
 .glass:hover {
@@ -88,15 +88,6 @@ p{
 
 
 
-.Container {
-  @include m.flex-row;
-  width: 85%;
-  justify-content: space-between;
-  align-items: center;
-}
-.Container * {
-  margin: 5px 0;
-}
 button,
 input {
   color: var(--color-primary);

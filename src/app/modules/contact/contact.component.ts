@@ -1,8 +1,11 @@
 import { Component, input } from '@angular/core';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-contact',
-  imports: [],
+  imports: [
+    NgOptimizedImage,
+  ],
   templateUrl: './contact.component.html',
   standalone: true,
   styleUrl: './contact.component.scss',

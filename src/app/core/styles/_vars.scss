@@ -1,14 +1,10 @@
-
-$color-gray: rgba(200, 200, 200, 0.5);
-$glass-color: rgba(129, 116, 160, 0.2);
-$glass-border-color: rgba(255, 255, 255, 0.125);
-
-// Fonts
-$font-one: 'Montserrat', sans-serif;
-$font-two: 'Poppins', sans-serif;
-
-
 :root{
+  --color-gray: rgba(200, 200, 200, 0.5);
+  --glass-color: rgba(129, 116, 160, 0.2);
+  --glass-border-color: rgba(255, 255, 255, 0.125);
+
+  --font-one: 'Montserrat', sans-serif;
+  --font-two: 'Poppins', sans-serif;
   --color-black: #292929;
   --color-black-secondary: #261f00;
   --color-white: #dcdcdc;
