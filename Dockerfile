@@ -7,8 +7,8 @@ WORKDIR /app
 # Copiar package.json y package-lock.json
 COPY package*.json ./
 
-# Instalar dependencias (incluyendo devDependencies para el build)
-RUN npm ci
+# Instalar dependencias con flag para resolver conflictos
+RUN npm ci --legacy-peer-deps
 
 # Copiar el código fuente
 COPY . .
@@ -25,8 +25,8 @@ WORKDIR /app
 COPY --from=build /app/dist/portfolio /app/dist/portfolio
 COPY --from=build /app/package.json /app/
 
-# Instalar solo dependencias de producción
-RUN npm ci --omit=dev
+# Instalar solo dependencias de producción con flag para resolver conflictos
+RUN npm ci --omit=dev --legacy-peer-deps
 
 # Exponer puerto 4000 (puerto predeterminado para SSR)
 EXPOSE 4000
