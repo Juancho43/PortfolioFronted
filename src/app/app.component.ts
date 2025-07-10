@@ -10,6 +10,7 @@ import { UpButtonComponent } from '@modules/shared/up-button/up-button.component
 import { ShareButtonComponent } from '@modules/shared/share-button/share-button.component';
 import { CanonicalUrlService } from '@services/utils/canonical-url.service';
 import { MetaTagsService } from '@services/utils/meta-tags.service';
+import { environment } from '@environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -34,7 +35,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.themeService.loadTheme();
     this.canonicalUrl.setCanonicalLink();
-    this.metaService.addImageMetaTag('asset/ogimage.jpeg');
+    this.metaService.addImageMetaTag(environment.base_url +'/images/ogimage.jpeg');
     this.metaService.addWebsiteMetaTag();
     this.metaService.addMetaTags([ {
       name: 'og:site_name',
