@@ -21,12 +21,14 @@ FROM node:20-alpine
 
 WORKDIR /app
 
-# Copiar solo los archivos necesarios para ejecutar la aplicación
-COPY --from=build /app/dist/portfolio /app/dist/portfolio
-COPY --from=build /app/package.json /app/
+# Copiar package.json Y package-lock.json
+COPY --from=build /app/package*.json ./
 
-# Instalar solo dependencias de producción con flag para resolver conflictos
-RUN npm ci --omit=dev --legacy-peer-deps
+# Instalar solo dependencias de producción
+RUN npm install --omit=dev --legacy-peer-deps
+
+# Copiar la aplicación construida
+COPY --from=build /app/dist/portfolio ./dist/portfolio
 
 # Exponer puerto 4000 (puerto predeterminado para SSR)
 EXPOSE 4000
