@@ -45,7 +45,7 @@ export class MetaTagsService {
   }
 
   addImageMetaTag(url: string) {
-    this.meta.addTag({ property: 'og:image', content: url });
+    this.meta.addTag({ property: 'og:image', content: url, itemprop:'image' });
     this.meta.addTag({ name: 'twitter:image', content: url });
   }
 
