@@ -17,7 +17,7 @@ export default class EducationPageComponent implements OnInit, OnDestroy {
   private metaTagService = inject(MetaTagsService);
 
   tagsList = rxResource({
-    loader: () => this.tagService.getAllEducationTags(),
+    stream: () => this.tagService.getAllEducationTags(),
   });
 
   ngOnInit(): void {

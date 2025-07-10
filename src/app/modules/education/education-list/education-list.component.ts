@@ -19,7 +19,7 @@ export default class EducationListComponent implements OnDestroy {
   readonly tag = input<string>('all');
 
   educationResource = rxResource({
-    loader: () => {
+    stream: () => {
       const currentTag = this.tag();
       if (currentTag !== 'all') {
         return this.service.getByTag(currentTag).pipe(switchMap((res) => of(res.data || [])));

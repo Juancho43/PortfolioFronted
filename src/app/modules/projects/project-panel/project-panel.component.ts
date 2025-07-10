@@ -15,7 +15,7 @@ import { ProjectCardComponent } from '@modules/projects/project-card/project-car
 export default class ProjectPanelComponent {
   private service = inject(ProjectService);
   projectsResource = rxResource({
-    loader: () => {
+    stream: () => {
       return this.service.getAll();
     },
   });

@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
   private metaService = inject(MetaTagsService);
   ngOnInit(): void {
     this.themeService.loadTheme();
-    this.canonicalUrl.setupCanonicalLink();
+    this.canonicalUrl.setCanonicalLink();
     this.metaService.addImageMetaTag('asset/ogimage.jpeg');
     this.metaService.addMetaTags([ {
       name: 'og:site_name',

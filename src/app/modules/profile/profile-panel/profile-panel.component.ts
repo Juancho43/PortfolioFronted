@@ -14,7 +14,7 @@ export default class ProfilePanelComponent {
   private service = inject(ProfileService);
 
   profileResource = rxResource({
-    loader: () => {
+    stream: () => {
       return this.service.getProfile(1);
     },
   });

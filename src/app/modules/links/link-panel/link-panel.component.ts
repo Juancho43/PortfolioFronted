@@ -16,7 +16,7 @@ export default class LinkPanelComponent {
   private service = inject(LinkService);
   currentLink = signal<Link>({} as Link);
   linksResource = rxResource({
-    loader: () => {
+    stream: () => {
       return this.service.getAll();
     },
   });

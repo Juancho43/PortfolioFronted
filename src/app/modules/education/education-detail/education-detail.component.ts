@@ -20,11 +20,11 @@ export default class EducationDetailComponent implements OnDestroy {
   readonly slug = input<string>('');
 
   educationResource = rxResource({
-    request: () => ({
+    params: () => ({
       slug: this.slug(),
     }),
-    loader: ({ request }) => {
-      return this.service.getBySlug(request.slug);
+    stream: ({ params }) => {
+      return this.service.getBySlug(params.slug);
     },
   });
 

@@ -85,7 +85,6 @@ export const routes: Routes = [
     ],
   },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: '**', redirectTo: '/not-found' },
   {
     path: 'not-found',
     loadComponent: () => import('./sections/not-found/not-found.component').then(),

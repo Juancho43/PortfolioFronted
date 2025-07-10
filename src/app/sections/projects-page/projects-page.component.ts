@@ -17,7 +17,7 @@ export default class ProjectsPageComponent implements OnInit, OnDestroy {
   private metaTagService = inject(MetaTagsService);
 
   tagsList = rxResource({
-    loader: () => this.tagService.getAllProjectTags(),
+    stream: () => this.tagService.getAllProjectTags(),
   });
 
   ngOnInit(): void {

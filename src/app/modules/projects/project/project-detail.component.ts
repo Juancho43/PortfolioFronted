@@ -22,12 +22,12 @@ export default class ProjectDetailComponent implements OnDestroy {
   readonly currentProject = input<Project>({} as Project);
 
   projectResource = rxResource({
-    request: () => ({
+    params: () => ({
       slug: this.slug(),
       currentProject: this.currentProject(),
     }),
-    loader: ({ request }) => {
-      return this.service.getBySlug(request.slug);
+    stream: ({ params }) => {
+      return this.service.getBySlug(params.slug);
     },
   });
   constructor() {

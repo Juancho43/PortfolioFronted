@@ -16,7 +16,7 @@ export default class TagsPanelComponent {
   private service = inject(TagService);
   currentTag = signal<Tag>({} as Tag);
   tagsResource = rxResource({
-    loader: () => {
+    stream: () => {
       return this.service.getAll();
     },
   });

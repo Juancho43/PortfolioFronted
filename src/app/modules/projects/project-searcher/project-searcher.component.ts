@@ -17,12 +17,12 @@ export class ProjectSearcherComponent implements OnDestroy {
   projectSelected = output<Project>();
   searchTerm = signal<string>('');
   projects = rxResource({
-    request: () => ({
+    params: () => ({
       requestProject: this.searchTerm(),
     }),
-    loader: ({ request }) => {
-      if (request.requestProject.length > 0) {
-        return this.service.search(request.requestProject);
+    stream: ({ params }) => {
+      if (params.requestProject.length > 0) {
+        return this.service.search(params.requestProject);
       } else {
         return this.service.getAll();
       }

@@ -16,18 +16,20 @@ COPY . .
 # Construir la aplicación para producción
 RUN npm run build
 
-# Etapa 2: Servir con Nginx
-FROM nginx:1.21-alpine
+# Etapa 2: Configurar Node.js para ejecutar SSR
+FROM node:18-alpine
 
-RUN rm /etc/nginx/conf.d/default.conf
-# Copiar archivos de build desde la etapa anterior
-COPY --from=build /app/dist/portfolio/browser /usr/share/nginx/html/
+WORKDIR /app
 
-# Copiar configuración personalizada de Nginx
-COPY nginx.conf /etc/nginx/nginx.conf
+# Copiar solo los archivos necesarios para ejecutar la aplicación
+COPY --from=build /app/dist/portfolio /app/dist/portfolio
+COPY --from=build /app/package.json /app/
 
-# Exponer puerto 80
-EXPOSE 80
+# Instalar solo dependencias de producción
+RUN npm ci --omit=dev
 
-# Comando por defecto
-CMD ["nginx", "-g", "daemon off;"]
+# Exponer puerto 4000 (puerto predeterminado para SSR)
+EXPOSE 4000
+
+# Comando para iniciar el servidor SSR
+CMD ["node", "dist/portfolio/server/server.mjs"]

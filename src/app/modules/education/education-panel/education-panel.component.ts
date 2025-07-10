@@ -15,7 +15,7 @@ import { EducationCardComponent } from '@modules/education/education-card/educat
 export default class EducationPanelComponent {
   private service = inject(EducationService);
   educationsResource = rxResource({
-    loader: () => {
+    stream: () => {
       return this.service.getAll();
     },
   });

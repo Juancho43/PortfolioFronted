@@ -1,6 +1,6 @@
-import { Component, HostListener, signal } from '@angular/core';
+import { Component, HostListener, Inject, PLATFORM_ID, signal } from '@angular/core';
 import { RouterLink, RouterModule } from '@angular/router';
-import { NgClass, NgOptimizedImage } from '@angular/common';
+import { isPlatformBrowser, NgClass, NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
@@ -13,17 +13,24 @@ export class NavbarComponent {
   show = signal<boolean>(true);
   private readonly SMALL_WIDTH_THRESHOLD = 767; // Define the small width threshold
 
-  constructor() {
-    this.checkScreenWidth(); // Initial check on component creation
+
+  constructor(@Inject(PLATFORM_ID) private platformId: object) {
+    if (isPlatformBrowser(this.platformId)) {
+      this.checkScreenWidth(); // Initial check only on client-side
+    }
   }
 
   @HostListener('window:resize', ['$event'])
   onResize() {
-    this.checkScreenWidth();
+    if (isPlatformBrowser(this.platformId)) {
+      this.checkScreenWidth();
+    }
   }
 
   checkScreenWidth(): void {
-    this.show.set(window.innerWidth >= this.SMALL_WIDTH_THRESHOLD);
+    if (isPlatformBrowser(this.platformId)) {
+      this.show.set(window.innerWidth >= this.SMALL_WIDTH_THRESHOLD);
+    }
   }
 
   toggleNavbar() {

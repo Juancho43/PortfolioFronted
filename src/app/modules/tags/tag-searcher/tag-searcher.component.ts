@@ -18,12 +18,12 @@ export class TagSearcherComponent implements OnDestroy {
   tagSelected = output<Tag>();
   searchTerm = signal<string>('');
   tags = rxResource({
-    request: () => ({
+    params: () => ({
       requestTag: this.searchTerm(),
     }),
-    loader: ({ request }) => {
-      if (request.requestTag.length > 0) {
-        return this.tagService.search(request.requestTag);
+    stream: ({ params }) => {
+      if (params.requestTag.length > 0) {
+        return this.tagService.search(params.requestTag);
       } else {
         return this.tagService.getAll();
       }

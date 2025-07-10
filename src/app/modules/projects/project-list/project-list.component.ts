@@ -21,7 +21,7 @@ export default class ProjectListComponent {
   // readonly projectsList = input<Project[]>([]);
   @Input() projectsList: Project[] = [];
   projectsResource = rxResource({
-    loader: () => {
+    stream: () => {
       const projectsList = this.projectsList;
       const currentTag = this.tag();
       if (currentTag !== 'all' && currentTag !== 'none') {
