@@ -1,5 +1,5 @@
 # Etapa 1: Build de la aplicación Angular
-FROM node:18-alpine AS build
+FROM node:20-alpine AS build
 
 # Establecer directorio de trabajo
 WORKDIR /app
@@ -17,7 +17,7 @@ COPY . .
 RUN npm run build
 
 # Etapa 2: Configurar Node.js para ejecutar SSR
-FROM node:18-alpine
+FROM node:20-alpine
 
 WORKDIR /app
 
