@@ -1,7 +1,6 @@
 import { Component, inject, linkedSignal } from '@angular/core';
 import { MetaTagsService } from '@services/utils/meta-tags.service';
 import { NgOptimizedImage } from '@angular/common';
-import { environment } from '@environments/environment.development';
 
 @Component({
   selector: 'app-share-button',
@@ -16,7 +15,7 @@ export class ShareButtonComponent {
 
       navigator
         .share({
-          text: this.metaService.getDescription(),
+          text: 'Portfolio Bravo Juan Alè',
           title: this.metaService.getTitle(),
           url: window.location.href,
         })
