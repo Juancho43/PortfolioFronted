@@ -35,6 +35,7 @@ export class AppComponent implements OnInit {
     this.themeService.loadTheme();
     this.canonicalUrl.setCanonicalLink();
     this.metaService.addImageMetaTag('asset/ogimage.jpeg');
+    this.metaService.addWebsiteMetaTag();
     this.metaService.addMetaTags([ {
       name: 'og:site_name',
       content: 'Juan Alé Bravo',
