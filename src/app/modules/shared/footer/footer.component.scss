@@ -3,7 +3,8 @@ footer {
   @include styles.flex-column();
   background-color: var(--color-black-secondary);
   min-height: 70px;
-  width: 100dvw;
+  margin-top: 10px;
+  width: 100%;
   font-size: large;
   align-items: center;
   justify-content: center;

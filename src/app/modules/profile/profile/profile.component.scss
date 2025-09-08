@@ -1,18 +1,21 @@
-article {
+.profile {
   display: flex;
   width: 50dvw;
   justify-content: center;
   align-items: center;
-}
-header h2 {
-  color: var(--color-primary-alter);
+  h1{
+    font-size: 3em;
   text-decoration: underline;
   text-decoration-thickness: 3px;
   text-decoration-color: var(--color-one);
+
+  }
+h2 {
   align-self: flex-start;
 }
+}
 
-article img {
+.profile img {
   border: 1px solid white;
   filter:
     drop-shadow(5px 5px 5px rgba(255, 251, 251, 0.5))
@@ -26,7 +29,7 @@ article img {
   transition: all 2s;
 }
 
-article img:hover {
+.profile img:hover {
   transform: scale(1.05) ;
   filter: drop-shadow(5px 5px 5px var(--color-primary-alter));
   transition: transform 0.3s ease-in-out;
@@ -34,17 +37,8 @@ article img:hover {
 article div {
   width: 70vw;
 }
-article h1 {
-  font-size: 3em;
-}
-article h2 {
-  font-size: 2.5em;
-}
-article p {
-  max-width: 50vw;
-  line-height: 2em;
-  font-family: var(--font-two), 'sans-serif';
-}
+
+
 
 div:first-child {
   position: relative;

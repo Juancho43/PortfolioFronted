@@ -11,6 +11,7 @@ import { ShareButtonComponent } from '@modules/shared/share-button/share-button.
 import { CanonicalUrlService } from '@services/utils/canonical-url.service';
 import { MetaTagsService } from '@services/utils/meta-tags.service';
 import { environment } from '@environments/environment';
+import ProjectsPageComponent from '@app/sections/projects-page/projects-page.component';
 
 @Component({
   selector: 'app-root',
@@ -24,6 +25,7 @@ import { environment } from '@environments/environment';
     SpinnerComponent,
     UpButtonComponent,
     ShareButtonComponent,
+    ProjectsPageComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -35,16 +37,17 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.themeService.loadTheme();
     this.canonicalUrl.setCanonicalLink();
-    this.metaService.addImageMetaTag(environment.base_url +'/images/ogimage.jpeg');
+    this.metaService.addImageMetaTag(environment.base_url + '/images/ogimage.jpeg');
     this.metaService.addWebsiteMetaTag();
-    this.metaService.addMetaTags([ {
-      name: 'og:site_name',
-      content: 'Juan Alé Bravo',
-    },
+    this.metaService.addMetaTags([
+      {
+        name: 'og:site_name',
+        content: 'Juan Alé Bravo',
+      },
       {
         name: 'twitter:site',
         content: '@juanalebravo',
-      }
-    ])
+      },
+    ]);
   }
 }

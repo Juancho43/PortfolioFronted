@@ -1,31 +1,29 @@
-article {
-  display: flex;
-  width: 80vw;
+@use '../../../core/styles/mixins';
+.education {
+@include mixins.flex-column;
+  width: 90%;
+  max-width: 58dvw;
   height: 10vh;
   justify-content: space-between;
-  margin: 10px;
+  align-self: center;
   padding: 10px;
   transition: none;
-}
 
-article div {
+div {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: self-start;
-  width: 100%;
+  width: 50%;
+}
 }
 
 article div:first-child {
-  width: 30vw;
+
 }
 
-.reverse {
-  flex-direction: row-reverse;
-}
-.reverse div:first-child {
-  align-items: end;
-}
+
+
 
 @media (max-width: 1000px) {
   /* Estilos para pantallas de hasta 767px de ancho */

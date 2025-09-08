@@ -19,12 +19,12 @@
 }
 nav{
   @include mixins.flex-row();
-  width: 100dvw;
+  width: 100%;
   justify-content: center;
 
   ul{
     @include mixins.flex-row();
-    width: 100dvw;
+    width: 100%;
     justify-content: center;
     list-style: none;
   }

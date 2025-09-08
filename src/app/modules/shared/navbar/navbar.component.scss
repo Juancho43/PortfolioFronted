@@ -1,18 +1,21 @@
 @use '../../../core/styles/navbar';
 
 nav{
-  li > img{
+  li > svg{
     display: inline-block;
     height: 30px;
     width: 30px;
+    fill: var(--color-primary-alter);
+
   }
 
   li{
     display:flex;
     align-items: center;
     gap: 0.5em;
+    color:var(--color-primary-alter);
   }
-  img{
+  svg{
     display: none;
     transition: all 1s ease;
     @media (max-width: 767px) {
@@ -31,8 +34,9 @@ nav{
   .hide{
     display: none;
   }
-  img:hover {
+  svg:hover {
     transform: scale(1.1);
+
     filter:
 
       drop-shadow(0 0 2px var(--color-three))

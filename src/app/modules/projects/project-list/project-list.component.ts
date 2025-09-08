@@ -1,4 +1,4 @@
-import { Component, effect, inject, Input, input } from '@angular/core';
+import { Component,  inject, Input, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Project } from '@model/Project';
 import { ProjectCardComponent } from '../project-card/project-card.component';
@@ -7,6 +7,7 @@ import { ProjectService } from '@http/project.service';
 import { rxResource } from '@angular/core/rxjs-interop';
 
 import { of, switchMap } from 'rxjs';
+import { ApiResponseCollection } from '@model/ApiResponseCollection';
 
 @Component({
   selector: 'app-project-list',
@@ -15,28 +16,20 @@ import { of, switchMap } from 'rxjs';
   templateUrl: './project-list.component.html',
   styleUrl: './project-list.component.scss',
 })
-export default class ProjectListComponent {
+export  class ProjectListComponent {
   private service = inject(ProjectService);
-  readonly tag = input<string>('none');
+  readonly tag = input<string>('');
   // readonly projectsList = input<Project[]>([]);
-  @Input() projectsList: Project[] = [];
+
   projectsResource = rxResource({
-    stream: () => {
-      const projectsList = this.projectsList;
-      const currentTag = this.tag();
-      if (currentTag !== 'all' && currentTag !== 'none') {
-        return this.service.getByTag(currentTag).pipe(switchMap((res) => of(res.data || [])));
-      } else if (currentTag === 'all') {
-        return this.service.getAll().pipe(switchMap((res) => of(res.data || [])));
-      }
-      return of(projectsList);
-    },
+    stream: () =>
+
+
+        this.service.getAll()
+
+
+
   });
 
-  constructor() {
-    effect(() => {
-      this.tag();
-      this.projectsResource.reload();
-    });
-  }
+
 }

@@ -3,8 +3,10 @@ import { authGuard } from '@core/guards/auth.guard';
 
 export const routes: Routes = [
   {
-    path: 'home',
-    loadComponent: () => import('./sections/home-page/home-page.component').then(),
+    path: '',
+
+    loadComponent: () => import('./sections/home-page/home-page.component'),
+
   },
   {
     path: 'education',
@@ -16,7 +18,7 @@ export const routes: Routes = [
       },
       {
         path: 'current/:slug',
-        loadComponent: () => import('./modules/education/education-detail/education-detail.component').then(),
+        loadComponent: () => import('./modules/education/education-detail/education-detail.component'),
       },
     ],
   },
@@ -35,10 +37,7 @@ export const routes: Routes = [
       },
     ],
   },
-  {
-    path: 'contact',
-    loadComponent: () => import('./sections/contact-page/contact-page.component').then(),
-  },
+
   {
     path: 'login',
     loadComponent: () => import('./modules/auth/login-form/login-form.component').then(),
@@ -84,7 +83,7 @@ export const routes: Routes = [
       // },
     ],
   },
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+
   {
     path: 'not-found',
     loadComponent: () => import('./sections/not-found/not-found.component').then(),

@@ -1,5 +1,8 @@
 <div>
-  @for (item of educationResource.value()!; track item.name; let i = $index) {
+  @if(!this.educationResource.isLoading()){
+   @let educations = this.educationResource.value()!.data!;
+  @for (item of educations; track item.name; let i = $index) {
     <app-education [education]="item" [reverse]="i % 2 !== 0" [routerLink]="['../current', item.slug]"/>
+  }
   }
 </div>

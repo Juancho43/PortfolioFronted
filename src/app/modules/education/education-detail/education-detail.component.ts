@@ -4,13 +4,12 @@ import { Tag } from '@model/Tag';
 import { EducationService } from '@http/education.service';
 import { LinkComponent } from '@modules/links/link/link.component';
 import { TagComponent } from '@modules/tags/tag/tag.component';
-import ProjectListComponent from '@modules/projects/project-list/project-list.component';
 import { rxResource } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-education-detail',
   standalone: true,
-  imports: [LinkComponent, TagComponent, ProjectListComponent],
+  imports: [LinkComponent, TagComponent ],
   templateUrl: './education-detail.component.html',
   styleUrl: './education-detail.component.scss',
 })

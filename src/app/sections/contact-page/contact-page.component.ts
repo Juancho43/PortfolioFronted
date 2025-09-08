@@ -11,7 +11,7 @@ import { MetaTagsService } from '@services/utils/meta-tags.service';
   templateUrl: './contact-page.component.html',
   styleUrl: './contact-page.component.scss',
 })
-export default class ContactPageComponent implements OnInit, OnDestroy {
+export  class ContactPageComponent implements OnInit, OnDestroy {
   protected readonly environment = environment;
   private service = inject(ProfileService);
   private metaTagService = inject(MetaTagsService);
@@ -22,8 +22,6 @@ export default class ContactPageComponent implements OnInit, OnDestroy {
   platzi = signal<string>('');
   ngOnInit(): void {
     this.getData();
-    this.metaTagService.addTitle('Contacto - Bravo, Juan Alé');
-    this.metaTagService.addDescriptionMetaTag('Enlaces de contacto de Juan Alé, programador full stack. Conectá conmigo a través de LinkedIn, GitHub, correo electrónico o mi CV.')
   }
 
 

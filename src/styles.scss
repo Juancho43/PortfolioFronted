@@ -27,43 +27,40 @@
 }
 
 body {
+  background-size: 200%;
+  background: var(--background);
   scrollbar-width: thin;
   scrollbar-color: var(--color-primary-alter) var(--color-one);
-  background: var(--background);
-  background-size: 200%;
   animation-timing-function: ease-out;
   animation-name: main1;
   animation-duration: 15s;
   animation-iteration-count: 3;
-  @include m.flex-column();
+
+  @include m.flex-column;
+
   width: 100dvw;
-  height: auto;
   overflow-x: hidden;
+  justify-content:center;
+  justify-items: center;
+  align-items: center;
 }
 
 main {
-  overflow: hidden;
+  grid-row: 4;
+
   min-height: 80dvh;
-  @include m.flex-column();
-  align-items: center;
+  width: 60dvw;
+
+}
+section, article{
+  margin-top: 10px;
 }
 
 
 h1, h2, h3, h4, h5 {
   font-family: var(--font-one), sans-serif;
 }
-h3 {
-  font-size: 1.6rem;
-  align-self: flex-start;
-}
-h4{
-  font-size: 1.3rem;
-  align-self: flex-start;
-}
-h5{
-  font-size: 1.1rem;
 
-}
 a {
   border: none;
   text-decoration: none;

@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './education.component.html',
   styleUrl: './education.component.scss',
 })
-export default class EducationComponent {
+export  class EducationComponent {
   readonly education = input<Education>({} as Education);
   readonly reverse = input(false);
 }

@@ -10,12 +10,11 @@
 }
 
 div {
-  opacity: 0;
-  animation-name: slideInUp;
-  animation-duration: 2s;
-  animation-fill-mode: forwards;
+
+
 
   display: flex;
+  width: 100%;
   flex-direction: column;
   justify-content: center;
   align-content: center;

@@ -1,9 +1,9 @@
 @if (!this.educationResource.isLoading()) {
   @let education = this.educationResource.value()!.data!;
-  <div>
+  <section>
 
-    <article>
-      <h3>{{ education.name }}</h3>
+    <article class="Education_Detail glass">
+      <h4>{{ education.name }}</h4>
       <p>{{ education.description }}</p>
 
       <div class="Links">
@@ -18,10 +18,7 @@
       </div>
     </article>
 
-    <article class="Projects">
-      <h4>Proyectos realizados.</h4>
-      <app-project-list [projectsList]="education.projects!" />
-    </article>
 
-  </div>
+
+  </section>
 }
