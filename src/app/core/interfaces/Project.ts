@@ -3,7 +3,7 @@ import { Link } from './Link';
 
 export interface Project {
   id?: number;
-  name: string;
+  title: string;
   slug?: string;
   description: string;
   tags?: Tag[];

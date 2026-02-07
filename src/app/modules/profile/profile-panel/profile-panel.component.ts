@@ -15,7 +15,7 @@ export default class ProfilePanelComponent {
 
   profileResource = rxResource({
     stream: () => {
-      return this.service.getProfile(1);
+      return this.service.getProfile();
     },
   });
 }

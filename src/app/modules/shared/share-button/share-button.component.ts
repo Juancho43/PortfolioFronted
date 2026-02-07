@@ -10,7 +10,7 @@ import { NgOptimizedImage } from '@angular/common';
 })
 export class ShareButtonComponent {
   private metaService = inject(MetaTagsService);
-  show = linkedSignal(()=> !!navigator.share);
+  show = linkedSignal(() => typeof window !== 'undefined' && !!window.navigator && !!window.navigator.share);
   share() {
 
       navigator

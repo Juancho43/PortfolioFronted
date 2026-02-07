@@ -17,7 +17,7 @@ export class ProjectService {
   private notification = inject(NotificationService);
 
   getAll(): Observable<ApiResponseCollection<Project>> {
-    return this.http.get<ApiResponseCollection<Project>>(environment.api_url + projectEndpoint.getAll);
+    return this.http.get<ApiResponseCollection<Project>>(environment.api_url + projectEndpoint.getAll(1,10));
   }
 
   getById(id: number): Observable<ApiResponse<Project>> {
@@ -112,4 +112,5 @@ export class ProjectService {
         }),
       );
   }
+
 }

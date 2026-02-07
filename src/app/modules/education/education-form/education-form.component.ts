@@ -75,10 +75,10 @@ export class EducationFormComponent {
   mapEducation() {
     this.EducationForm.patchValue({
       id: this.currentEducation().id,
-      name: this.currentEducation().name,
+      name: this.currentEducation().title,
       description: this.currentEducation().description,
-      startDate: this.currentEducation().start_date,
-      endDate: this.currentEducation().end_date!,
+      startDate: this.currentEducation().startDate,
+      endDate: this.currentEducation().endDate!,
       projects: this.currentEducation().projects!,
       tags: this.currentEducation().tags!,
       links: this.currentEducation().links!,
@@ -112,10 +112,10 @@ export class EducationFormComponent {
   mapperEducation(): Education {
     return {
       id: this.EducationForm.get('id')?.value,
-      name: this.EducationForm.get('name')?.value,
+      title: this.EducationForm.get('name')?.value,
       description: this.EducationForm.get('description')?.value,
-      start_date: this.EducationForm.get('startDate')?.value,
-      end_date: this.EducationForm.get('endDate')?.value,
+      startDate: this.EducationForm.get('startDate')?.value,
+      endDate: this.EducationForm.get('endDate')?.value,
       tags: this.EducationForm.get('tags')?.value,
       links: this.EducationForm.get('links')?.value,
       projects: this.EducationForm.get('projects')?.value,

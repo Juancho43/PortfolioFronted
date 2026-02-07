@@ -15,8 +15,8 @@ import { checkToken } from '@core/guards/token.interceptor';
 export class EducationService {
   private http = inject(HttpClient);
   private notification = inject(NotificationService);
-  getAll(): Observable<ApiResponseCollection<Education>> {
-    return this.http.get<ApiResponseCollection<Education>>(environment.api_url + educationEndpoint.getAll);
+  getAll(page: string, limit: string): Observable<ApiResponseCollection<Education>> {console.log(';:w')
+    return this.http.get<ApiResponseCollection<Education>>(environment.api_url + educationEndpoint.getAll(page,limit));
   }
 
   getById(id: number): Observable<ApiResponse<Education>> {

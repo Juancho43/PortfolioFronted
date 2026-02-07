@@ -24,12 +24,10 @@ export  class EducationListComponent implements OnDestroy {
         tag: this.tag()
       }
     },
-    stream: ({params}) => {
-      if (params.tag !== 'all') {
-      return this.service.getByTag(params.tag);
+    stream: () => {
 
-      }
-        return this.service.getAll();
+
+        return this.service.getAll('1','10');
 
     },
   });

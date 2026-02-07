@@ -48,7 +48,7 @@ export default class ProjectDetailComponent implements OnDestroy {
   setMetaTags() {
     this.meta.removeAllMetaTags();
     const project = this.projectResource.value()!.data!;
-    this.meta.addTitle(`${project.name} - Proyecto`);
+    this.meta.addTitle(`${project.title} - Proyecto`);
     this.meta.addDescriptionMetaTag(project.description);
     this.meta.addKeywordsMetaTag(project.tags?.length ? project.tags.map((tag: Tag) => tag.name).join(',') : '');
     this.meta.addUrlMetaTag(window.location.href);

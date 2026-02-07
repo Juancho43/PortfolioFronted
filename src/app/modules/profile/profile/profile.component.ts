@@ -17,11 +17,11 @@ export class ProfileComponent implements OnInit {
   photo = signal<string>('null');
 
   ngOnInit() {
-    this.getData();
+    //this.getData();
   }
 
   getData() {
-    this.profileService.getProfile(1).subscribe((profile) => {
+    this.profileService.getProfile().subscribe((profile) => {
       this.profile = profile.data;
       this.photo.set(environment.public_url + profile.data!.links?.find((link) => link.name == 'photo_url')?.link);
     });

@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from '@modules/shared/header/header.component';
 import { NavbarComponent } from '@modules/shared/navbar/navbar.component';
@@ -11,7 +11,7 @@ import { ShareButtonComponent } from '@modules/shared/share-button/share-button.
 import { CanonicalUrlService } from '@services/utils/canonical-url.service';
 import { MetaTagsService } from '@services/utils/meta-tags.service';
 import { environment } from '@environments/environment';
-import ProjectsPageComponent from '@app/sections/projects-page/projects-page.component';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -25,7 +25,6 @@ import ProjectsPageComponent from '@app/sections/projects-page/projects-page.com
     SpinnerComponent,
     UpButtonComponent,
     ShareButtonComponent,
-    ProjectsPageComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -34,6 +33,8 @@ export class AppComponent implements OnInit {
   private themeService = inject(ThemeService);
   private canonicalUrl = inject(CanonicalUrlService);
   private metaService = inject(MetaTagsService);
+  http = inject(HttpClient);
+  data = signal('data');
   ngOnInit(): void {
     this.themeService.loadTheme();
     this.canonicalUrl.setCanonicalLink();
@@ -49,5 +50,12 @@ export class AppComponent implements OnInit {
         content: '@juanalebravo',
       },
     ]);
+    this.load();
+  }
+  load() {
+    this.http.get('http://localhost:8080/health').subscribe((data) => {
+      this.data.set(JSON.stringify(data));
+
+    });
   }
 }

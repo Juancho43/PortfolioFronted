@@ -4,11 +4,11 @@ import { Link } from './Link';
 
 export interface Education {
   id?: number;
-  name: string;
+  title: string;
   slug?: string;
   description: string;
-  start_date: Date;
-  end_date?: Date;
+  startDate: Date;
+  endDate?: Date;
   projects?: Project[];
   tags?: Tag[];
   links?: Link[];

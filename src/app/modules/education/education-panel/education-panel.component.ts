@@ -16,7 +16,7 @@ export default class EducationPanelComponent {
   private service = inject(EducationService);
   educationsResource = rxResource({
     stream: () => {
-      return this.service.getAll();
+      return this.service.getAll('1','10');
     },
   });
   currentEducation = signal<Education>({} as Education);

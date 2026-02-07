@@ -1,5 +1,5 @@
 export const projectEndpoint = {
-  getAll: '/project',
+  getAll: (page: number, limit: number) => `/project/get/paginated/${page}/${limit}`,
   getById: '/project/:id',
   getByTag: '/project/tag/:tag',
   getByEducation: '/project/education/:slug',

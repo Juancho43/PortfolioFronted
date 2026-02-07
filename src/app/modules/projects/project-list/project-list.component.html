@@ -1,7 +1,7 @@
 <div>
   @if (!this.projectsResource.isLoading()) {
    @let projects = this.projectsResource.value()!.data!;
-    @for (item of projects; track item.name) {
+    @for (item of projects; track item.title) {
       <app-project-card [project]="item" [routerLink]="['/projects','current', item.slug]" />
     }
   }

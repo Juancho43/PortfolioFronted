@@ -9,7 +9,7 @@
     } @else {
       <div class="Results">
         @for (project of projects.value()?.data; track project.id) {
-          <app-tag [tag]="{id:project.id!, name:project.name}" (click)="selectProject(project)" />
+          <app-tag [tag]="{id:project.id!, name:project.title}" (click)="selectProject(project)" />
         }
       </div>
     }

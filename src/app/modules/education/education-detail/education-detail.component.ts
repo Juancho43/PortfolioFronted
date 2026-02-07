@@ -44,7 +44,7 @@ export default class EducationDetailComponent implements OnDestroy {
 
   setMetaTags() {
     const education = this.educationResource.value()!.data!;
-    this.meta.addTitle(`${education.name} - Formación `);
+    this.meta.addTitle(`${education.title} - Formación `);
     this.meta.addDescriptionMetaTag(education.description);
     this.meta.addKeywordsMetaTag(education.tags?.length ? education.tags.map((tag: Tag) => tag.name).join(',') : '');
     this.meta.addUrlMetaTag(window.location.href);

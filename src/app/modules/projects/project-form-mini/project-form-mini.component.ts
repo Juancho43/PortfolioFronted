@@ -68,7 +68,7 @@ export class ProjectFormMiniComponent {
   mapperTag(): Project {
     return {
       id: this.projectForm.get('id')?.value,
-      name: this.projectForm.get('name')?.value,
+      title: this.projectForm.get('name')?.value,
       description: '',
     };
   }
@@ -79,7 +79,7 @@ export class ProjectFormMiniComponent {
   mapTag() {
     this.projectForm.patchValue({
       id: this.currentProject().id,
-      name: this.currentProject().name,
+      name: this.currentProject().title,
     });
   }
 

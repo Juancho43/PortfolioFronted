@@ -14,8 +14,8 @@ import { NotificationService } from '@services/utils/notification.service';
 export class ProfileService {
   private http = inject(HttpClient);
   private notification = inject(NotificationService);
-  getProfile(id: number): Observable<ApiResponse<Profile>> {
-    return this.http.get<ApiResponse<Profile>>(environment.api_url + profileEndpoint.get.replace(':id', id.toString()));
+  getProfile(): Observable<ApiResponse<Profile>> {
+    return this.http.get<ApiResponse<Profile>>(environment.api_url + profileEndpoint.get);
   }
 
   postImg(img: FormData, id: number): Observable<ApiResponse<string>> {

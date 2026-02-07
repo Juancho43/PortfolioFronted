@@ -15,7 +15,7 @@
   <div class="JoinContainerContent">
     <div class="Container">
       @for (project of currentProjects(); track $index) {
-        <app-tag [tag]="{id:project.id!, name:project.name}" />
+        <app-tag [tag]="{id:project.id!, name:project.title}" />
         <p (click)="editProject(project)">Editar</p>
         <p (click)="removeProject(project)">Eliminar</p>
       }

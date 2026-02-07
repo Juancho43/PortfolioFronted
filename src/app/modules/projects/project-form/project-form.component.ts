@@ -88,7 +88,7 @@ export class ProjectFormComponent {
   mapperProject(): Project {
     return {
       id: this.projectForm.get('id')?.value,
-      name: this.projectForm.get('name')?.value,
+      title: this.projectForm.get('name')?.value,
       description: this.projectForm.get('description')?.value,
       tags: this.projectForm.get('tags')?.value,
       links: this.projectForm.get('links')?.value,
@@ -101,7 +101,7 @@ export class ProjectFormComponent {
   mapProject() {
     this.projectForm.patchValue({
       id: this.currentProject().id,
-      name: this.currentProject().name,
+      name: this.currentProject().title,
       description: this.currentProject().description,
       tags: this.currentProject().tags!,
       links: this.currentProject().links!,

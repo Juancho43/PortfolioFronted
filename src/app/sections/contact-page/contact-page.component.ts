@@ -21,7 +21,7 @@ export  class ContactPageComponent implements OnInit, OnDestroy {
   cv = signal<string>('');
   platzi = signal<string>('');
   ngOnInit(): void {
-    this.getData();
+  //  this.getData();
   }
 
 
@@ -31,7 +31,7 @@ export  class ContactPageComponent implements OnInit, OnDestroy {
   }
 
   getData() {
-    this.service.getProfile(1).subscribe((res) => {
+    this.service.getProfile().subscribe((res) => {
       if (res.data && res.data.links) {
         this.linkedin.set(res.data.links.find((link) => link.name === 'linkedin')?.link || '');
         this.mail.set(res.data.links.find((link) => link.name === 'mail')?.link || '');
